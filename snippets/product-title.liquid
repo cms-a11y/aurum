@@ -20,7 +20,7 @@
 <div class="product-title-wrapper" style="{{ styles }}">
 	{% if template.name == 'product' %}
 		<h1 class="product-title h2 js-product-title">
-			{{- title -}}
+			{{- title -}} {% if product.metafields.custom.product_code.value %} ({{ product.metafields.custom.product_code.value }}) {% endif %}
 		</h1>
 	{% else %}
 		<a
