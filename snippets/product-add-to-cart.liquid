@@ -239,8 +239,18 @@
 		</div>
 	{% endif %}
 
+	{%- liquid
+		assign appointment_product_title = product.title
+		if product.metafields.custom.product_code.value != blank
+			assign appointment_product_title = appointment_product_title | append: ' (' | append: product.metafields.custom.product_code.value | append: ')'
+		endif
+		assign encoded_product_title = appointment_product_title | url_encode
+		assign appointment_base_url = pages['book-a-private-appointment'].url | default: '/pages/book-a-private-appointment'
+		assign appointment_url = appointment_base_url | append: '?product_title=' | append: encoded_product_title
+	-%}
+
 	<a
-		href="/pages/book-a-private-appointment"
+		href="{{ appointment_url }}"
 		class="button button--block button--secondary-border product-add-to-cart__appointment-button"
 	>
 		{{ 'products.product.book_private_appointment' | t }}

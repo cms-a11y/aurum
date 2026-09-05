@@ -102,6 +102,7 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "offset_top_desktop": 10,
             "offset_bottom_desktop": 10,

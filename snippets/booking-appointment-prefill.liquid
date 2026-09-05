@@ -1,0 +1,113 @@
+{% comment %}
+  Prefills the booking appointment form when opened from a product page.
+  Expects URL param: product_title
+{% endcomment %}
+<script>
+	(function () {
+		const params = new URLSearchParams(window.location.search);
+		const productTitle = params.get('product_title');
+
+		if (!productTitle) {
+			return;
+		}
+
+		function getFormContainer() {
+			return (
+				document.querySelector('.globo-formbuilder[data-id="MTU3ODk0"]') ||
+				document.querySelector('.globo-formbuilder')
+			);
+		}
+
+		function findProductField(container) {
+			const directSelectors = [
+				'input[name*="product" i]',
+				'textarea[name*="product" i]',
+				'input[id*="product" i]',
+				'textarea[id*="product" i]',
+				'input[data-name*="product" i]',
+				'textarea[data-name*="product" i]'
+			];
+
+			for (const selector of directSelectors) {
+				const field = container.querySelector(selector);
+
+				if (field) {
+					return field;
+				}
+			}
+
+			const labels = container.querySelectorAll('label');
+
+			for (const label of labels) {
+				const labelText = label.textContent.trim().toLowerCase();
+
+				if (
+					labelText.includes('product') ||
+					labelText.includes('item') ||
+					labelText.includes('piece') ||
+					labelText.includes('jewelry') ||
+					labelText.includes('jewellery')
+				) {
+					const fieldId = label.getAttribute('for');
+
+					if (fieldId) {
+						const fieldById = container.querySelector('#' + CSS.escape(fieldId));
+
+						if (fieldById) {
+							return fieldById;
+						}
+					}
+
+					const fieldInGroup = label.closest('.globo-form-control, .globo-form-field, .field, .form-group');
+
+					if (fieldInGroup) {
+						const field = fieldInGroup.querySelector('input, textarea, select');
+
+						if (field) {
+							return field;
+						}
+					}
+				}
+			}
+
+			return null;
+		}
+
+		function setFieldValue(field) {
+			if (!field || field.value) {
+				return false;
+			}
+
+			field.value = productTitle;
+			field.dispatchEvent(new Event('input', { bubbles: true }));
+			field.dispatchEvent(new Event('change', { bubbles: true }));
+
+			return true;
+		}
+
+		function prefill() {
+			const container = getFormContainer();
+
+			if (!container) {
+				return false;
+			}
+
+			return setFieldValue(findProductField(container));
+		}
+
+		if (prefill()) {
+			return;
+		}
+
+		const observer = new MutationObserver(function () {
+			if (prefill()) {
+				observer.disconnect();
+			}
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+		window.setTimeout(function () {
+			observer.disconnect();
+		}, 15000);
+	})();
+</script>
