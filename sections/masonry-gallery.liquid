@@ -1,0 +1,416 @@
+{%- comment -%}
+------------------------------------------------------------------------------
+	Section: Masonry Gallery
+------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- render 'adastra' with '/src/styles/masonry-gallery.scss' -%}
+
+{%- style -%}
+	#shopify-section-{{- section.id -}} {
+	padding-top: {{- section.settings.offset_top_mobile -}}px;
+	padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
+	}
+
+	@media screen and (min-width: 768px) {
+	#shopify-section-{{- section.id -}} {
+	padding-top: {{- section.settings.offset_top_desktop -}}px;
+	padding-bottom: {{- section.settings.offset_bottom_desktop -}}px;
+	}
+	}
+{%- endstyle -%}
+
+{% assign container = section.settings.container_width %}
+{% assign heading = section.settings.heading %}
+{% assign subheading = section.settings.subheading %}
+{% assign images_per_row = section.settings.image_per_row_desktop %}
+{% assign image_per_row_mobile = section.settings.image_per_row_mobile %}
+{% assign total_images = section.blocks | size %}
+{% assign row_count = total_images | divided_by: images_per_row %}
+{% assign remainder = total_images | modulo: images_per_row %}
+
+{% if container == 'inherit' %}
+	{% assign container_width = settings.container_width %}
+{% else %}
+	{% assign container_width = container %}
+{% endif %}
+
+{% if remainder > 0 %}
+	{% assign row_count = row_count | plus: 1 %}
+{% endif %}
+
+{%- assign min = 1 -%}
+{%- assign max = 4 -%}
+{%- assign diff = max | minus: min -%}
+
+{%- capture section_styles -%}
+	--container-width: {{- container_width -}};
+	--image-per-row-mobile: {{- image_per_row_mobile -}};
+{%- endcapture -%}
+
+{% assign is_lazy = true %}
+
+{% if section.index == 1 and total_images < 3 %}
+	{% assign is_lazy = false %}
+{% endif %}
+
+<section
+	class="masonry-gallery js-animate {% if request.visual_preview_mode or section.index == 1 %}animated{% endif %}"
+	style="{{ section_styles }}">
+	<div class="masonry-gallery__container">
+		{% if heading != blank or subheading != blank %}
+			<div class="masonry-gallery__header need-animate tr-dur-0-8">
+				{% if heading != blank %}
+					<h2 class="masonry-gallery__heading h2">{{ heading }}</h2>
+				{% endif %}
+
+				{% if subheading != blank %}
+					<p class="masonry-gallery__subheading">{{ subheading }}</p>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		<div class="masonry-gallery__grid need-animate tr-dur-0-8">
+			{% for row in (1..row_count) %}
+				{% assign start_index = row | minus: 1 | times: images_per_row %}
+				{% assign end_index = start_index | plus: images_per_row | minus: 1 %}
+				{% assign total_aspect_ratio = 0.0 %}
+
+				{% for i in (start_index..end_index) %}
+					{% if section.blocks[i] %}
+						{% assign block = section.blocks[i] %}
+						{% assign image = block.settings.image_desktop %}
+
+						{% if image.aspect_ratio %}
+							{% assign total_aspect_ratio = total_aspect_ratio | plus: image.aspect_ratio %}
+						{% elsif image.width and image.height %}
+							{% assign aspect_ratio = image.width | times: 1.0 | divided_by: image.height %}
+							{% assign total_aspect_ratio = total_aspect_ratio | plus: aspect_ratio %}
+						{% else %}
+							{% assign total_aspect_ratio = total_aspect_ratio | plus: 1.0 %}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+
+				<div class="masonry-gallery__grid-row">
+					{% for i in (start_index..end_index) %}
+						{% if section.blocks[i] %}
+							{% assign block = section.blocks[i] %}
+							{% assign image_desktop = block.settings.image_desktop %}
+							{% assign image_mobile = block.settings.image_mobile | default: image_desktop %}
+							{% assign link = block.settings.link %}
+							{% assign aspect_ratio = 1.0 %}
+
+							{% if image_desktop.aspect_ratio %}
+								{% assign aspect_ratio = image_desktop.aspect_ratio %}
+							{% elsif image_desktop.width and image_desktop.height %}
+								{% assign aspect_ratio = image_desktop.width | times: 1.0 | divided_by: image_desktop.height %}
+							{% endif %}
+
+							{% assign width_percentage = aspect_ratio | divided_by: total_aspect_ratio | times: 100 %}
+							{% assign padding_top_percentage = 1 | divided_by: aspect_ratio | times: 100 %}
+
+							{% comment %} Calculate image widths based on viewport and item width percentage {% endcomment %}
+							{% assign width_fraction = width_percentage | divided_by: 100.0 %}
+
+							{% comment %} Account for container padding (16px left + 16px right = 32px) and gaps between items {% endcomment %}
+							{% assign container_padding = 32 %}
+							{% assign gap_size = 16 %}
+
+							{% comment %} Mobile widths - equal distribution {% endcomment %}
+							{% assign mobile_per_row = image_per_row_mobile | times: 1.0 %}
+							{% assign mobile_380_available = 380 | minus: container_padding %}
+							{% assign mobile_480_available = 480 | minus: container_padding %}
+							{% assign mobile_767_available = 767 | minus: container_padding %}
+
+							{% if mobile_per_row > 1 %}
+								{% assign mobile_gaps = mobile_per_row | minus: 1 | times: gap_size %}
+								{% assign mobile_380_available = mobile_380_available | minus: mobile_gaps %}
+								{% assign mobile_480_available = mobile_480_available | minus: mobile_gaps %}
+								{% assign mobile_767_available = mobile_767_available | minus: mobile_gaps %}
+							{% endif %}
+
+							{% assign mobile_380_width = mobile_380_available | divided_by: mobile_per_row | round %}
+							{% assign mobile_480_width = mobile_480_available | divided_by: mobile_per_row | round %}
+							{% assign mobile_767_width = mobile_767_available | divided_by: mobile_per_row | round %}
+
+							{% comment %} Desktop widths - based on actual aspect ratio percentage in row {% endcomment %}
+							{% assign desktop_991_available = 991 | minus: container_padding %}
+							{% assign desktop_1920_available = 1920 | minus: container_padding %}
+
+							{% assign desktop_gaps = images_per_row | minus: 1 | times: gap_size %}
+							{% assign desktop_991_available = desktop_991_available | minus: desktop_gaps %}
+							{% assign desktop_1920_available = desktop_1920_available | minus: desktop_gaps %}
+
+							{% assign desktop_991_width = desktop_991_available | times: width_fraction | round %}
+							{% assign desktop_1920_width = desktop_1920_available | times: width_fraction | round %}
+
+							{% comment %} 2x versions {% endcomment %}
+							{% assign mobile_380_width_2x = mobile_380_width | times: 2 %}
+							{% assign mobile_480_width_2x = mobile_480_width | times: 2 %}
+							{% assign mobile_767_width_2x = mobile_767_width | times: 2 %}
+							{% assign desktop_991_width_2x = desktop_991_width | times: 2 %}
+							{% assign desktop_1920_width_2x = desktop_1920_width | times: 2 %}
+
+							{% capture item_styles %}
+								--item-width: {{ width_percentage }}%;
+								--item-padding-top: {{ padding_top_percentage }}%;
+							{% endcapture %}
+
+							<div class="masonry-gallery__grid-item" style="{{- item_styles -}}">
+							{% if link != blank %}
+								<a href="{{ link }}" class="masonry-gallery__link">
+									{% endif %}
+
+									{% if image_desktop != blank %}
+										<picture {% if is_lazy %}class="lazy"{% endif %}>
+											<source media="(max-width: 380px)"
+												{% if is_lazy %}
+													data-srcset="{{ image_mobile | image_url: width: mobile_380_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_380_width_2x }} 2x"
+													srcset="{{ image_mobile | image_url: width: 10 }} 1x,
+													{{ image_mobile | image_url: width: 20 }} 2x"
+												{% else %}
+													srcset="{{ image_mobile | image_url: width: mobile_380_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_380_width_2x }} 2x"
+												{% endif %}
+											>
+
+											<source media="(max-width: 480px)"
+												{% if is_lazy %}
+													data-srcset="{{ image_mobile | image_url: width: mobile_480_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_480_width_2x }} 2x"
+													srcset="{{ image_mobile | image_url: width: 10 }} 1x,
+													{{ image_mobile | image_url: width: 20 }} 2x"
+												{% else %}
+													srcset="{{ image_mobile | image_url: width: mobile_480_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_480_width_2x }} 2x"
+												{% endif %}
+											>
+
+											<source media="(max-width: 767px)"
+												{% if is_lazy %}
+													data-srcset="{{ image_mobile | image_url: width: mobile_767_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_767_width_2x }} 2x"
+													srcset="{{ image_mobile | image_url: width: 10 }} 1x,
+													{{ image_mobile | image_url: width: 20 }} 2x"
+												{% else %}
+													srcset="{{ image_mobile | image_url: width: mobile_767_width }} 1x,
+													{{ image_mobile | image_url: width: mobile_767_width_2x }} 2x"
+												{% endif %}
+											>
+
+											<source media="(max-width: 991px)"
+												{% if is_lazy %}
+													data-srcset="{{ image_desktop | image_url: width: desktop_991_width }} 1x,
+													{{ image_desktop | image_url: width: desktop_991_width_2x }} 2x"
+													srcset="{{ image_desktop | image_url: width: 10 }} 1x,
+													{{ image_desktop | image_url: width: 20 }} 2x"
+												{% else %}
+													srcset="{{ image_desktop | image_url: width: desktop_991_width }} 1x,
+													{{ image_desktop | image_url: width: desktop_991_width_2x }} 2x"
+												{% endif %}
+											>
+
+											<img
+												class="masonry-gallery__image"
+												{% if is_lazy %}
+													data-src="{{ image_desktop | image_url: width: desktop_1920_width }}"
+													data-srcset="{{ image_desktop | image_url: width: desktop_1920_width }} 1x,
+													{{ image_desktop | image_url: width: desktop_1920_width_2x }} 2x"
+													src="{{ image_desktop | image_url: width: 10 }}"
+												{% else %}
+													src="{{ image_desktop | image_url: width: desktop_1920_width }}"
+													srcset="{{ image_desktop | image_url: width: desktop_1920_width }} 1x,
+													{{ image_desktop | image_url: width: desktop_1920_width_2x }} 2x"
+												{% endif %}
+												alt="{{ image_desktop.alt | escape }}"
+												width="{{ image_desktop.width }}"
+												height="{{ image_desktop.height }}"
+											>
+										</picture>
+									{% else %}
+										{%- assign random_number = "now" | date: "%N" | modulo: diff | plus: min -%}
+										{%- assign placeholder_svg_name = 'hero-apparel-' | append: random_number -%}
+
+										{{ placeholder_svg_name | placeholder_svg_tag: 'masonry-gallery__image' }}
+									{% endif %}
+									{% if link != blank %}
+								</a>
+								{% endif %}
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{%- schema -%}
+{
+	"name": "Masonry gallery",
+	"disabled_on": {
+		"groups": [
+			"header",
+			"footer",
+			"custom.popup"
+		]
+	},
+	"settings": [
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Masonry gallery"
+		},
+		{
+			"type": "textarea",
+			"id": "subheading",
+			"label": "Subheading",
+			"default": "Subheading"
+		},
+		{
+			"type": "range",
+			"id": "image_per_row_desktop",
+			"min": 2,
+			"max": 4,
+			"step": 1,
+			"label": "Images per row desktop",
+			"default": 4
+		},
+		{
+			"type": "select",
+			"id": "image_per_row_mobile",
+			"label": "Images per row mobile",
+			"options": [
+				{
+					"value": "1",
+					"label": "1"
+				},
+				{
+					"value": "2",
+					"label": "2"
+				}
+			],
+			"default": "2"
+		},
+		{
+			"type": "header",
+			"content": "Layout"
+		},
+		{
+			"type": "select",
+			"id": "container_width",
+			"label": "Container width",
+			"options": [
+				{
+					"value": "1432px",
+					"label": "Default - 1400px"
+				},
+				{
+					"value": "1952px",
+					"label": "Large - 1920px"
+				},
+				{
+					"value": "100%",
+					"label": "Full width"
+				},
+				{
+					"value": "inherit",
+					"label": "Inherit of general setting"
+				}
+			],
+			"default": "inherit",
+			"info": "If you select 'Inherit of general setting', then container width will be used from the Theme settings/Layout"
+		},
+		{
+			"type": "range",
+			"id": "offset_top_desktop",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Desktop offset top",
+			"default": 25
+		},
+		{
+			"type": "range",
+			"id": "offset_bottom_desktop",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Desktop offset bottom",
+			"default": 25
+		},
+		{
+			"type": "range",
+			"id": "offset_top_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Mobile offset top",
+			"default": 25
+		},
+		{
+			"type": "range",
+			"id": "offset_bottom_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Mobile offset bottom",
+			"default": 25
+		}
+	],
+	"blocks": [
+		{
+			"type": "card",
+			"name": "Card",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image_desktop",
+					"label": "Image desktop"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_mobile",
+					"label": "Image mobile"
+				},
+				{
+					"type": "url",
+					"id": "link",
+					"label": "Link"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Masonry gallery",
+			"settings": {},
+			"blocks": [
+				{
+					"type": "card",
+					"settings": {}
+				},
+				{
+					"type": "card",
+					"settings": {}
+				},
+				{
+					"type": "card",
+					"settings": {}
+				},
+				{
+					"type": "card",
+					"settings": {}
+				}
+			]
+		}
+	]
+}
+{%- endschema -%}

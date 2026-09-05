@@ -1,0 +1,60 @@
+{
+	"sections": {
+		"blog": {
+			"type": "blog-template",
+			"blocks": {
+				"article_1": {
+					"type": "article",
+					"settings": {}
+				},
+				"article_2": {
+					"type": "article",
+					"settings": {}
+				}
+			},
+			"block_order": [
+				"article_1",
+				"article_2"
+			],
+			"settings": {
+				"paginate_by": 6,
+				"pagination_type": "lazy_load",
+				"lazy_load_button_type": "secondary",
+				"show_filter_by_tag": true,
+				"container_width": "100%",
+				"offset_top_desktop": 0,
+				"offset_bottom_desktop": 80,
+				"offset_top_mobile": 0,
+				"offset_bottom_mobile": 60
+			}
+		},
+		"newsletter": {
+			"type": "newsletter",
+			"settings": {
+				"layout": "one_column_img_top",
+				"heading": "Newsletter",
+				"subheading": "Sign up and get 10% off",
+				"text": "<p>Sign up for early sale access, new in, promotions and more</p>",
+				"success_message": "Thanks for subscribing",
+				"image_position": "left",
+				"email_placeholder": "Your email",
+				"button_label": "Subscribe",
+				"button_style": "secondary",
+				"section_background": "#FFD875",
+				"text_color": "#000000",
+				"input_background": "#fff",
+				"input_color": "#000",
+				"image_overlay": "",
+				"container_width": "inherit",
+				"offset_top_desktop": 0,
+				"offset_bottom_desktop": 80,
+				"offset_top_mobile": 0,
+				"offset_bottom_mobile": 60
+			}
+		}
+	},
+	"order": [
+		"blog",
+		"newsletter"
+	]
+}

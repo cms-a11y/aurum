@@ -1,0 +1,103 @@
+.masonry-gallery .masonry-gallery__container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.masonry-gallery .masonry-gallery__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.masonry-gallery .masonry-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--image-per-row-mobile), 1fr);
+  gap: 16px;
+}
+.masonry-gallery .masonry-gallery__grid-row {
+  display: contents;
+}
+.masonry-gallery .masonry-gallery__grid-item {
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  flex-basis: auto;
+  border-radius: var(--global-border-radius);
+}
+.masonry-gallery .masonry-gallery__grid-item:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.masonry-gallery .masonry-gallery__grid-item .masonry-gallery__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition-property: transform;
+}
+.masonry-gallery .masonry-gallery__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.masonry-gallery .masonry-gallery__link:focus-visible::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: -2px;
+}
+@media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
+  .masonry-gallery .masonry-gallery__link:hover .masonry-gallery__image {
+    transform: scale(1.15);
+  }
+}
+.masonry-gallery .masonry-gallery__header.need-animate {
+  opacity: 0;
+  transition-property: opacity;
+}
+.masonry-gallery .masonry-gallery__grid.need-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-property: opacity, transform;
+}
+.masonry-gallery.animated .masonry-gallery__header.need-animate {
+  opacity: 1;
+}
+.masonry-gallery.animated .masonry-gallery__grid.need-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (min-width: 768px) {
+  .masonry-gallery .masonry-gallery__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .masonry-gallery .masonry-gallery__grid-row {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .masonry-gallery .masonry-gallery__grid-item {
+    width: var(--item-width);
+    flex-basis: var(--item-width);
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+  .masonry-gallery .masonry-gallery__grid-item:before {
+    padding-top: var(--item-padding-top, 100%);
+  }
+}
