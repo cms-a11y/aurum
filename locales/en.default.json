@@ -576,7 +576,8 @@
 				"tanzanite_carat": "Tanzanite Carat",
 				"weight": "Weight"
 			},
-			"request_quote": "Request Quote"
+			"request_quote": "Request Quote",
+			"book_private_appointment": "Book a Private Appointment"
 		},
 		"product_card": {
 			"product_title": "Product title",
