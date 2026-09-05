@@ -4,36 +4,14 @@
 {% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
-{% liquid
-  assign phone_number = block.settings.whatsapp_number | replace: ' ', '' | replace: '-', '' | replace: '(', '' | replace: ')', ''
-  
-  if product
-    assign product_title = product.title
-    assign product_url = shop.url | append: product.url
-    assign product_price = product.price | money
-    assign product_code = product.metafields.custom.product_code.value
-  else
-    assign product_title = 'Product'
-    assign product_url = shop.url
-    assign product_price = ''
-    assign product_code = ''
-  endif
-  
-  assign message_template = block.settings.custom_message
-  unless message_template contains '{product_code}'
-    assign message_template = message_template | append: ' Product code: {product_code}'
-  endunless
-
-  assign custom_message = message_template | replace: '{product_title}', product_title | replace: '{product_url}', product_url | replace: '{product_price}', product_price | replace: '{product_code}', product_code
-  
-  assign encoded_message = custom_message | url_encode
-  
-  if phone_number != blank
-    assign whatsapp_link = 'https://wa.me/' | append: phone_number | append: '?text=' | append: encoded_message
-  else
-    assign whatsapp_link = '#'
-  endif
-%}
+{%- capture whatsapp_link -%}
+	{%- render 'whatsapp-link',
+		product: product,
+		whatsapp_number: block.settings.whatsapp_number,
+		custom_message: block.settings.custom_message
+	-%}
+{%- endcapture -%}
+{%- assign whatsapp_link = whatsapp_link | strip -%}
 
 {% style %}
   .ai-whatsapp-button-{{ ai_gen_id }} {

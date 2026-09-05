@@ -35,9 +35,12 @@
 	if diamond_carat != blank or tanzanite_carat != blank or weight_display != blank
 		assign has_specs = true
 	endif
-
-	assign request_quote_url = 'https://web.whatsapp.com/send?phone=255754810770'
 -%}
+
+{%- capture request_quote_url -%}
+	{%- render 'whatsapp-link', product: product -%}
+{%- endcapture -%}
+{%- assign request_quote_url = request_quote_url | strip -%}
 
 {%- capture styles -%}
 	--offset-top-desktop: {{ block.settings.offset_top_desktop }}px; {{-  -}}
