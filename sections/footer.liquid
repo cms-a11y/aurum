@@ -121,8 +121,20 @@
 
 						<ul class="footer__navigation-list">
 							{%- for link in linklists[menu].links -%}
+								{%- assign link_url = link.url -%}
+								{%- assign link_title_downcase = link.title | downcase | strip -%}
+								{%- if link_title_downcase == 'request quote' -%}
+									{%- assign link_url = 'https://web.whatsapp.com/send?phone=255754810770' -%}
+								{%- endif -%}
 								<li class="footer__navigation-list-item">
-									<a href="{{ link.url }}" class="footer__navigation-list-link">
+									<a
+										href="{{ link_url }}"
+										class="footer__navigation-list-link"
+										{% if link_title_downcase == 'request quote' %}
+											target="_blank"
+											rel="noopener noreferrer"
+										{% endif %}
+									>
 										{{ link.title }}
 									</a>
 								</li>
