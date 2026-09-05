@@ -566,7 +566,8 @@
 				"diamond_carat": "Diamond Carat",
 				"tanzanite_carat": "Tanzanite Carat",
 				"weight": "Weight"
-			}
+			},
+			"request_quote": "Request Quote"
 		},
 		"product_card": {
 			"product_title": "Product title",

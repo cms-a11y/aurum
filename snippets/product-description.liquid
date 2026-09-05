@@ -35,6 +35,8 @@
 	if diamond_carat != blank or tanzanite_carat != blank or weight_display != blank
 		assign has_specs = true
 	endif
+
+	assign request_quote_url = 'https://web.whatsapp.com/send?phone=255754810770'
 -%}
 
 {%- capture styles -%}
@@ -44,7 +46,7 @@
 	--offset-bottom-mobile: {{ block.settings.offset_bottom_mobile }}px;
 {%- endcapture -%}
 
-{% if description != blank or has_specs %}
+{% if description != blank or has_specs or is_preset == false %}
 	<style>
 		.product-description-wrapper {
 			padding-top: var(--offset-top-mobile);
@@ -79,6 +81,14 @@
 			font-weight: 400;
 		}
 
+		.product-description__quote-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-top: 16px;
+		}
+
 		@media screen and (min-width: 992px) {
 			.product-description-wrapper {
 				padding-top: var(--offset-top-desktop);
@@ -93,6 +103,17 @@
 				{{ description }}
 			</div>
 		{% endif %}
+
+		{% unless is_preset %}
+			<a
+				href="{{ request_quote_url }}"
+				class="button button--secondary product-description__quote-button"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{{ 'products.product.request_quote' | t }}
+			</a>
+		{% endunless %}
 
 		{% if has_specs %}
 			<dl class="product-specs">
