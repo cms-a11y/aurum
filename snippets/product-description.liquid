@@ -10,6 +10,33 @@
 	{% assign description = preset_title %}
 {% endif %}
 
+{%- liquid
+	assign diamond_carat = product.metafields.custom.carat_size | metafield_text | strip
+	assign tanzanite_carat = product.metafields.custom.tanzanite_karat_size | metafield_text | strip
+	assign weight_metafield = product.metafields.custom.weight
+	assign weight_display = ''
+
+	if weight_metafield != blank
+		if weight_metafield.type contains 'list.'
+			assign weight_item = weight_metafield.value | first
+			if weight_item.unit != blank
+				assign weight_display = weight_item.value | append: ' ' | append: weight_item.unit | strip
+			else
+				assign weight_display = weight_item | append: '' | strip
+			endif
+		elsif weight_metafield.value.unit != blank
+			assign weight_display = weight_metafield.value.value | append: ' ' | append: weight_metafield.value.unit | strip
+		else
+			assign weight_display = weight_metafield | metafield_text | strip
+		endif
+	endif
+
+	assign has_specs = false
+	if diamond_carat != blank or tanzanite_carat != blank or weight_display != blank
+		assign has_specs = true
+	endif
+-%}
+
 {%- capture styles -%}
 	--offset-top-desktop: {{ block.settings.offset_top_desktop }}px; {{-  -}}
 	--offset-bottom-desktop: {{ block.settings.offset_bottom_desktop }}px; {{-  -}}
@@ -17,11 +44,39 @@
 	--offset-bottom-mobile: {{ block.settings.offset_bottom_mobile }}px;
 {%- endcapture -%}
 
-{% if description != blank %}
+{% if description != blank or has_specs %}
 	<style>
 		.product-description-wrapper {
 			padding-top: var(--offset-top-mobile);
 			padding-bottom: var(--offset-bottom-mobile);
+		}
+
+		.product-specs {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			margin: 12px 0 0;
+			padding: 0;
+		}
+
+		.product-specs__row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px 8px;
+			margin: 0;
+			line-height: 1.5;
+		}
+
+		.product-specs__label {
+			font-weight: 600;
+		}
+
+		.product-specs__label::after {
+			content: ':';
+		}
+
+		.product-specs__value {
+			font-weight: 400;
 		}
 
 		@media screen and (min-width: 992px) {
@@ -32,8 +87,36 @@
 		}
 	</style>
 
-	<div class="product-description-wrapper rte" style="{{ styles }}">
-		{{ description }}
+	<div class="product-description-wrapper" style="{{ styles }}">
+		{% if description != blank %}
+			<div class="rte">
+				{{ description }}
+			</div>
+		{% endif %}
+
+		{% if has_specs %}
+			<dl class="product-specs">
+				{% if diamond_carat != blank %}
+					<div class="product-specs__row">
+						<dt class="product-specs__label">{{ 'products.product.specs.diamond_carat' | t }}</dt>
+						<dd class="product-specs__value">{{ diamond_carat }}</dd>
+					</div>
+				{% endif %}
+
+				{% if tanzanite_carat != blank %}
+					<div class="product-specs__row">
+						<dt class="product-specs__label">{{ 'products.product.specs.tanzanite_carat' | t }}</dt>
+						<dd class="product-specs__value">{{ tanzanite_carat }}</dd>
+					</div>
+				{% endif %}
+
+				{% if weight_display != blank %}
+					<div class="product-specs__row">
+						<dt class="product-specs__label">{{ 'products.product.specs.weight' | t }}</dt>
+						<dd class="product-specs__value">{{ weight_display }}g</dd>
+					</div>
+				{% endif %}
+			</dl>
+		{% endif %}
 	</div>
 {% endif %}
-

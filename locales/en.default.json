@@ -561,6 +561,11 @@
 			"ask_question_form": {
 				"email": "Email",
 				"name": "Name"
+			},
+			"specs": {
+				"diamond_carat": "Diamond Carat",
+				"tanzanite_carat": "Tanzanite Carat",
+				"weight": "Weight"
 			}
 		},
 		"product_card": {
