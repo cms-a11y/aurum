@@ -268,7 +268,7 @@
       "settings": {
         "is_zoom_enabled": true,
         "show_arrows_mobile": true,
-        "media_layout": "carousel",
+        "media_layout": "stacked_2_col_with_big_image",
         "thumbnails_position": "bottom",
         "media_height": "fit_to_screen",
         "image_object_fit": "cover",
@@ -370,8 +370,8 @@
           "royal-tanzanite-engagement-ring-18k-white-gold"
         ],
         "layout": "4",
-        "show_arrows": true,
-        "show_banner": true,
+        "show_arrows": false,
+        "show_banner": false,
         "banner_image": "shopify://shop_images/dfe8f70deae87703f8b84e095962322a.png",
         "banner_heading": "Teal rings",
         "banner_text": "For every special day",
