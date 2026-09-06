@@ -794,6 +794,7 @@
     },
     "richtext_Nqb8pG": {
       "type": "richtext",
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "heading": "",
@@ -803,14 +804,44 @@
         "enable_read_more": false,
         "read_more_text": "Show more",
         "show_less_text": "Show less",
-        "background_color": "#75162D",
-        "text_color": "#FFFFFF",
-        "link_color": "#FFFFFF",
+        "background_color": "#75162d",
+        "text_color": "#ffffff",
+        "link_color": "#ffffff",
         "container_width": "100%",
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
         "offset_bottom_mobile": 0
+      }
+    },
+    "book_appointment_button_HkPCfT": {
+      "type": "book-appointment-button",
+      "name": "Book appointment button",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "text_content": "",
+        "text_alignment": "center",
+        "button_label": "Book an Appointment",
+        "button_link": "shopify://pages/book-a-private-appointment",
+        "open_in_new_tab": false,
+        "button_font_size": 24,
+        "button_padding_vertical": 20,
+        "button_padding_horizontal": 28,
+        "button_border_radius": 40,
+        "button_background_color": "#75162d",
+        "button_text_color": "#fffdf1",
+        "button_border_color": "#75162d",
+        "button_background_color_hover": "#5c1123",
+        "button_text_color_hover": "#fffdf1",
+        "button_border_color_hover": "#5c1123",
+        "section_background_color": "#ffffff",
+        "content_text_color": "#161e13",
+        "container_width": "inherit",
+        "offset_top_desktop": 40,
+        "offset_bottom_desktop": 40,
+        "offset_top_mobile": 24,
+        "offset_bottom_mobile": 24
       }
     },
     "contact_page_template_XUbjxA": {
@@ -864,6 +895,7 @@
     "newsletter",
     "17857716245ad91071",
     "richtext_Nqb8pG",
+    "book_appointment_button_HkPCfT",
     "contact_page_template_XUbjxA",
     "178644689656d9834d",
     "1788670095f29eec14"

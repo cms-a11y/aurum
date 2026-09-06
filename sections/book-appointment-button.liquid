@@ -1,0 +1,403 @@
+{%- comment -%}
+------------------------------------------------------------------------------
+	Section: Book appointment button
+------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- liquid
+	assign heading = section.settings.heading
+	assign subheading = section.settings.subheading
+	assign text_content = section.settings.text_content
+	assign text_alignment = section.settings.text_alignment
+	assign button_label = section.settings.button_label
+	assign button_link = section.settings.button_link
+	assign open_in_new_tab = section.settings.open_in_new_tab
+	assign container = section.settings.container_width
+
+	if container == 'inherit'
+		assign container_width = settings.container_width
+	else
+		assign container_width = container
+	endif
+-%}
+
+{%- style -%}
+	#shopify-section-{{ section.id }} {
+		padding-top: {{ section.settings.offset_top_mobile }}px;
+		padding-bottom: {{ section.settings.offset_bottom_mobile }}px;
+	}
+
+	@media screen and (min-width: 768px) {
+		#shopify-section-{{ section.id }} {
+			padding-top: {{ section.settings.offset_top_desktop }}px;
+			padding-bottom: {{ section.settings.offset_bottom_desktop }}px;
+		}
+	}
+
+	#shopify-section-{{ section.id }} .book-appointment-button {
+		background-color: {{ section.settings.section_background_color }};
+	}
+
+	#shopify-section-{{ section.id }} .book-appointment-button__heading,
+	#shopify-section-{{ section.id }} .book-appointment-button__subheading,
+	#shopify-section-{{ section.id }} .book-appointment-button__text {
+		color: {{ section.settings.content_text_color }};
+	}
+
+	#shopify-section-{{ section.id }} .book-appointment-button__link {
+		background-color: {{ section.settings.button_background_color }};
+		color: {{ section.settings.button_text_color }};
+		border-color: {{ section.settings.button_border_color }};
+		border-radius: {{ section.settings.button_border_radius }}px;
+		font-size: {{ section.settings.button_font_size }}px;
+		padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px;
+	}
+
+	@media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
+		#shopify-section-{{ section.id }} .book-appointment-button__link:hover {
+			background-color: {{ section.settings.button_background_color_hover }};
+			color: {{ section.settings.button_text_color_hover }};
+			border-color: {{ section.settings.button_border_color_hover }};
+		}
+	}
+{%- endstyle -%}
+
+<section
+	class="book-appointment-button js-animate{% if request.visual_preview_mode or section.index == 1 %} animated{% endif %}"
+	style="--container-width: {{ container_width }}; --text-align: {{ text_alignment }};"
+>
+	<div class="book-appointment-button__container">
+		{%- if heading != blank -%}
+			<h2 class="book-appointment-button__heading h2">
+				{{- heading -}}
+			</h2>
+		{%- endif -%}
+
+		{%- if subheading != blank -%}
+			<p class="book-appointment-button__subheading">
+				{{- subheading -}}
+			</p>
+		{%- endif -%}
+
+		{%- if text_content != blank -%}
+			<div class="book-appointment-button__text rte">
+				{{- text_content -}}
+			</div>
+		{%- endif -%}
+
+		{%- if button_label != blank -%}
+			{%- if button_link != blank -%}
+				<a
+					href="{{ button_link }}"
+					class="book-appointment-button__link"
+					{% if open_in_new_tab %}
+						target="_blank"
+						rel="noopener noreferrer"
+					{% endif %}
+				>
+					{{- button_label -}}
+				</a>
+			{%- else -%}
+				<span class="book-appointment-button__link book-appointment-button__link--disabled" aria-disabled="true">
+					{{- button_label -}}
+				</span>
+			{%- endif -%}
+		{%- endif -%}
+	</div>
+</section>
+
+<style>
+	.book-appointment-button {
+		width: 100%;
+	}
+
+	.book-appointment-button__container {
+		max-width: var(--container-width);
+		margin: 0 auto;
+		padding: 0 16px;
+		text-align: var(--text-align);
+	}
+
+	.book-appointment-button__heading {
+		margin: 0 0 12px;
+	}
+
+	.book-appointment-button__subheading {
+		margin: 0 0 12px;
+		line-height: 1.5;
+	}
+
+	.book-appointment-button__text {
+		margin: 0 0 20px;
+		line-height: 1.6;
+	}
+
+	.book-appointment-button__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 54px;
+		border: 1px solid transparent;
+		text-decoration: none;
+		font-weight: 500;
+		line-height: 1.375;
+		text-align: center;
+		transition: background-color var(--timing-short, 0.2s), color var(--timing-short, 0.2s), border-color var(--timing-short, 0.2s);
+	}
+
+	.book-appointment-button__link--disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	@media screen and (max-width: 767px) {
+		.book-appointment-button__container {
+			padding: 0 16px;
+		}
+	}
+</style>
+
+{% schema %}
+{
+	"name": "Book appointment button",
+	"disabled_on": {
+		"groups": ["header", "footer", "custom.popup"]
+	},
+	"settings": [
+		{
+			"type": "header",
+			"content": "Content"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading"
+		},
+		{
+			"type": "text",
+			"id": "subheading",
+			"label": "Subheading"
+		},
+		{
+			"type": "richtext",
+			"id": "text_content",
+			"label": "Text"
+		},
+		{
+			"type": "select",
+			"id": "text_alignment",
+			"label": "Text alignment",
+			"options": [
+				{
+					"value": "left",
+					"label": "Left"
+				},
+				{
+					"value": "center",
+					"label": "Center"
+				},
+				{
+					"value": "right",
+					"label": "Right"
+				}
+			],
+			"default": "center"
+		},
+		{
+			"type": "header",
+			"content": "Button"
+		},
+		{
+			"type": "text",
+			"id": "button_label",
+			"label": "Button text",
+			"default": "Book an Appointment"
+		},
+		{
+			"type": "url",
+			"id": "button_link",
+			"label": "Button link"
+		},
+		{
+			"type": "checkbox",
+			"id": "open_in_new_tab",
+			"label": "Open link in new tab",
+			"default": false
+		},
+		{
+			"type": "range",
+			"id": "button_font_size",
+			"label": "Button font size",
+			"min": 12,
+			"max": 24,
+			"step": 1,
+			"unit": "px",
+			"default": 16
+		},
+		{
+			"type": "range",
+			"id": "button_padding_vertical",
+			"label": "Button padding vertical",
+			"min": 8,
+			"max": 32,
+			"step": 1,
+			"unit": "px",
+			"default": 16
+		},
+		{
+			"type": "range",
+			"id": "button_padding_horizontal",
+			"label": "Button padding horizontal",
+			"min": 16,
+			"max": 64,
+			"step": 2,
+			"unit": "px",
+			"default": 32
+		},
+		{
+			"type": "range",
+			"id": "button_border_radius",
+			"label": "Button border radius",
+			"min": 0,
+			"max": 40,
+			"step": 2,
+			"unit": "px",
+			"default": 32
+		},
+		{
+			"type": "header",
+			"content": "Button colors"
+		},
+		{
+			"type": "color",
+			"id": "button_background_color",
+			"label": "Background",
+			"default": "#75162d"
+		},
+		{
+			"type": "color",
+			"id": "button_text_color",
+			"label": "Text",
+			"default": "#fffdf1"
+		},
+		{
+			"type": "color",
+			"id": "button_border_color",
+			"label": "Border",
+			"default": "#75162d"
+		},
+		{
+			"type": "color",
+			"id": "button_background_color_hover",
+			"label": "Background (hover)",
+			"default": "#5c1123"
+		},
+		{
+			"type": "color",
+			"id": "button_text_color_hover",
+			"label": "Text (hover)",
+			"default": "#fffdf1"
+		},
+		{
+			"type": "color",
+			"id": "button_border_color_hover",
+			"label": "Border (hover)",
+			"default": "#5c1123"
+		},
+		{
+			"type": "header",
+			"content": "Section colors"
+		},
+		{
+			"type": "color",
+			"id": "section_background_color",
+			"label": "Section background",
+			"default": "#ffffff"
+		},
+		{
+			"type": "color",
+			"id": "content_text_color",
+			"label": "Heading and text",
+			"default": "#161e13"
+		},
+		{
+			"type": "header",
+			"content": "Layout"
+		},
+		{
+			"type": "select",
+			"id": "container_width",
+			"label": "Container width",
+			"options": [
+				{
+					"value": "1432px",
+					"label": "Default - 1400px"
+				},
+				{
+					"value": "1952px",
+					"label": "Large - 1920px"
+				},
+				{
+					"value": "100%",
+					"label": "Full width"
+				},
+				{
+					"value": "inherit",
+					"label": "Inherit of general setting"
+				}
+			],
+			"default": "inherit"
+		},
+		{
+			"type": "range",
+			"id": "offset_top_desktop",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Desktop offset top",
+			"default": 40
+		},
+		{
+			"type": "range",
+			"id": "offset_bottom_desktop",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Desktop offset bottom",
+			"default": 40
+		},
+		{
+			"type": "range",
+			"id": "offset_top_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Mobile offset top",
+			"default": 24
+		},
+		{
+			"type": "range",
+			"id": "offset_bottom_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Mobile offset bottom",
+			"default": 24
+		}
+	],
+	"presets": [
+		{
+			"name": "Book appointment button",
+			"settings": {
+				"button_label": "Book an Appointment",
+				"button_link": "shopify://pages/book-a-private-appointment"
+			}
+		}
+	]
+}
+{% endschema %}
