@@ -278,8 +278,6 @@
 				<input type="hidden" name="contact[tags]" value="newsletter"/>
 
 				<div class="footer-form__field">
-
-					<!-- EMAIL -->
 					<label
 						class="visually-hidden"
 						for="NewsletterForm--{{- section.id -}}"
@@ -306,7 +304,6 @@
 						required
 					/>
 
-					<!-- PHONE NUMBER -->
 					<label
 						class="visually-hidden"
 						for="NewsletterFormPhone--{{- section.id -}}"
@@ -326,10 +323,9 @@
 						required
 					/>
 
-					<!-- SUBMIT -->
 					<button
 						type="submit"
-						class="button button--small button--secondary footer-form__button"
+						class="footer-form__button"
 						name="commit"
 					>
 						{{- button_text -}}
