@@ -1,1 +1,932 @@
-{"sections":{"slideshow_knHgaT":{"type":"slideshow","blocks":{"image_k4JtBh":{"type":"image","settings":{"image_desktop":"shopify:\/\/shop_images\/Slider_-_HP.png","heading":"","description":"","button_text":"","button_aria_label":"","button_link":"\/","open_in_new_tab":false,"make_link_full_slide":false,"second_button_text":"","second_button_aria_label":"","second_button_link":"\/","second_open_in_new_tab":false,"text_alignment_inside_block_desktop":"center","text_alignment_inside_block_mobile":"center","content_alignment_horizontal_desktop":"center","content_alignment_vertical_desktop":"middle","content_alignment_vertical_mobile":"middle","background_color":"#757575","background_content":"","enable_glass_effect":false,"heading_color":"#ffffff","description_color":"#ffffff","button_text_color":"#000000","button_background_color":"#ffffff","button_border_color":"#ffffff","button_text_color_hover":"#000000","button_background_color_hover":"#f9f9f9","button_border_color_hover":"#f9f9f9","second_button_text_color":"#ffffff","second_button_background_color":"rgba(0,0,0,0)","second_button_border_color":"#ffffff","second_button_text_color_hover":"#000000","second_button_background_color_hover":"#ffffff","second_button_border_color_hover":"#ffffff","overlay_color":"linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"}},"image_U9deg7":{"type":"image","settings":{"image_desktop":"shopify:\/\/shop_images\/Slider_2_-_HP.png","heading":"","description":"","button_text":"","button_aria_label":"","button_link":"\/","open_in_new_tab":false,"make_link_full_slide":false,"second_button_text":"","second_button_aria_label":"","second_button_link":"\/","second_open_in_new_tab":false,"text_alignment_inside_block_desktop":"center","text_alignment_inside_block_mobile":"center","content_alignment_horizontal_desktop":"center","content_alignment_vertical_desktop":"middle","content_alignment_vertical_mobile":"middle","background_color":"#757575","background_content":"","enable_glass_effect":false,"heading_color":"#ffffff","description_color":"#ffffff","button_text_color":"#000000","button_background_color":"#ffffff","button_border_color":"#ffffff","button_text_color_hover":"#000000","button_background_color_hover":"#f9f9f9","button_border_color_hover":"#f9f9f9","second_button_text_color":"#ffffff","second_button_background_color":"rgba(0,0,0,0)","second_button_border_color":"#ffffff","second_button_text_color_hover":"#000000","second_button_background_color_hover":"#ffffff","second_button_border_color_hover":"#ffffff","overlay_color":"linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"}},"image_7T3BVV":{"type":"image","settings":{"image_desktop":"shopify:\/\/shop_images\/Slider_3_-_HP.png","heading":"","description":"","button_text":"","button_aria_label":"","button_link":"\/","open_in_new_tab":false,"make_link_full_slide":false,"second_button_text":"","second_button_aria_label":"","second_button_link":"\/","second_open_in_new_tab":false,"text_alignment_inside_block_desktop":"center","text_alignment_inside_block_mobile":"center","content_alignment_horizontal_desktop":"center","content_alignment_vertical_desktop":"middle","content_alignment_vertical_mobile":"middle","background_color":"#757575","background_content":"","enable_glass_effect":false,"heading_color":"#ffffff","description_color":"#ffffff","button_text_color":"#000000","button_background_color":"#ffffff","button_border_color":"#ffffff","button_text_color_hover":"#000000","button_background_color_hover":"#f9f9f9","button_border_color_hover":"#f9f9f9","second_button_text_color":"#ffffff","second_button_background_color":"rgba(0,0,0,0)","second_button_border_color":"#ffffff","second_button_text_color_hover":"#000000","second_button_background_color_hover":"#ffffff","second_button_border_color_hover":"#ffffff","overlay_color":"linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"}},"image_CMFBJH":{"type":"image","settings":{"image_desktop":"shopify:\/\/shop_images\/Slider_4_-_HP.png","heading":"","description":"","button_text":"","button_aria_label":"","button_link":"\/","open_in_new_tab":false,"make_link_full_slide":false,"second_button_text":"","second_button_aria_label":"","second_button_link":"\/","second_open_in_new_tab":false,"text_alignment_inside_block_desktop":"center","text_alignment_inside_block_mobile":"center","content_alignment_horizontal_desktop":"center","content_alignment_vertical_desktop":"middle","content_alignment_vertical_mobile":"middle","background_color":"#757575","background_content":"","enable_glass_effect":false,"heading_color":"#ffffff","description_color":"#ffffff","button_text_color":"#000000","button_background_color":"#ffffff","button_border_color":"#ffffff","button_text_color_hover":"#000000","button_background_color_hover":"#f9f9f9","button_border_color_hover":"#f9f9f9","second_button_text_color":"#ffffff","second_button_background_color":"rgba(0,0,0,0)","second_button_border_color":"#ffffff","second_button_text_color_hover":"#000000","second_button_background_color_hover":"#ffffff","second_button_border_color_hover":"#ffffff","overlay_color":"linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"}}},"block_order":["image_k4JtBh","image_U9deg7","image_7T3BVV","image_CMFBJH"],"name":"Slideshow","settings":{"show_arrows":false,"show_thumbnails":false,"show_pagination":false,"show_progress_bar":false,"enable_loop":true,"enable_autoplay":true,"autoplay_speed":5,"animation_speed":0.5,"animation_type":"slide","background_color":"#ffffff","progress_bar_color":"#ffffff","pagination_color":"#ffffff","pagination_color_opacity":30,"pagination_color_active":"#ffffff","arrows_background_color":"#ffffff","arrows_background_color_opacity":30,"arrows_color":"#ffffff","arrows_border_color":"#ffffff","arrows_border_color_opacity":30,"arrows_background_color_hover":"#ffffff","arrows_background_color_opacity_hover":50,"arrows_color_hover":"#ffffff","arrows_border_color_hover":"#ffffff","arrows_border_color_opacity_hover":100,"thumbnail_border_color_active":"#ffd875","thumbnails_background_color":"#000","thumbnails_background_color_opacity":20,"container_width":"inherit","height_desktop":100,"height_mobile":100,"subtract_header_height":false,"offset_top_desktop":0,"offset_bottom_desktop":16,"offset_top_mobile":0,"offset_bottom_mobile":16}},"banner_with_scroll_images":{"type":"banner-with-scroll-images","blocks":{"first_column_whThqQ":{"type":"first_column","settings":{"block_image":"shopify:\/\/shop_images\/1_21.png"}},"second_column_D3ypT6":{"type":"second_column","settings":{"block_image":"shopify:\/\/shop_images\/image_56948ed6-ea05-4b7f-b87e-c4944b435762.png"}},"third_column_xMJd7T":{"type":"third_column","settings":{"block_image":"shopify:\/\/shop_images\/Earrings.png"}},"first_column_MUUxan":{"type":"first_column","settings":{"block_image":"shopify:\/\/shop_images\/2_2.png"}},"first_column_PGFKCW":{"type":"first_column","settings":{"block_image":"shopify:\/\/shop_images\/1_21.png"}},"first_column_Xat4cX":{"type":"first_column","settings":{"block_image":"shopify:\/\/shop_images\/Pendant.png"}},"second_column_fhppcq":{"type":"second_column","settings":{"block_image":"shopify:\/\/shop_images\/73ab4a0590235db7e71cd4b41f47147b.png"}},"second_column_gW4VRD":{"type":"second_column","settings":{"block_image":"shopify:\/\/shop_images\/2_1_619ae509-ec3c-406e-b449-c035c8847a33.png"}},"second_column_8tJ7bM":{"type":"second_column","settings":{"block_image":"shopify:\/\/shop_images\/2_14.png"}},"third_column_zGXaTP":{"type":"third_column","settings":{"block_image":"shopify:\/\/shop_images\/1_21.png"}},"third_column_hfV8bb":{"type":"third_column","settings":{"block_image":"shopify:\/\/shop_images\/Rings.png"}},"third_column_LykzkA":{"type":"third_column","settings":{"block_image":"shopify:\/\/shop_images\/Earrings.png"}}},"block_order":["first_column_whThqQ","second_column_D3ypT6","third_column_xMJd7T","first_column_MUUxan","first_column_PGFKCW","first_column_Xat4cX","second_column_fhppcq","second_column_gW4VRD","second_column_8tJ7bM","third_column_zGXaTP","third_column_hfV8bb","third_column_LykzkA"],"disabled":true,"settings":{"desktop_height":"700px","title":"Queens Jewelry Collection","label":"New","text":"<p>Exquisite handcrafted jewelry featuring vibrant teal gemstones for a touch of elegance and uniqueness<\/p>","button_label":"Shop All","button_aria_label":"Button aria-label","button_link":"shopify:\/\/collections\/asset-pack-36173807618-example-products","button_style":"secondary-border","section_background":"#fff","overlay_color":"linear-gradient(180deg, rgba(255, 255, 255, 1) 9%, rgba(248, 255, 59, 0) 35%, rgba(217, 255, 69, 0) 66.187%, rgba(255, 255, 255, 1) 91%)","text_color":"#000000","container_width":"100%","offset_top_desktop":0,"offset_bottom_desktop":40,"offset_top_mobile":25,"offset_bottom_mobile":25}},"product-tabs":{"type":"product-tabs","blocks":{"product-tabs-tab-1":{"type":"tab","settings":{"heading":"Best sellers","product_list":["amour-ring-heart-cut-tanzanite-diamond-ring-in-14k-yellow-gold","cushion-cut-tanzanite-diamond-halo-pendant-in-silver-copy","oval-cut-tanzanite-diamond-earring-in-white-gold","oval-cut-tanzanite-diamond-halo-pendant-in-white-gold"]}},"product-tabs-tab-2":{"type":"tab","disabled":true,"settings":{"heading":"Bracelets","product_list":["asset-pack-36173807618-example-product-3","asset-pack-36173807618-example-product-2","asset-pack-36173807618-example-product-1","asset-pack-36173807618-example-product-4"]}},"product-tabs-tab-3":{"type":"tab","disabled":true,"settings":{"heading":"Necklaces","product_list":[]}},"product-tabs-tab-4":{"type":"tab","disabled":true,"settings":{"heading":"Rings","product_list":["asset-pack-36173807618-example-product-1","asset-pack-36173807618-example-product-4","asset-pack-36173807618-example-product-3","asset-pack-36173807618-example-product-2"]}}},"block_order":["product-tabs-tab-1","product-tabs-tab-2","product-tabs-tab-3","product-tabs-tab-4"],"settings":{"heading":"Most Loved","label":"","text":"","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":100,"offset_top_mobile":0,"offset_bottom_mobile":60}},"collection-list-1":{"type":"collection-list","blocks":{"collection-1":{"type":"collection","settings":{"collection":"rings-1","image":"shopify:\/\/shop_images\/Rings_afd5f50f-15d3-4e74-9d25-26e9376fd21b.png"}},"collection-2":{"type":"collection","settings":{"collection":"earrings-1","image":"shopify:\/\/shop_images\/Earrings_75cbc08e-ead1-4d03-af6e-651d79d04321.png"}},"collection-3":{"type":"collection","settings":{"collection":"pendants","image":"shopify:\/\/shop_images\/Pendant_b8e17b29-e8b4-4630-9bd3-4683f20ce33b.png"}},"collection-4":{"type":"collection","settings":{"collection":"pendants-and-earrings","image":"shopify:\/\/shop_images\/pendant_earrings_set_7e9bed07-b775-44f6-8a57-46c25b8dae62.png"}}},"block_order":["collection-1","collection-2","collection-3","collection-4"],"disabled":true,"settings":{"heading":"Shop by Category","link_url":"shopify:\/\/collections","link_text":"Show More","link_aria_label_text":"Learn More","button_style":"secondary-border","text_alignment":"center","text_position":"inside_image","aspect_ratio":"landscape","cards_per_row":"4","center_on_desktop":false,"show_products_count":false,"overlay_color":"","color_text":"#ffffff","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":80,"offset_top_mobile":0,"offset_bottom_mobile":60}},"collection_list_MrbqwK":{"type":"collection-list","blocks":{"collection_jn6ALz":{"type":"collection","settings":{"collection":"rings-1","image":"shopify:\/\/shop_images\/Rings_afd5f50f-15d3-4e74-9d25-26e9376fd21b.png"}},"collection_qWU9tw":{"type":"collection","settings":{"collection":"earrings-1","image":"shopify:\/\/shop_images\/Earrings_75cbc08e-ead1-4d03-af6e-651d79d04321.png"}},"collection_iVRDhy":{"type":"collection","settings":{"collection":"pendants","image":"shopify:\/\/shop_images\/Pendant_b8e17b29-e8b4-4630-9bd3-4683f20ce33b.png"}},"collection_cRCkXj":{"type":"collection","settings":{"collection":"pendants-and-earrings","image":"shopify:\/\/shop_images\/pendant_earrings_set_7e9bed07-b775-44f6-8a57-46c25b8dae62.png"}}},"block_order":["collection_jn6ALz","collection_qWU9tw","collection_iVRDhy","collection_cRCkXj"],"name":"Collections grid","settings":{"heading":"Shop by Category","link_url":"","link_text":"","link_aria_label_text":"","button_style":"secondary-border","text_alignment":"center","text_position":"under_image","aspect_ratio":"portrait","cards_per_row":"4","center_on_desktop":false,"show_products_count":false,"overlay_color":"","color_text":"#fff","container_width":"inherit","offset_top_desktop":60,"offset_bottom_desktop":60,"offset_top_mobile":30,"offset_bottom_mobile":30}},"image-with-text":{"type":"image-with-text","settings":{"image_position":"left","text_alignment":"left","content_vertical_alignment":"center","two_images_layout":"double_vertical_offset","first_desktop_image":"shopify:\/\/shop_images\/Rings.png","first_mobile_image":"shopify:\/\/shop_images\/Rings.png","second_desktop_image":"shopify:\/\/shop_images\/Earrings.png","second_mobile_image":"shopify:\/\/shop_images\/Earrings.png","heading":"OUR MISSION","subheading":"","text_content":"<p>To offer exquisite in vogue jewelery that resonates with your unique style.<br\/>We believe jewelery should complement every facet of your life, from everyday moments to special occasions. Our focus on quality, durability and affordability ensures each piece accompanies you seamlessly through your adventures.<\/p>","button_label":"Shop All","button_aria_label":"shop all products","button_url":"shopify:\/\/collections\/asset-pack-36173807618-example-products","button_style":"secondary-border","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":80,"offset_top_mobile":0,"offset_bottom_mobile":40}},"ticker":{"type":"ticker","blocks":{"content_1":{"type":"content","settings":{"text":"Crafted for a QUEEN."}},"content_2":{"type":"content","settings":{"text":"For life’s most meaningful moments."}},"content_3":{"type":"content","settings":{"text":"A part of your beautiful story."}},"content_4":{"type":"content","settings":{"text":"For love. For milestones. For you."}}},"block_order":["content_1","content_2","content_3","content_4"],"settings":{"hide_bullets":true,"font":"poppins_n4","font_size_desktop":33,"font_size_mobile":16,"enable_border":true,"border_width":2,"direction":"left_to_right","desktop_movement_speed":20,"mobile_movement_speed":35,"section_background":"#75162D","text_color":"#ffffff","border_color":"#efe6cd","inner_indent":7,"offset_top_desktop":0,"offset_bottom_desktop":70,"offset_top_mobile":25,"offset_bottom_mobile":40}},"featured-products":{"type":"featured-products","settings":{"heading":"Our Recomendations","product_list":["asset-pack-36173807618-example-product-1","asset-pack-36173807618-example-product-2","asset-pack-36173807618-example-product-3"],"layout":"3","show_arrows":false,"show_banner":true,"banner_image":"shopify:\/\/shop_images\/dfe8f70deae87703f8b84e095962322a.png","banner_heading":"Queens","banner_text":"treasures","overlay_color":"linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)","container_width":"inherit","offset_top_desktop":20,"offset_bottom_desktop":50,"offset_top_mobile":0,"offset_bottom_mobile":60}},"richtext":{"type":"richtext","settings":{"heading":"Made to Be Treasured","subheading":"","text_content":"<p>We believe jewellery should celebrate more than beauty. It should celebrate YOU.<br\/>Wear your Queens piece as an expression of your story, your confidence, and the moments worth treasuring.<\/p>","text_alignment":"center","enable_read_more":false,"read_more_text":"Show more","show_less_text":"Show less","background_color":"","text_color":"#414141","link_color":"","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":40,"offset_top_mobile":0,"offset_bottom_mobile":20}},"video":{"type":"video","disabled":true,"settings":{"type":"popup","label":"","heading":"Live inspired","text_content":"<p>We are on a mission to inspire and empower with positive messages. Wear your Teall® every day as your daily reminder, affirmation, and inspiration.<\/p>","button_label":"Button label","button_link":"","button_style":"secondary-border","aspect_ratio":"sixteen-nine","video_type":"youtube_vimeo","external_video_url_desktop":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","external_video_url_mobile":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","container_width":"inherit","button_text_color_play":"#414141","button_background_color_play":"#f6ea94","button_text_color_play_hover":"#414141","button_background_color_play_hover":"#ebca4e","offset_top_desktop":0,"offset_bottom_desktop":80,"offset_top_mobile":0,"offset_bottom_mobile":60}},"best-sellers":{"type":"best-sellers","blocks":{"product_item_5":{"type":"product_item","settings":{"product":"royal-tanzanite-engagement-ring-18k-white-gold","product_title":"","image":"shopify:\/\/shop_images\/image.png"}},"product_item_1":{"type":"product_item","settings":{"product":"asset-pack-36173807618-example-product-1","product_title":"","image":"shopify:\/\/shop_images\/image_72b7a96e-9fe6-4495-827d-a843593db055.png"}},"product_item_2":{"type":"product_item","settings":{"product":"asset-pack-36173807618-example-product-2","product_title":"","image":"shopify:\/\/shop_images\/image_56948ed6-ea05-4b7f-b87e-c4944b435762.png"}},"product_item_3":{"type":"product_item","settings":{"product":"asset-pack-36173807618-example-product-3","product_title":"","image":"shopify:\/\/shop_images\/image_184bcdd1-c767-408f-aed0-a7ed846e4748.png"}},"product_item_4":{"type":"product_item","settings":{"product":"asset-pack-36173807618-example-product-4","product_title":"","image":"shopify:\/\/shop_images\/efc5c2d638189d9b15261079e0b7860d.png"}}},"block_order":["product_item_5","product_item_1","product_item_2","product_item_3","product_item_4"],"disabled":true,"settings":{"heading":"","show_numeric":true,"background_color":"#161e13","text_color":"#ffffff","border_color":"#323930","link_active_color":"#ffdc58","container_width":"inherit","offset_top_desktop":25,"offset_bottom_desktop":60,"offset_top_mobile":25,"offset_bottom_mobile":40}},"featured-blog":{"type":"featured-blog","disabled":true,"settings":{"blog":"","heading":"Stories that inspire and empower","link_text":"","link_aria_label_text":"","button_style":"secondary-border","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":80,"offset_top_mobile":0,"offset_bottom_mobile":60}},"newsletter":{"type":"newsletter","disabled":true,"settings":{"layout":"two_columns","heading":"Newsletter","subheading":"Sign up and get 10% off","text":"<p>Sign up for early sale access, new in, promotions and more<\/p>","success_message":"Thanks for subscribing","image_position":"left","email_placeholder":"Your email","button_label":"Subscribe","button_style":"secondary","section_background":"#f4e4c8","text_color":"#000000","input_background":"#ffffff","input_color":"#000000","image_overlay":"","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":80,"offset_top_mobile":0,"offset_bottom_mobile":60}},"17857716245ad91071":{"type":"apps","blocks":{"powerful_form_builder_app_block_HqcVcL":{"type":"shopify:\/\/apps\/powerful-form-builder\/blocks\/app-block\/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d","settings":{"shortcode":"<div class=\"globo-formbuilder\" data-id=\"MTU3ODk0\"><\/div>"}}},"block_order":["powerful_form_builder_app_block_HqcVcL"],"disabled":true,"settings":{"container_width":"inherit","offset_top_desktop":25,"offset_bottom_desktop":25,"offset_top_mobile":25,"offset_bottom_mobile":25}},"richtext_Nqb8pG":{"type":"richtext","name":"Rich text","settings":{"heading":"","subheading":"","text_content":"<h2><a href=\"https:\/\/queensgemtz.myshopify.com\/pages\/book-a-private-appointment\" target=\"_blank\" title=\"https:\/\/queensgemtz.myshopify.com\/pages\/book-a-private-appointment\">Book An Appoinment<\/a><\/h2>","text_alignment":"center","enable_read_more":false,"read_more_text":"Show more","show_less_text":"Show less","background_color":"","text_color":"","link_color":"","container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":0,"offset_top_mobile":0,"offset_bottom_mobile":0}},"contact_page_template_XUbjxA":{"type":"contact-page-template","name":"Contact","settings":{"map_api_key":"","map_query":"Eiffel+Tower,Paris+France","map_url":"","form_heading":"Contact Us","name_label":"Name","name_placeholder":"Your name...","is_name_required":false,"email_label":"Email","email_placeholder":"Your email...","phone_label":"Phone","phone_placeholder":"Enter your phone number","is_phone_required":false,"message_label":"Message","message_placeholder":"Your message...","is_message_required":false,"submit_label":"Send","offset_top_desktop":60,"offset_bottom_desktop":60,"offset_top_mobile":30,"offset_bottom_mobile":30}},"178644689656d9834d":{"type":"_blocks","settings":{}},"1787222705447318eb":{"type":"_blocks","blocks":{"ai_gen_block_7cf6a7c_HL6Ur7":{"type":"ai_gen_block_7cf6a7c","settings":{"instagram_url":"https:\/\/www.instagram.com\/queens_gems_jewellery","show_button_text":true,"button_text":"Follow us on Instagram","alignment":"center","desktop_width_percent":100,"padding_top":40,"padding_bottom":40,"padding_horizontal":20,"padding_top_mobile":30,"padding_bottom_mobile":30,"padding_horizontal_mobile":15,"background_color":"#ffffff","button_font_size":16,"icon_size":24,"button_padding_vertical":12,"button_padding_horizontal":24,"button_border_radius":8,"button_border_width":1,"button_background_color":"#e1306c","button_text_color":"#ffffff","button_border_color":"#e1306c","button_background_color_hover":"#c13584","button_text_color_hover":"#ffffff","button_border_color_hover":"#c13584"},"blocks":{}}},"block_order":["ai_gen_block_7cf6a7c_HL6Ur7"],"settings":{}}},"order":["slideshow_knHgaT","banner_with_scroll_images","product-tabs","collection-list-1","collection_list_MrbqwK","image-with-text","ticker","featured-products","richtext","video","best-sellers","featured-blog","newsletter","17857716245ad91071","richtext_Nqb8pG","contact_page_template_XUbjxA","178644689656d9834d","1787222705447318eb"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_knHgaT": {
+      "type": "slideshow",
+      "blocks": {
+        "image_k4JtBh": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Slider_-_HP.png",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_aria_label": "",
+            "button_link": "/",
+            "open_in_new_tab": false,
+            "make_link_full_slide": false,
+            "second_button_text": "",
+            "second_button_aria_label": "",
+            "second_button_link": "/",
+            "second_open_in_new_tab": false,
+            "text_alignment_inside_block_desktop": "center",
+            "text_alignment_inside_block_mobile": "center",
+            "content_alignment_horizontal_desktop": "center",
+            "content_alignment_vertical_desktop": "middle",
+            "content_alignment_vertical_mobile": "middle",
+            "background_color": "#757575",
+            "background_content": "",
+            "enable_glass_effect": false,
+            "heading_color": "#ffffff",
+            "description_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_background_color": "#ffffff",
+            "button_border_color": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background_color_hover": "#f9f9f9",
+            "button_border_color_hover": "#f9f9f9",
+            "second_button_text_color": "#ffffff",
+            "second_button_background_color": "rgba(0,0,0,0)",
+            "second_button_border_color": "#ffffff",
+            "second_button_text_color_hover": "#000000",
+            "second_button_background_color_hover": "#ffffff",
+            "second_button_border_color_hover": "#ffffff",
+            "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"
+          }
+        },
+        "image_U9deg7": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Slider_2_-_HP.png",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_aria_label": "",
+            "button_link": "/",
+            "open_in_new_tab": false,
+            "make_link_full_slide": false,
+            "second_button_text": "",
+            "second_button_aria_label": "",
+            "second_button_link": "/",
+            "second_open_in_new_tab": false,
+            "text_alignment_inside_block_desktop": "center",
+            "text_alignment_inside_block_mobile": "center",
+            "content_alignment_horizontal_desktop": "center",
+            "content_alignment_vertical_desktop": "middle",
+            "content_alignment_vertical_mobile": "middle",
+            "background_color": "#757575",
+            "background_content": "",
+            "enable_glass_effect": false,
+            "heading_color": "#ffffff",
+            "description_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_background_color": "#ffffff",
+            "button_border_color": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background_color_hover": "#f9f9f9",
+            "button_border_color_hover": "#f9f9f9",
+            "second_button_text_color": "#ffffff",
+            "second_button_background_color": "rgba(0,0,0,0)",
+            "second_button_border_color": "#ffffff",
+            "second_button_text_color_hover": "#000000",
+            "second_button_background_color_hover": "#ffffff",
+            "second_button_border_color_hover": "#ffffff",
+            "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"
+          }
+        },
+        "image_7T3BVV": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Slider_3_-_HP.png",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_aria_label": "",
+            "button_link": "/",
+            "open_in_new_tab": false,
+            "make_link_full_slide": false,
+            "second_button_text": "",
+            "second_button_aria_label": "",
+            "second_button_link": "/",
+            "second_open_in_new_tab": false,
+            "text_alignment_inside_block_desktop": "center",
+            "text_alignment_inside_block_mobile": "center",
+            "content_alignment_horizontal_desktop": "center",
+            "content_alignment_vertical_desktop": "middle",
+            "content_alignment_vertical_mobile": "middle",
+            "background_color": "#757575",
+            "background_content": "",
+            "enable_glass_effect": false,
+            "heading_color": "#ffffff",
+            "description_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_background_color": "#ffffff",
+            "button_border_color": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background_color_hover": "#f9f9f9",
+            "button_border_color_hover": "#f9f9f9",
+            "second_button_text_color": "#ffffff",
+            "second_button_background_color": "rgba(0,0,0,0)",
+            "second_button_border_color": "#ffffff",
+            "second_button_text_color_hover": "#000000",
+            "second_button_background_color_hover": "#ffffff",
+            "second_button_border_color_hover": "#ffffff",
+            "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"
+          }
+        },
+        "image_CMFBJH": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Slider_4_-_HP.png",
+            "heading": "",
+            "description": "",
+            "button_text": "",
+            "button_aria_label": "",
+            "button_link": "/",
+            "open_in_new_tab": false,
+            "make_link_full_slide": false,
+            "second_button_text": "",
+            "second_button_aria_label": "",
+            "second_button_link": "/",
+            "second_open_in_new_tab": false,
+            "text_alignment_inside_block_desktop": "center",
+            "text_alignment_inside_block_mobile": "center",
+            "content_alignment_horizontal_desktop": "center",
+            "content_alignment_vertical_desktop": "middle",
+            "content_alignment_vertical_mobile": "middle",
+            "background_color": "#757575",
+            "background_content": "",
+            "enable_glass_effect": false,
+            "heading_color": "#ffffff",
+            "description_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_background_color": "#ffffff",
+            "button_border_color": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background_color_hover": "#f9f9f9",
+            "button_border_color_hover": "#f9f9f9",
+            "second_button_text_color": "#ffffff",
+            "second_button_background_color": "rgba(0,0,0,0)",
+            "second_button_border_color": "#ffffff",
+            "second_button_text_color_hover": "#000000",
+            "second_button_background_color_hover": "#ffffff",
+            "second_button_border_color_hover": "#ffffff",
+            "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_k4JtBh",
+        "image_U9deg7",
+        "image_7T3BVV",
+        "image_CMFBJH"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "show_arrows": false,
+        "show_thumbnails": false,
+        "show_pagination": false,
+        "show_progress_bar": false,
+        "enable_loop": true,
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
+        "animation_speed": 0.5,
+        "animation_type": "slide",
+        "background_color": "#ffffff",
+        "progress_bar_color": "#ffffff",
+        "pagination_color": "#ffffff",
+        "pagination_color_opacity": 30,
+        "pagination_color_active": "#ffffff",
+        "arrows_background_color": "#ffffff",
+        "arrows_background_color_opacity": 30,
+        "arrows_color": "#ffffff",
+        "arrows_border_color": "#ffffff",
+        "arrows_border_color_opacity": 30,
+        "arrows_background_color_hover": "#ffffff",
+        "arrows_background_color_opacity_hover": 50,
+        "arrows_color_hover": "#ffffff",
+        "arrows_border_color_hover": "#ffffff",
+        "arrows_border_color_opacity_hover": 100,
+        "thumbnail_border_color_active": "#ffd875",
+        "thumbnails_background_color": "#000",
+        "thumbnails_background_color_opacity": 20,
+        "container_width": "inherit",
+        "height_desktop": 100,
+        "height_mobile": 100,
+        "subtract_header_height": false,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 16,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 16
+      }
+    },
+    "banner_with_scroll_images": {
+      "type": "banner-with-scroll-images",
+      "blocks": {
+        "first_column_whThqQ": {
+          "type": "first_column",
+          "settings": {
+            "block_image": "shopify://shop_images/1_21.png"
+          }
+        },
+        "second_column_D3ypT6": {
+          "type": "second_column",
+          "settings": {
+            "block_image": "shopify://shop_images/image_56948ed6-ea05-4b7f-b87e-c4944b435762.png"
+          }
+        },
+        "third_column_xMJd7T": {
+          "type": "third_column",
+          "settings": {
+            "block_image": "shopify://shop_images/Earrings.png"
+          }
+        },
+        "first_column_MUUxan": {
+          "type": "first_column",
+          "settings": {
+            "block_image": "shopify://shop_images/2_2.png"
+          }
+        },
+        "first_column_PGFKCW": {
+          "type": "first_column",
+          "settings": {
+            "block_image": "shopify://shop_images/1_21.png"
+          }
+        },
+        "first_column_Xat4cX": {
+          "type": "first_column",
+          "settings": {
+            "block_image": "shopify://shop_images/Pendant.png"
+          }
+        },
+        "second_column_fhppcq": {
+          "type": "second_column",
+          "settings": {
+            "block_image": "shopify://shop_images/73ab4a0590235db7e71cd4b41f47147b.png"
+          }
+        },
+        "second_column_gW4VRD": {
+          "type": "second_column",
+          "settings": {
+            "block_image": "shopify://shop_images/2_1_619ae509-ec3c-406e-b449-c035c8847a33.png"
+          }
+        },
+        "second_column_8tJ7bM": {
+          "type": "second_column",
+          "settings": {
+            "block_image": "shopify://shop_images/2_14.png"
+          }
+        },
+        "third_column_zGXaTP": {
+          "type": "third_column",
+          "settings": {
+            "block_image": "shopify://shop_images/1_21.png"
+          }
+        },
+        "third_column_hfV8bb": {
+          "type": "third_column",
+          "settings": {
+            "block_image": "shopify://shop_images/Rings.png"
+          }
+        },
+        "third_column_LykzkA": {
+          "type": "third_column",
+          "settings": {
+            "block_image": "shopify://shop_images/Earrings.png"
+          }
+        }
+      },
+      "block_order": [
+        "first_column_whThqQ",
+        "second_column_D3ypT6",
+        "third_column_xMJd7T",
+        "first_column_MUUxan",
+        "first_column_PGFKCW",
+        "first_column_Xat4cX",
+        "second_column_fhppcq",
+        "second_column_gW4VRD",
+        "second_column_8tJ7bM",
+        "third_column_zGXaTP",
+        "third_column_hfV8bb",
+        "third_column_LykzkA"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "700px",
+        "title": "Queens Jewelry Collection",
+        "label": "New",
+        "text": "<p>Exquisite handcrafted jewelry featuring vibrant teal gemstones for a touch of elegance and uniqueness</p>",
+        "button_label": "Shop All",
+        "button_aria_label": "Button aria-label",
+        "button_link": "shopify://collections/asset-pack-36173807618-example-products",
+        "button_style": "secondary-border",
+        "section_background": "#fff",
+        "overlay_color": "linear-gradient(180deg, rgba(255, 255, 255, 1) 9%, rgba(248, 255, 59, 0) 35%, rgba(217, 255, 69, 0) 66.187%, rgba(255, 255, 255, 1) 91%)",
+        "text_color": "#000000",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 40,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "product-tabs": {
+      "type": "product-tabs",
+      "blocks": {
+        "product-tabs-tab-1": {
+          "type": "tab",
+          "settings": {
+            "heading": "Best sellers",
+            "product_list": [
+              "amour-ring-heart-cut-tanzanite-diamond-ring-in-14k-yellow-gold",
+              "cushion-cut-tanzanite-diamond-halo-pendant-in-silver-copy",
+              "oval-cut-tanzanite-diamond-earring-in-white-gold",
+              "oval-cut-tanzanite-diamond-halo-pendant-in-white-gold"
+            ]
+          }
+        },
+        "product-tabs-tab-2": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Bracelets",
+            "product_list": [
+              "asset-pack-36173807618-example-product-3",
+              "asset-pack-36173807618-example-product-2",
+              "asset-pack-36173807618-example-product-1",
+              "asset-pack-36173807618-example-product-4"
+            ]
+          }
+        },
+        "product-tabs-tab-3": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Necklaces",
+            "product_list": []
+          }
+        },
+        "product-tabs-tab-4": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Rings",
+            "product_list": [
+              "asset-pack-36173807618-example-product-1",
+              "asset-pack-36173807618-example-product-4",
+              "asset-pack-36173807618-example-product-3",
+              "asset-pack-36173807618-example-product-2"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "product-tabs-tab-1",
+        "product-tabs-tab-2",
+        "product-tabs-tab-3",
+        "product-tabs-tab-4"
+      ],
+      "settings": {
+        "heading": "Most Loved",
+        "label": "",
+        "text": "",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 100,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "collection-list-1": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "rings-1",
+            "image": "shopify://shop_images/Rings_afd5f50f-15d3-4e74-9d25-26e9376fd21b.png"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "earrings-1",
+            "image": "shopify://shop_images/Earrings_75cbc08e-ead1-4d03-af6e-651d79d04321.png"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "pendants",
+            "image": "shopify://shop_images/Pendant_b8e17b29-e8b4-4630-9bd3-4683f20ce33b.png"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "pendants-and-earrings",
+            "image": "shopify://shop_images/pendant_earrings_set_7e9bed07-b775-44f6-8a57-46c25b8dae62.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Shop by Category",
+        "link_url": "shopify://collections",
+        "link_text": "Show More",
+        "link_aria_label_text": "Learn More",
+        "button_style": "secondary-border",
+        "text_alignment": "center",
+        "text_position": "inside_image",
+        "aspect_ratio": "landscape",
+        "cards_per_row": "4",
+        "center_on_desktop": false,
+        "show_products_count": false,
+        "overlay_color": "",
+        "color_text": "#ffffff",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "collection_list_MrbqwK": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_jn6ALz": {
+          "type": "collection",
+          "settings": {
+            "collection": "rings-1",
+            "image": "shopify://shop_images/Rings_afd5f50f-15d3-4e74-9d25-26e9376fd21b.png"
+          }
+        },
+        "collection_qWU9tw": {
+          "type": "collection",
+          "settings": {
+            "collection": "earrings-1",
+            "image": "shopify://shop_images/Earrings_75cbc08e-ead1-4d03-af6e-651d79d04321.png"
+          }
+        },
+        "collection_iVRDhy": {
+          "type": "collection",
+          "settings": {
+            "collection": "pendants",
+            "image": "shopify://shop_images/Pendant_b8e17b29-e8b4-4630-9bd3-4683f20ce33b.png"
+          }
+        },
+        "collection_cRCkXj": {
+          "type": "collection",
+          "settings": {
+            "collection": "pendants-and-earrings",
+            "image": "shopify://shop_images/pendant_earrings_set_7e9bed07-b775-44f6-8a57-46c25b8dae62.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_jn6ALz",
+        "collection_qWU9tw",
+        "collection_iVRDhy",
+        "collection_cRCkXj"
+      ],
+      "name": "Collections grid",
+      "settings": {
+        "heading": "Shop by Category",
+        "link_url": "",
+        "link_text": "",
+        "link_aria_label_text": "",
+        "button_style": "secondary-border",
+        "text_alignment": "center",
+        "text_position": "under_image",
+        "aspect_ratio": "portrait",
+        "cards_per_row": "4",
+        "center_on_desktop": false,
+        "show_products_count": false,
+        "overlay_color": "",
+        "color_text": "#fff",
+        "container_width": "inherit",
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "text_alignment": "left",
+        "content_vertical_alignment": "center",
+        "two_images_layout": "double_vertical_offset",
+        "first_desktop_image": "shopify://shop_images/Rings.png",
+        "first_mobile_image": "shopify://shop_images/Rings.png",
+        "second_desktop_image": "shopify://shop_images/Earrings.png",
+        "second_mobile_image": "shopify://shop_images/Earrings.png",
+        "heading": "OUR MISSION",
+        "subheading": "",
+        "text_content": "<p>To offer exquisite in vogue jewelery that resonates with your unique style.<br/>We believe jewelery should complement every facet of your life, from everyday moments to special occasions. Our focus on quality, durability and affordability ensures each piece accompanies you seamlessly through your adventures.</p>",
+        "button_label": "Shop All",
+        "button_aria_label": "shop all products",
+        "button_url": "shopify://collections/asset-pack-36173807618-example-products",
+        "button_style": "secondary-border",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 40
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "content_1": {
+          "type": "content",
+          "settings": {
+            "text": "Crafted for a QUEEN."
+          }
+        },
+        "content_2": {
+          "type": "content",
+          "settings": {
+            "text": "For life’s most meaningful moments."
+          }
+        },
+        "content_3": {
+          "type": "content",
+          "settings": {
+            "text": "A part of your beautiful story."
+          }
+        },
+        "content_4": {
+          "type": "content",
+          "settings": {
+            "text": "For love. For milestones. For you."
+          }
+        }
+      },
+      "block_order": [
+        "content_1",
+        "content_2",
+        "content_3",
+        "content_4"
+      ],
+      "settings": {
+        "hide_bullets": true,
+        "font": "poppins_n4",
+        "font_size_desktop": 33,
+        "font_size_mobile": 16,
+        "enable_border": true,
+        "border_width": 2,
+        "direction": "left_to_right",
+        "desktop_movement_speed": 20,
+        "mobile_movement_speed": 35,
+        "section_background": "#75162D",
+        "text_color": "#ffffff",
+        "border_color": "#efe6cd",
+        "inner_indent": 7,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 70,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 40
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Our Recomendations",
+        "product_list": [
+          "asset-pack-36173807618-example-product-1",
+          "asset-pack-36173807618-example-product-2",
+          "asset-pack-36173807618-example-product-3"
+        ],
+        "layout": "3",
+        "show_arrows": false,
+        "show_banner": true,
+        "banner_image": "shopify://shop_images/dfe8f70deae87703f8b84e095962322a.png",
+        "banner_heading": "Queens",
+        "banner_text": "treasures",
+        "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)",
+        "container_width": "inherit",
+        "offset_top_desktop": 20,
+        "offset_bottom_desktop": 50,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "richtext": {
+      "type": "richtext",
+      "settings": {
+        "heading": "Made to Be Treasured",
+        "subheading": "",
+        "text_content": "<p>We believe jewellery should celebrate more than beauty. It should celebrate YOU.<br/>Wear your Queens piece as an expression of your story, your confidence, and the moments worth treasuring.</p>",
+        "text_alignment": "center",
+        "enable_read_more": false,
+        "read_more_text": "Show more",
+        "show_less_text": "Show less",
+        "background_color": "",
+        "text_color": "#414141",
+        "link_color": "",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 40,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 20
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "type": "popup",
+        "label": "",
+        "heading": "",
+        "text_content": "<p>Discover the beauty of Tanzanite through a collection of thoughtfully crafted rings, where the gemstone's distinctive blue and violet tones take centre stage. From refined designs to more intricate creations accented with diamonds, each piece is designed to highlight the natural character, rarity and brilliance of Tanzanite.</p>",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify://collections/rings-1",
+        "button_style": "secondary-border",
+        "aspect_ratio": "sixteen-nine",
+        "video_type": "youtube_vimeo",
+        "external_video_url_desktop": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "external_video_url_mobile": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "container_width": "inherit",
+        "button_text_color_play": "#414141",
+        "button_background_color_play": "#f6ea94",
+        "button_text_color_play_hover": "#414141",
+        "button_background_color_play_hover": "#ebca4e",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "best-sellers": {
+      "type": "best-sellers",
+      "blocks": {
+        "product_item_5": {
+          "type": "product_item",
+          "settings": {
+            "product": "royal-tanzanite-engagement-ring-18k-white-gold",
+            "product_title": "",
+            "image": "shopify://shop_images/image.png"
+          }
+        },
+        "product_item_1": {
+          "type": "product_item",
+          "settings": {
+            "product": "asset-pack-36173807618-example-product-1",
+            "product_title": "",
+            "image": "shopify://shop_images/image_72b7a96e-9fe6-4495-827d-a843593db055.png"
+          }
+        },
+        "product_item_2": {
+          "type": "product_item",
+          "settings": {
+            "product": "asset-pack-36173807618-example-product-2",
+            "product_title": "",
+            "image": "shopify://shop_images/image_56948ed6-ea05-4b7f-b87e-c4944b435762.png"
+          }
+        },
+        "product_item_3": {
+          "type": "product_item",
+          "settings": {
+            "product": "asset-pack-36173807618-example-product-3",
+            "product_title": "",
+            "image": "shopify://shop_images/image_184bcdd1-c767-408f-aed0-a7ed846e4748.png"
+          }
+        },
+        "product_item_4": {
+          "type": "product_item",
+          "settings": {
+            "product": "asset-pack-36173807618-example-product-4",
+            "product_title": "",
+            "image": "shopify://shop_images/efc5c2d638189d9b15261079e0b7860d.png"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_5",
+        "product_item_1",
+        "product_item_2",
+        "product_item_3",
+        "product_item_4"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "show_numeric": true,
+        "background_color": "#161e13",
+        "text_color": "#ffffff",
+        "border_color": "#323930",
+        "link_active_color": "#ffdc58",
+        "container_width": "inherit",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 40
+      }
+    },
+    "featured-blog": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "blog": "",
+        "heading": "Stories that inspire and empower",
+        "link_text": "",
+        "link_aria_label_text": "",
+        "button_style": "secondary-border",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "layout": "two_columns",
+        "heading": "Newsletter",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Sign up for early sale access, new in, promotions and more</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "#f4e4c8",
+        "text_color": "#000000",
+        "input_background": "#ffffff",
+        "input_color": "#000000",
+        "image_overlay": "",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "17857716245ad91071": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_HqcVcL": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTU3ODk0\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_HqcVcL"
+      ],
+      "disabled": true,
+      "settings": {
+        "container_width": "inherit",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "richtext_Nqb8pG": {
+      "type": "richtext",
+      "name": "Rich text",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "text_content": "<h2><a href=\"https://queensgemtz.myshopify.com/pages/book-a-private-appointment\" target=\"_blank\" title=\"https://queensgemtz.myshopify.com/pages/book-a-private-appointment\">Book An Appoinment</a></h2>",
+        "text_alignment": "center",
+        "enable_read_more": false,
+        "read_more_text": "Show more",
+        "show_less_text": "Show less",
+        "background_color": "",
+        "text_color": "",
+        "link_color": "",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "contact_page_template_XUbjxA": {
+      "type": "contact-page-template",
+      "name": "Contact",
+      "settings": {
+        "map_api_key": "",
+        "map_query": "Eiffel+Tower,Paris+France",
+        "map_url": "",
+        "form_heading": "Contact Us",
+        "name_label": "Name",
+        "name_placeholder": "Your name...",
+        "is_name_required": false,
+        "email_label": "Email",
+        "email_placeholder": "Your email...",
+        "phone_label": "Phone",
+        "phone_placeholder": "Enter your phone number",
+        "is_phone_required": false,
+        "message_label": "Message",
+        "message_placeholder": "Your message...",
+        "is_message_required": false,
+        "submit_label": "Send",
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "178644689656d9834d": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1787222705447318eb": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf6a7c_HL6Ur7": {
+          "type": "ai_gen_block_7cf6a7c",
+          "settings": {
+            "instagram_url": "https://www.instagram.com/queens_gems_jewellery",
+            "show_button_text": true,
+            "button_text": "Follow us on Instagram",
+            "alignment": "center",
+            "desktop_width_percent": 100,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "padding_top_mobile": 30,
+            "padding_bottom_mobile": 30,
+            "padding_horizontal_mobile": 15,
+            "background_color": "#ffffff",
+            "button_font_size": 16,
+            "icon_size": 24,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 8,
+            "button_border_width": 1,
+            "button_background_color": "#e1306c",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#e1306c",
+            "button_background_color_hover": "#c13584",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#c13584"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf6a7c_HL6Ur7"
+      ],
+      "settings": {}
+    },
+    "video_47T7BM": {
+      "type": "video",
+      "name": "Tanzanite video",
+      "settings": {
+        "type": "popup",
+        "label": "",
+        "heading": "Video heading",
+        "text_content": "<p>Discover the beauty of Tanzanite through a collection of thoughtfully crafted rings, where the gemstone's distinctive blue and violet tones take centre stage. From refined designs to more intricate creations accented with diamonds, each piece is designed to highlight the natural character, rarity and brilliance of Tanzanite.</p>",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify://collections/rings-1",
+        "button_style": "secondary-border",
+        "aspect_ratio": "sixteen-nine",
+        "video_type": "youtube_vimeo",
+        "external_video_url_desktop": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "external_video_url_mobile": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "container_width": "inherit",
+        "button_text_color_play": "#000000",
+        "button_background_color_play": "#ffffff",
+        "button_text_color_play_hover": "#ffffff",
+        "button_background_color_play_hover": "#000000",
+        "offset_top_desktop": 32,
+        "offset_bottom_desktop": 32,
+        "offset_top_mobile": 32,
+        "offset_bottom_mobile": 32
+      }
+    }
+  },
+  "order": [
+    "slideshow_knHgaT",
+    "video_47T7BM",
+    "banner_with_scroll_images",
+    "product-tabs",
+    "collection-list-1",
+    "collection_list_MrbqwK",
+    "image-with-text",
+    "ticker",
+    "featured-products",
+    "richtext",
+    "video",
+    "best-sellers",
+    "featured-blog",
+    "newsletter",
+    "17857716245ad91071",
+    "richtext_Nqb8pG",
+    "contact_page_template_XUbjxA",
+    "178644689656d9834d",
+    "1787222705447318eb"
+  ]
+}
