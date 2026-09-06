@@ -20,6 +20,16 @@
 {%- assign success_message	    	= section.settings.success_message | default_success_text -%}
 {%- assign enable_gdpr              = section.settings.enable_gdpr -%}
 {%- assign gdpr_text                = section.settings.gdpr_text -%}
+{%- assign show_instagram_button     = section.settings.show_instagram_button -%}
+{%- assign show_instagram_button_text = section.settings.show_instagram_button_text -%}
+{%- assign instagram_url            = section.settings.instagram_url | default: settings.social_instagram_link -%}
+{%- assign instagram_button_text    = section.settings.instagram_button_text -%}
+{%- assign instagram_button_background_color = section.settings.instagram_button_background_color -%}
+{%- assign instagram_button_text_color = section.settings.instagram_button_text_color -%}
+{%- assign instagram_button_border_color = section.settings.instagram_button_border_color -%}
+{%- assign instagram_button_background_color_hover = section.settings.instagram_button_background_color_hover -%}
+{%- assign instagram_button_text_color_hover = section.settings.instagram_button_text_color_hover -%}
+{%- assign instagram_button_border_color_hover = section.settings.instagram_button_border_color_hover -%}
 {%- assign current_year				= 'now' | date: '%Y'  -%}
 {%- assign last_section_block		= section.blocks | last -%}
 
@@ -388,6 +398,10 @@
 
 	<div class="footer__bottom-content">
 		<div class="footer__bottom-left-col">
+			<p class="footer__copyright">
+				{{ copyright_text | replace: "%date%", current_year }} {{ powered_by_link }}
+			</p>
+
 			{%- if is_show_language_selector == true and localization.available_languages.size > 1 -%}
 				{% assign language_selector = true %}
 			{%- endif -%}
@@ -426,9 +440,19 @@
 		{% endif %}
 
 		<div class="footer__bottom-right-col">
-			<p class="footer__copyright">
-				{{ copyright_text | replace: "%date%", current_year }} {{ powered_by_link }}
-			</p>
+			{%- if show_instagram_button and instagram_url != blank -%}
+				{%- render 'footer-instagram-button',
+					instagram_url: instagram_url,
+					instagram_button_text: instagram_button_text,
+					show_instagram_button_text: show_instagram_button_text,
+					button_background_color: instagram_button_background_color,
+					button_text_color: instagram_button_text_color,
+					button_border_color: instagram_button_border_color,
+					button_background_color_hover: instagram_button_background_color_hover,
+					button_text_color_hover: instagram_button_text_color_hover,
+					button_border_color_hover: instagram_button_border_color_hover
+				-%}
+			{%- endif -%}
 
 			{%- if show_back_to_top_button == true -%}
 				<button class="footer__back-to-top js-back-to-top-button" type="button" aria-label="{{ 'general.accessibility.scroll_to_top' | t | escape }}">
@@ -495,6 +519,69 @@
 			"id": "show_back_to_top_button",
 			"label": "Show back to top button",
 			"default": true
+		},
+		{
+			"type": "header",
+			"content": "Instagram"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_instagram_button",
+			"label": "Show Instagram button",
+			"default": true
+		},
+		{
+			"type": "url",
+			"id": "instagram_url",
+			"label": "Instagram URL"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_instagram_button_text",
+			"label": "Show button text",
+			"default": true
+		},
+		{
+			"type": "text",
+			"id": "instagram_button_text",
+			"label": "Button text",
+			"default": "Follow us on Instagram"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_background_color",
+			"label": "Button background",
+			"default": "#E1306C"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_text_color",
+			"label": "Button text",
+			"default": "#ffffff"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_border_color",
+			"label": "Button border",
+			"default": "#E1306C"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_background_color_hover",
+			"label": "Button background (hover)",
+			"default": "#C13584"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_text_color_hover",
+			"label": "Button text (hover)",
+			"default": "#ffffff"
+		},
+		{
+			"type": "color",
+			"id": "instagram_button_border_color_hover",
+			"label": "Button border (hover)",
+			"default": "#C13584"
 		},
 		{
 			"type": "header",
