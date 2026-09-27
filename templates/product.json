@@ -322,10 +322,31 @@
     },
     "richtext": {
       "type": "richtext",
+      "disabled": true,
       "settings": {
         "heading": "Express yourself with Teall",
         "subheading": "",
-        "text_content": "<p>Choosing jewelry is a deeply personal and expressive process that involves a delicate balance between individual style, occasion, and personal taste. Whether selecting a piece for everyday wear or a special event, considerations such as metal type, gemstone preferences, and design aesthetics play pivotal roles. Some may lean towards classic and timeless pieces, opting for simplicity and versatility, while others may be drawn to bold and statement-making jewelry to showcase their personality. Cultural influences, sentimental value, and lifestyle also contribute to the decision-making process, making each jewelry selection a unique reflection of the wearer's identity and the significance they attach to adornment. <br/><br/>Ultimately, the art of choosing jewelry is an art of self-expression and storytelling.</p>",
+        "text_content": "<p>Choosing jewelry is a deeply personal and expressive process that involves a delicate balance between individual style, occasion, and personal taste. Whether selecting a piece for everyday wear or a special event, considerations such as metal type, gemstone preferences, and design aesthetics play pivotal roles. Some may lean towards classic and timeless pieces, opting for simplicity and versatility, while others may be drawn to bold and statement-making jewelry to showcase their personality. Cultural influences, sentimental value, and lifestyle also contribute to the decision-making process, making each jewelry selection a unique reflection of the wearer's identity and the significance they attach to adornment.&nbsp;<br/><br/>Ultimately, the art of choosing jewelry is an art of self-expression and storytelling.</p>",
+        "text_alignment": "left",
+        "enable_read_more": false,
+        "read_more_text": "Show more",
+        "show_less_text": "Show less",
+        "background_color": "",
+        "text_color": "",
+        "link_color": "",
+        "container_width": "1432px",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "richtext_Pm43re": {
+      "type": "richtext",
+      "settings": {
+        "heading": "Made to Hold Meaning",
+        "subheading": "",
+        "text_content": "<p>Some jewellery is chosen for how it looks.&nbsp;</p><p>The pieces from Queens are chosen for what they mean.&nbsp;</p><p>&nbsp;A celebration. A promise. A new beginning. A quiet reminder of someone you love. Each piece becomes part of a story that is uniquely yours, designed to be cherished today and treasured for generations to come.&nbsp;</p><p>&nbsp;Queens creates jewelry for the moments worth remembering.</p>",
         "text_alignment": "left",
         "enable_read_more": false,
         "read_more_text": "Show more",
@@ -412,6 +433,7 @@
     "product-template",
     "1787221350090026ba",
     "richtext",
+    "richtext_Pm43re",
     "product-recommendations",
     "featured-products",
     "newsletter"

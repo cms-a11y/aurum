@@ -288,7 +288,7 @@
 							</span>
 						</a>
 
-						{%- if cart_type == 'page' -%}
+						{% comment %} {%- if cart_type == 'page' -%}
 							<a href="{{- routes.cart_url -}}" class="header__icon header__icon--cart">
 								{%- render 'icons', icon: 'cart' -%}
 
@@ -345,7 +345,7 @@
 									</span>
 								</span>
 							</button>
-						{%- endif -%}
+						{%- endif -%} {% endcomment %}
 					</div>
 				</div>
 			</div>
@@ -468,7 +468,7 @@
 					</span>
 				</a>
 
-				{%- if cart_type == 'page' -%}
+				{% comment %} {%- if cart_type == 'page' -%}
 					<a href="{{- routes.cart_url -}}" class="header__icon header__icon--cart">
 						{%- render 'icons', icon: 'cart' -%}
 
@@ -525,7 +525,7 @@
 							</span>
 						</span>
 					</button>
-				{%- endif -%}
+				{%- endif -%} {% endcomment %}
 			</div>
 		</div>
 	</div>
