@@ -900,10 +900,37 @@
     },
     "178644689656d9834d": {
       "type": "_blocks",
-      "settings": {}
-    },
-    "1788670095f29eec14": {
-      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_efd43e1_p9NGCw": {
+          "type": "ai_gen_block_efd43e1",
+          "name": "Collection image grid",
+          "settings": {
+            "desktop_width_percent": 100,
+            "grid_gap": 2,
+            "image_ratio": "1 / 1",
+            "text_color": "#FFFFFF",
+            "overlay_opacity": 0,
+            "label_size": 34,
+            "text_alignment": "center",
+            "image_1": "shopify://shop_images/3_35.png",
+            "title_1": "Rings",
+            "link_1": "shopify://collections/rings-1",
+            "image_2": "shopify://shop_images/4_18_1.png",
+            "title_2": "Earrings",
+            "link_2": "shopify://collections/earrings-1",
+            "image_3": "shopify://shop_images/5_10.png",
+            "title_3": "Pendants",
+            "link_3": "shopify://collections/pendants",
+            "image_4": "shopify://shop_images/Image.jpg",
+            "title_4": "Pendants and Earrings",
+            "link_4": "shopify://collections/pendants-and-earrings"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_efd43e1_p9NGCw"
+      ],
       "settings": {}
     }
   },
@@ -913,6 +940,7 @@
     "banner_with_scroll_images",
     "product-tabs",
     "collection-list-1",
+    "178644689656d9834d",
     "collection_list_MrbqwK",
     "image-with-text",
     "image_with_text_gKUjpC",
@@ -925,8 +953,6 @@
     "17857716245ad91071",
     "richtext_Nqb8pG",
     "book_appointment_button_HkPCfT",
-    "contact_page_template_XUbjxA",
-    "178644689656d9834d",
-    "1788670095f29eec14"
+    "contact_page_template_XUbjxA"
   ]
 }
