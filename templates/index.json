@@ -491,7 +491,7 @@
             "desktop_width_percent": 100,
             "grid_gap": 2,
             "image_ratio": "4 / 3",
-            "text_color": "#FFFFFF",
+            "text_color": "#ffffff",
             "overlay_opacity": 0,
             "label_size": 34,
             "text_alignment": "center",
@@ -685,6 +685,7 @@
     },
     "featured-products": {
       "type": "featured-products",
+      "disabled": true,
       "settings": {
         "heading": "Our Recomendations",
         "product_list": [
