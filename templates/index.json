@@ -930,16 +930,16 @@
       "type": "newsletter",
       "settings": {
         "layout": "two_columns",
-        "heading": "Newsletter",
+        "heading": "A GIFT FROM QUEENS",
         "subheading": "Sign up and get 10% off",
-        "text": "<p>Sign up for early sale access, new in, promotions and more</p>",
+        "text": "<p>Enjoy 10% off your first purchase when you sign up, and be the first to discover new pieces, curated tanzanite collections, special offers, private events, and a little something special just for you.</p>",
         "success_message": "Thanks for subscribing",
         "image_position": "left",
         "email_placeholder": "Your email",
         "button_label": "Subscribe",
         "button_style": "secondary",
-        "section_background": "#f4e4c8",
-        "text_color": "#000000",
+        "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
+        "text_color": "#FFFFFF",
         "input_background": "#ffffff",
         "input_color": "#000000",
         "image_overlay": "",
@@ -1099,6 +1099,7 @@
     },
     "richtext": {
       "type": "richtext",
+      "disabled": true,
       "settings": {
         "heading": "Made to Be Treasured",
         "subheading": "",
@@ -1245,6 +1246,7 @@
     },
     "book_appointment_button_HkPCfT": {
       "type": "book-appointment-button",
+      "disabled": true,
       "name": "Book appointment button",
       "settings": {
         "heading": "",
