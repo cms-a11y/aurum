@@ -628,7 +628,7 @@
       "type": "private-appointment-banner",
       "name": "Private appointment",
       "settings": {
-        "accessibility_label": "",
+        "accessibility_label": "Appointments view",
         "custom_class": "",
         "background_image": "shopify://shop_images/banner-view.webp",
         "background_color": "#35151C",
@@ -653,7 +653,7 @@
         "subtitle_spacing": 24,
         "heading": "Your story. Our undivided attention.",
         "heading_color": "#FFFFFF",
-        "heading_size": 72,
+        "heading_size": 60,
         "mobile_heading_size": 38,
         "heading_weight": "400",
         "heading_line_height": 1.1,
