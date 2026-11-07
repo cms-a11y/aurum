@@ -1,0 +1,317 @@
+
+{% comment %}
+  Section: Statistics / Achievement Bar
+{% endcomment %}
+
+{% style %}
+
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__container {
+    width: 100%;
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 20px;
+    border-right: 1px solid {{ section.settings.divider_color }};
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__item:last-child {
+    border-right: none;
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__value {
+    margin: 0;
+    color: {{ section.settings.number_color }};
+    font-size: {{ section.settings.number_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .statistics-bar__label {
+    margin: 16px 0 0;
+    font-size: {{ section.settings.label_size }}px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }} .statistics-bar__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #shopify-section-{{ section.id }} .statistics-bar__item {
+      padding: 30px 12px;
+      border-bottom: 1px solid {{ section.settings.divider_color }};
+    }
+
+    #shopify-section-{{ section.id }} .statistics-bar__item:nth-child(2n) {
+      border-right: none;
+    }
+
+    #shopify-section-{{ section.id }} .statistics-bar__item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    #shopify-section-{{ section.id }} .statistics-bar__value {
+      font-size: {{ section.settings.number_size | times: 0.75 }}px;
+    }
+
+    #shopify-section-{{ section.id }} .statistics-bar__label {
+      font-size: {{ section.settings.label_size | times: 0.85 }}px;
+      margin-top: 10px;
+      letter-spacing: 1.5px;
+    }
+  }
+
+{% endstyle %}
+
+<section class="statistics-bar">
+  <div class="statistics-bar__container">
+    <div class="statistics-bar__grid">
+
+      {% for block in section.blocks %}
+        <div
+          class="statistics-bar__item"
+          {{ block.shopify_attributes }}
+        >
+
+          {% if block.settings.value != blank %}
+            <h2 class="statistics-bar__value">
+              {{ block.settings.value | escape }}
+            </h2>
+          {% endif %}
+
+          {% if block.settings.label != blank %}
+            <p
+              class="statistics-bar__label"
+              style="color: {{ block.settings.label_color }};"
+            >
+              {{ block.settings.label | escape }}
+            </p>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Statistics bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FAF7EF"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#EFE9DD"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container width",
+      "min": 800,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1800
+    },
+    {
+      "type": "header",
+      "content": "Number styling"
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Number color",
+      "default": "#17120F"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "label": "Number font size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Label styling"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label font size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "statistic",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Number / Value",
+          "default": "15+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years of Craft"
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "label": "Label color",
+          "default": "#75162D"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Statistics bar",
+      "blocks": [
+        {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162D"
+          }
+        },
+        {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162D"
+          }
+        },
+        {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162D"
+          }
+        },
+        {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#D6A94D"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
