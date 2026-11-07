@@ -291,6 +291,7 @@ html.no-js .collection .collection__image-wrapper {
 @media (min-width: 1200px) {
   .collection .collection__sidebar {
     flex-shrink: 0;
+    padding-top: 20px;
     padding-inline-start: 16px;
   }
   .collection.collection--with-sidebar .collection__body {
