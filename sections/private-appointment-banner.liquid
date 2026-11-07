@@ -243,7 +243,7 @@
 
       {% if section.settings.heading != blank %}
         <h2 class="appointment-banner__heading">
-          {{ section.settings.heading | escape | newline_to_br }}
+          {{ section.settings.heading | replace: '<br/>', '<br>' | replace: '<br />', '<br>' }}
         </h2>
       {% endif %}
 
