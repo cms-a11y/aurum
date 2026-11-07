@@ -35,7 +35,7 @@
       ],
       "settings": {
         "logo_image_width": 180,
-        "footer_text": "<p>EVERY QUEEN DESERVES SOMETHING EXTRAORDINARY<br/>Stay close to Queens for first looks at new creations, coveted Tanzanite pieces, special offers, private events and a little something special, just for you.</p>",
+        "footer_text": "",
         "copyright_text": "Copyright © %date%.",
         "quick_links": "",
         "is_show_payment_methods": true,
@@ -50,7 +50,7 @@
         "instagram_button_background_color_hover": "#f4e4c8",
         "instagram_button_text_color_hover": "#75162d",
         "instagram_button_border_color_hover": "#f4e4c8",
-        "enable_newsletter": true,
+        "enable_newsletter": false,
         "placeholder_text": "Your email address",
         "button_text": "Subscribe",
         "success_message": "Thanks for subscribing",
