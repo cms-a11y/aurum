@@ -53,7 +53,7 @@
         "care_item_mRqWgA": {
           "type": "care_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"></path><polygon points=\"12 15 17 21 7 21 12 15\"></polygon></svg>",
             "title": "Annual Polish",
             "content": "<ul><li>Professional cleaning recommended</li><li>Check for loose stones</li><li>Restore shine and luster</li></ul>"
           }
