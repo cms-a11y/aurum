@@ -77,13 +77,13 @@ html.no-js .collection .collection__image-wrapper {
 }
 .collection.collection--with-sidebar .collection__grid-wrapper{position:relative;}
 .collection.collection--with-sidebar .collection__grid-wrapper:after{
-  content: "";
+     content: "";
     width: 1px;
-    left: 0px;
+    left: -8px;
     top: 0;
     position: absolute;
+    background: #75162d2b;
     height: 100%;
-    border-bottom: 1px solid #75162d2b;
 }
 .collection .collection__image-wrapper-header .collection__description {
   max-width: 100%;
