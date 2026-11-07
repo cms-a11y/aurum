@@ -156,6 +156,8 @@
         "logo_width": 160,
         "logo_position": "middle",
         "menu": "main-menu",
+        "menu_left": "main-menu",
+        "menu_right": "support",
         "menu_type_desktop": "both",
         "open_menu_type": "hover",
         "make_first_lvl_clickable": false,
