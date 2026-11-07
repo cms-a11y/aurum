@@ -225,8 +225,28 @@
         "offset_bottom_mobile": 16
       }
     },
+    "featured_products_KKJYRQ": {
+      "type": "featured-products",
+      "name": "Featured products",
+      "settings": {
+        "heading": "Featured products",
+        "product_list": [],
+        "layout": "4",
+        "show_arrows": true,
+        "show_banner": false,
+        "banner_heading": "Heading",
+        "banner_text": "Text",
+        "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)",
+        "container_width": "inherit",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
     "video_47T7BM": {
       "type": "video",
+      "disabled": true,
       "name": "Tanzanite video",
       "settings": {
         "type": "popup",
@@ -417,6 +437,7 @@
         "product-tabs-tab-3",
         "product-tabs-tab-4"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Top Seller",
         "label": "",
@@ -944,6 +965,7 @@
   },
   "order": [
     "slideshow_knHgaT",
+    "featured_products_KKJYRQ",
     "video_47T7BM",
     "banner_with_scroll_images",
     "product-tabs",
