@@ -220,9 +220,9 @@
         "height_mobile": 100,
         "subtract_header_height": false,
         "offset_top_desktop": 0,
-        "offset_bottom_desktop": 16,
+        "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 16
+        "offset_bottom_mobile": 0
       }
     },
     "featured_products_KKJYRQ": {
@@ -251,10 +251,10 @@
         "banner_text": "Text",
         "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)",
         "container_width": "inherit",
-        "offset_top_desktop": 25,
-        "offset_bottom_desktop": 25,
-        "offset_top_mobile": 25,
-        "offset_bottom_mobile": 25
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
       }
     },
     "video_47T7BM": {
