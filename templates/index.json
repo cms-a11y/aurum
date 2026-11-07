@@ -230,7 +230,12 @@
       "name": "Featured products",
       "settings": {
         "heading": "Featured products",
-        "product_list": [],
+        "product_list": [
+          "heart-cut-tanzanite-diamond-halo-pendant-in-white-gold",
+          "cushion-cut-tanzanite-diamond-halo-pendant-in-silver-copy",
+          "cushion-cut-tanzanite-diamond-halo-pendant-in-silver",
+          "toi-et-moi-ring-14k-yellow-gold-tanzanite-toi-et-moi-ring"
+        ],
         "layout": "4",
         "show_arrows": true,
         "show_banner": false,
