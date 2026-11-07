@@ -993,6 +993,63 @@
         "offset_top_mobile": 30,
         "offset_bottom_mobile": 30
       }
+    },
+    "statistics_bar_7VbPRA": {
+      "type": "statistics-bar",
+      "blocks": {
+        "statistic_qcejnT": {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_YfVJ3Y": {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_yk87xk": {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_K3kM6Q": {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#d6a94d"
+          }
+        }
+      },
+      "block_order": [
+        "statistic_qcejnT",
+        "statistic_YfVJ3Y",
+        "statistic_yk87xk",
+        "statistic_K3kM6Q"
+      ],
+      "name": "Statistics bar",
+      "settings": {
+        "background_color": "#FAF7EF",
+        "divider_color": "#EFE9DD",
+        "container_width": 1800,
+        "number_color": "#17120F",
+        "number_size": 48,
+        "label_size": 12,
+        "letter_spacing": 2,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
     }
   },
   "order": [
@@ -1003,6 +1060,7 @@
     "product-tabs",
     "collection-list-1",
     "178644689656d9834d",
+    "statistics_bar_7VbPRA",
     "collection_list_MrbqwK",
     "image-with-text",
     "image_with_text_gKUjpC",
