@@ -9,7 +9,7 @@ span.banner-subheading {
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
-        font-size: 70px;
+        font-size: 65px;
         line-height: 1.1;
     }
 }
