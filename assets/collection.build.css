@@ -74,6 +74,7 @@ html.no-js .collection .collection__image-wrapper {
   margin-left: auto;
   margin-right: auto;
   padding: 0 16px;
+  position:relative;
 }
 .collection .collection__swiper {
   padding: 3px 16px 0;
