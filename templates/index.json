@@ -950,6 +950,29 @@
         "offset_bottom_mobile": 0
       }
     },
+    "image_with_text_z3bfnD": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image_position": "right",
+        "text_alignment": "left",
+        "content_vertical_alignment": "center",
+        "two_images_layout": "double_with_small",
+        "first_desktop_image": "shopify://shop_images/about-bgs.webp",
+        "heading": "The Bespoke Experience",
+        "subheading": "PRIVATE SERVICE",
+        "text_content": "<p>We believe jewellery is more than it looks — it<br/>should celebrate YOU. Book a private appointment<br/>with our expert consultants for a truly personal<br/>design journey.</p>",
+        "button_label": "Book an Appointment",
+        "button_aria_label": "Book an Appointment",
+        "button_url": "shopify://pages/contact",
+        "button_style": "primary",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 25
+      }
+    },
     "collection_list_MrbqwK": {
       "type": "collection-list",
       "blocks": {
@@ -1039,6 +1062,7 @@
     },
     "image_with_text_gKUjpC": {
       "type": "image-with-text",
+      "disabled": true,
       "settings": {
         "image_position": "left",
         "text_alignment": "left",
@@ -1316,6 +1340,7 @@
     "ticker",
     "quote_statement_banner_h4qeDY",
     "newsletter",
+    "image_with_text_z3bfnD",
     "collection_list_MrbqwK",
     "image-with-text",
     "image_with_text_gKUjpC",
