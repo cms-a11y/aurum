@@ -227,6 +227,9 @@
     },
     "featured_products_KKJYRQ": {
       "type": "featured-products",
+      "custom_css": [
+        ".featured-products__button{color: red;border-color: red;}"
+      ],
       "name": "Featured products",
       "settings": {
         "heading": "Signature Pieces",
@@ -250,7 +253,7 @@
         "banner_heading": "Heading",
         "banner_text": "Text",
         "overlay_color": "",
-        "background_color": "#FBF8EF",
+        "background_color": "#fbf8ef",
         "container_width": "inherit",
         "offset_top_desktop": 80,
         "offset_bottom_desktop": 80,
