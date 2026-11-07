@@ -63,7 +63,7 @@
 
 		<link rel="preload" as="style" href="{{ 'main.build.css' | asset_url }}">
 
-		<link rel="preload" as="style" href="{{ 'custom.css' | asset_url }}">
+		{{ 'custom.css' | asset_url | stylesheet_tag }}
 
 		{% if template.name == 'product' %}
 			<link rel="preload" as="style" href="{{ 'product.build.css' | asset_url }}">
