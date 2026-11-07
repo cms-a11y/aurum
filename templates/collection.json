@@ -61,7 +61,7 @@
         "care_item_kWj3hY": {
           "type": "care_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z\"></path><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"></line><path d=\"M16 10a4 4 0 0 1-8 0\"></path></svg>",
             "title": "Storage Tips",
             "content": "<ul><li>Keep in soft jewellery box</li><li>Separate from other jewellery</li><li>Avoid direct sunlight exposure</li></ul>"
           }
