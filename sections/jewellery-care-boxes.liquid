@@ -1,0 +1,825 @@
+
+{% liquid
+  assign section_id = 'JewelleryCare-' | append: section.id
+%}
+
+{% style %}
+  #{{ section_id }} {
+    display: block;
+    width: 100%;
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.desktop_padding_top }}px;
+    padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+  }
+
+  #{{ section_id }} .jewellery-care__inner {
+    width: {{ section.settings.width_percent }}%;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  #{{ section_id }} .jewellery-care__header {
+    text-align: {{ section.settings.heading_alignment }};
+    margin-bottom: {{ section.settings.header_spacing }}px;
+  }
+
+  #{{ section_id }} .jewellery-care__subtitle {
+    color: {{ section.settings.subtitle_color }};
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-style: {% if section.settings.subtitle_italic %}italic{% else %}normal{% endif %};
+    letter-spacing: {{ section.settings.subtitle_letter_spacing }}px;
+    text-transform: {{ section.settings.subtitle_transform }};
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+
+  #{{ section_id }} .jewellery-care__heading {
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    font-style: {% if section.settings.heading_italic %}italic{% else %}normal{% endif %};
+    line-height: 1.15;
+    margin: 0 0 14px;
+  }
+
+  #{{ section_id }} .jewellery-care__description {
+    color: {{ section.settings.description_color }};
+    font-size: {{ section.settings.description_size }}px;
+    font-style: {% if section.settings.description_italic %}italic{% else %}normal{% endif %};
+    line-height: 1.7;
+    max-width: {{ section.settings.description_width }}px;
+    margin: 0 auto;
+  }
+
+  #{{ section_id }} .jewellery-care__description p {
+    margin: 0 0 8px;
+  }
+
+  #{{ section_id }} .jewellery-care__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.desktop_columns }}, minmax(0, 1fr));
+    gap: {{ section.settings.column_gap }}px {{ section.settings.row_gap }}px;
+  }
+
+  #{{ section_id }} .jewellery-care__item {
+    text-align: {{ section.settings.box_alignment }};
+    min-width: 0;
+  }
+
+  #{{ section_id }} .jewellery-care__icon {
+    width: {{ section.settings.icon_circle_size }}px;
+    height: {{ section.settings.icon_circle_size }}px;
+    border-radius: {{ section.settings.icon_radius }}%;
+    background: {{ section.settings.icon_background }};
+    color: {{ section.settings.icon_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: {{ section.settings.icon_spacing }}px;
+    {% if section.settings.box_alignment == 'center' %}
+      margin-left: auto;
+      margin-right: auto;
+    {% elsif section.settings.box_alignment == 'right' %}
+      margin-left: auto;
+    {% else %}
+      margin-right: auto;
+    {% endif %}
+  }
+
+  #{{ section_id }} .jewellery-care__icon svg {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #{{ section_id }} .jewellery-care__icon svg * {
+    stroke: currentColor;
+  }
+
+  #{{ section_id }} .jewellery-care__box-title {
+    color: {{ section.settings.box_title_color }};
+    font-size: {{ section.settings.box_title_size }}px;
+    font-weight: {{ section.settings.box_title_weight }};
+    line-height: 1.3;
+    margin: 0 0 14px;
+  }
+
+  #{{ section_id }} .jewellery-care__box-content {
+    color: {{ section.settings.box_content_color }};
+    font-size: {{ section.settings.box_content_size }}px;
+    line-height: 1.7;
+  }
+
+  #{{ section_id }} .jewellery-care__box-content p {
+    margin: 0 0 5px;
+  }
+
+  #{{ section_id }} .jewellery-care__box-content ul,
+  #{{ section_id }} .jewellery-care__box-content ol {
+    margin: 0;
+    padding-left: 16px;
+    text-align: left;
+  }
+
+  #{{ section_id }} .jewellery-care__box-content li {
+    padding-left: 0;
+    margin-bottom: 3px;
+  }
+
+  #{{ section_id }} .jewellery-care__box-content li::marker {
+    color: {{ section.settings.list_marker_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__inner {
+      width: 100%;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #{{ section_id }} .jewellery-care__header {
+      margin-bottom: {{ section.settings.mobile_header_spacing }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__description {
+      font-size: {{ section.settings.mobile_description_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, minmax(0, 1fr));
+      gap: {{ section.settings.mobile_row_gap }}px {{ section.settings.mobile_column_gap }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__icon {
+      width: {{ section.settings.mobile_icon_circle_size }}px;
+      height: {{ section.settings.mobile_icon_circle_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__icon svg {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__box-title {
+      font-size: {{ section.settings.mobile_box_title_size }}px;
+    }
+
+    #{{ section_id }} .jewellery-care__box-content {
+      font-size: {{ section.settings.mobile_box_content_size }}px;
+    }
+  }
+{% endstyle %}
+
+<section
+  id="{{ section_id }}"
+  class="jewellery-care-section {{ section.settings.custom_class }}"
+>
+  <div class="jewellery-care__inner">
+
+    {% if section.settings.subtitle != blank
+      or section.settings.heading != blank
+      or section.settings.description != blank
+    %}
+      <div class="jewellery-care__header">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="jewellery-care__subtitle">
+            {{ section.settings.subtitle | escape }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="jewellery-care__heading">
+            {{ section.settings.heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="jewellery-care__description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="jewellery-care__grid">
+
+        {% for block in section.blocks %}
+          <div
+            class="jewellery-care__item"
+            {{ block.shopify_attributes }}
+          >
+
+            {% if block.settings.icon_svg != blank %}
+              <div class="jewellery-care__icon">
+                {{ block.settings.icon_svg }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="jewellery-care__box-title">
+                {{ block.settings.title | escape }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.content != blank %}
+              <div class="jewellery-care__box-content rte">
+                {{ block.settings.content }}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Jewellery care boxes",
+  "tag": "section",
+  "class": "jewellery-care-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "LIFETIME CARE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Keep Your Ring Timeless"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Proper care ensures your Queens ring remains beautiful and brilliant for generations.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "label": "Header bottom spacing",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "mobile_header_spacing",
+      "label": "Mobile header spacing",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Subtitle styling"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#75162D"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Font size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile font size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "subtitle_italic",
+      "label": "Italic subtitle",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "subtitle_letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "subtitle_transform",
+      "label": "Text transform",
+      "options": [
+        { "value": "none", "label": "Normal" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "header",
+      "content": "Heading styling"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#75162D"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop font size",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile font size",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_italic",
+      "label": "Italic heading",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Description styling"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#75162D"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Desktop font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_size",
+      "label": "Mobile font size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "checkbox",
+      "id": "description_italic",
+      "label": "Italic description",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "description_width",
+      "label": "Description maximum width",
+      "min": 300,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 650
+    },
+    {
+      "type": "header",
+      "content": "Information boxes layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "options": [
+        { "value": "2", "label": "2 Columns" },
+        { "value": "3", "label": "3 Columns" },
+        { "value": "4", "label": "4 Columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        { "value": "1", "label": "1 Column" },
+        { "value": "2", "label": "2 Columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "box_alignment",
+      "label": "Box content alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Desktop column gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Desktop row gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_column_gap",
+      "label": "Mobile column gap",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_row_gap",
+      "label": "Mobile row gap",
+      "min": 0,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Box title and content styling"
+    },
+    {
+      "type": "color",
+      "id": "box_title_color",
+      "label": "Box title color",
+      "default": "#241512"
+    },
+    {
+      "type": "range",
+      "id": "box_title_size",
+      "label": "Box title size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 23
+    },
+    {
+      "type": "range",
+      "id": "mobile_box_title_size",
+      "label": "Mobile box title size",
+      "min": 12,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "box_title_weight",
+      "label": "Box title weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "box_content_color",
+      "label": "Box content color",
+      "default": "#987B69"
+    },
+    {
+      "type": "color",
+      "id": "list_marker_color",
+      "label": "List bullet color",
+      "default": "#C69B42"
+    },
+    {
+      "type": "range",
+      "id": "box_content_size",
+      "label": "Desktop content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_box_content_size",
+      "label": "Mobile content size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Icon styling"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#F1E7D3"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#75162D"
+    },
+    {
+      "type": "range",
+      "id": "icon_circle_size",
+      "label": "Icon circle size",
+      "min": 40,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_circle_size",
+      "label": "Mobile icon circle size",
+      "min": 32,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "label": "Mobile icon size",
+      "min": 14,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Icon bottom spacing",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_radius",
+      "label": "Icon background roundness",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "width_percent",
+      "label": "Content width",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 800,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Add your own CSS class without the dot."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "care_item",
+      "name": "Information box",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon code",
+          "info": "Paste your complete SVG code here."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Box title",
+          "default": "Weekly Cleaning"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Box content",
+          "default": "<ul><li>Use mild dish soap and warm water</li><li>Gently brush with soft toothbrush</li><li>Pat dry with microfiber cloth</li></ul>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Jewellery care boxes",
+      "blocks": [
+        {
+          "type": "care_item",
+          "settings": {
+            "title": "Weekly Cleaning",
+            "content": "<ul><li>Use mild dish soap and warm water</li><li>Gently brush with soft toothbrush</li><li>Pat dry with microfiber cloth</li></ul>"
+          }
+        },
+        {
+          "type": "care_item",
+          "settings": {
+            "title": "Daily Protection",
+            "content": "<ul><li>Remove during exercise and swimming</li><li>Avoid harsh chemicals and lotions</li><li>Store safely when not wearing</li></ul>"
+          }
+        },
+        {
+          "type": "care_item",
+          "settings": {
+            "title": "Annual Polish",
+            "content": "<ul><li>Professional cleaning recommended</li><li>Check for loose stones</li><li>Restore shine and luster</li></ul>"
+          }
+        },
+        {
+          "type": "care_item",
+          "settings": {
+            "title": "Storage Tips",
+            "content": "<ul><li>Keep in soft jewellery box</li><li>Separate from other jewellery</li><li>Avoid direct sunlight exposure</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
