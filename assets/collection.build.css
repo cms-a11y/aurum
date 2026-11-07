@@ -75,6 +75,16 @@ html.no-js .collection .collection__image-wrapper {
     height: 1px;
     border-bottom: 1px solid #75162d2b;
 }
+.collection.collection--with-sidebar .collection__grid-wrapper{position:relative;}
+.collection.collection--with-sidebar .collection__grid-wrapper:after{
+  content: "";
+    width: 1px;
+    left: 0px;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    border-bottom: 1px solid #75162d2b;
+}
 .collection .collection__image-wrapper-header .collection__description {
   max-width: 100%;
 }
