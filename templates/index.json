@@ -145,7 +145,7 @@
             "button_aria_label": "EXPLORE COLLECTION",
             "button_link": "/",
             "open_in_new_tab": false,
-            "make_link_full_slide": true,
+            "make_link_full_slide": false,
             "second_button_text": "OUR STORY",
             "second_button_aria_label": "OUR STORY",
             "second_button_link": "/",
