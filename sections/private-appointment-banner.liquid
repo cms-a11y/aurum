@@ -38,22 +38,25 @@
     object-position: {{ section.settings.image_position }};
   }
 
-  #AppointmentBanner-{{ section_id }} .appointment-banner__gradient {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    {% if section.settings.enable_gradient %}
-      background: linear-gradient(
-        {{ section.settings.gradient_rotation }}deg,
-        {{ section.settings.gradient_color_1 | color_modify: 'alpha', gradient_opacity }} 0%,
-        {{ section.settings.gradient_color_2 | color_modify: 'alpha', gradient_opacity }} 50%,
-        {{ section.settings.gradient_color_3 | color_modify: 'alpha', gradient_opacity }} 100%
-      );
-    {% else %}
-      background: none;
-    {% endif %}
-  }
+#AppointmentBanner-{{ section_id }} .appointment-banner__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  {% if section.settings.enable_gradient and section.settings.gradient_opacity > 0 %}
+    background: linear-gradient(
+      {{ section.settings.gradient_rotation }}deg,
+      {{ section.settings.gradient_color_1 }}{{ section.settings.gradient_opacity | times: 0.01 | times: 100 | round | prepend: '' }} 0%,
+      {{ section.settings.gradient_color_2 }} 50%,
+      {{ section.settings.gradient_color_3 }} 100%
+    );
+    opacity: {{ section.settings.gradient_opacity | divided_by: 100.0 }};
+  {% else %}
+    background: transparent;
+    opacity: 0;
+  {% endif %}
+}
 
   #AppointmentBanner-{{ section_id }} .appointment-banner__container {
     position: relative;
