@@ -1,7 +1,6 @@
 .newsletter {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 16px;
   font-weight: 400;
   text-align: center;
   color: var(--newsletter-text-color);
