@@ -183,9 +183,9 @@
 					{%- endif -%}
 
 					<div class="product-filters__form-sort">
-						<h2 class="product-filters__form-label">
+						{% comment %} <h2 class="product-filters__form-label">
 							{{- 'collections.sorting.title' | t -}}
-						</h2>
+						</h2> {% endcomment %}
 
 						{%- render 'sort', product_list: product_list -%}
 					</div>
