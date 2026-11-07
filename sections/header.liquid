@@ -353,183 +353,104 @@
 			</div>
 		{% endif %}
 
-		<div class="header__burger-menu-button-wrapper">
-			<button
-				class="header__burger-menu-button js-header-drawer-toggler js-main-menu-toggler"
-				type="button"
-				data-target="headerDrawerMenu"
-				data-js-toggle="headerToggleMenuDrawer"
-				aria-expanded="false"
-				aria-controls="headerDrawerMenu"
-				aria-label="{{ "layout.navigation.open_drawer_menu" | t | escape }}"
-			>
-				{%- render 'icons', icon: 'burger-menu' -%}
-			</button>
-		</div>
+		
+<div class="header__split-layout">
 
-		{%- if logo_position == 'left' -%}
-			{{- logo_shippet -}}
-		{%- endif -%}
+  <!-- Mobile Hamburger -->
+  <div class="header__burger-menu-button-wrapper">
+    <button
+      class="header__burger-menu-button js-header-drawer-toggler js-main-menu-toggler"
+      type="button"
+      data-target="headerDrawerMenu"
+      data-js-toggle="headerToggleMenuDrawer"
+      aria-expanded="false"
+      aria-controls="headerDrawerMenu"
+      aria-label="{{ 'layout.navigation.open_drawer_menu' | t | escape }}"
+    >
+      {%- render 'icons', icon: 'burger-menu' -%}
+    </button>
+  </div>
 
-		{%- if menu != blank -%}
-			<div class="header__menu">
-				{%- render 'header-menu',
-					menu: menu,
-					menu_type_desktop: menu_type_desktop,
-					blocks: blocks,
-					display_link_on_first_lvl: display_link_on_first_lvl
-				-%}
-			</div>
-		{%- endif -%}
+  <!-- Left Menu -->
+  <div class="header__split-left">
+    {% if menu_left != blank %}
+      <div class="header__menu">
+        {% render 'header-menu',
+          menu: menu_left,
+          menu_type_desktop: menu_type_desktop,
+          blocks: blocks,
+          display_link_on_first_lvl: display_link_on_first_lvl
+        %}
+      </div>
+    {% endif %}
+  </div>
 
-		{%- if logo_position == 'middle' or logo_position == 'top' -%}
-			{{- logo_shippet -}}
-		{%- endif -%}
+  <!-- Center Logo -->
+  {{- logo_shippet -}}
 
-		<div class="header__utils">
-			{%- if is_show_language_selector == true and localization.available_languages.size > 1 -%}
-				{% assign language_selector = true %}
-			{%- endif -%}
+  <!-- Right Menu -->
+  <div class="header__split-right">
 
-			{%- if is_show_country_selector == true and localization.available_countries.size > 1 -%}
-				{% assign country_selector = true %}
-			{%- endif -%}
+    {% if menu_right != blank %}
+      <div class="header__menu">
+        {% render 'header-menu',
+          menu: menu_right,
+          menu_type_desktop: menu_type_desktop,
+          blocks: blocks,
+          display_link_on_first_lvl: display_link_on_first_lvl
+        %}
+      </div>
+    {% endif %}
 
-			{%- if language_selector == true or country_selector -%}
-				<div class="header__localization">
-					{%- if country_selector == true -%}
-						{%- render 'country-localization-form', class: 'header', id_prefix: 'header', form_id: 'header-country-form' -%}
-					{%- endif -%}
+    <!-- Header Icons -->
+    <div class="header__utils">
+      <div class="header__icons">
 
-					{%- if language_selector == true -%}
-						{%- render 'language-localization-form', class: 'header', id_prefix: 'header', form_id: 'header-localization-form' -%}
-					{%- endif -%}
-				</div>
-			{%- endif -%}
+        {% if is_enable_search %}
+          <button
+            type="button"
+            class="header__icon header__icon--search js-header-drawer-toggler"
+            data-target="headerDrawerSearch"
+            data-js-toggle="searchToggleDrawer"
+            aria-expanded="false"
+            aria-controls="headerDrawerSearch"
+            aria-label="{{ 'layout.navigation.search' | t | escape }}"
+          >
+            {% render 'icons', icon: 'search' %}
+          </button>
+        {% endif %}
 
-			<div class="header__icons">
-				{%- if is_enable_search -%}
-					<button
-						type="button"
-						class="header__icon header__icon--search js-header-drawer-toggler"
-						data-target="headerDrawerSearch"
-						data-js-toggle="searchToggleDrawer"
-						aria-expanded="false"
-						aria-controls="headerDrawerSearch"
-						aria-label="{{- "layout.navigation.search" | t | escape -}}"
-					>
-						{%- render 'icons', icon: 'search' -%}
-					</button>
+        {% if shop.customer_accounts_enabled %}
+          <a
+            href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+            class="header__icon header__icon--account"
+            aria-label="{{ 'layout.customer.account' | t | escape }}"
+          >
+            {% render 'icons', icon: 'account' %}
+          </a>
+        {% endif %}
 
-					<a
-						href="{{- routes.search_url -}}"
-						class="header__icon header__icon--search no-js"
-						aria-label="{{- "layout.navigation.search" | t | escape -}}"
-					>
-						{%- render 'icons', icon: 'search' -%}
-					</a>
-				{%- endif -%}
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart no-js">
+          {% render 'icons', icon: 'cart' %}
+          <span class="header__cart-count" data-cart-count="{{ cart.item_count }}">
+            <span>
+              {% if cart.item_count > 99 %}
+                99+
+              {% else %}
+                {{ cart.item_count }}
+              {% endif %}
+            </span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
-				{%- if shop.customer_accounts_enabled -%}
-					<a
-						href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-						class="header__icon header__icon--account"
-						{% if customer %}
-							aria-label="{{- "layout.customer.account" | t | escape -}}"
-						{% else %}
-							aria-label="{{- "layout.customer.log_in" | t | escape -}}"
-						{% endif %}
-					>
-						{%- render 'icons', icon: 'account' -%}
-					</a>
-				{%- endif -%}
-
-				<a href="{{- routes.cart_url -}}" class="header__icon header__icon--cart no-js">
-					{%- render 'icons', icon: 'cart' -%}
-
-					<span class="visually-hidden">
-						{{- "layout.header.labels.cart_drawer" | t | escape -}}.
-					</span>
-
-					<span
-						class="header__cart-count"
-						data-cart-count="{{- cart.item_count -}}"
-					>
-						<span class="visually-hidden">
-							{{ "layout.header.labels.cart_item_count" | t }}"
-						</span>
-
-						<span>
-							{%- if cart.item_count > 99 -%}
-								99+
-							{%- else -%}
-								{{- cart.item_count -}}
-							{%- endif -%}
-						</span>
-					</span>
-				</a>
-
-				{% comment %} {%- if cart_type == 'page' -%}
-					<a href="{{- routes.cart_url -}}" class="header__icon header__icon--cart">
-						{%- render 'icons', icon: 'cart' -%}
-
-						<span class="visually-hidden">
-							{{- "layout.header.labels.cart" | t | escape -}}.
-						</span>
-
-						<span
-							class="header__cart-count js-header-cart-item-count-wrapper"
-							data-cart-count="{{- cart.item_count -}}"
-						>
-							<span class="visually-hidden">
-								{{ "layout.header.labels.cart_item_count" | t }}"
-							</span>
-
-							<span class="js-header-cart-item-count">
-								{%- if cart.item_count > 99 -%}
-									99+
-								{%- else -%}
-									{{- cart.item_count -}}
-								{%- endif -%}
-							</span>
-						</span>
-					</a>
-				{%- else -%}
-					<button
-						type="button"
-						class="header__icon header__icon--cart"
-						data-target="CartDrawer"
-						data-js-toggle="CartDrawer"
-						aria-expanded="false"
-						aria-controls="CartDrawer"
-					>
-						{%- render 'icons', icon: 'cart' -%}
-
-						<span class="visually-hidden">
-							{{- "layout.header.labels.cart_drawer" | t | escape -}}.
-						</span>
-
-						<span
-							class="header__cart-count js-header-cart-item-count-wrapper"
-							data-cart-count="{{- cart.item_count -}}"
-						>
-							<span class="visually-hidden">
-								{{ "layout.header.labels.cart_item_count" | t }}"
-							</span>
-
-							<span class="js-header-cart-item-count">
-								{%- if cart.item_count > 99 -%}
-									99+
-								{%- else -%}
-									{{- cart.item_count -}}
-								{%- endif -%}
-							</span>
-						</span>
-					</button>
-				{%- endif -%} {% endcomment %}
-			</div>
-		</div>
+		
 	</div>
 
 	{%- if show_cart_notification -%}
