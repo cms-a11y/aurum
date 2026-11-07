@@ -660,7 +660,7 @@
         "heading_spacing": 24,
         "description": "<p>Tell us what you are drawn to, and what it means to you. A private appointment is a place to compare, ask questions, and find clarity.</p>",
         "text_color": "#FFFFFF",
-        "description_size": 16,
+        "description_size": 17,
         "mobile_description_size": 14,
         "description_spacing": 24,
         "button_text": "Request a private appointment",
