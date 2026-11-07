@@ -966,11 +966,11 @@
         "button_aria_label": "Book an Appointment",
         "button_url": "shopify://pages/contact",
         "button_style": "primary",
-        "container_width": "inherit",
+        "container_width": "100%",
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 25
+        "offset_bottom_mobile": 0
       }
     },
     "collection_list_MrbqwK": {
