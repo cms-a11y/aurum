@@ -1113,9 +1113,9 @@
         "link_color": "",
         "container_width": "inherit",
         "offset_top_desktop": 0,
-        "offset_bottom_desktop": 40,
+        "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 20
+        "offset_bottom_mobile": 0
       }
     },
     "best-sellers": {
