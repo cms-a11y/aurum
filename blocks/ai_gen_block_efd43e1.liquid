@@ -126,7 +126,29 @@
   }
 {% endstyle %}
 
-<div class="ai-collection-grid-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div
+  class="ai-collection-grid-{{ ai_gen_id }} {{ block.settings.custom_class | escape }}"
+  {{ block.shopify_attributes }}
+>
+
+  {% if block.settings.subtitle != blank or block.settings.heading != blank %}
+    <div class="ai-collection-grid-{{ ai_gen_id }}__header">
+
+      {% if block.settings.subtitle != blank %}
+        <p class="ai-collection-grid-{{ ai_gen_id }}__subtitle">
+          {{ block.settings.subtitle | escape }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-collection-grid-{{ ai_gen_id }}__heading">
+          {{ block.settings.heading | escape }}
+        </h2>
+      {% endif %}
+
+    </div>
+  {% endif %}
+
   <div class="ai-collection-grid-{{ ai_gen_id }}__grid">
     {% for i in (1..4) %}
       {% liquid
