@@ -7,7 +7,7 @@
 }
 .newsletter .newsletter__wrapper {
   overflow: hidden;
-  border-radius: var(--global-border-radius);
+  border-radius: 0;
   background: var(--newsletter-background-color);
 }
 .newsletter .newsletter__wrapper.newsletter__wrapper--three-columns {
