@@ -31,37 +31,107 @@
         "offset_bottom_mobile": 60
       }
     },
-    "product-banner": {
-      "type": "product-banner",
+    "jewellery_care_boxes_bLfVhJ": {
+      "type": "jewellery-care-boxes",
       "blocks": {
-        "product-banner-product-1": {
-          "type": "product",
+        "care_item_Bn63eV": {
+          "type": "care_item",
           "settings": {
-            "product": "royal-tanzanite-engagement-ring-18k-white-gold",
-            "image": "shopify://shop_images/image_184bcdd1-c767-408f-aed0-a7ed846e4748.png"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "title": "Weekly Cleaning",
+            "content": "<ul><li>Use mild dish soap and warm water</li><li>Gently brush with soft toothbrush</li><li>Pat dry with microfiber cloth</li></ul>"
+          }
+        },
+        "care_item_8TEPBc": {
+          "type": "care_item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "title": "Daily Protection",
+            "content": "<ul><li>Remove during exercise and swimming</li><li>Avoid harsh chemicals and lotions</li><li>Store safely when not wearing</li></ul>"
+          }
+        },
+        "care_item_mRqWgA": {
+          "type": "care_item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "title": "Annual Polish",
+            "content": "<ul><li>Professional cleaning recommended</li><li>Check for loose stones</li><li>Restore shine and luster</li></ul>"
+          }
+        },
+        "care_item_kWj3hY": {
+          "type": "care_item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" width=\"36\" height=\"36\" stroke=\"#75162d\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"css-i6dzq1\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"></path></svg>",
+            "title": "Storage Tips",
+            "content": "<ul><li>Keep in soft jewellery box</li><li>Separate from other jewellery</li><li>Avoid direct sunlight exposure</li></ul>"
           }
         }
       },
       "block_order": [
-        "product-banner-product-1"
+        "care_item_Bn63eV",
+        "care_item_8TEPBc",
+        "care_item_mRqWgA",
+        "care_item_kWj3hY"
       ],
+      "name": "Jewellery care boxes",
       "settings": {
-        "heading": "Embrace the Elegance",
-        "label": "Teall",
-        "text": "<p>Immerse yourself in a world of exquisite craftsmanship and unparalleled beauty. Our curated collection of jewelry reflects a perfect blend of sophistication and style, each piece meticulously crafted to capture the essence of enduring charm. Elevate your presence with our stunning range, where every gem tells a story of elegance and refinement.</p>",
-        "button_label": "Shop All",
-        "button_link": "shopify://products/royal-tanzanite-engagement-ring-18k-white-gold",
-        "button_style": "secondary",
-        "container_width": "inherit",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 80,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 60
+        "subtitle": "LIFETIME CARE",
+        "heading": "Keep Your Ring Timeless",
+        "description": "<p>Proper care ensures your Queens ring remains beautiful and brilliant for generations.</p>",
+        "heading_alignment": "center",
+        "header_spacing": 70,
+        "mobile_header_spacing": 35,
+        "subtitle_color": "#75162D",
+        "subtitle_size": 12,
+        "mobile_subtitle_size": 10,
+        "subtitle_italic": false,
+        "subtitle_letter_spacing": 4,
+        "subtitle_transform": "uppercase",
+        "heading_color": "#75162D",
+        "heading_size": 48,
+        "mobile_heading_size": 30,
+        "heading_italic": false,
+        "description_color": "#75162D",
+        "description_size": 18,
+        "mobile_description_size": 15,
+        "description_italic": false,
+        "description_width": 650,
+        "desktop_columns": "4",
+        "mobile_columns": "2",
+        "box_alignment": "left",
+        "column_gap": 40,
+        "row_gap": 40,
+        "mobile_column_gap": 20,
+        "mobile_row_gap": 30,
+        "box_title_color": "#241512",
+        "box_title_size": 23,
+        "mobile_box_title_size": 18,
+        "box_title_weight": "700",
+        "box_content_color": "#987B69",
+        "list_marker_color": "#C69B42",
+        "box_content_size": 16,
+        "mobile_box_content_size": 14,
+        "icon_background": "#F1E7D3",
+        "icon_color": "#75162D",
+        "icon_circle_size": 72,
+        "mobile_icon_circle_size": 64,
+        "icon_size": 36,
+        "mobile_icon_size": 28,
+        "icon_spacing": 14,
+        "icon_radius": 50,
+        "background_color": "#FFFFFF",
+        "width_percent": 90,
+        "max_width": 1400,
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 60,
+        "mobile_padding_top": 35,
+        "mobile_padding_bottom": 35,
+        "custom_class": ""
       }
     }
   },
   "order": [
     "plp-template",
-    "product-banner"
+    "jewellery_care_boxes_bLfVhJ"
   ]
 }
