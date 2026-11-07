@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "base_font": "serif",
-    "heading_font": "serif",
+    "base_font": "dm_sans_n4",
+    "heading_font": "pt_serif_n4",
     "color_text_primary": "#161e13",
     "color_text_secondary": "#535353",
     "color_text_thirdly": "#9D9D9D",
