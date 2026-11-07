@@ -61,6 +61,7 @@
     "container_width": "1432px",
     "cart_type": "drawer",
     "show_cart_notification": false,
+    "is_color_swatches_enabled": false,
     "is_show_unit_price": false,
     "color_label_primary_background": "#75162D",
     "color_label_primary_border": "#75162D",
