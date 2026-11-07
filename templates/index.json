@@ -143,7 +143,7 @@
           "settings": {
             "image_desktop": "shopify://shop_images/3_35.png",
             "subheading": "New Collection 2026",
-            "heading": "For Life's MostMeaningful  Moments",
+            "heading": "For Life's Most<br><i>Meaningful</i><br>  Moments",
             "description": "<p>Handcrafted sapphire and diamond jewellery,<br/>designed to celebrate the extraordinary in every<br/>moment.</p>",
             "button_text": "EXPLORE COLLECTION",
             "button_aria_label": "EXPLORE COLLECTION",
