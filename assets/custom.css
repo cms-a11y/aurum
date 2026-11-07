@@ -5,7 +5,10 @@ span.banner-subheading {
     font-size: 12px;
     line-height: 3.3;
 }
-
+.featured-products__button {
+  color: #75162d;
+  border-color: #75162d !important;
+}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
