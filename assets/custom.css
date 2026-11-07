@@ -18,6 +18,8 @@ span.banner-subheading {
     color: #75162d !important;
     letter-spacing: 2px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
 }
 .heading-custom-main h2 {
     font-size: 40px;
