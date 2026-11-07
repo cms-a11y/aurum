@@ -1318,7 +1318,7 @@
         "message_label": "Message",
         "message_placeholder": "Your message...",
         "is_message_required": false,
-        "submit_label": "Send",
+        "submit_label": "Send Message",
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 60,
         "contactbgclr": "#fbf8ef",
