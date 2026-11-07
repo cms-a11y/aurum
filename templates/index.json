@@ -872,7 +872,7 @@
         "subtitle_spacing": 24,
         "heading": "We believe jewellery is more than an object – it is an heirloom in the making.",
         "heading_color": "#ffffff",
-        "heading_size": 60,
+        "heading_size": 56,
         "mobile_heading_size": 36,
         "heading_italic": true,
         "heading_weight": "400",
@@ -1321,7 +1321,7 @@
         "submit_label": "Send",
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 60,
-        "contactbgclr": "#FBF8EF",
+        "contactbgclr": "#fbf8ef",
         "offset_top_mobile": 30,
         "offset_bottom_mobile": 30
       }
