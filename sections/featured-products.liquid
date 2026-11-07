@@ -114,7 +114,7 @@
 	--cards-per-row: {{ layout }};
 {% endcapture %}
 
-<section class="featured-products js-featured-products js-animate {% if request.visual_preview_mode or section.index == 1 %}animated{% endif %}" id="{{- section.id -}}" style="--container-width: {{ container_width }};">
+<section class="featured-products js-featured-products js-animate {{ custom_class | escape }} {% if request.visual_preview_mode or section.index == 1 %}animated{% endif %}" id="{{- section.id -}}" style="--container-width: {{ container_width }};">
 	<div class="featured-products__container">
 		{% if subtitle != blank %}
     <p
