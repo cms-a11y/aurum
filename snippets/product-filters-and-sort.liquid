@@ -33,12 +33,12 @@
 	{%- case filter.type -%}
 		{%- when 'list' or 'boolean' -%}
 			{%- assign active_filters_size = active_filters_size | plus: filter.active_values.size -%}
-		{% comment %} {%- when 'price_range' -%}
+		{%- when 'price_range' -%}
 			{%- if filter.min_value.value > 0 or filter.max_value.value < filter.range_max -%}
 				{%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
 					{%- assign active_filters_size = active_filters_size | plus: 1 -%}
 				{%- endif -%}
-			{%- endif -%} {% endcomment %}
+			{%- endif -%}
 	{%- endcase -%}
 {%- endfor -%}
 
@@ -91,7 +91,7 @@
 								{%- endfor -%}
 							{%- endif -%}
 						{%- when 'price_range' -%}
-							{% comment %} {%- if filter.min_value.value > 0 or filter.max_value.value < filter.range_max -%}
+							{%- if filter.min_value.value > 0 or filter.max_value.value < filter.range_max -%}
 								{%- capture price_range_filter_value -%}
 									{%- if filter.min_value.value -%}
 										{{- filter.min_value.value | money -}}
@@ -116,7 +116,7 @@
 										{%- render 'icons', icon: 'close' -%}
 									</a>
 								</li>
-							{%- endif -%} {% endcomment %}
+							{%- endif -%}
 					{%- endcase -%}
 				{%- endfor -%}
 
@@ -233,7 +233,7 @@
 
 													{%- render 'filter-list', filter: filter, show_swatches: show_swatches -%}
 												{%- when 'price_range' -%}
-													{% comment %} {%- render 'filter-price', filter: filter -%} {% endcomment %}
+													{%- render 'filter-price', filter: filter -%}
 											{%- endcase -%}
 										</div>
 									</div>
