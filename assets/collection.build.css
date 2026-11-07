@@ -65,6 +65,15 @@ html.no-js .collection .collection__image-wrapper {
 .collection .collection__image-wrapper-header .collection__description {
   color: var(--banner-color);
 }
+.collection .collection__header:after {
+    content: "";
+    width: 122%;
+    left: -50px;
+    bottom: -25px;
+    position: absolute;
+    height: 1px;
+    border-bottom: 1px solid #75162d21;
+}
 .collection .collection__image-wrapper-header .collection__description {
   max-width: 100%;
 }
