@@ -91,7 +91,7 @@ html.no-js .collection .collection__image-wrapper {
 
 .collection .collection__header {
   max-width: var(--container-width);
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 16px;
