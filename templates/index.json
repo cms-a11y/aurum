@@ -231,10 +231,10 @@
       "name": "Featured products",
       "settings": {
         "heading": "Signature Pieces",
-        "custom_class": "queens-featured-products  cust-button-fine",
-        "subtitle": "Curated Selection  heading-custom-main",
+        "custom_class": "queens-featured-products  cust-button-fine  heading-custom-main",
+        "subtitle": "Curated Selection",
         "subtitle_color": "rgba(0,0,0,0)",
-        "subtitle_size": 14,
+        "subtitle_size": 13,
         "subtitle_weight": "500",
         "button_text": "View All Collections",
         "button_link": "shopify://collections",
