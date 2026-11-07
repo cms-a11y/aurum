@@ -17,7 +17,7 @@ span.banner-subheading {
 .heading-custom-main p {
     color: #75162d !important;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -25,7 +25,7 @@ span.banner-subheading {
     font-size: 40px;
     margin-bottom: 60px !important;
 }
-.heading-custom-main h2{text-transform: uppercase;}
+
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
