@@ -10,6 +10,7 @@
   border-radius: 0;
   background: var(--newsletter-background-color);
 }
+.newsletter-form .newsletter-form__input{border-radius: 0;}
 .newsletter .newsletter__wrapper.newsletter__wrapper--three-columns {
   display: grid;
   column-gap: 2px;
