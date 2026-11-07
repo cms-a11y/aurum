@@ -836,7 +836,7 @@
         "border_color": "#efe6cd",
         "inner_indent": 7,
         "offset_top_desktop": 0,
-        "offset_bottom_desktop": 70,
+        "offset_bottom_desktop": 0,
         "offset_top_mobile": 25,
         "offset_bottom_mobile": 40
       }
