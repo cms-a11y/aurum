@@ -784,7 +784,7 @@
 }
 @media (min-width: 1501px) {
   .slideshow .slideshow__slide-box {
-    padding: 80px 136px;
+    padding: 80px 80px 70px;
   }
   .slideshow .slideshow__slide-box.slideshow__slide-box--thumbnails-offset {
     padding-left: 211px;
