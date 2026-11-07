@@ -230,8 +230,9 @@
       "name": "Featured products",
       "settings": {
         "heading": "Signature Pieces",
+        "custom_class": "queens-featured-products",
         "subtitle": "Curated Selection",
-        "subtitle_color": "#75162D",
+        "subtitle_color": "#75162d",
         "subtitle_size": 14,
         "subtitle_weight": "500",
         "button_text": "View All Collections",
@@ -728,6 +729,7 @@
       "disabled": true,
       "settings": {
         "heading": "Our Recomendations",
+        "custom_class": "",
         "subtitle": "Discover Our Collection",
         "subtitle_color": "#a47a36",
         "subtitle_size": 14,
