@@ -233,7 +233,7 @@
 
 													{%- render 'filter-list', filter: filter, show_swatches: show_swatches -%}
 												{%- when 'price_range' -%}
-													{%- render 'filter-price', filter: filter -%}
+													{% comment %} {%- render 'filter-price', filter: filter -%} {% endcomment %}
 											{%- endcase -%}
 										</div>
 									</div>
