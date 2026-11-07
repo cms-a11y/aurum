@@ -188,7 +188,32 @@
 {
   "name": "Collection image grid",
   "settings": [
-    { "type": "header", "content": "Grid layout" },
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Explore our collections"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop By Collection"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Add custom CSS classes to style this block."
+    },
+    {
+      "type": "header",
+      "content": "Grid layout"
+    },
     { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
     { "type": "range", "id": "grid_gap", "label": "Gap", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 16 },
     { "type": "select", "id": "image_ratio", "label": "Image shape", "options": [ { "value": "1 / 1", "label": "Square" }, { "value": "4 / 3", "label": "Landscape" }, { "value": "3 / 4", "label": "Portrait" } ], "default": "1 / 1" },
