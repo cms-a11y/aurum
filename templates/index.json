@@ -533,7 +533,7 @@
           "settings": {
             "subtitle": "BROWSE",
             "heading": "Shop By Collection",
-            "custom_class": "",
+            "custom_class": "queens-featured-products  cust-button-fine  heading-custom-main",
             "desktop_width_percent": 100,
             "grid_gap": 2,
             "image_ratio": "4 / 3",
