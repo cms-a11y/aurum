@@ -837,8 +837,8 @@
         "inner_indent": 7,
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
-        "offset_top_mobile": 25,
-        "offset_bottom_mobile": 40
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
       }
     },
     "quote_statement_banner_h4qeDY": {
@@ -924,6 +924,30 @@
         "mobile_padding_bottom": 60,
         "mobile_padding_horizontal": 20,
         "custom_class": ""
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "two_columns",
+        "heading": "Newsletter",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Sign up for early sale access, new in, promotions and more</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "#f4e4c8",
+        "text_color": "#000000",
+        "input_background": "#ffffff",
+        "input_color": "#000000",
+        "image_overlay": "",
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
       }
     },
     "collection_list_MrbqwK": {
@@ -1175,31 +1199,6 @@
         "offset_bottom_mobile": 60
       }
     },
-    "newsletter": {
-      "type": "newsletter",
-      "disabled": true,
-      "settings": {
-        "layout": "two_columns",
-        "heading": "Newsletter",
-        "subheading": "Sign up and get 10% off",
-        "text": "<p>Sign up for early sale access, new in, promotions and more</p>",
-        "success_message": "Thanks for subscribing",
-        "image_position": "left",
-        "email_placeholder": "Your email",
-        "button_label": "Subscribe",
-        "button_style": "secondary",
-        "section_background": "#f4e4c8",
-        "text_color": "#000000",
-        "input_background": "#ffffff",
-        "input_color": "#000000",
-        "image_overlay": "",
-        "container_width": "inherit",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 80,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 60
-      }
-    },
     "17857716245ad91071": {
       "type": "apps",
       "blocks": {
@@ -1314,6 +1313,7 @@
     "private_appointment_banner_K6W3DQ",
     "ticker",
     "quote_statement_banner_h4qeDY",
+    "newsletter",
     "collection_list_MrbqwK",
     "image-with-text",
     "image_with_text_gKUjpC",
@@ -1321,7 +1321,6 @@
     "richtext",
     "best-sellers",
     "featured-blog",
-    "newsletter",
     "17857716245ad91071",
     "richtext_Nqb8pG",
     "book_appointment_button_HkPCfT",
