@@ -630,6 +630,7 @@
       "settings": {
         "accessibility_label": "",
         "custom_class": "",
+        "background_image": "shopify://shop_images/banner-view.webp",
         "background_color": "#35151C",
         "desktop_image_position": "center center",
         "mobile_image_position": "center center",
