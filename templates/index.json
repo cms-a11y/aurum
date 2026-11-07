@@ -941,7 +941,7 @@
         "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
         "text_color": "#ffffff",
         "input_background": "rgba(0,0,0,0)",
-        "input_color": "#000000",
+        "input_color": "#FFFFFF",
         "image_overlay": "",
         "container_width": "100%",
         "offset_top_desktop": 0,
