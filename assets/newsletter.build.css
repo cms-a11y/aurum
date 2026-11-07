@@ -17,6 +17,7 @@
         font-size: 15px !important;
         text-transform: uppercase;
 }
+.newsletter-form .newsletter-form__input{ min-height: 47px;}
 .newsletter .newsletter__wrapper.newsletter__wrapper--three-columns {
   display: grid;
   column-gap: 2px;
