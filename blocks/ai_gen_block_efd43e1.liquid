@@ -3,6 +3,11 @@
     create a section for collection grid of 2*2 image with link
 {% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+ {% assign heading_color = block.settings.heading_color %}
+{% assign offset_top_desktop = block.settings.offset_top_desktop %}
+{% assign offset_bottom_desktop = block.settings.offset_bottom_desktop %}
+{% assign offset_top_mobile = block.settings.offset_top_mobile %}
+{% assign offset_bottom_mobile = block.settings.offset_bottom_mobile %}
 
 {% style %}
   .ai-collection-grid-{{ ai_gen_id }} {
