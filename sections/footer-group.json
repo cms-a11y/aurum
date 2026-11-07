@@ -14,6 +14,14 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "text_79QwEN": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "text_content": "<p>Every human deserves something extraordinary. Stay<br/>close to Queens for first looks at new creations,<br/>curated tanzanite drops, special offers, private<br/>events, and a little something special just for you.</p>",
+            "show_social_links": true
+          }
+        },
         "menu-1": {
           "type": "menu",
           "settings": {
@@ -30,6 +38,7 @@
         }
       },
       "block_order": [
+        "text_79QwEN",
         "menu-1",
         "menu-3"
       ],
