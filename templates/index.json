@@ -941,7 +941,7 @@
         "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
         "text_color": "#ffffff",
         "input_background": "rgba(0,0,0,0)",
-        "input_color": "#FFFFFF",
+        "input_color": "#ffffff",
         "image_overlay": "",
         "container_width": "100%",
         "offset_top_desktop": 0,
@@ -1321,6 +1321,7 @@
         "submit_label": "Send",
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 60,
+        "contactbgclr": "#FBF8EF",
         "offset_top_mobile": 30,
         "offset_bottom_mobile": 30
       }
