@@ -102,6 +102,21 @@
 							</h2>
 						{%- endif -%}
 
+						{%- if footerlogo != blank -%}
+						<picture>
+					<img
+						class="footer__logo"
+						src="{{ footerlogo | image_url: width: logo_image_width }}"
+						srcset="{{ logo_image | image_url: width: logo_image_width }} 1x,
+						{{ logo_image | image_url: width: logo_width_x2 }} 2x"
+						alt="{{ logo_image.alt | escape }}"
+						width="{{ logo_image_width }}"
+						height="{{ logo_height }}"
+						loading="lazy"
+					/>
+				</picture>
+			{% endif %}
+
 						{%- if text_content != blank -%}
 							<div class="footer__about-rte rte">
 								{{- text_content -}}
