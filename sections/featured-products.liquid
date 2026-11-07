@@ -81,11 +81,24 @@
 
 <section class="featured-products js-featured-products js-animate {% if request.visual_preview_mode or section.index == 1 %}animated{% endif %}" id="{{- section.id -}}" style="--container-width: {{ container_width }};">
 	<div class="featured-products__container">
-		{%- if heading != blank -%}
-			<h2 class="featured-products__heading h2 need-animate tr-dur-0-8">
-				{{- heading -}}
-			</h2>
-		{%- endif -%}
+		{% if subtitle != blank %}
+    <p
+        class="featured-products__subtitle"
+        style="
+            color: {{ subtitle_color }};
+            font-size: {{ subtitle_size }}px;
+            font-weight: {{ subtitle_weight }};
+        "
+    >
+        {{ subtitle }}
+    </p>
+{% endif %}
+
+{%- if heading != blank -%}
+    <h2 class="featured-products__heading h2 need-animate tr-dur-0-8">
+        {{- heading -}}
+    </h2>
+{%- endif -%}
 
 		<div class="featured-products__content-wrapper">
 			{% if show_banner and is_text_in_banner %}
