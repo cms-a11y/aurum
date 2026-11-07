@@ -249,10 +249,11 @@
         "show_banner": false,
         "banner_heading": "Heading",
         "banner_text": "Text",
-        "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)",
+        "overlay_color": "",
+        "background_color": "#FBF8EF",
         "container_width": "inherit",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
         "offset_top_mobile": 0,
         "offset_bottom_mobile": 0
       }
@@ -749,6 +750,7 @@
         "banner_heading": "Queens",
         "banner_text": "treasures",
         "overlay_color": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 100%)",
+        "background_color": "#ffffff",
         "container_width": "inherit",
         "offset_top_desktop": 20,
         "offset_bottom_desktop": 50,
