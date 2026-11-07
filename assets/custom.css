@@ -1,7 +1,15 @@
+span.banner-subheading {
+    color: #FBF8EF;
+    text-transform: uppercase;
+    letter-spacing: 4.4px;
+    font-size: 12px;
+    line-height: 3.3;
+}
+
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
-        font-size: 60px;
+        font-size: 65px;
         line-height: 1.1;
     }
 }
