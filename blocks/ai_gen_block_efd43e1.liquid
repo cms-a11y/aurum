@@ -189,9 +189,9 @@
           </div>
         {% endif %}
         {% if title != blank %}
-         <div class="ai-collection-box-titles">
+         <div class="ai-collection-box-titles ai-collection-grid-{{ ai_gen_id }}__label">
          <span>Shop Now</span>
-          <h3 class="ai-collection-grid-{{ ai_gen_id }}__label">{{ title | escape }}</h3>
+          <h3>{{ title | escape }}</h3>
           </div>
         {% endif %}
       {% if link != blank %}
