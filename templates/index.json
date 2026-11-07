@@ -818,11 +818,14 @@
         "content_3",
         "content_4"
       ],
+      "custom_css": [
+        ".ticker .ticker__items {text-transform: uppercase;}"
+      ],
       "settings": {
         "hide_bullets": true,
         "font": "dm_sans_n3",
-        "font_size_desktop": 27,
-        "font_size_mobile": 16,
+        "font_size_desktop": 15,
+        "font_size_mobile": 14,
         "enable_border": true,
         "border_width": 2,
         "direction": "left_to_right",
