@@ -8,7 +8,8 @@
   align-items: center;
   overflow-y: hidden;
   overflow-x: auto;
-  max-width: 1420px;
+  max-width: 1432px;
+  margin: 0 auto;
   padding: 2px 16px;
   -ms-overflow-style: none;
   scrollbar-width: none;
