@@ -77,7 +77,6 @@
       "blocks": {
         "megamenu": {
           "type": "megamenu",
-          "disabled": true,
           "settings": {
             "menu_handle": "",
             "highlight_color": "#000000",
@@ -95,7 +94,6 @@
         },
         "megamenu-row-menus": {
           "type": "megamenu-row-menus",
-          "disabled": true,
           "settings": {
             "menu_handle": "",
             "highlight_color": "#000000",
@@ -113,7 +111,6 @@
         },
         "megamenu-half-to-half": {
           "type": "megamenu-half-to-half",
-          "disabled": true,
           "settings": {
             "menu_handle": "",
             "highlight_color": "#000000",
