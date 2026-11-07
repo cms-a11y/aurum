@@ -16,6 +16,8 @@ span.banner-subheading {
 }
 .heading-custom-main p {
     color: #75162d !important;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 .heading-custom-main h2 {
     font-size: 40px;
