@@ -229,8 +229,20 @@
 					<div class="featured-products__slider-pagination js-featured-products-pagination"></div>
 				{%- endif -%}
 			</div>
-		</div>
-	</div>
+		        </div>
+
+        {% if button_text != blank and button_link != blank %}
+            <div class="featured-products__button-wrapper">
+                <a
+                    href="{{ button_link }}"
+                    class="button button--{{ button_style }} featured-products__button"
+                >
+                    {{ button_text }}
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
 </section>
 
 {%- if product_list.count > 1 or product_list == blank -%}
