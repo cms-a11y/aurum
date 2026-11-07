@@ -68,7 +68,7 @@ html.no-js .collection .collection__image-wrapper {
 }
 .collection .collection__header:after {
     content: "";
-    width: 122%;
+    width: 150%;
     left: -50px;
     bottom: -25px;
     position: absolute;
