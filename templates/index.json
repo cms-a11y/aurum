@@ -231,7 +231,7 @@
       "name": "Featured products",
       "settings": {
         "heading": "Signature Pieces",
-        "custom_class": "queens-featured-products",
+        "custom_class": "queens-featured-products  cust-button-fine",
         "subtitle": "Curated Selection",
         "subtitle_color": "#75162d",
         "subtitle_size": 14,
