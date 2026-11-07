@@ -1,304 +1,327 @@
 
-{% comment %}
-  Section: Private Appointment Banner
-  Responsive image banner with gradient overlay and rich content.
-{% endcomment %}
-
 {% liquid
-  assign custom_class = section.settings.custom_class
-  assign content_position = section.settings.content_position
+  assign section_id = section.id
   assign gradient_opacity = section.settings.gradient_opacity | divided_by: 100.0
+  assign heading_text = section.settings.heading | escape
+
+  assign heading_text = heading_text | replace: '&lt;br/&gt;', '<br>'
+  assign heading_text = heading_text | replace: '&lt;br /&gt;', '<br>'
+  assign heading_text = heading_text | replace: '&lt;br&gt;', '<br>'
 %}
 
 {% style %}
-
-  #shopify-section-{{ section.id }} {
-    width: 100%;
+  #shopify-section-{{ section_id }} {
+    position: relative;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner {
+  #AppointmentBanner-{{ section_id }} {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: {% if content_position == 'right' %}flex-end{% else %}flex-start{% endif %};
+    align-items: {{ section.settings.vertical_alignment }};
+    width: 100%;
     min-height: {{ section.settings.desktop_height }}px;
-    padding: {{ section.settings.desktop_padding_top }}px {{ section.settings.desktop_padding_horizontal }}px {{ section.settings.desktop_padding_bottom }}px;
     overflow: hidden;
-    isolation: isolate;
-    background-color: {{ section.settings.background_color }};
-    background-size: cover;
-    background-position: {{ section.settings.desktop_image_position }};
-    background-repeat: no-repeat;
+    background-color: {{ section.settings.fallback_background }};
   }
 
-  {% if section.settings.background_image != blank %}
-    #shopify-section-{{ section.id }} .appointment-banner {
-      background-image: url('{{ section.settings.background_image | image_url: width: 2400 }}');
-    }
-  {% endif %}
-
-  #shopify-section-{{ section.id }} .appointment-banner::before {
-    content: "";
+  #AppointmentBanner-{{ section_id }} .appointment-banner__background {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
+  }
+
+  #AppointmentBanner-{{ section_id }} .appointment-banner__background img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  #AppointmentBanner-{{ section_id }} .appointment-banner__gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     pointer-events: none;
-    opacity: {{ gradient_opacity }};
-    background: linear-gradient(
-      {{ section.settings.gradient_rotation }}deg,
-      {{ section.settings.gradient_color_1 }} 0%,
-      {{ section.settings.gradient_color_2 }} 50%,
-      {{ section.settings.gradient_color_3 }} 100%
-    );
+    {% if section.settings.enable_gradient %}
+      background: linear-gradient(
+        {{ section.settings.gradient_rotation }}deg,
+        {{ section.settings.gradient_color_1 | color_modify: 'alpha', gradient_opacity }} 0%,
+        {{ section.settings.gradient_color_2 | color_modify: 'alpha', gradient_opacity }} 50%,
+        {{ section.settings.gradient_color_3 | color_modify: 'alpha', gradient_opacity }} 100%
+      );
+    {% else %}
+      background: none;
+    {% endif %}
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__container {
-    width: 100%;
-    max-width: {{ section.settings.container_width }}px;
-    margin: 0 auto;
+  #AppointmentBanner-{{ section_id }} .appointment-banner__container {
+    position: relative;
+    z-index: 2;
     display: flex;
-    justify-content: {% if content_position == 'right' %}flex-end{% else %}flex-start{% endif %};
-  }
-
-  #shopify-section-{{ section.id }} .appointment-banner__content {
     width: 100%;
-    max-width: {{ section.settings.content_width }}px;
-    text-align: {% if content_position == 'right' %}right{% else %}left{% endif %};
-    color: {{ section.settings.text_color }};
+    max-width: {{ section.settings.container_max_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.desktop_padding_top }}px {{ section.settings.desktop_padding_horizontal }}px {{ section.settings.desktop_padding_bottom }}px;
+    {% if section.settings.content_position == 'right' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: flex-start;
+    {% endif %}
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__subtitle {
+  #AppointmentBanner-{{ section_id }} .appointment-banner__content {
+    width: {{ section.settings.content_width }}%;
+    max-width: 100%;
+    color: {{ section.settings.text_color }};
+    text-align: {{ section.settings.content_text_alignment }};
+  }
+
+  #AppointmentBanner-{{ section_id }} .appointment-banner__subtitle {
     display: block;
     margin: 0 0 {{ section.settings.subtitle_spacing }}px;
     color: {{ section.settings.subtitle_color }};
     font-size: {{ section.settings.subtitle_size }}px;
-    font-weight: {{ section.settings.subtitle_weight }};
-    letter-spacing: {{ section.settings.subtitle_letter_spacing }}px;
     line-height: 1.5;
-    text-transform: uppercase;
+    letter-spacing: {{ section.settings.subtitle_letter_spacing }}px;
+    text-transform: {{ section.settings.subtitle_transform }};
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__heading {
+  #AppointmentBanner-{{ section_id }} .appointment-banner__heading {
     margin: 0 0 {{ section.settings.heading_spacing }}px;
     color: {{ section.settings.heading_color }};
     font-size: {{ section.settings.heading_size }}px;
-    font-weight: {{ section.settings.heading_weight }};
     line-height: {{ section.settings.heading_line_height }};
+    font-weight: {{ section.settings.heading_weight }};
     letter-spacing: {{ section.settings.heading_letter_spacing }}px;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__description {
-    margin-bottom: {{ section.settings.description_spacing }}px;
-    color: {{ section.settings.text_color }};
+  #AppointmentBanner-{{ section_id }} .appointment-banner__description {
+    margin: 0 0 {{ section.settings.description_spacing }}px;
+    color: {{ section.settings.description_color }};
     font-size: {{ section.settings.description_size }}px;
-    line-height: 1.8;
+    line-height: {{ section.settings.description_line_height }};
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__description p,
-  #shopify-section-{{ section.id }} .appointment-banner__after-content p {
-    margin-top: 0;
-    margin-bottom: 12px;
+  #AppointmentBanner-{{ section_id }} .appointment-banner__description p {
+    margin: 0 0 12px;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__description p:last-child,
-  #shopify-section-{{ section.id }} .appointment-banner__after-content p:last-child {
+  #AppointmentBanner-{{ section_id }} .appointment-banner__description p:last-child {
     margin-bottom: 0;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__button-wrapper {
+  #AppointmentBanner-{{ section_id }} .appointment-banner__button-wrapper {
     display: flex;
-    justify-content: {% if content_position == 'right' %}flex-end{% else %}flex-start{% endif %};
-    margin: {{ section.settings.button_spacing }}px 0;
+    width: 100%;
+    margin-bottom: {{ section.settings.button_spacing }}px;
+    {% if section.settings.content_text_alignment == 'center' %}
+      justify-content: center;
+    {% elsif section.settings.content_text_alignment == 'right' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: flex-start;
+    {% endif %}
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__button {
+  #AppointmentBanner-{{ section_id }} .appointment-banner__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    min-height: 58px;
+    gap: 10px;
+    min-height: 52px;
     padding: 14px 38px;
-    font-size: {{ section.settings.button_size }}px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    line-height: 1.4;
-    text-align: center;
+    color: {% if section.settings.button_style == 'primary' %}{{ section.settings.primary_button_text }}{% else %}{{ section.settings.secondary_button_text }}{% endif %};
+    background: {% if section.settings.button_style == 'primary' %}{{ section.settings.primary_button_background }}{% else %}transparent{% endif %};
+    border: {{ section.settings.button_border_width }}px solid {% if section.settings.button_style == 'primary' %}{{ section.settings.primary_button_border }}{% else %}{{ section.settings.secondary_button_border }}{% endif %};
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: {{ section.settings.button_text_size }}px;
+    font-weight: {{ section.settings.button_weight }};
+    letter-spacing: {{ section.settings.button_letter_spacing }}px;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: {{ section.settings.button_transform }};
+    cursor: pointer;
     transition: all 0.3s ease;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__button--primary {
-    color: {{ section.settings.primary_button_text }};
-    background: {{ section.settings.primary_button_background }};
-    border: 1px solid {{ section.settings.primary_button_border }};
+  #AppointmentBanner-{{ section_id }} .appointment-banner__button:hover {
+    {% if section.settings.button_style == 'primary' %}
+      background: {{ section.settings.primary_button_hover_background }};
+      color: {{ section.settings.primary_button_hover_text }};
+    {% else %}
+      background: {{ section.settings.secondary_button_hover_background }};
+      color: {{ section.settings.secondary_button_hover_text }};
+    {% endif %}
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__button--primary:hover {
-    color: {{ section.settings.primary_button_hover_text }};
-    background: {{ section.settings.primary_button_hover_background }};
-    border-color: {{ section.settings.primary_button_hover_background }};
-  }
-
-  #shopify-section-{{ section.id }} .appointment-banner__button--secondary {
-    color: {{ section.settings.secondary_button_text }};
-    background: transparent;
-    border: 1px solid {{ section.settings.secondary_button_border }};
-  }
-
-  #shopify-section-{{ section.id }} .appointment-banner__button--secondary:hover {
-    color: {{ section.settings.secondary_button_hover_text }};
-    background: {{ section.settings.secondary_button_hover_background }};
-    border-color: {{ section.settings.secondary_button_hover_background }};
-  }
-
-  #shopify-section-{{ section.id }} .appointment-banner__button-arrow {
-    font-size: 20px;
-    line-height: 1;
-  }
-
-  #shopify-section-{{ section.id }} .appointment-banner__after-content {
-    margin-top: {{ section.settings.after_content_spacing }}px;
-    color: {{ section.settings.text_color }};
+  #AppointmentBanner-{{ section_id }} .appointment-banner__after-content {
+    color: {{ section.settings.after_content_color }};
     font-size: {{ section.settings.after_content_size }}px;
-    line-height: 1.8;
+    line-height: 1.7;
   }
 
-  #shopify-section-{{ section.id }} .appointment-banner__after-content:empty {
-    display: none;
+  #AppointmentBanner-{{ section_id }} .appointment-banner__after-content p {
+    margin: 0 0 10px;
+  }
+
+  #AppointmentBanner-{{ section_id }} .appointment-banner__after-content p:last-child {
+    margin-bottom: 0;
   }
 
   @media screen and (max-width: 749px) {
-
-    #shopify-section-{{ section.id }} .appointment-banner {
+    #AppointmentBanner-{{ section_id }} {
       min-height: {{ section.settings.mobile_height }}px;
+      align-items: {{ section.settings.mobile_vertical_alignment }};
+    }
+
+    #AppointmentBanner-{{ section_id }} .appointment-banner__background img {
+      object-position: {{ section.settings.mobile_image_position }};
+    }
+
+    #AppointmentBanner-{{ section_id }} .appointment-banner__container {
       padding: {{ section.settings.mobile_padding_top }}px {{ section.settings.mobile_padding_horizontal }}px {{ section.settings.mobile_padding_bottom }}px;
-      background-position: {{ section.settings.mobile_image_position }};
+      {% if section.settings.content_position == 'right' %}
+        justify-content: flex-end;
+      {% else %}
+        justify-content: flex-start;
+      {% endif %}
     }
 
-    {% if section.settings.mobile_background_image != blank %}
-      #shopify-section-{{ section.id }} .appointment-banner {
-        background-image: url('{{ section.settings.mobile_background_image | image_url: width: 1200 }}');
-      }
-    {% endif %}
-
-    #shopify-section-{{ section.id }} .appointment-banner__container {
-      justify-content: {% if section.settings.mobile_content_alignment == 'right' %}flex-end{% elsif section.settings.mobile_content_alignment == 'center' %}center{% else %}flex-start{% endif %};
-    }
-
-    #shopify-section-{{ section.id }} .appointment-banner__content {
-      max-width: {{ section.settings.mobile_content_width }}%;
+    #AppointmentBanner-{{ section_id }} .appointment-banner__content {
+      width: {{ section.settings.mobile_content_width }}%;
       text-align: {{ section.settings.mobile_content_alignment }};
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__subtitle {
-      font-size: {{ section.settings.subtitle_size | times: 0.85 }}px;
-      margin-bottom: 12px;
+    #AppointmentBanner-{{ section_id }} .appointment-banner__subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+      margin-bottom: {{ section.settings.subtitle_spacing | divided_by: 2 }}px;
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__heading {
+    #AppointmentBanner-{{ section_id }} .appointment-banner__heading {
       font-size: {{ section.settings.mobile_heading_size }}px;
-      margin-bottom: 18px;
+      margin-bottom: {{ section.settings.heading_spacing | divided_by: 2 }}px;
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__description {
+    #AppointmentBanner-{{ section_id }} .appointment-banner__description {
       font-size: {{ section.settings.mobile_description_size }}px;
-      line-height: 1.7;
+      margin-bottom: {{ section.settings.description_spacing | divided_by: 2 }}px;
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__button-wrapper {
-      justify-content: {% if section.settings.mobile_content_alignment == 'center' %}center{% elsif section.settings.mobile_content_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
-      margin: 24px 0;
+    #AppointmentBanner-{{ section_id }} .appointment-banner__button-wrapper {
+      {% if section.settings.mobile_content_alignment == 'center' %}
+        justify-content: center;
+      {% elsif section.settings.mobile_content_alignment == 'right' %}
+        justify-content: flex-end;
+      {% else %}
+        justify-content: flex-start;
+      {% endif %}
+      margin-bottom: {{ section.settings.button_spacing | divided_by: 2 }}px;
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__button {
-      min-height: 48px;
-      padding: 12px 20px;
+    #AppointmentBanner-{{ section_id }} .appointment-banner__button {
+      min-height: 46px;
+      padding: 12px 22px;
       font-size: {{ section.settings.mobile_button_size }}px;
-      letter-spacing: 1px;
       max-width: 100%;
+      text-align: center;
     }
 
-    #shopify-section-{{ section.id }} .appointment-banner__after-content {
-      font-size: {{ section.settings.mobile_description_size }}px;
-      margin-top: 22px;
+    #AppointmentBanner-{{ section_id }} .appointment-banner__after-content {
+      font-size: {{ section.settings.mobile_after_content_size }}px;
     }
   }
-
 {% endstyle %}
 
 <section
-  class="appointment-banner {{ custom_class | escape }}"
-  aria-label="{{ section.settings.accessibility_label | default: section.settings.heading | escape }}"
+  id="AppointmentBanner-{{ section_id }}"
+  class="appointment-banner {{ section.settings.custom_class }}"
 >
-  <div class="appointment-banner__container">
+  {% if section.settings.background_image != blank or section.settings.mobile_background_image != blank %}
+    <div class="appointment-banner__background">
+      <picture>
+        {% if section.settings.mobile_background_image != blank %}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ section.settings.mobile_background_image | image_url: width: 1200 }}"
+          >
+        {% endif %}
 
+        {% if section.settings.background_image != blank %}
+          <img
+            src="{{ section.settings.background_image | image_url: width: 2400 }}"
+            alt="{{ section.settings.background_image.alt | escape }}"
+            width="{{ section.settings.background_image.width }}"
+            height="{{ section.settings.background_image.height }}"
+            loading="lazy"
+          >
+        {% elsif section.settings.mobile_background_image != blank %}
+          <img
+            src="{{ section.settings.mobile_background_image | image_url: width: 1200 }}"
+            alt="{{ section.settings.mobile_background_image.alt | escape }}"
+            width="{{ section.settings.mobile_background_image.width }}"
+            height="{{ section.settings.mobile_background_image.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      </picture>
+    </div>
+  {% endif %}
+
+  <div class="appointment-banner__gradient"></div>
+
+  <div class="appointment-banner__container">
     <div class="appointment-banner__content">
 
       {% if section.settings.subtitle != blank %}
-        <span class="appointment-banner__subtitle">
+        <div class="appointment-banner__subtitle">
           {{ section.settings.subtitle | escape }}
-        </span>
+        </div>
       {% endif %}
 
       {% if section.settings.heading != blank %}
         <h2 class="appointment-banner__heading">
-          {{ section.settings.heading | replace: '<br/>', '<br>' | replace: '<br />', '<br>' }}
+          {{ heading_text }}
         </h2>
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class="appointment-banner__description rte">
+        <div class="appointment-banner__description">
           {{ section.settings.description }}
         </div>
       {% endif %}
 
-      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+      {% if section.settings.button_label != blank %}
         <div class="appointment-banner__button-wrapper">
           <a
-            href="{{ section.settings.button_link }}"
-            class="appointment-banner__button appointment-banner__button--{{ section.settings.button_style }}"
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="appointment-banner__button"
+            {% if section.settings.button_link == blank %}
+              aria-disabled="true"
+            {% endif %}
           >
-            {{ section.settings.button_text | escape }}
+            {{ section.settings.button_label | escape }}
 
             {% if section.settings.show_button_arrow %}
-              <span class="appointment-banner__button-arrow" aria-hidden="true">—</span>
+              <span aria-hidden="true">⟶</span>
             {% endif %}
           </a>
         </div>
       {% endif %}
 
       {% if section.settings.after_content != blank %}
-        <div class="appointment-banner__after-content rte">
+        <div class="appointment-banner__after-content">
           {{ section.settings.after_content }}
         </div>
       {% endif %}
 
     </div>
-
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Private appointment",
+  "name": "Appointment banner",
   "settings": [
-    {
-      "type": "header",
-      "content": "Section settings"
-    },
-    {
-      "type": "text",
-      "id": "accessibility_label",
-      "label": "Accessibility label",
-      "info": "Optional accessible description for this banner."
-    },
-    {
-      "type": "text",
-      "id": "custom_class",
-      "label": "Custom CSS class",
-      "info": "Add your own CSS class to this section."
-    },
     {
       "type": "header",
       "content": "Background image"
@@ -311,25 +334,24 @@
     {
       "type": "image_picker",
       "id": "mobile_background_image",
-      "label": "Mobile background image",
-      "info": "Optional. Uses the desktop image if empty."
+      "label": "Mobile background image"
     },
     {
       "type": "color",
-      "id": "background_color",
+      "id": "fallback_background",
       "label": "Fallback background color",
       "default": "#35151C"
     },
     {
       "type": "select",
-      "id": "desktop_image_position",
+      "id": "image_position",
       "label": "Desktop image position",
       "options": [
-        { "value": "center center", "label": "Center" },
-        { "value": "center top", "label": "Top" },
-        { "value": "center bottom", "label": "Bottom" },
-        { "value": "left center", "label": "Left" },
-        { "value": "right center", "label": "Right" }
+        {"value": "center center", "label": "Center"},
+        {"value": "left center", "label": "Left"},
+        {"value": "right center", "label": "Right"},
+        {"value": "center top", "label": "Top"},
+        {"value": "center bottom", "label": "Bottom"}
       ],
       "default": "center center"
     },
@@ -338,11 +360,11 @@
       "id": "mobile_image_position",
       "label": "Mobile image position",
       "options": [
-        { "value": "center center", "label": "Center" },
-        { "value": "center top", "label": "Top" },
-        { "value": "center bottom", "label": "Bottom" },
-        { "value": "left center", "label": "Left" },
-        { "value": "right center", "label": "Right" }
+        {"value": "center center", "label": "Center"},
+        {"value": "left center", "label": "Left"},
+        {"value": "right center", "label": "Right"},
+        {"value": "center top", "label": "Top"},
+        {"value": "center bottom", "label": "Bottom"}
       ],
       "default": "center center"
     },
@@ -353,18 +375,8 @@
     {
       "type": "checkbox",
       "id": "enable_gradient",
-      "label": "Enable gradient overlay",
+      "label": "Enable gradient",
       "default": true
-    },
-    {
-      "type": "range",
-      "id": "gradient_rotation",
-      "label": "Gradient rotation",
-      "min": 0,
-      "max": 360,
-      "step": 15,
-      "unit": "deg",
-      "default": 90
     },
     {
       "type": "color",
@@ -386,6 +398,16 @@
     },
     {
       "type": "range",
+      "id": "gradient_rotation",
+      "label": "Gradient rotation",
+      "min": 0,
+      "max": 360,
+      "step": 10,
+      "unit": "deg",
+      "default": 90
+    },
+    {
+      "type": "range",
       "id": "gradient_opacity",
       "label": "Gradient opacity",
       "min": 0,
@@ -396,58 +418,69 @@
     },
     {
       "type": "header",
-      "content": "Content layout"
+      "content": "Content column layout"
     },
     {
       "type": "select",
       "id": "content_position",
-      "label": "Desktop content position",
+      "label": "Content column position",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
+        {"value": "left", "label": "Left"},
+        {"value": "right", "label": "Right"}
       ],
       "default": "left"
     },
     {
       "type": "range",
-      "id": "container_width",
-      "label": "Container maximum width",
-      "min": 800,
+      "id": "content_width",
+      "label": "Desktop content width",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "content_text_alignment",
+      "label": "Desktop text alignment",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "label": "Content container max width",
+      "min": 1000,
       "max": 1800,
       "step": 50,
       "unit": "px",
       "default": 1600
     },
     {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Desktop vertical alignment",
+      "options": [
+        {"value": "flex-start", "label": "Top"},
+        {"value": "center", "label": "Center"},
+        {"value": "flex-end", "label": "Bottom"}
+      ],
+      "default": "center"
+    },
+    {
       "type": "range",
-      "id": "content_width",
-      "label": "Desktop content width",
-      "min": 300,
-      "max": 800,
+      "id": "desktop_height",
+      "label": "Desktop minimum height",
+      "min": 400,
+      "max": 1000,
       "step": 20,
       "unit": "px",
-      "default": 500
-    },
-    {
-      "type": "range",
-      "id": "mobile_content_width",
-      "label": "Mobile content width",
-      "min": 70,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 100
-    },
-    {
-      "type": "select",
-      "id": "mobile_content_alignment",
-      "label": "Mobile content alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "left"
+      "default": 800
     },
     {
       "type": "header",
@@ -457,7 +490,7 @@
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Your private appointment"
+      "default": "YOUR PRIVATE APPOINTMENT"
     },
     {
       "type": "color",
@@ -469,40 +502,49 @@
       "type": "range",
       "id": "subtitle_size",
       "label": "Subtitle font size",
-      "min": 10,
+      "min": 8,
       "max": 24,
       "step": 1,
       "unit": "px",
       "default": 12
     },
     {
-      "type": "select",
-      "id": "subtitle_weight",
-      "label": "Subtitle font weight",
-      "options": [
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semi bold" },
-        { "value": "700", "label": "Bold" }
-      ],
-      "default": "500"
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 10
     },
     {
       "type": "range",
       "id": "subtitle_letter_spacing",
       "label": "Subtitle letter spacing",
       "min": 0,
-      "max": 6,
-      "step": 0.5,
+      "max": 8,
+      "step": 1,
       "unit": "px",
       "default": 3
+    },
+    {
+      "type": "select",
+      "id": "subtitle_transform",
+      "label": "Subtitle text transform",
+      "options": [
+        {"value": "uppercase", "label": "Uppercase"},
+        {"value": "none", "label": "Normal"},
+        {"value": "capitalize", "label": "Capitalize"}
+      ],
+      "default": "uppercase"
     },
     {
       "type": "range",
       "id": "subtitle_spacing",
       "label": "Space below subtitle",
       "min": 0,
-      "max": 40,
+      "max": 60,
       "step": 2,
       "unit": "px",
       "default": 24
@@ -515,7 +557,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Your story. Our undivided attention."
+      "default": "Your story.<br/>Our undivided<br/>attention."
     },
     {
       "type": "color",
@@ -527,8 +569,8 @@
       "type": "range",
       "id": "heading_size",
       "label": "Desktop heading size",
-      "min": 28,
-      "max": 90,
+      "min": 30,
+      "max": 100,
       "step": 2,
       "unit": "px",
       "default": 72
@@ -538,20 +580,20 @@
       "id": "mobile_heading_size",
       "label": "Mobile heading size",
       "min": 24,
-      "max": 56,
+      "max": 60,
       "step": 2,
       "unit": "px",
-      "default": 38
+      "default": 42
     },
     {
       "type": "select",
       "id": "heading_weight",
       "label": "Heading font weight",
       "options": [
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semi bold" }
+        {"value": "400", "label": "Normal"},
+        {"value": "500", "label": "Medium"},
+        {"value": "600", "label": "Semi bold"},
+        {"value": "700", "label": "Bold"}
       ],
       "default": "400"
     },
@@ -559,8 +601,8 @@
       "type": "range",
       "id": "heading_line_height",
       "label": "Heading line height",
-      "min": 1,
-      "max": 2,
+      "min": 0.8,
+      "max": 1.8,
       "step": 0.1,
       "default": 1.1
     },
@@ -568,8 +610,8 @@
       "type": "range",
       "id": "heading_letter_spacing",
       "label": "Heading letter spacing",
-      "min": -2,
-      "max": 3,
+      "min": -3,
+      "max": 5,
       "step": 0.5,
       "unit": "px",
       "default": 0
@@ -579,7 +621,7 @@
       "id": "heading_spacing",
       "label": "Space below heading",
       "min": 0,
-      "max": 50,
+      "max": 60,
       "step": 2,
       "unit": "px",
       "default": 24
@@ -591,41 +633,50 @@
     {
       "type": "richtext",
       "id": "description",
-      "label": "Content",
+      "label": "Description",
       "default": "<p>Tell us what you are drawn to, and what it means to you. A private appointment is a place to compare, ask questions, and find clarity.</p>"
     },
     {
       "type": "color",
-      "id": "text_color",
-      "label": "Content text color",
+      "id": "description_color",
+      "label": "Description color",
       "default": "#FFFFFF"
     },
     {
       "type": "range",
       "id": "description_size",
-      "label": "Desktop font size",
+      "label": "Desktop description size",
       "min": 12,
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 16
+      "default": 18
     },
     {
       "type": "range",
       "id": "mobile_description_size",
-      "label": "Mobile font size",
+      "label": "Mobile description size",
       "min": 12,
-      "max": 20,
+      "max": 22,
       "step": 1,
       "unit": "px",
-      "default": 14
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "description_line_height",
+      "label": "Description line height",
+      "min": 1,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.9
     },
     {
       "type": "range",
       "id": "description_spacing",
       "label": "Space below description",
       "min": 0,
-      "max": 50,
+      "max": 60,
       "step": 2,
       "unit": "px",
       "default": 24
@@ -636,9 +687,9 @@
     },
     {
       "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Request a private appointment"
+      "id": "button_label",
+      "label": "Button label",
+      "default": "REQUEST A PRIVATE APPOINTMENT"
     },
     {
       "type": "url",
@@ -646,50 +697,20 @@
       "label": "Button link"
     },
     {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show arrow",
+      "default": true
+    },
+    {
       "type": "select",
       "id": "button_style",
       "label": "Button style",
       "options": [
-        { "value": "primary", "label": "Primary" },
-        { "value": "secondary", "label": "Secondary" }
+        {"value": "primary", "label": "Primary"},
+        {"value": "secondary", "label": "Secondary"}
       ],
       "default": "secondary"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_button_arrow",
-      "label": "Show button arrow",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "button_size",
-      "label": "Desktop button font size",
-      "min": 10,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "mobile_button_size",
-      "label": "Mobile button font size",
-      "min": 10,
-      "max": 18,
-      "step": 1,
-      "unit": "px",
-      "default": 11
-    },
-    {
-      "type": "range",
-      "id": "button_spacing",
-      "label": "Button vertical spacing",
-      "min": 0,
-      "max": 60,
-      "step": 2,
-      "unit": "px",
-      "default": 24
     },
     {
       "type": "color",
@@ -713,7 +734,7 @@
       "type": "color",
       "id": "primary_button_hover_background",
       "label": "Primary hover background",
-      "default": "#4F1020"
+      "default": "#35151C"
     },
     {
       "type": "color",
@@ -746,8 +767,91 @@
       "default": "#75162D"
     },
     {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Button border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "label": "Desktop button font size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_size",
+      "label": "Mobile button font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "button_weight",
+      "label": "Button font weight",
+      "options": [
+        {"value": "400", "label": "Normal"},
+        {"value": "500", "label": "Medium"},
+        {"value": "600", "label": "Semi bold"},
+        {"value": "700", "label": "Bold"}
+      ],
+      "default": "500"
+    },
+    {
+      "type": "range",
+      "id": "button_letter_spacing",
+      "label": "Button letter spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "button_transform",
+      "label": "Button text transform",
+      "options": [
+        {"value": "uppercase", "label": "Uppercase"},
+        {"value": "none", "label": "Normal"},
+        {"value": "capitalize", "label": "Capitalize"}
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "label": "Space below button",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
       "type": "header",
-      "content": "After content"
+      "content": "Content after button"
     },
     {
       "type": "richtext",
@@ -756,117 +860,157 @@
       "default": "<p>Share your occasion, jewellery reference and preferred timing. We'll discuss individual details, availability and pricing with you.</p>"
     },
     {
+      "type": "color",
+      "id": "after_content_color",
+      "label": "Additional content color",
+      "default": "#FFFFFF"
+    },
+    {
       "type": "range",
       "id": "after_content_size",
-      "label": "Additional content font size",
-      "min": 11,
+      "label": "Desktop additional content size",
+      "min": 10,
       "max": 22,
       "step": 1,
       "unit": "px",
-      "default": 14
+      "default": 15
     },
     {
       "type": "range",
-      "id": "after_content_spacing",
-      "label": "Space above additional content",
-      "min": 0,
-      "max": 50,
-      "step": 2,
+      "id": "mobile_after_content_size",
+      "label": "Mobile additional content size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
       "unit": "px",
-      "default": 20
+      "default": 13
     },
     {
       "type": "header",
-      "content": "Desktop layout spacing"
+      "content": "Mobile layout"
     },
     {
       "type": "range",
-      "id": "desktop_height",
-      "label": "Minimum height",
+      "id": "mobile_content_width",
+      "label": "Mobile content width",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "label": "Mobile text alignment",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_vertical_alignment",
+      "label": "Mobile vertical alignment",
+      "options": [
+        {"value": "flex-start", "label": "Top"},
+        {"value": "center", "label": "Center"},
+        {"value": "flex-end", "label": "Bottom"}
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile minimum height",
       "min": 400,
-      "max": 1100,
-      "step": 25,
+      "max": 1000,
+      "step": 20,
       "unit": "px",
-      "default": 800
+      "default": 700
+    },
+    {
+      "type": "header",
+      "content": "Layout spacing"
     },
     {
       "type": "range",
       "id": "desktop_padding_top",
-      "label": "Padding top",
+      "label": "Desktop top padding",
       "min": 0,
       "max": 200,
-      "step": 5,
-      "unit": "px",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "desktop_padding_bottom",
-      "label": "Padding bottom",
-      "min": 0,
-      "max": 200,
-      "step": 5,
-      "unit": "px",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "desktop_padding_horizontal",
-      "label": "Horizontal padding",
-      "min": 20,
-      "max": 150,
       "step": 5,
       "unit": "px",
       "default": 100
     },
     {
-      "type": "header",
-      "content": "Mobile layout spacing"
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
     },
     {
       "type": "range",
-      "id": "mobile_height",
-      "label": "Minimum height",
-      "min": 400,
-      "max": 1000,
-      "step": 25,
+      "id": "desktop_padding_horizontal",
+      "label": "Desktop horizontal padding",
+      "min": 0,
+      "max": 200,
+      "step": 5,
       "unit": "px",
-      "default": 700
+      "default": 100
     },
     {
       "type": "range",
       "id": "mobile_padding_top",
-      "label": "Padding top",
+      "label": "Mobile top padding",
       "min": 0,
-      "max": 150,
+      "max": 120,
       "step": 5,
       "unit": "px",
-      "default": 50
+      "default": 60
     },
     {
       "type": "range",
       "id": "mobile_padding_bottom",
-      "label": "Padding bottom",
+      "label": "Mobile bottom padding",
       "min": 0,
-      "max": 150,
+      "max": 120,
       "step": 5,
       "unit": "px",
-      "default": 50
+      "default": 60
     },
     {
       "type": "range",
       "id": "mobile_padding_horizontal",
-      "label": "Horizontal padding",
-      "min": 10,
-      "max": 50,
+      "label": "Mobile horizontal padding",
+      "min": 0,
+      "max": 60,
       "step": 2,
       "unit": "px",
-      "default": 20
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "General text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Add your own CSS class without a dot."
     }
   ],
   "presets": [
     {
-      "name": "Private appointment"
+      "name": "Appointment banner"
     }
   ]
 }
