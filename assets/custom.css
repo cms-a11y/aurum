@@ -6,8 +6,8 @@ span.banner-subheading {
     line-height: 3.3;
 }
 .featured-products__button {
-  color: #75162d;
-  border-color: #75162d !important;
+    color: #75162d !important;
+    border: 1px solid #75162d!important;
 }
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
