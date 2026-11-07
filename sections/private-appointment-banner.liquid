@@ -44,10 +44,10 @@
   z-index: 1;
   pointer-events: none;
 
-  {% if section.settings.enable_gradient and section.settings.gradient_opacity > 0 %}
+  {% if section.settings.enable_gradient %}
     background: linear-gradient(
       {{ section.settings.gradient_rotation }}deg,
-      {{ section.settings.gradient_color_1 }}{{ section.settings.gradient_opacity | times: 0.01 | times: 100 | round | prepend: '' }} 0%,
+      {{ section.settings.gradient_color_1 }} 0%,
       {{ section.settings.gradient_color_2 }} 50%,
       {{ section.settings.gradient_color_3 }} 100%
     );
