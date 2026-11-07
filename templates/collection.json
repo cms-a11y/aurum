@@ -120,7 +120,7 @@
         "icon_spacing": 14,
         "icon_radius": 50,
         "background_color": "#ffffff",
-        "width_percent": 90,
+        "width_percent": 80,
         "max_width": 1400,
         "desktop_padding_top": 60,
         "desktop_padding_bottom": 60,
