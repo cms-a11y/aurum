@@ -21,6 +21,10 @@
     word-wrap: break-word;
     color: #F4E4C8;
 }
+.footer__navigation-list li.footer__navigation-list-item a{
+   font-family: var(--base-font-family);
+    font-size: 15px;
+}
 .footer a {
   color: var(--footer-link-color);
 }
