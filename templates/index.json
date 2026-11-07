@@ -731,7 +731,7 @@
         "subtitle_letter_spacing": 3,
         "subtitle_transform": "uppercase",
         "subtitle_spacing": 24,
-        "heading": "Crafted with intention. <br>Worn with meaning.",
+        "heading": "Crafted with intention. Worn with meaning.",
         "heading_color": "#ffffff",
         "heading_size": 60,
         "mobile_heading_size": 38,
@@ -782,6 +782,60 @@
         "mobile_padding_horizontal": 20,
         "text_color": "#ffffff",
         "custom_class": ""
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "content_1": {
+          "type": "content",
+          "settings": {
+            "text": "Crafted for a QUEEN."
+          }
+        },
+        "content_2": {
+          "type": "content",
+          "settings": {
+            "text": "For life’s most meaningful moments."
+          }
+        },
+        "content_3": {
+          "type": "content",
+          "settings": {
+            "text": "A part of your beautiful story."
+          }
+        },
+        "content_4": {
+          "type": "content",
+          "settings": {
+            "text": "For love. For milestones. For you."
+          }
+        }
+      },
+      "block_order": [
+        "content_1",
+        "content_2",
+        "content_3",
+        "content_4"
+      ],
+      "settings": {
+        "hide_bullets": true,
+        "font": "dm_sans_n3",
+        "font_size_desktop": 27,
+        "font_size_mobile": 16,
+        "enable_border": true,
+        "border_width": 2,
+        "direction": "left_to_right",
+        "desktop_movement_speed": 20,
+        "mobile_movement_speed": 35,
+        "section_background": "#75162D",
+        "text_color": "#ffffff",
+        "border_color": "#efe6cd",
+        "inner_indent": 7,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 70,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 40
       }
     },
     "collection_list_MrbqwK": {
@@ -895,60 +949,6 @@
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 80,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 40
-      }
-    },
-    "ticker": {
-      "type": "ticker",
-      "blocks": {
-        "content_1": {
-          "type": "content",
-          "settings": {
-            "text": "Crafted for a QUEEN."
-          }
-        },
-        "content_2": {
-          "type": "content",
-          "settings": {
-            "text": "For life’s most meaningful moments."
-          }
-        },
-        "content_3": {
-          "type": "content",
-          "settings": {
-            "text": "A part of your beautiful story."
-          }
-        },
-        "content_4": {
-          "type": "content",
-          "settings": {
-            "text": "For love. For milestones. For you."
-          }
-        }
-      },
-      "block_order": [
-        "content_1",
-        "content_2",
-        "content_3",
-        "content_4"
-      ],
-      "settings": {
-        "hide_bullets": true,
-        "font": "poppins_n4",
-        "font_size_desktop": 33,
-        "font_size_mobile": 16,
-        "enable_border": true,
-        "border_width": 2,
-        "direction": "left_to_right",
-        "desktop_movement_speed": 20,
-        "mobile_movement_speed": 35,
-        "section_background": "#75162D",
-        "text_color": "#ffffff",
-        "border_color": "#efe6cd",
-        "inner_indent": 7,
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 70,
-        "offset_top_mobile": 25,
         "offset_bottom_mobile": 40
       }
     },
@@ -1224,10 +1224,10 @@
     "statistics_bar_7VbPRA",
     "private_appointment_banner_x9NX3C",
     "private_appointment_banner_K6W3DQ",
+    "ticker",
     "collection_list_MrbqwK",
     "image-with-text",
     "image_with_text_gKUjpC",
-    "ticker",
     "featured-products",
     "richtext",
     "best-sellers",
