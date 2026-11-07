@@ -950,7 +950,7 @@ label {
   line-height: 1.375;
   text-align: center;
   word-break: break-word;
-  border-radius: 32px;
+  border-radius: 0px;
   text-decoration: none;
   text-transform: var(--button-text-transform);
   transition: opacity var(--timing-base), color var(--timing-base), border var(--timing-base), background-color var(--timing-base);
