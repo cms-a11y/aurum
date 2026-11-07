@@ -201,6 +201,7 @@
 				<div class="slideshow__slider-wrapper {% if blocks.size > 1 %} swiper-wrapper{%- endif -%}">
 					{%- for block in blocks -%}
 						{%- assign heading 					= block.settings.heading -%}
+						{%- assign subheading 					= block.settings.subheading -%}
 						{%- assign description 				= block.settings.description -%}
 						{%- assign button_text 				= block.settings.button_text -%}
 						{%- assign button_aria_label		= block.settings.button_aria_label -%}
@@ -383,6 +384,7 @@
 											enable_content_offset: enable_content_offset,
 											enable_glass_effect: enable_glass_effect,
 											enable_parallax: enable_parallax,
+											subheading: subheading,
 											heading: heading,
 											description: description,
 											button_text: button_text,
