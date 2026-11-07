@@ -85,7 +85,7 @@
 {%- endfor -%}
 
 {%- capture labels -%}
-	{%- unless product.available -%}
+	{% comment %} {%- unless product.available -%}
 		<li	class="product-card__label product-card__label--sold-out">
 			<span class="visually-hidden">
 				{{- 'products.product_card.product_label' | t -}}:
@@ -93,7 +93,7 @@
 
 			{{- "products.product.sold_out" | t -}}
 		</li>
-	{%- endunless -%}
+	{%- endunless -%} {% endcomment %}
 
 	{% if sale_label_enabled %}
 		{% assign discount_value = product.price | times: 100 | divided_by: product.compare_at_price %}
