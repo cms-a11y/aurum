@@ -531,6 +531,9 @@
           "type": "ai_gen_block_efd43e1",
           "name": "Collection image grid",
           "settings": {
+            "subtitle": "BROWSE",
+            "heading": "Shop By Collection",
+            "custom_class": "",
             "desktop_width_percent": 100,
             "grid_gap": 2,
             "image_ratio": "4 / 3",
