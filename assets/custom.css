@@ -19,7 +19,7 @@ span.banner-subheading {
 }
 .heading-custom-main h2 {
     font-size: 40px;
-    margin-bottom: 80px !important;
+    margin-bottom: 60px !important;
 }
 .heading-custom-main h2{text-transform: uppercase;}
 @media (min-width: 1200px) {
