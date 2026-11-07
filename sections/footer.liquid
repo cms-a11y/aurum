@@ -123,6 +123,10 @@
 							</div>
 						{%- endif -%}
 
+						<div class="newsletter__form-wrapper">
+				{{- newsletter_form -}}
+			</div>
+			
 						{% if block.settings.show_social_links %}
 							{%- render "social-links" -%}
 						{% endif %}
