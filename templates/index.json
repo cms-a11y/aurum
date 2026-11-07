@@ -252,9 +252,9 @@
         "overlay_color": "",
         "background_color": "#FBF8EF",
         "container_width": "inherit",
-        "offset_top_desktop": 60,
-        "offset_bottom_desktop": 60,
-        "offset_top_mobile": 0,
+        "offset_top_desktop": 80,
+        "offset_bottom_desktop": 80,
+        "offset_top_mobile": 50,
         "offset_bottom_mobile": 0
       }
     },
