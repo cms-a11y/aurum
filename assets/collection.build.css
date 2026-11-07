@@ -73,12 +73,11 @@ html.no-js .collection .collection__image-wrapper {
     bottom: -25px;
     position: absolute;
     height: 1px;
-    border-bottom: 1px solid #75162d21;
+    border-bottom: 1px solid #75162d2b;
 }
 .collection .collection__image-wrapper-header .collection__description {
   max-width: 100%;
 }
-.collection .collection__header:after{content: '';width:100%;position: absolute; height:1px;border-bottom: 1px solid #333;}
 
 .collection .collection__header {
   max-width: var(--container-width);
