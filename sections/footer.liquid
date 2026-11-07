@@ -86,6 +86,11 @@
 	--button-top-border-hover: {{ button_top_border_hover }};
 {%- endcapture -%}
 
+{% stylesheet %}
+  .footer-newsletter-custom-views {
+    margin-top: 20px;
+}
+{% endstylesheet %}
 {%- capture newsletter_form -%}
 	{% if custom_liquid_block != blank %}
 		{{ custom_liquid_block }}
