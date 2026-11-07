@@ -93,7 +93,7 @@
 			{%- if block.type == 'text' -%}
 				{%- assign heading              = block.settings.heading -%}
 				{%- assign text_content 		= block.settings.text_content -%}
-
+				{%- assign footerlogo = block.settings.footerlogo -%}
 				{%- if heading != blank or text_content != blank -%}
 					<div class="footer__navigation-item">
 						{%- if heading != blank -%}
