@@ -1,6 +1,7 @@
 /* stylelint-disable */
 .collection .collection__title {
   max-width: 650px;
+      color: var(--header-background);
 }
 .collection .collection__title.collection__title--empty {
   max-width: unset;
@@ -12,6 +13,7 @@
 }
 .collection .collection__description {
   margin-top: 16px;
+      color: var(--header-background);
 }
 .collection .collection__image-wrapper {
   position: relative;
