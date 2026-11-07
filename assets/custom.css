@@ -14,6 +14,10 @@ span.banner-subheading {
     letter-spacing: 1px;
     font-size: 12px;
 }
+.heading-custom-main p {
+    color: #75162d !important;
+}
+.heading-custom-main h2{text-transform: uppercase;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
