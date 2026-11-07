@@ -3303,7 +3303,7 @@ body.rtl .price .price-item.price-item--last {
     justify-content: center;
   }
   .header.header--menu-left .header__menu {
-    flex: 0 1 39%;
+    flex: 0 1 100%;
     padding: 0;
   }
   .header.header--menu-left .header-menu {
