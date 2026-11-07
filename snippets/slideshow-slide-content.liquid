@@ -18,7 +18,7 @@
 	<div class="slideshow__slide-content {% if enable_glass_effect == true %}slideshow__slide-content--glass{% endif %} {% if index == 1 %}js-need-animate-after-load{% else %}need-animate{% endif %}">
 		<div class="slideshow__slide-content-inner {{ glass_effect }} {{ content_offset }}">
 			{%-  if subheading !=blank -%}
-
+				<span class="banner-subheading">{{- subheading -}}</span>
 			{%- endif -%}	
 			{%- if heading != blank -%}
 				<h2
