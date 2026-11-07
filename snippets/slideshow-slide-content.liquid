@@ -17,6 +17,9 @@
 {%- if heading != blank or description != blank or is_button != blank -%}
 	<div class="slideshow__slide-content {% if enable_glass_effect == true %}slideshow__slide-content--glass{% endif %} {% if index == 1 %}js-need-animate-after-load{% else %}need-animate{% endif %}">
 		<div class="slideshow__slide-content-inner {{ glass_effect }} {{ content_offset }}">
+			{%-  if subheading !=blank -%}
+
+			{%- endif -%}	
 			{%- if heading != blank -%}
 				<h2
 					class="h2 slideshow__slide-heading"
