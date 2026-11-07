@@ -260,7 +260,7 @@
     font-size: var(--body-font-size);
   }
   .newsletter-form .newsletter-form__button {
-    padding: 16px 32px;
+    padding: 24px 32px;
     font-size: var(--body-font-size);
   }
 }
