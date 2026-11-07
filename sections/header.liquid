@@ -12,9 +12,6 @@
 {%- assign show_cart_notification 	= settings.show_cart_notification -%}
 
 {%- assign menu					= section.settings.menu -%}
-{%- assign menu_left = section.settings.menu_left -%}
-{%- assign menu_right = section.settings.menu_right -%}
-
 {%- assign menu_type_desktop	= section.settings.menu_type_desktop -%}
 
 {%- assign header_bg						        = section.settings.header_bg -%}
@@ -354,85 +351,61 @@
 			</div>
 		{% endif %}
 
-		<div class="header__split-layout">
+		<div class="header__burger-menu-button-wrapper">
+			<button
+				class="header__burger-menu-button js-header-drawer-toggler js-main-menu-toggler"
+				type="button"
+				data-target="headerDrawerMenu"
+				data-js-toggle="headerToggleMenuDrawer"
+				aria-expanded="false"
+				aria-controls="headerDrawerMenu"
+				aria-label="{{ "layout.navigation.open_drawer_menu" | t | escape }}"
+			>
+				{%- render 'icons', icon: 'burger-menu' -%}
+			</button>
+		</div>
 
-  <!-- Mobile hamburger -->
-  <div class="header__burger-menu-button-wrapper">
-    <button
-      class="header__burger-menu-button js-header-drawer-toggler js-main-menu-toggler"
-      type="button"
-      data-target="headerDrawerMenu"
-      data-js-toggle="headerToggleMenuDrawer"
-      aria-expanded="false"
-      aria-controls="headerDrawerMenu"
-      aria-label="{{ 'layout.navigation.open_drawer_menu' | t | escape }}"
-    >
-      {%- render 'icons', icon: 'burger-menu' -%}
-    </button>
-  </div>
+		{%- if logo_position == 'left' -%}
+			{{- logo_shippet -}}
+		{%- endif -%}
 
-  <!-- Left Navigation -->
-  <div class="header__split-left">
-    {%- if menu_left != blank -%}
-      <div class="header__menu">
-        {%- render 'header-menu',
-          menu: menu_left,
-          menu_type_desktop: menu_type_desktop,
-          blocks: blocks,
-          display_link_on_first_lvl: display_link_on_first_lvl
-        -%}
-      </div>
-    {%- endif -%}
-  </div>
+		{%- if menu != blank -%}
+			<div class="header__menu">
+				{%- render 'header-menu',
+					menu: menu,
+					menu_type_desktop: menu_type_desktop,
+					blocks: blocks,
+					display_link_on_first_lvl: display_link_on_first_lvl
+				-%}
+			</div>
+		{%- endif -%}
 
-  <!-- Center Logo -->
-  {{- logo_shippet -}}
+		{%- if logo_position == 'middle' or logo_position == 'top' -%}
+			{{- logo_shippet -}}
+		{%- endif -%}
 
-  <!-- Right Navigation + Icons -->
-  <div class="header__split-right">
+		<div class="header__utils">
+			{%- if is_show_language_selector == true and localization.available_languages.size > 1 -%}
+				{% assign language_selector = true %}
+			{%- endif -%}
 
-    {%- if menu_right != blank -%}
-      <div class="header__menu header__menu--right">
-        {%- render 'header-menu',
-          menu: menu_right,
-          menu_type_desktop: menu_type_desktop,
-          blocks: blocks,
-          display_link_on_first_lvl: display_link_on_first_lvl
-        -%}
-      </div>
-    {%- endif -%}
+			{%- if is_show_country_selector == true and localization.available_countries.size > 1 -%}
+				{% assign country_selector = true %}
+			{%- endif -%}
 
-    <div class="header__utils">
+			{%- if language_selector == true or country_selector -%}
+				<div class="header__localization">
+					{%- if country_selector == true -%}
+						{%- render 'country-localization-form', class: 'header', id_prefix: 'header', form_id: 'header-country-form' -%}
+					{%- endif -%}
 
-      {%- if is_show_language_selector == true and localization.available_languages.size > 1 -%}
-        {% assign language_selector = true %}
-      {%- endif -%}
+					{%- if language_selector == true -%}
+						{%- render 'language-localization-form', class: 'header', id_prefix: 'header', form_id: 'header-localization-form' -%}
+					{%- endif -%}
+				</div>
+			{%- endif -%}
 
-      {%- if is_show_country_selector == true and localization.available_countries.size > 1 -%}
-        {% assign country_selector = true %}
-      {%- endif -%}
-
-      {%- if language_selector == true or country_selector -%}
-        <div class="header__localization">
-          {%- if country_selector == true -%}
-            {%- render 'country-localization-form',
-              class: 'header',
-              id_prefix: 'header',
-              form_id: 'header-country-form'
-            -%}
-          {%- endif -%}
-
-          {%- if language_selector == true -%}
-            {%- render 'language-localization-form',
-              class: 'header',
-              id_prefix: 'header',
-              form_id: 'header-localization-form'
-            -%}
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-
-      <div class="header__icons">
+			<div class="header__icons">
 				{%- if is_enable_search -%}
 					<button
 						type="button"
