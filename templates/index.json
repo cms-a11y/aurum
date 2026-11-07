@@ -227,9 +227,7 @@
     },
     "featured_products_KKJYRQ": {
       "type": "featured-products",
-      "custom_css": [
-        ".featured-products__button{color: red;border-color: red;}"
-      ],
+      "custom_css": [],
       "name": "Featured products",
       "settings": {
         "heading": "Signature Pieces",
