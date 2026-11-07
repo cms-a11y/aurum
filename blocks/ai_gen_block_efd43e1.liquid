@@ -137,7 +137,9 @@
 
     .ai-collection-grid-{{ ai_gen_id }}__label {
       padding: 10px;
-      font-size: {{ block.settings.label_size | times: 0.85 }}px;
+    }
+    ai-collection-grid-{{ ai_gen_id }}__label h2{
+       font-size: {{ block.settings.label_size | times: 0.85 }}px;
     }
   }
 {% endstyle %}
