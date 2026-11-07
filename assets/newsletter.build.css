@@ -200,7 +200,7 @@
   }
 }
 .newsletter-form .newsletter-form__field {
-  position: relative;
+  position: relative; overflow: hidden;
 }
 .newsletter-form .newsletter-form__input {
   min-height: 50px;
