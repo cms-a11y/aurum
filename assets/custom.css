@@ -10,9 +10,9 @@ span.banner-subheading {
     border: 1px solid #75162d!important;
 }
 .product-card .product-card__label {
-    text-transform: uppercase;
+    text-transform: uppercase!important; 
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 12px !important;
 }
 .heading-custom-main p {
     color: #75162d !important;
