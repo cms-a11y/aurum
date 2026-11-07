@@ -1,41 +1,128 @@
+
 {% comment %}
-	------------------------------------------------------------------------------
-	Snippet: Sort
-	- product_list: Collection or Search object (required)
-
-	Usage:
-
-	{%- render 'sort', product_list: collection -%}
-	or
-	{%- render 'sort', product_list: search -%}
-	------------------------------------------------------------------------------
+  Sort - Radio Button Layout
+  Usage:
+  {% render 'sort', product_list: collection %}
+  {% render 'sort', product_list: search %}
 {% endcomment %}
 
 {%- render 'adastra' with '/src/styles/sort.scss' -%}
 
 {%- assign sort_by = product_list.sort_by | default: product_list.default_sort_by -%}
 
-<div class="sort">
-	<label class="visually-hidden" for="Sort">
-		{{- 'collections.sorting.title' | t -}}
-	</label>
+<div class="sort sort--radio">
+  <fieldset class="sort__fieldset">
+    <legend class="sort__legend">
+      {{ 'collections.sorting.title' | t }}
+    </legend>
 
-	<select
-		class="focus-visible-outline sort__select"
-		id="Sort"
-		name="sort_by"
-		aria-label="{{- 'collections.sorting.title' | t | escape -}}"
-	>
-		{%- for option in product_list.sort_options -%}
-			<option
-				class="sort__option"
-				value="{{- option.value | escape -}}"
-				{%- if option.value == sort_by -%}
-					selected
-				{%- endif -%}
-			>
-				{{- option.name | escape -}}
-			</option>
-		{%- endfor -%}
-	</select>
+    <div class="sort__radio-list">
+      {%- for option in product_list.sort_options -%}
+        <div class="sort__radio-item">
+          <input
+            type="radio"
+            class="sort__radio"
+            id="Sort-{{ forloop.index }}"
+            name="sort_by"
+            value="{{ option.value | escape }}"
+            {% if option.value == sort_by %}checked{% endif %}
+          >
+
+          <label
+            class="sort__radio-label"
+            for="Sort-{{ forloop.index }}"
+          >
+            <span class="sort__radio-indicator"></span>
+            <span>{{ option.name | escape }}</span>
+          </label>
+        </div>
+      {%- endfor -%}
+    </div>
+  </fieldset>
 </div>
+
+<script>
+  document.addEventListener('change', function(event) {
+    if (event.target.matches('.sort--radio input[name="sort_by"]')) {
+      const form = event.target.closest('form');
+
+      if (form) {
+        if (form.requestSubmit) {
+          form.requestSubmit();
+        } else {
+          form.submit();
+        }
+      }
+    }
+  });
+</script>
+
+<style>
+  .sort--radio .sort__fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .sort--radio .sort__legend {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .sort--radio .sort__radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sort--radio .sort__radio-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .sort--radio .sort__radio {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .sort--radio .sort__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .sort--radio .sort__radio-indicator {
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .sort--radio .sort__radio:checked + .sort__radio-label
+  .sort__radio-indicator {
+    border-color: #75162D;
+  }
+
+  .sort--radio .sort__radio:checked + .sort__radio-label
+  .sort__radio-indicator::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #75162D;
+    border-radius: 50%;
+  }
+
+  .sort--radio .sort__radio:focus-visible + .sort__radio-label {
+    outline: 2px solid #75162D;
+    outline-offset: 4px;
+  }
+</style>
