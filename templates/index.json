@@ -208,7 +208,7 @@
         "thumbnail_border_color_active": "#ffd875",
         "thumbnails_background_color": "#000",
         "thumbnails_background_color_opacity": 20,
-        "container_width": "inherit",
+        "container_width": "100%",
         "height_desktop": 100,
         "height_mobile": 100,
         "subtract_header_height": false,
