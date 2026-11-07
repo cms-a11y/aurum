@@ -18,6 +18,7 @@
           "type": "text",
           "settings": {
             "heading": "",
+            "footerlogo": "shopify://shop_images/0001-16165343505_20210129_173627_0000-1.png",
             "text_content": "<p>Every human deserves something extraordinary. Stay<br/>close to Queens for first looks at new creations,<br/>curated tanzanite drops, special offers, private<br/>events, and a little something special just for you.</p>",
             "show_social_links": false
           }
