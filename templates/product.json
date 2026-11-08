@@ -472,7 +472,7 @@
         "tab_label": "Related products",
         "enable_shopify_recommendations": true,
         "collection": "",
-        "show_recently_viewed": false,
+        "show_recently_viewed": true,
         "recently_viewed_label": "Recently vieweds",
         "all_view_btn_label": "View All",
         "all_view_btn_href": "contact",
@@ -489,7 +489,7 @@
       "settings": {
         "heading": "From this collection",
         "custom_class": "",
-        "subtitle": "Discover Our Collection",
+        "subtitle": "",
         "subtitle_color": "#a47a36",
         "subtitle_size": 14,
         "subtitle_weight": "500",
