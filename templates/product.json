@@ -472,7 +472,7 @@
         "tab_label": "Related products",
         "enable_shopify_recommendations": true,
         "collection": "",
-        "show_recently_viewed": true,
+        "show_recently_viewed": false,
         "recently_viewed_label": "Recently vieweds",
         "all_view_btn_label": "View All",
         "all_view_btn_href": "contact",
