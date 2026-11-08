@@ -500,7 +500,7 @@
         "heading_size_desktop": 36,
         "heading_size_mobile": 26,
         "heading_alignment": "center",
-        "heading_spacing": 40,
+        "heading_spacing": 50,
         "desktop_columns": "4",
         "mobile_columns": "2",
         "desktop_gap": 24,
