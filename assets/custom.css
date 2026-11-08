@@ -66,3 +66,15 @@ a.button.product-add-to-cart__appointment-button {
         line-height: 1.1;
     }
 }
+@media (min-width: 768px) {
+  .newsletter-form .newsletter-form__input {
+    min-height: 50px;
+    padding-inline-start: 32px;
+    padding-inline-end: 155px;
+    font-size: var(--body-font-size);
+  }
+  .newsletter-form .newsletter-form__button {
+    padding: 24px 32px;
+    font-size: var(--body-font-size);
+  }
+}
