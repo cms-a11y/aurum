@@ -360,6 +360,7 @@
     },
     "richtext_Pm43re": {
       "type": "richtext",
+      "disabled": true,
       "settings": {
         "heading": "Made to Hold Meaning",
         "subheading": "",
