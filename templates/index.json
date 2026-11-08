@@ -157,7 +157,7 @@
             "second_button_link": "/",
             "second_open_in_new_tab": false,
             "text_alignment_inside_block_desktop": "left",
-            "text_alignment_inside_block_mobile": "left",
+            "text_alignment_inside_block_mobile": "center",
             "content_alignment_horizontal_desktop": "left",
             "content_alignment_vertical_desktop": "middle",
             "content_alignment_vertical_mobile": "middle",
