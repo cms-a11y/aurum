@@ -27,6 +27,7 @@ span.banner-subheading {
     margin-bottom: 60px !important;
 }
 .newsletter .newsletter__subheading{position:relative;}
+body button.button.button--secondary.newsletter-form__button{background:#fff;color:var(--button-background-color-primary)}
 .heading-custom-main h2:after,
 .newsletter .newsletter__subheading:after {
     content: "";
