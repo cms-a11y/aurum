@@ -81,9 +81,9 @@
 				{{- 'products.product_card.product_title' | t -}}
 			{%- endif -%}
 
-			<div class="compare-product-card__price">
+			{% comment %} <div class="compare-product-card__price">
 				{%- render 'price', product: product, show_unit_price: show_unit_price, currency_code_enabled: currency_code_enabled -%}
-			</div>
+			</div> {% endcomment %}
 		</div>
 	</div>
 
