@@ -43,16 +43,47 @@
 				<span class="breadcrumb__item">{{ page.title }}</span>
 
 			{% elsif template.name == 'product' %}
-				{%- assign parent_colection = product.collections.first -%}
 
-				{% if settings.show_collection_on_pdp == true and parent_colection != blank %}
-					{{ breadcrumb_seperator }}
+  {%- assign breadcrumb_collection = blank -%}
 
-					{{ parent_colection.title | link_to: parent_colection.url, class: 'breadcrumb__item breadcrumb__link' }}
-				{% endif %}
+  {%- comment -%}
+    First check the collection from the current product URL.
+  {%- endcomment -%}
 
-				{{ breadcrumb_seperator }}
-				<span class="breadcrumb__item">{{ product.title }}</span>
+  {% if collection != blank and collection.handle != 'all' %}
+    {% assign breadcrumb_collection = collection %}
+  {% else %}
+
+    {%- comment -%}
+      Fallback: Find the first product collection
+      excluding All Products.
+    {%- endcomment -%}
+
+    {% for product_collection in product.collections %}
+      {% unless product_collection.handle == 'all' %}
+        {% assign breadcrumb_collection = product_collection %}
+        {% break %}
+      {% endunless %}
+    {% endfor %}
+
+  {% endif %}
+
+  {% if breadcrumb_collection != blank %}
+    {{ breadcrumb_seperator }}
+
+    <a
+      href="{{ breadcrumb_collection.url }}"
+      class="breadcrumb__item breadcrumb__link"
+    >
+      {{ breadcrumb_collection.title | escape }}
+    </a>
+  {% endif %}
+
+  {{ breadcrumb_seperator }}
+
+  <span class="breadcrumb__item">
+    {{ product.title | escape }}
+  </span>
 
 			{% elsif template.name == 'collection' and collection.handle %}
 				{{ breadcrumb_seperator }}
