@@ -63,6 +63,7 @@ h1.product-title { color: #75162D; font-size: 32px;}
 .product-description-wrapper {
     color: var(--header-background);
 }
+.product-form .breadcrumb .breadcrumb__container{padding: 2px 0;gap: 10px;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
