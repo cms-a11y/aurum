@@ -817,43 +817,47 @@
     }
   ]
 },
+
 {
-  "type": "product_specs",
+  "type": "product_specifications",
   "name": "Product Specifications",
   "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
     {
       "type": "color",
       "id": "background_color",
       "label": "Background Color",
-      "default": "#FAF7EF"
+      "default": "#FAF7F0"
     },
-	{
-  "type": "range",
-  "id": "desktop_columns",
-  "label": "Desktop columns",
-  "min": 1,
-  "max": 6,
-  "step": 1,
-  "default": 5
-},
-{
-  "type": "range",
-  "id": "mobile_columns",
-  "label": "Mobile columns",
-  "min": 1,
-  "max": 3,
-  "step": 1,
-  "default": 2
-},
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop Columns",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Mobile Columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
     {
       "type": "range",
       "id": "padding_top",
       "label": "Padding Top",
       "min": 0,
       "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 28
+      "step": 5,
+      "default": 20
     },
     {
       "type": "range",
@@ -861,145 +865,8 @@
       "label": "Padding Bottom",
       "min": 0,
       "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 28
-    },
-
-    {
-      "type": "header",
-      "content": "Specification 1"
-    },
-    {
-      "type": "textarea",
-      "id": "icon_1",
-      "label": "SVG Icon"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_1",
-      "label": "Subtitle",
-      "default": "METAL"
-    },
-    {
-      "type": "text",
-      "id": "title_1",
-      "label": "Title",
-      "default": "14k Rose Gold"
-    },
-    {
-      "type": "richtext",
-      "id": "content_1",
-      "label": "Content"
-    },
-
-    {
-      "type": "header",
-      "content": "Specification 2"
-    },
-    {
-      "type": "textarea",
-      "id": "icon_2",
-      "label": "SVG Icon"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_2",
-      "label": "Subtitle",
-      "default": "GEMSTONE"
-    },
-    {
-      "type": "text",
-      "id": "title_2",
-      "label": "Title",
-      "default": "Oval Tanzanite"
-    },
-    {
-      "type": "richtext",
-      "id": "content_2",
-      "label": "Content",
-      "default": "<p>2.5ct</p>"
-    },
-
-    {
-      "type": "header",
-      "content": "Specification 3"
-    },
-    {
-      "type": "textarea",
-      "id": "icon_3",
-      "label": "SVG Icon"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_3",
-      "label": "Subtitle",
-      "default": "SETTING"
-    },
-    {
-      "type": "text",
-      "id": "title_3",
-      "label": "Title",
-      "default": "Diamond Halo"
-    },
-    {
-      "type": "richtext",
-      "id": "content_3",
-      "label": "Content"
-    },
-
-    {
-      "type": "header",
-      "content": "Specification 4"
-    },
-    {
-      "type": "textarea",
-      "id": "icon_4",
-      "label": "SVG Icon"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_4",
-      "label": "Subtitle",
-      "default": "SIZE"
-    },
-    {
-      "type": "text",
-      "id": "title_4",
-      "label": "Title",
-      "default": "5-10 (Custom Available)"
-    },
-    {
-      "type": "richtext",
-      "id": "content_4",
-      "label": "Content"
-    },
-
-    {
-      "type": "header",
-      "content": "Specification 5"
-    },
-    {
-      "type": "textarea",
-      "id": "icon_5",
-      "label": "SVG Icon"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_5",
-      "label": "Subtitle",
-      "default": "WEIGHT"
-    },
-    {
-      "type": "text",
-      "id": "title_5",
-      "label": "Title",
-      "default": "3.2g"
-    },
-    {
-      "type": "richtext",
-      "id": "content_5",
-      "label": "Content"
+      "step": 5,
+      "default": 20
     }
   ]
 },
