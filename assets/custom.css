@@ -36,6 +36,14 @@ a.button.product-add-to-cart__appointment-button {
         font-size: 15px !important;
         text-transform: uppercase;
 }
+.newsletter-form .newsletter-form__button {
+  position: absolute;
+  inset-inline-end: 0px;
+  top: 50%;
+  padding: 8px 16px;
+  font-size: calc(var(--body-font-size) * 0.875);
+  transform: translateY(-50%);
+}
 .newsletter-form .newsletter-form__input{ min-height: 47px;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
