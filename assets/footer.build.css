@@ -1,6 +1,6 @@
 .footer {
-  width: calc(100% - 32px);
-  margin: 0 auto 16px;
+  width: 100%;
+  margin: 0;
   padding: 64px 48px 0;
   border-radius: var(--global-border-radius);
   background-color: var(--section-background);
