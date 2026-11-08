@@ -146,7 +146,7 @@
         </div>
       {% endif %}
 
-      {% if product_weight != blank %}
+      {% if weight_value != blank %}
         <div class="product-specifications__item">
           <div class="product-specifications__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -156,7 +156,7 @@
           </div>
           <div class="product-specifications__subtitle">WEIGHT</div>
           <div class="product-specifications__title">
-            {{ product_weight | escape }}
+            {{ weight_value | escape }}
           </div>
         </div>
       {% endif %}
