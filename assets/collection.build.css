@@ -268,6 +268,7 @@ html.no-js .collection .collection__image-wrapper {
   .collection .collection__grid-button-icon-desktop {
     display: none;
   }
+  .collection .collection__title,.collection .collection__description{text-align:center;}
 }
 @media (min-width: 768px) {
   .collection .collection__description {
