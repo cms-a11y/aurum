@@ -53,7 +53,7 @@
   left: 100%;
   display: var(--display-bullets);
   border-radius: 50%;
-  color: var(--text-color);
+  color: #C9A84C;
   transform: translate(-50%, -50%);
 }
 .ticker .ticker__item a {
