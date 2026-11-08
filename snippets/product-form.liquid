@@ -110,9 +110,11 @@
 
 
 {% when 'product_specifications' %}
-  {% assign tanzanite_size = product.metafields.custom.tanzanite_karat_size.value %}
-  {% assign product_weight = product.metafields.custom.weight.value %}
-  {% assign diamond_size = product.metafields.custom.carat_size.value %}
+ {%- assign metal_value = product.metafields.custom.metal.value -%}
+{%- assign gemstone_value = product.metafields.custom.tanzanite_karat_size.value -%}
+{%- assign setting_value = product.metafields.custom.setting.value -%}
+{%- assign size_value = product.metafields.custom.ring_size.value -%}
+{%- assign weight_value = product.metafields.custom.weight.value -%}
 
   <div
     class="product-specifications"
