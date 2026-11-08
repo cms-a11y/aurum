@@ -95,7 +95,7 @@
 				{{ 'products.product.request_quote' | t }}
 			</a>
 		{% endunless %}
-		
+
     {% if block.settings.show_button %}
       <a
         href="{{ block.settings.button_url | default: appointment_url }}"
@@ -108,69 +108,163 @@
 	
   </div>
 
-  {% when 'product_specs' %}
-<div id="ProductSpecs-{{ block.id }}" class="product-specs">
-  <div class="product-specs__grid">
 
-    {% for i in (1..5) %}
-      {% assign icon_key = 'icon_' | append: i %}
-      {% assign subtitle_key = 'subtitle_' | append: i %}
-      {% assign title_key = 'title_' | append: i %}
-      {% assign content_key = 'content_' | append: i %}
+{% when 'product_specifications' %}
+  {% assign tanzanite_size = product.metafields.custom.tanzanite_karat_size.value %}
+  {% assign product_weight = product.metafields.custom.weight.value %}
+  {% assign diamond_size = product.metafields.custom.carat_size.value %}
 
-      {% if block.settings[title_key] != blank or block.settings[subtitle_key] != blank %}
-        <div class="product-specs__item">
+  <div
+    class="product-specifications"
+    id="ProductSpecifications-{{ section.id }}-{{ block.id }}"
+    style="
+      --spec-bg: {{ block.settings.background_color }};
+      --spec-padding-top: {{ block.settings.padding_top }}px;
+      --spec-padding-bottom: {{ block.settings.padding_bottom }}px;
+      --spec-desktop-columns: {{ block.settings.desktop_columns }};
+      --spec-mobile-columns: {{ block.settings.mobile_columns }};
+    "
+    {{ block.shopify_attributes }}
+  >
+    <div class="product-specifications__grid">
 
-          {% if block.settings[icon_key] != blank %}
-            <div class="product-specs__icon">
-              {{ block.settings[icon_key] }}
-            </div>
-          {% endif %}
-
-          {% if block.settings[subtitle_key] != blank %}
-            <div class="product-specs__subtitle">
-              {{ block.settings[subtitle_key] }}
-            </div>
-          {% endif %}
-
-          {% if block.settings[title_key] != blank %}
-            <div class="product-specs__title">
-              {{ block.settings[title_key] }}
-            </div>
-          {% endif %}
-
-          {% if block.settings[content_key] != blank %}
-            <div class="product-specs__content">
-              {{ block.settings[content_key] }}
-            </div>
-          {% endif %}
-
+      {% if tanzanite_size != blank %}
+        <div class="product-specifications__item">
+          <div class="product-specifications__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L21 7L12 22L3 7L12 2Z"/>
+              <path d="M3 7H21M12 2L8 7L12 22L16 7L12 2Z"/>
+            </svg>
+          </div>
+          <div class="product-specifications__subtitle">GEMSTONE</div>
+          <div class="product-specifications__title">
+            {{ tanzanite_size | escape }}
+          </div>
         </div>
       {% endif %}
-    {% endfor %}
 
+      {% if product_weight != blank %}
+        <div class="product-specifications__item">
+          <div class="product-specifications__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3V21M5 6H19M7 6L3 16H11L7 6ZM17 6L13 16H21L17 6Z"/>
+            </svg>
+          </div>
+          <div class="product-specifications__subtitle">WEIGHT</div>
+          <div class="product-specifications__title">
+            {{ product_weight | escape }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if diamond_size != blank %}
+        <div class="product-specifications__item">
+          <div class="product-specifications__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L21 9L12 22L3 9L12 2Z"/>
+              <path d="M3 9H21M12 2L8 9L12 22L16 9L12 2Z"/>
+            </svg>
+          </div>
+          <div class="product-specifications__subtitle">DIAMOND</div>
+          <div class="product-specifications__title">
+            {{ diamond_size | escape }}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
   </div>
-</div>
-{% style %}
-  #ProductSpecs-{{ block.id }} {
-    --desktop-columns: {{ block.settings.desktop_columns }};
-    --mobile-columns: {{ block.settings.mobile_columns }};
-  }
 
-  #ProductSpecs-{{ block.id }} .product-specs__grid {
-    display: grid;
-    grid-template-columns: repeat(var(--desktop-columns), minmax(0, 1fr));
-    gap: 24px 16px;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 749px) {
-    #ProductSpecs-{{ block.id }} .product-specs__grid {
-      grid-template-columns: repeat(var(--mobile-columns), minmax(0, 1fr));
-      gap: 20px 10px;
+  <style>
+    #ProductSpecifications-{{ section.id }}-{{ block.id }} {
+      background: var(--spec-bg);
+      padding-top: var(--spec-padding-top);
+      padding-bottom: var(--spec-padding-bottom);
+      width: 100%;
     }
-  }
-{% endstyle %}
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__grid {
+      display: grid;
+      grid-template-columns: repeat(var(--spec-desktop-columns), minmax(0, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 0;
+    }
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #f0e6d2;
+      color: #80142e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__subtitle {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #94735e;
+      margin-bottom: 10px;
+    }
+
+    #ProductSpecifications-{{ section.id }}-{{ block.id }}
+    .product-specifications__title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #241616;
+    }
+
+    @media screen and (max-width: 767px) {
+      #ProductSpecifications-{{ section.id }}-{{ block.id }}
+      .product-specifications__grid {
+        grid-template-columns: repeat(var(--spec-mobile-columns), minmax(0, 1fr));
+        gap: 24px 12px;
+      }
+
+      #ProductSpecifications-{{ section.id }}-{{ block.id }}
+      .product-specifications__icon {
+        width: 65px;
+        height: 65px;
+      }
+
+      #ProductSpecifications-{{ section.id }}-{{ block.id }}
+      .product-specifications__icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      #ProductSpecifications-{{ section.id }}-{{ block.id }}
+      .product-specifications__title {
+        font-size: 13px;
+      }
+    }
+  </style>
+
 					{% when 'title' %}
 						{% render 'product-title', block: block, product: product, is_preset: is_preset %}
 					{% when 'description' %}
