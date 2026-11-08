@@ -48,7 +48,7 @@
 					data-is-show-first-media-image
 				{% endif %}
 			>
-				{% if is_zoom_enabled %}
+				{% comment %} {% if is_zoom_enabled %}
 					<div class="product-media__zoom-wrapper">
 						<button
 							class="product-media__zoom-button"
@@ -58,7 +58,7 @@
 							{% render 'icons', icon: 'plus' %}
 						</button>
 					</div>
-				{% endif %}
+				{% endif %} {% endcomment %}
 
 				<div class="product-media__navigation {% unless section.settings.show_arrows_mobile %}product-media__navigation--hide-mob{% endunless %} {% if product.media.size < 2 %}is-hidden{% endif %}">
 					<button
