@@ -894,7 +894,7 @@
         "mobile_description_alignment": "center",
         "description_spacing": 20,
         "button_label": "OUR STORY",
-        "button_link": "",
+        "button_link": "shopify://pages/about-us",
         "show_arrow": false,
         "button_style": "primary",
         "primary_background": "#75162d",
