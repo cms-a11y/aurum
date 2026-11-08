@@ -5368,6 +5368,7 @@ body.rtl .header-mobile .header-mobile__menu-item-icon-back {
 .product-card .product-card__vendor {
   line-height: 1.5;
   font-weight: 400;
+  color: var(--button-background-color-primary);
   word-break: break-word;
 }
 .product-card .product-card__text {
