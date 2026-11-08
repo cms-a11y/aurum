@@ -49,7 +49,7 @@
 			data-template: product_template
 		%}
 		 {% render "breadcrumbs" %}
-		 
+
 			{% include 'product-json' %}
 
 			{% if product.template_suffix == 'pre-order' %}
@@ -62,6 +62,33 @@
 						{% render 'product-badges', block: block, product: product, is_preset: is_preset %}
 					{% when 'vendor' %}
 						{% render 'product-vendor-sku', block: block, product: product, is_preset: is_preset %}
+						{% when 'appointment_box' %}
+
+  <div
+    class="product-appointment-box"
+    {{ block.shopify_attributes }}
+  >
+    {% if block.settings.heading != blank %}
+      <h3 class="product-appointment-box__heading">
+        {{ block.settings.heading | escape }}
+      </h3>
+    {% endif %}
+
+    {% if block.settings.description != blank %}
+      <div class="product-appointment-box__description">
+        {{ block.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_button %}
+      <a
+        href="{{ block.settings.button_url | default: appointment_url }}"
+        class="button button--block button--secondary-border product-add-to-cart__appointment-button"
+      >
+        {{ block.settings.button_label | escape }}
+      </a>
+    {% endif %}
+  </div>
 					{% when 'title' %}
 						{% render 'product-title', block: block, product: product, is_preset: is_preset %}
 					{% when 'description' %}
