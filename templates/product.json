@@ -112,6 +112,34 @@
             "offset_bottom_mobile": 12
           }
         },
+        "product_specs_yFPJpG": {
+          "type": "product_specs",
+          "settings": {
+            "background_color": "#faf7ef",
+            "padding_top": 28,
+            "padding_bottom": 28,
+            "icon_1": "",
+            "subtitle_1": "METAL",
+            "title_1": "14k Rose Gold",
+            "content_1": "",
+            "icon_2": "",
+            "subtitle_2": "GEMSTONE",
+            "title_2": "Oval Tanzanite",
+            "content_2": "<p>2.5ct</p>",
+            "icon_3": "",
+            "subtitle_3": "SETTING",
+            "title_3": "Diamond Halo",
+            "content_3": "",
+            "icon_4": "",
+            "subtitle_4": "SIZE",
+            "title_4": "5-10 (Custom Available)",
+            "content_4": "",
+            "icon_5": "",
+            "subtitle_5": "WEIGHT",
+            "title_5": "3.2g",
+            "content_5": ""
+          }
+        },
         "countdown_timer": {
           "type": "countdown_timer",
           "settings": {
@@ -257,6 +285,7 @@
         "inventory_status",
         "price",
         "quantity",
+        "product_specs_yFPJpG",
         "countdown_timer",
         "gift_wrap_product",
         "appointment_box_VDUUQW",
