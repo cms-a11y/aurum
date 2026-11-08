@@ -480,8 +480,8 @@
         "container_width": "inherit",
         "offset_top_desktop": 50,
         "offset_bottom_desktop": 50,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 60
+        "offset_top_mobile": 60,
+        "offset_bottom_mobile": 80
       }
     },
     "product_related_products_qxRMkm": {
@@ -493,8 +493,8 @@
         "products_limit": 4,
         "subtitle": "DISCOVER MORE",
         "heading": "Same Collection",
-        "subtitle_color": "#98745C",
-        "heading_color": "#5C1728",
+        "subtitle_color": "#98745c",
+        "heading_color": "#5c1728",
         "subtitle_size_desktop": 14,
         "subtitle_size_mobile": 12,
         "heading_size_desktop": 36,
@@ -505,7 +505,7 @@
         "mobile_columns": "2",
         "desktop_gap": 24,
         "mobile_gap": 12,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "container_width": "1400px",
         "custom_class": "",
         "padding_top_desktop": 50,
