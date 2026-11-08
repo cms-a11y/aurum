@@ -55,7 +55,7 @@ html.no-js .product {
   }
 }
 .product-media {
-    width: calc(58.383% - 16px);
+    width: calc(53.383% - 16px);
     margin-inline-end: 5%;
 }
 .product-media + .product-form {
