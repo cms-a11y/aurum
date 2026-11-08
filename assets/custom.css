@@ -26,7 +26,9 @@ span.banner-subheading {
     position:relative;
     margin-bottom: 60px !important;
 }
-.heading-custom-main h2:after {
+.newsletter .newsletter__subheading{position:relative;}
+.heading-custom-main h2:after,
+.newsletter .newsletter__subheading:after {
     content: "";
     position: absolute;
     width: 70px;
@@ -37,6 +39,7 @@ span.banner-subheading {
     left: 0;
     margin: 0 auto;
 }
+.newsletter .newsletter__subheading:after{border-color: #fff;}
 a.button.product-add-to-cart__appointment-button {
     color: var(--button-background-color-primary);
     border: 1px solid var(--button-border-color-primary-with-border);
