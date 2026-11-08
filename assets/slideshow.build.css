@@ -753,7 +753,7 @@
     line-height: 1.273;
   }
   .slideshow .slideshow__slide-description {
-    font-size: var(--body-font-size);
+    font-size: 15px;
   }
   .slideshow .slideshow__slide-button-wrapper {
     margin: 0 -8px;
