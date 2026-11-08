@@ -107,8 +107,9 @@
 .newsletter .newsletter__heading {
   margin-bottom: 16px;
   font-family: var(--base-font-family);
-  font-size: var(--body-font-size);
+  font-size: 14px;
   line-height: 1.5;
+  letter-spacing: 4px;
 }
 .newsletter .newsletter__subheading {
   margin-bottom: 16px;
