@@ -12,7 +12,7 @@
 	- "Pickup availability"
 	- "Sales point"
 	- "Notify me"
-	- "Custom liquid"
+	- "Custom liquid" 
 ------------------------------------------------------------------------------
 {% endcomment %}
 {% assign is_preset = false %}
@@ -88,6 +88,67 @@
         {{ block.settings.button_label | escape }}
       </a>
     {% endif %}
+  </div>
+
+  {% when 'product_specs' %}
+
+  <div
+    id="ProductSpecs-{{ block.id }}"
+    class="product-specs"
+    style="
+      --specs-bg: {{ block.settings.background_color }};
+      --specs-padding-top: {{ block.settings.padding_top }}px;
+      --specs-padding-bottom: {{ block.settings.padding_bottom }}px;
+    "
+    {{ block.shopify_attributes }}
+  >
+    <div class="product-specs__grid">
+
+      {% for i in (1..5) %}
+        {% capture icon_key %}icon_{{ i }}{% endcapture %}
+        {% capture subtitle_key %}subtitle_{{ i }}{% endcapture %}
+        {% capture title_key %}title_{{ i }}{% endcapture %}
+        {% capture content_key %}content_{{ i }}{% endcapture %}
+
+        {% assign spec_icon = block.settings[icon_key] %}
+        {% assign spec_subtitle = block.settings[subtitle_key] %}
+        {% assign spec_title = block.settings[title_key] %}
+        {% assign spec_content = block.settings[content_key] %}
+
+        {% if spec_icon != blank or spec_subtitle != blank or spec_title != blank or spec_content != blank %}
+
+          <div class="product-specs__item">
+
+            {% if spec_icon != blank %}
+              <div class="product-specs__icon">
+                {{ spec_icon }}
+              </div>
+            {% endif %}
+
+            {% if spec_subtitle != blank %}
+              <div class="product-specs__subtitle">
+                {{ spec_subtitle | escape }}
+              </div>
+            {% endif %}
+
+            {% if spec_title != blank %}
+              <h3 class="product-specs__title">
+                {{ spec_title | escape }}
+              </h3>
+            {% endif %}
+
+            {% if spec_content != blank %}
+              <div class="product-specs__content">
+                {{ spec_content }}
+              </div>
+            {% endif %}
+
+          </div>
+
+        {% endif %}
+      {% endfor %}
+
+    </div>
   </div>
 					{% when 'title' %}
 						{% render 'product-title', block: block, product: product, is_preset: is_preset %}
