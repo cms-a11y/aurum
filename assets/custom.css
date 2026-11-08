@@ -29,6 +29,14 @@ a.button.product-add-to-cart__appointment-button {
     color: var(--button-background);
     border: 1px solid var(--button-background);
 }
+.newsletter-form .newsletter-form__input{border-radius: 0;}
+.newsletter-form .newsletter-form__button{
+  background: #fff;
+        color: #5b1727;
+        font-size: 15px !important;
+        text-transform: uppercase;
+}
+.newsletter-form .newsletter-form__input{ min-height: 47px;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
