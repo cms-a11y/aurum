@@ -113,6 +113,11 @@ html.no-js .collection .collection__image-wrapper {
   color: var(--color-slider-arrow-icon);
   pointer-events: all;
 }
+    .collection .collection__grid-button {
+        border-radius: var(--global-border-radius);
+        background: var(--banner-color);
+        color: var(--button-background-color-primary);
+    }
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .collection .collection__swiper .collection__swiper-button-prev:hover:not(:disabled),
   .collection .collection__swiper .collection__swiper-button-next:hover:not(:disabled) {
