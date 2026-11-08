@@ -181,7 +181,7 @@ html.no-js .collection .collection__image-wrapper {
   height: 16px;
 }
 .collection .collection__grid-button.is-active {
-  background-color: var(--button-background-color-secondary);
+  background-color: var(--button-background-color-primary);
   color: var(--button-text-color-secondary);
 }
 .collection .collection__grid-button:focus-visible {
