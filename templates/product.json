@@ -486,6 +486,7 @@
     },
     "featured-products": {
       "type": "featured-products",
+      "disabled": true,
       "settings": {
         "heading": "From this collection",
         "custom_class": "",
@@ -520,6 +521,7 @@
     },
     "newsletter": {
       "type": "newsletter",
+      "disabled": true,
       "settings": {
         "layout": "two_columns",
         "heading": "A GIFT FROM QUEENS",
