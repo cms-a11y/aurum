@@ -85,7 +85,7 @@
         "subtitle_size": 14,
         "mobile_subtitle_size": 12,
         "subtitle_italic": false,
-        "subtitle_letter_spacing": 4,
+        "subtitle_letter_spacing": 2,
         "subtitle_transform": "uppercase",
         "heading_color": "#75162d",
         "heading_size": 36,
