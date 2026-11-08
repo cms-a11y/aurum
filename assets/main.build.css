@@ -391,7 +391,7 @@ h1,
 }
 h2,
 .h2 {
-  font-size: calc(var(--heading-font-size) * 1.50);
+  font-size: calc(var(--heading-font-size) * 1.75);
   line-height: 1.21;
 }
 @media (min-width: 768px) {
@@ -403,7 +403,7 @@ h2,
 @media (min-width: 1200px) {
   h2,
   .h2 {
-    font-size: calc(var(--heading-font-size) * 2.375);
+    font-size: calc(var(--heading-font-size) * 2.55);
   }
 }
 h3,
