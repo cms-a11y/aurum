@@ -302,7 +302,43 @@
 						active_filters_size: active_filters_size
 					%}
 
-					
+					{% if show_grid_selector %}
+						<div class="collection__grid-buttons {% if text_position == 'inside_image' and collection.image != blank and show_img %}collection__grid-buttons--no-margin{% endif %} js-grid-view-buttons">
+							<button
+								class="collection__grid-button is-active js-grid-view-btn"
+								data-grid-cols="4"
+							>
+								<span class="collection__grid-button-icon-desktop">
+									<span class="visually-hidden">{{ 'collections.general.grid_view_4' | t }}</span>
+
+									{% render 'icons', icon: 'grid-4' %}
+								</span>
+
+								<span class="collection__grid-button-icon-mobile">
+									<span class="visually-hidden">{{ 'collections.general.grid_view_2' | t }}</span>
+
+									{% render 'icons', icon: 'grid-2' %}
+								</span>
+							</button>
+
+							<button
+								class="collection__grid-button js-grid-view-btn"
+								data-grid-cols="3"
+							>
+								<span class="collection__grid-button-icon-desktop">
+									<span class="visually-hidden">{{ 'collections.general.grid_view_3' | t }}</span>
+
+									{% render 'icons', icon: 'grid-3' %}
+								</span>
+
+								<span class="collection__grid-button-icon-mobile">
+									<span class="visually-hidden">{{ 'collections.general.grid_view_1' | t }}</span>
+
+									{% render 'icons', icon: 'grid-1' %}
+								</span>
+							</button>
+						</div>
+					{% endif %}
 				</div>
 			{% endif %}
 		</div>
