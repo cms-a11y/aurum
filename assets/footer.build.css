@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 .footer .footer__navigation-heading {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-family: var(--base-font-family);
     font-size: 18px;
     font-weight: 700;
@@ -106,7 +106,7 @@
   width: 20.59%;
 }
 .footer .footer__navigation-list-item + .footer__navigation-list-item {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 .footer .footer__navigation-list-link {
   font-size: calc(var(--body-font-size) * 0.9375);
