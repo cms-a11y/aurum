@@ -955,6 +955,10 @@
     },
     "image_with_text_z3bfnD": {
       "type": "image-with-text",
+      "custom_css": [
+        ".image-with-text__content * {color: var(--button-background-color-primary);}",
+        ".image-with-text__button{color:#fff;}"
+      ],
       "name": "Image with text",
       "settings": {
         "image_position": "right",
