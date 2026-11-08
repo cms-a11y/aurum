@@ -47,7 +47,7 @@
   white-space: nowrap;
 }
 .ticker .ticker__item::after {
-  content: "";
+  content: "✦";
   position: absolute;
   top: 50%;
   left: 100%;
@@ -55,7 +55,7 @@
   width: 0.25em;
   height: 0.25em;
   border-radius: 50%;
-  background-color: var(--text-color);
+  color: var(--text-color);
   transform: translate(-50%, -50%);
 }
 .ticker .ticker__item a {
