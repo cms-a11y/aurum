@@ -46,44 +46,32 @@
 
   {%- assign breadcrumb_collection = blank -%}
 
-  {%- comment -%}
-    First check the collection from the current product URL.
-  {%- endcomment -%}
+  {% comment %} Check current collection context {% endcomment %}
+  {% if collection != blank %}
+    {% unless collection.handle == 'all-products' or collection.handle == 'all' %}
+      {% assign breadcrumb_collection = collection %}
+    {% endunless %}
+  {% endif %}
 
-  {% if collection != blank and collection.handle != 'all' %}
-    {% assign breadcrumb_collection = collection %}
-  {% else %}
-
-    {%- comment -%}
-      Fallback: Find the first product collection
-      excluding All Products.
-    {%- endcomment -%}
-
+  {% comment %} Find another collection if current is All Products {% endcomment %}
+  {% if breadcrumb_collection == blank %}
     {% for product_collection in product.collections %}
-      {% unless product_collection.handle == 'all' %}
+      {% unless product_collection.handle == 'all-products' or product_collection.handle == 'all' %}
         {% assign breadcrumb_collection = product_collection %}
         {% break %}
       {% endunless %}
     {% endfor %}
-
   {% endif %}
 
   {% if breadcrumb_collection != blank %}
     {{ breadcrumb_seperator }}
-
-    <a
-      href="{{ breadcrumb_collection.url }}"
-      class="breadcrumb__item breadcrumb__link"
-    >
+    <a href="{{ breadcrumb_collection.url }}" class="breadcrumb__item breadcrumb__link">
       {{ breadcrumb_collection.title | escape }}
     </a>
   {% endif %}
 
   {{ breadcrumb_seperator }}
-
-  <span class="breadcrumb__item">
-    {{ product.title | escape }}
-  </span>
+  <span class="breadcrumb__item">{{ product.title | escape }}</span>
 
 			{% elsif template.name == 'collection' and collection.handle %}
 				{{ breadcrumb_seperator }}
