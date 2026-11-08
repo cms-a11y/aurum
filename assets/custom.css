@@ -59,6 +59,7 @@ a.button.product-add-to-cart__appointment-button {
   transform: translateY(-50%);
 }
 .newsletter-form .newsletter-form__input{ min-height: 47px;}
+h1.product-title { color: #75162D; font-size: 32px;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
