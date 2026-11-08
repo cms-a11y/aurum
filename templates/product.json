@@ -475,7 +475,7 @@
         "show_recently_viewed": false,
         "recently_viewed_label": "Recently vieweds",
         "all_view_btn_label": "View All",
-        "all_view_btn_href": "",
+        "all_view_btn_href": "contact",
         "layout": "alternative",
         "container_width": "inherit",
         "offset_top_desktop": 50,
