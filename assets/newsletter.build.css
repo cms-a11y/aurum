@@ -105,7 +105,7 @@
   color: var(--newsletter-text-color);
 }
 .newsletter .newsletter__heading {
-  margin-bottom: 16px;
+  margin-bottom: 10px !important;
   font-family: var(--base-font-family);
   font-size: 14px;
   line-height: 1.5;
