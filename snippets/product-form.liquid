@@ -133,6 +133,26 @@
 
   </div>
 </div>
+{% style %}
+  #ProductSpecs-{{ block.id }} {
+    --desktop-columns: {{ block.settings.desktop_columns }};
+    --mobile-columns: {{ block.settings.mobile_columns }};
+  }
+
+  #ProductSpecs-{{ block.id }} .product-specs__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--desktop-columns), minmax(0, 1fr));
+    gap: 24px 16px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    #ProductSpecs-{{ block.id }} .product-specs__grid {
+      grid-template-columns: repeat(var(--mobile-columns), minmax(0, 1fr));
+      gap: 20px 10px;
+    }
+  }
+{% endstyle %}
 					{% when 'title' %}
 						{% render 'product-title', block: block, product: product, is_preset: is_preset %}
 					{% when 'description' %}
