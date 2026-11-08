@@ -355,49 +355,131 @@
 
 							{%- case block.type  -%}
 								{% when "image" -%}
-									{%- assign image_desktop 	= block.settings.image_desktop -%}
-									{%- assign image_mobile 	= block.settings.image_mobile | default: image_desktop-%}
+								{%- assign image_desktop = block.settings.image_desktop -%}
+{%- assign image_mobile = block.settings.image_mobile | default: image_desktop -%}
 
-									{% if button_link != blank and make_link_full_slide %}
-										<a href="{{ button_link }}"
-										   class="slideshow__link-full"
-										   aria-label="{{ button_aria_label }}"
-											{% if open_in_new_tab %}
-												target="_blank"
-												rel="nofollow"
-											{% endif %}
-										></a>
-									{% endif %}
+{%- assign background_video_desktop = block.settings.background_video_desktop -%}
+{%- assign background_video_mobile = block.settings.background_video_mobile | default: background_video_desktop -%}
 
-									{%- render "slideshow-slide-image",
-										image_mobile: image_mobile,
-										image_desktop: image_desktop,
-										placeholder_index: forloop.index0,
-										enable_lazy_load: enable_lazy_load,
-										enable_fetch_priority: enable_fetch_priority
-									-%}
+{%- if button_link != blank and make_link_full_slide -%}
+  <a
+    href="{{ button_link }}"
+    class="slideshow__link-full"
+    aria-label="{{ button_aria_label | escape }}"
+    {% if open_in_new_tab %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+  ></a>
+{%- endif -%}
 
-									<div class="slideshow__slide-media-overlay"></div>
+<div class="slideshow__background-media">
 
-									<div class="slideshow__slide-box {% if enanle_thumbnails == true %}slideshow__slide-box--thumbnails-offset{% endif %}">
-										{%- render 'slideshow-slide-content',
-											enable_content_offset: enable_content_offset,
-											enable_glass_effect: enable_glass_effect,
-											enable_parallax: enable_parallax,
-											subheading: subheading,
-											heading: heading,
-											description: description,
-											button_text: button_text,
-											button_link: button_link,
-											button_aria_label: button_aria_label,
-											open_in_new_tab: open_in_new_tab,
-											second_button_text: second_button_text,
-											second_button_link: second_button_link,
-											second_button_aria_label: second_button_aria_label,
-											second_open_in_new_tab: second_open_in_new_tab,
-											index: forloop.index
-										-%}
-									</div>
+  {%- comment -%} Desktop background {%- endcomment -%}
+  <div class="slideshow__background-desktop">
+
+    {%- if background_video_desktop != blank -%}
+      <video
+        class="slideshow__background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        tabindex="-1"
+        {% if image_desktop != blank %}
+          poster="{{ image_desktop | image_url: width: 2000 }}"
+        {% endif %}
+      >
+        {%- for source in background_video_desktop.sources -%}
+          {%- if source.mime_type == 'video/mp4' -%}
+            <source
+              src="{{ source.url }}"
+              type="{{ source.mime_type }}"
+            >
+          {%- endif -%}
+        {%- endfor -%}
+      </video>
+
+    {%- else -%}
+
+      {%- render "slideshow-slide-image",
+        image_mobile: image_desktop,
+        image_desktop: image_desktop,
+        placeholder_index: forloop.index0,
+        enable_lazy_load: enable_lazy_load,
+        enable_fetch_priority: enable_fetch_priority
+      -%}
+
+    {%- endif -%}
+
+  </div>
+
+  {%- comment -%} Mobile background {%- endcomment -%}
+  <div class="slideshow__background-mobile">
+
+    {%- if background_video_mobile != blank -%}
+      <video
+        class="slideshow__background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        tabindex="-1"
+        {% if image_mobile != blank %}
+          poster="{{ image_mobile | image_url: width: 1200 }}"
+        {% endif %}
+      >
+        {%- for source in background_video_mobile.sources -%}
+          {%- if source.mime_type == 'video/mp4' -%}
+            <source
+              src="{{ source.url }}"
+              type="{{ source.mime_type }}"
+            >
+          {%- endif -%}
+        {%- endfor -%}
+      </video>
+
+    {%- else -%}
+
+      {%- render "slideshow-slide-image",
+        image_mobile: image_mobile,
+        image_desktop: image_mobile,
+        placeholder_index: forloop.index0,
+        enable_lazy_load: enable_lazy_load,
+        enable_fetch_priority: enable_fetch_priority
+      -%}
+
+    {%- endif -%}
+
+  </div>
+
+</div>
+
+<div class="slideshow__slide-media-overlay"></div>
+
+<div class="slideshow__slide-box {% if enanle_thumbnails == true %}slideshow__slide-box--thumbnails-offset{% endif %}">
+  {%- render 'slideshow-slide-content',
+    enable_content_offset: enable_content_offset,
+    enable_glass_effect: enable_glass_effect,
+    enable_parallax: enable_parallax,
+    subheading: subheading,
+    heading: heading,
+    description: description,
+    button_text: button_text,
+    button_link: button_link,
+    button_aria_label: button_aria_label,
+    open_in_new_tab: open_in_new_tab,
+    second_button_text: second_button_text,
+    second_button_link: second_button_link,
+    second_button_aria_label: second_button_aria_label,
+    second_open_in_new_tab: second_open_in_new_tab,
+    index: forloop.index
+  -%}
+</div>
 								{% when "html_video" -%}
 									{%- assign video_desktop		= block.settings.video_desktop -%}
 									{%- assign video_mobile			= block.settings.video_mobile | default: video_desktop -%}
