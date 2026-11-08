@@ -116,6 +116,8 @@
           "type": "product_specs",
           "settings": {
             "background_color": "#faf7ef",
+            "desktop_columns": 5,
+            "mobile_columns": 2,
             "padding_top": 28,
             "padding_bottom": 28,
             "icon_1": "",
@@ -142,6 +144,7 @@
         },
         "countdown_timer": {
           "type": "countdown_timer",
+          "disabled": true,
           "settings": {
             "text": "Sale ends in:",
             "text_color": "#535353",
@@ -155,6 +158,7 @@
         },
         "gift_wrap_product": {
           "type": "gift_wrap_product",
+          "disabled": true,
           "settings": {
             "offset_top_desktop": 10,
             "offset_bottom_desktop": 10,
