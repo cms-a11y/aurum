@@ -3562,6 +3562,7 @@ body.rtl .price .price-item.price-item--last {
     font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
+    letter-spacing: 1.25px;
     color: var(--header-text-color);
   }
   .header-menu .header-menu__item-highlighted-icon {
