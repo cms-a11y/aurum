@@ -13,7 +13,7 @@
   padding: 16px 24px;
   border-radius: calc(var(--global-border-radius) * 2);
   background-color: var(--button-background-color-secondary);
-  color: var(--button-text-color-secondary);
+  color: var(--button-background-color-primary);
   font-weight: 500;
   transition-property: bottom;
   transition-duration: var(--timing-base);
