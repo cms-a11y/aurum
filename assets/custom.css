@@ -65,7 +65,8 @@ h1.product-title { color: #75162D; font-size: 32px;}
 }
 .product-form .breadcrumb .breadcrumb__container {padding: 2px 0;gap: 10px;}
 .product-form .breadcrumb .breadcrumb__container span.seperator { color: #C9A84C;}
-.product-form .breadcrumb .breadcrumb__container a { color: var(--color-border-label-primary);}
+.product-form .breadcrumb .breadcrumb__container a,
+.product-form .breadcrumb .breadcrumb__container span.breadcrumb__item { color: var(--color-border-label-primary);}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
