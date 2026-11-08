@@ -3556,7 +3556,7 @@ body.rtl .price .price-item.price-item--last {
     transition-timing-function: var(--easing-ease);
   }
   .header-menu .header-menu__item-text {
-    font-size: var(--body-font-size);
+    font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
     color: var(--header-text-color);
