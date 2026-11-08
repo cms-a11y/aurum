@@ -372,13 +372,86 @@
 										></a>
 									{% endif %}
 
-									{%- render "slideshow-slide-image",
-										image_mobile: image_mobile,
-										image_desktop: image_desktop,
-										placeholder_index: forloop.index0,
-										enable_lazy_load: enable_lazy_load,
-										enable_fetch_priority: enable_fetch_priority
-									-%}
+									{%- comment -%}
+  Background image fallback
+{%- endcomment -%}
+
+{%- render "slideshow-slide-image",
+    image_mobile: image_mobile,
+    image_desktop: image_desktop,
+    placeholder_index: forloop.index0,
+    enable_lazy_load: enable_lazy_load,
+    enable_fetch_priority: enable_fetch_priority
+-%}
+
+
+{%- comment -%}
+  Responsive background video
+{%- endcomment -%}
+
+{%- if background_video_desktop != blank or background_video_mobile != blank -%}
+
+  <div class="slideshow__slide-videos need-animate js-videos"
+       data-show-button="false">
+
+    {%- if background_video_desktop != blank -%}
+
+      <video
+        class="slideshow__slide-media slideshow__slide-media--desktop js-video"
+        data-device="desktop"
+        data-type="html"
+        data-autoplay="true"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        {%- for source in background_video_desktop.sources -%}
+          {%- if source.mime_type == 'video/mp4' -%}
+            <source
+              src="{{ source.url }}"
+              type="{{ source.mime_type }}"
+            >
+          {%- endif -%}
+        {%- endfor -%}
+      </video>
+
+    {%- endif -%}
+
+
+    {%- if background_video_mobile != blank -%}
+
+      <video
+        class="slideshow__slide-media slideshow__slide-media--mobile js-video"
+        data-device="mobile"
+        data-type="html"
+        data-autoplay="true"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        {%- for source in background_video_mobile.sources -%}
+          {%- if source.mime_type == 'video/mp4' -%}
+            <source
+              src="{{ source.url }}"
+              type="{{ source.mime_type }}"
+            >
+          {%- endif -%}
+        {%- endfor -%}
+      </video>
+
+    {%- endif -%}
+
+  </div>
+
+{%- endif -%}
 
 									<div class="slideshow__slide-media-overlay"></div>
 
