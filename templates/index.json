@@ -872,7 +872,7 @@
         "subtitle_transform": "uppercase",
         "subtitle_alignment": "center",
         "mobile_subtitle_alignment": "center",
-        "subtitle_spacing": 24,
+        "subtitle_spacing": 10,
         "heading": "We believe jewellery is more than an object – it is an heirloom in the making.",
         "heading_color": "#ffffff",
         "heading_size": 56,
