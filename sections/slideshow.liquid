@@ -355,8 +355,11 @@
 
 							{%- case block.type  -%}
 								{% when "image" -%}
-									{%- assign image_desktop 	= block.settings.image_desktop -%}
-									{%- assign image_mobile 	= block.settings.image_mobile | default: image_desktop-%}
+									{%- assign image_desktop = block.settings.image_desktop -%}
+{%- assign image_mobile = block.settings.image_mobile | default: image_desktop -%}
+
+{%- assign background_video_desktop = block.settings.background_video_desktop -%}
+{%- assign background_video_mobile = block.settings.background_video_mobile | default: background_video_desktop -%}
 
 									{% if button_link != blank and make_link_full_slide %}
 										<a href="{{ button_link }}"
