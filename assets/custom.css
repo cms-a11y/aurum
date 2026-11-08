@@ -31,9 +31,9 @@ a.button.product-add-to-cart__appointment-button {
     
 }
 .product-description__quote-button, a.button.product-add-to-cart__appointment-button{
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 15px;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-size: 15px !important;
 }
 .newsletter-form .newsletter-form__field {
   position: relative; overflow: hidden;
