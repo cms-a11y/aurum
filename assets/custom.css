@@ -42,6 +42,7 @@ h2.quote-banner__heading:after,
     left: 0;
     margin: 0 auto;
 }
+body .image-with-text .image-with-text__heading:after{right:unset;}
 .newsletter .newsletter__subheading:after, h2.quote-banner__heading:after{border-color: #fff;}
 a.button.product-add-to-cart__appointment-button {
     color: var(--button-background-color-primary);
