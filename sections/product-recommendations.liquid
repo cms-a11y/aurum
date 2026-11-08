@@ -25,6 +25,8 @@
 {%- assign full_width 				= section.settings.full_width -%}
 {%- assign show_recently_viewed 	= section.settings.show_recently_viewed -%}
 {%- assign recently_viewed_label 	= section.settings.recently_viewed_label -%}
+{%- assign recently_viewed_label = section.settings.recently_viewed_label -%}
+{%- assign recently_viewed_href = section.settings.recently_viewed_href -%}
 
 {%- assign container = section.settings.container_width -%}
 
@@ -137,9 +139,9 @@
 			</div>
 		{%- endif -%}
 
-		{%- if recently_viewed_href != blank -%}
-						<a class="all-view-button" href="{{ all-view-btn-href }}" data-index="2">
-							{{- recently_viewed_label -}}
+		{%- if all_view_btn_label != blank -%}
+						<a class="all-view-button" href="{{ all_view_btn_label_href }}" data-index="2">
+							{{- all_view_btn_label -}}
 						</a>
 					{%- endif -%}
 
