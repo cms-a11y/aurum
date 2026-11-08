@@ -484,6 +484,36 @@
         "offset_bottom_mobile": 60
       }
     },
+    "product_related_products_qxRMkm": {
+      "type": "product-related-products",
+      "name": "Product related products",
+      "settings": {
+        "source_mode": "same_collection",
+        "source_collection": "",
+        "products_limit": 4,
+        "subtitle": "DISCOVER MORE",
+        "heading": "You May Also Like",
+        "subtitle_color": "#98745C",
+        "heading_color": "#5C1728",
+        "subtitle_size_desktop": 14,
+        "subtitle_size_mobile": 12,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "heading_alignment": "center",
+        "heading_spacing": 40,
+        "desktop_columns": "4",
+        "mobile_columns": "2",
+        "desktop_gap": 24,
+        "mobile_gap": 12,
+        "background_color": "#FFFFFF",
+        "container_width": "1400px",
+        "custom_class": "",
+        "padding_top_desktop": 50,
+        "padding_bottom_desktop": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
     "featured-products": {
       "type": "featured-products",
       "disabled": true,
@@ -605,36 +635,6 @@
         "mobile_card_padding_top": 40,
         "mobile_card_padding_bottom": 40,
         "custom_class": "custom-promise-section"
-      }
-    },
-    "product_related_products_qxRMkm": {
-      "type": "product-related-products",
-      "name": "Product related products",
-      "settings": {
-        "source_mode": "same_collection",
-        "source_collection": "",
-        "products_limit": 4,
-        "subtitle": "DISCOVER MORE",
-        "heading": "You May Also Like",
-        "subtitle_color": "#98745C",
-        "heading_color": "#5C1728",
-        "subtitle_size_desktop": 14,
-        "subtitle_size_mobile": 12,
-        "heading_size_desktop": 36,
-        "heading_size_mobile": 26,
-        "heading_alignment": "center",
-        "heading_spacing": 30,
-        "desktop_columns": "4",
-        "mobile_columns": "2",
-        "desktop_gap": 24,
-        "mobile_gap": 12,
-        "background_color": "#FFFFFF",
-        "container_width": "1400px",
-        "custom_class": "",
-        "padding_top_desktop": 50,
-        "padding_bottom_desktop": 50,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
       }
     }
   },
