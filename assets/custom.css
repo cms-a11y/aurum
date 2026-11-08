@@ -67,6 +67,7 @@ h1.product-title { color: #75162D; font-size: 32px;}
 .product-form .breadcrumb .breadcrumb__container span.seperator { color: #C9A84C;}
 .product-form .breadcrumb .breadcrumb__container a,
 .product-form .breadcrumb .breadcrumb__container span.breadcrumb__item { color: var(--color-border-label-primary);}
+section.product { padding: 60px 0;}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
