@@ -55,11 +55,11 @@ html.no-js .product {
   }
 }
 .product-media {
-  width: calc(60.383% - 16px);
-  margin-inline-end: 32px;
+  width: calc(55.383% - 16px);
+  margin-inline-end: 80px;
 }
 .product-media + .product-form {
-  width: calc(39.617% - 16px);
+  width: calc(44.617% - 16px);
   max-width: 100%;
 }
 .product-media .product-media__container {
