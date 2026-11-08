@@ -3458,7 +3458,7 @@ body.rtl .price .price-item.price-item--last {
     display: none;
   }
   .header-section.header-section--transparent:not(.header-section--top-position) .header__heading-logo{
-
+    max-width: 120px;
   }
   .header-section.header-section--transparent.header-section--top-position .header__heading-logo.header__heading-logo--transparent {
     display: block;
