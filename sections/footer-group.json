@@ -23,6 +23,13 @@
             "show_social_links": false
           }
         },
+        "menu_wFxW6n": {
+          "type": "menu",
+          "settings": {
+            "menu_heading": "Category",
+            "menu": "footer"
+          }
+        },
         "menu-1": {
           "type": "menu",
           "settings": {
@@ -40,6 +47,7 @@
       },
       "block_order": [
         "text_79QwEN",
+        "menu_wFxW6n",
         "menu-1",
         "menu-3"
       ],
