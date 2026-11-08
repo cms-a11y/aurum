@@ -11,15 +11,15 @@
   margin: 0 auto;
 }
 .footer .footer__navigation-heading {
- margin-bottom: 20px;
+    margin-bottom: 12px;
     font-family: var(--base-font-family);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: .18em;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .02em;
     line-height: 1.4;
     text-transform: uppercase;
     word-wrap: break-word;
-    color: #F4E4C8;
+    color: #f4e4c8;
 }
 .footer__navigation-list li.footer__navigation-list-item a{
    font-family: var(--base-font-family);
