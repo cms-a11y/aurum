@@ -1,0 +1,828 @@
+
+{% comment %}
+  Section: Promise Card
+  Features:
+  - Dynamic subtitle, title and rich text content
+  - Custom typography and colors
+  - Primary / Secondary button
+  - Adjustable card width
+  - Content alignment: Left / Center / Right
+  - Section and card background colors
+  - Desktop and mobile spacing
+  - Decorative corner circles
+{% endcomment %}
+
+{% assign section_id = 'PromiseCard-' | append: section.id %}
+
+<section id="{{ section_id }}" class="promise-section {{ section.settings.custom_class }}">
+
+  <div class="promise-section__container">
+
+    <div class="promise-card">
+
+      {% if section.settings.show_decorations %}
+        <span class="promise-card__decoration promise-card__decoration--top"></span>
+        <span class="promise-card__decoration promise-card__decoration--bottom"></span>
+      {% endif %}
+
+      <div class="promise-card__content">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="promise-card__subtitle">
+            {{ section.settings.subtitle | escape }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="promise-card__title">
+            {{ section.settings.title | escape }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.show_divider %}
+          <span class="promise-card__divider"></span>
+        {% endif %}
+
+        {% if section.settings.content != blank %}
+          <div class="promise-card__text">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <div class="promise-card__button-wrap">
+            <a
+              href="{{ section.settings.button_link }}"
+              class="promise-card__button promise-card__button--{{ section.settings.button_style }}"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} {
+    width: 100%;
+    background: {{ section.settings.section_background }};
+    padding-top: {{ section.settings.desktop_padding_top }}px;
+    padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .promise-section__container {
+    width: 100%;
+    max-width: {{ section.settings.container_width }}px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .promise-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: {{ section.settings.card_width }}px;
+    margin-left:
+      {% if section.settings.card_position == 'left' %}0
+      {% elsif section.settings.card_position == 'right' %}auto
+      {% else %}auto{% endif %};
+    margin-right:
+      {% if section.settings.card_position == 'right' %}0
+      {% elsif section.settings.card_position == 'left' %}auto
+      {% else %}auto{% endif %};
+    background: {{ section.settings.card_background }};
+    border: {{ section.settings.border_width }}px solid {{ section.settings.border_color }};
+    border-radius: {{ section.settings.card_radius }}px;
+    box-sizing: border-box;
+    box-shadow: 0 12px 35px rgba(50, 20, 20, 0.035);
+  }
+
+  #{{ section_id }} .promise-card__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: {{ section.settings.card_padding_top }}px {{ section.settings.card_padding_horizontal }}px {{ section.settings.card_padding_bottom }}px;
+    text-align: {{ section.settings.content_alignment }};
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .promise-card__subtitle {
+    margin: 0 0 {{ section.settings.subtitle_spacing }}px;
+    color: {{ section.settings.subtitle_color }};
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: {{ section.settings.subtitle_weight }};
+    letter-spacing: {{ section.settings.subtitle_letter_spacing }}px;
+    line-height: 1.5;
+    text-transform: {{ section.settings.subtitle_transform }};
+  }
+
+  #{{ section_id }} .promise-card__title {
+    margin: 0;
+    color: {{ section.settings.title_color }};
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+    line-height: 1.2;
+    letter-spacing: {{ section.settings.title_letter_spacing }}px;
+  }
+
+  #{{ section_id }} .promise-card__divider {
+    display: block;
+    width: {{ section.settings.divider_width }}px;
+    height: {{ section.settings.divider_height }}px;
+    background: {{ section.settings.divider_color }};
+    margin: {{ section.settings.divider_spacing }}px
+      {% if section.settings.content_alignment == 'left' %}
+        0 0
+      {% elsif section.settings.content_alignment == 'right' %}
+        0 0 0 auto
+      {% else %}
+        0 auto
+      {% endif %};
+  }
+
+  #{{ section_id }} .promise-card__text {
+    color: {{ section.settings.content_color }};
+    font-size: {{ section.settings.content_size }}px;
+    line-height: {{ section.settings.content_line_height }};
+    max-width: {{ section.settings.content_width }}px;
+    {% if section.settings.content_alignment == 'left' %}
+      margin-left: 0;
+      margin-right: auto;
+    {% elsif section.settings.content_alignment == 'right' %}
+      margin-left: auto;
+      margin-right: 0;
+    {% else %}
+      margin-left: auto;
+      margin-right: auto;
+    {% endif %}
+  }
+
+  #{{ section_id }} .promise-card__text p {
+    margin: 0 0 12px;
+  }
+
+  #{{ section_id }} .promise-card__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .promise-card__button-wrap {
+    margin-top: {{ section.settings.button_spacing }}px;
+  }
+
+  #{{ section_id }} .promise-card__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: {{ section.settings.button_height }}px;
+    padding: 12px 40px;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid {{ section.settings.button_background }};
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .promise-card__button--primary {
+    color: {{ section.settings.button_text_color }};
+    background: {{ section.settings.button_background }};
+  }
+
+  #{{ section_id }} .promise-card__button--primary:hover {
+    color: {{ section.settings.button_background }};
+    background: transparent;
+  }
+
+  #{{ section_id }} .promise-card__button--secondary {
+    color: {{ section.settings.button_background }};
+    background: transparent;
+  }
+
+  #{{ section_id }} .promise-card__button--secondary:hover {
+    color: {{ section.settings.button_text_color }};
+    background: {{ section.settings.button_background }};
+  }
+
+  /* Decorative circles */
+
+  #{{ section_id }} .promise-card__decoration {
+    position: absolute;
+    z-index: 1;
+    width: {{ section.settings.decoration_size }}px;
+    height: {{ section.settings.decoration_size }}px;
+    border-radius: 50%;
+    background: {{ section.settings.decoration_color }};
+    pointer-events: none;
+  }
+
+  #{{ section_id }} .promise-card__decoration--top {
+    top: -{{ section.settings.decoration_size | divided_by: 2 }}px;
+    right: -{{ section.settings.decoration_size | divided_by: 2 }}px;
+  }
+
+  #{{ section_id }} .promise-card__decoration--bottom {
+    bottom: -{{ section.settings.decoration_size | divided_by: 2 }}px;
+    left: -{{ section.settings.decoration_size | divided_by: 2 }}px;
+  }
+
+  @media screen and (max-width: 767px) {
+    #{{ section_id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #{{ section_id }} .promise-section__container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #{{ section_id }} .promise-card {
+      max-width: 100%;
+      border-radius: {{ section.settings.mobile_card_radius }}px;
+    }
+
+    #{{ section_id }} .promise-card__content {
+      padding: {{ section.settings.mobile_card_padding_top }}px 20px {{ section.settings.mobile_card_padding_bottom }}px;
+    }
+
+    #{{ section_id }} .promise-card__subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+    }
+
+    #{{ section_id }} .promise-card__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+    }
+
+    #{{ section_id }} .promise-card__text {
+      font-size: {{ section.settings.mobile_content_size }}px;
+    }
+
+    #{{ section_id }} .promise-card__button {
+      min-height: 48px;
+      padding: 12px 24px;
+      font-size: {{ section.settings.mobile_button_font_size }}px;
+      max-width: 100%;
+    }
+
+    #{{ section_id }} .promise-card__decoration {
+      width: {{ section.settings.mobile_decoration_size }}px;
+      height: {{ section.settings.mobile_decoration_size }}px;
+    }
+
+    #{{ section_id }} .promise-card__decoration--top {
+      top: -{{ section.settings.mobile_decoration_size | divided_by: 2 }}px;
+      right: -{{ section.settings.mobile_decoration_size | divided_by: 2 }}px;
+    }
+
+    #{{ section_id }} .promise-card__decoration--bottom {
+      bottom: -{{ section.settings.mobile_decoration_size | divided_by: 2 }}px;
+      left: -{{ section.settings.mobile_decoration_size | divided_by: 2 }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Promise Card",
+  "tag": "section",
+  "class": "promise-card-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "OUR PROMISE"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#87172F"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_weight",
+      "label": "Subtitle font weight",
+      "default": "400",
+      "options": [
+        {"value": "400", "label": "Normal"},
+        {"value": "500", "label": "Medium"},
+        {"value": "600", "label": "Semi Bold"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "subtitle_letter_spacing",
+      "label": "Subtitle letter spacing",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_transform",
+      "label": "Subtitle text transform",
+      "default": "uppercase",
+      "options": [
+        {"value": "uppercase", "label": "Uppercase"},
+        {"value": "none", "label": "Normal"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "subtitle_spacing",
+      "label": "Subtitle bottom spacing",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Made to Be Treasured"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title font size",
+      "min": 20,
+      "max": 64,
+      "step": 2,
+      "default": 44,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Mobile title font size",
+      "min": 18,
+      "max": 42,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#81172F"
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Title font weight",
+      "default": "600",
+      "options": [
+        {"value": "400", "label": "Normal"},
+        {"value": "500", "label": "Medium"},
+        {"value": "600", "label": "Semi Bold"},
+        {"value": "700", "label": "Bold"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "label": "Title letter spacing",
+      "min": -2,
+      "max": 5,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show title divider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "Divider width",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "label": "Divider height",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#81172F"
+    },
+    {
+      "type": "range",
+      "id": "divider_spacing",
+      "label": "Divider spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description",
+      "default": "<p>We believe jewellery is more than it looks — it should celebrate YOU. When your Queens piece is an expression of your love, your confidence, and the moments worth treasuring.</p>"
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#87172F"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content maximum width",
+      "min": 300,
+      "max": 1000,
+      "step": 50,
+      "default": 750,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_line_height",
+      "label": "Content line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.7
+    },
+    {
+      "type": "header",
+      "content": "Content alignment and card layout"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content text alignment",
+      "default": "center",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_position",
+      "label": "Card horizontal position",
+      "default": "center",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Outer container width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Card width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "default": 900,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_padding_top",
+      "label": "Card top padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_padding_bottom",
+      "label": "Card bottom padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_padding_horizontal",
+      "label": "Card horizontal padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#FAF7EF"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_radius",
+      "label": "Mobile card radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#F0DDBD"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "BOOK AN APPOINTMENT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "primary",
+      "options": [
+        {"value": "primary", "label": "Primary"},
+        {"value": "secondary", "label": "Secondary"}
+      ]
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background / border",
+      "default": "#81172F"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_font_size",
+      "label": "Mobile button font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "label": "Button height",
+      "min": 40,
+      "max": 80,
+      "step": 2,
+      "default": 62,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "label": "Button top spacing",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Decorative circles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_decorations",
+      "label": "Show decorative circles",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "decoration_color",
+      "label": "Circle color",
+      "default": "#F4E9EE"
+    },
+    {
+      "type": "range",
+      "id": "decoration_size",
+      "label": "Desktop circle size",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "default": 150,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_decoration_size",
+      "label": "Mobile circle size",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "default": 70,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Responsive spacing"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop section top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop section bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile section top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile section bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding_top",
+      "label": "Mobile card top padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding_bottom",
+      "label": "Mobile card bottom padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "default": "custom-promise-section"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promise Card"
+    }
+  ]
+}
+{% endschema %}
