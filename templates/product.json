@@ -283,7 +283,7 @@
         "powerful_form_builder_app_block_RdXnMR"
       ],
       "settings": {
-        "is_zoom_enabled": false,
+        "is_zoom_enabled": true,
         "show_arrows_mobile": true,
         "media_layout": "stacked_2_col_with_big_image",
         "thumbnails_position": "bottom",
