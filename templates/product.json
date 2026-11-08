@@ -132,7 +132,7 @@
             "subtitle_3": "SETTING",
             "title_3": "Diamond Halo",
             "content_3": "",
-            "icon_4": "",
+            "icon_4": "<svg viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M7 12L12 7L33 28L28 33L7 12Z\"></path>\n  <path d=\"M12 12L16 8M17 17L21 13M22 22L26 18\"></path>\n</svg>",
             "subtitle_4": "SIZE",
             "title_4": "5-10 (Custom Available)",
             "content_4": "",
