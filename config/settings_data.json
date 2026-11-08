@@ -87,6 +87,7 @@
     "product_card_button_border_color_hover": "#ffffff",
     "compare_sticky_button_bg": "#161e13",
     "compare_button_bg": "#fff",
+    "is_quick_view_enabled": false,
     "quick_view_image_fit": "quick-view__image-wrapper--cover",
     "quick_view_timer_background_color": "#161e13",
     "enable_search": true,
