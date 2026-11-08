@@ -825,7 +825,7 @@
         ".ticker .ticker__items {text-transform: uppercase;}"
       ],
       "settings": {
-        "hide_bullets": true,
+        "hide_bullets": false,
         "font": "dm_sans_n3",
         "font_size_desktop": 16,
         "font_size_mobile": 14,
