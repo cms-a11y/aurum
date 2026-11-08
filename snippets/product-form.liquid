@@ -88,6 +88,18 @@
         {{ block.settings.button_label | escape }}
       </a>
     {% endif %}
+
+		{% unless is_preset %}
+			<a
+				href="{{ request_quote_url }}"
+				class="button button--primary product-description__quote-button"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{{ 'products.product.request_quote' | t }}
+			</a>
+		{% endunless %}
+		
   </div>
 
   {% when 'product_specs' %}
