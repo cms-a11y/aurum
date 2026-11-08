@@ -38,7 +38,7 @@
 			There, the "form" object is used to render "payment_terms"
 			Please fix this issue before changing anything.
 		{% endcomment %}
-		 {% render "breadcrumbs" %}
+		
 	{% if product != blank %}
 		{% form 'product',
 			product,
@@ -48,6 +48,8 @@
 			data-enable-history-state: enable_history_state,
 			data-template: product_template
 		%}
+		 {% render "breadcrumbs" %}
+		 
 			{% include 'product-json' %}
 
 			{% if product.template_suffix == 'pre-order' %}
