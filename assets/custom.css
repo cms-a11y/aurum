@@ -60,6 +60,9 @@ a.button.product-add-to-cart__appointment-button {
 }
 .newsletter-form .newsletter-form__input{ min-height: 47px;}
 h1.product-title { color: #75162D; font-size: 32px;}
+.product-description-wrapper {
+    color: var(--header-background);
+}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
