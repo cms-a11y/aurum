@@ -139,8 +139,8 @@
 			</div>
 		{%- endif -%}
 
-		{%- if all_view_btn_label != blank -%}
-						<a class="all-view-button" href="{{ all_view_btn_label_href }}" data-index="2">
+		{%- if all_view_btn_label != blank and all_view_btn_href != blank -%}
+						<a class="all-view-button" href="{{ all_view_btn_href }}" data-index="2">
 							{{- all_view_btn_label -}}
 						</a>
 					{%- endif -%}
