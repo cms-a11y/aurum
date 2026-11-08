@@ -56,7 +56,7 @@ html.no-js .product {
 }
 .product-media {
   width: calc(55.383% - 16px);
-  margin-inline-end: 80px;
+  margin-inline-end: 60px;
 }
 .product-media + .product-form {
   width: calc(44.617% - 16px);
