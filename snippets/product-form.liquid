@@ -80,7 +80,12 @@
       </div>
     {% endif %}
 
-		{% unless is_preset %}
+	{%- capture request_quote_url -%}
+	{%- render 'whatsapp-link', product: product -%}
+{%- endcapture -%}
+{%- assign request_quote_url = request_quote_url | strip -%}
+
+	{% unless is_preset %}
 			<a
 				href="{{ request_quote_url }}"
 				class="button button--primary product-description__quote-button"
