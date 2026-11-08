@@ -25,7 +25,10 @@ span.banner-subheading {
     font-size: 40px;
     margin-bottom: 60px !important;
 }
-
+a.button.product-add-to-cart__appointment-button {
+    color: var(--button-background);
+    border: 1px solid var(--button-background);
+}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
