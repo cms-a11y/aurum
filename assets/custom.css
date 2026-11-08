@@ -188,6 +188,7 @@ body .newsletter-form .newsletter-form__button{padding:16px;}
 #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__content{padding:0 16px;}
 .footer .footer__navigation-heading { font-size: 17px !important;}
 .custom-recommend-content-box { flex-wrap: wrap; justify-content: center;gap:15px;}
+body section.product { padding: 10px 0;}
 }
 @media screen and (max-width: 600px) {
   .product-specs__grid {
