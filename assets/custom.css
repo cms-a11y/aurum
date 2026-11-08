@@ -187,6 +187,8 @@ section.product { padding: 60px 0;}
 body .newsletter-form .newsletter-form__button{padding:16px;}
 #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__content{padding:0 16px;}
 .footer .footer__navigation-heading { font-size: 17px;}
+.custom-recommend-content-box { flex-wrap: wrap; justify-content: center;}
+}
 @media screen and (max-width: 600px) {
   .product-specs__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
