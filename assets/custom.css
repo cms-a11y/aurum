@@ -184,6 +184,7 @@ section.product { padding: 60px 0;}
 .contact__form-header h2{font-size: 32px;}
 .heading-custom-main p{font-size: 10px !important;}
 .newsletter .newsletter__content{padding:60px 24px;}
+body .newsletter-form .newsletter-form__button{padding:16px;}
 }
 @media screen and (max-width: 600px) {
   .product-specs__grid {
