@@ -957,7 +957,12 @@
       "type": "image-with-text",
       "custom_css": [
         ".image-with-text__content * {color: var(--button-background-color-primary);}",
-        ".image-with-text__button{color:#fff;}"
+        ".image-with-text__button {color: #fff;}",
+        ".image-with-text__content {display: flex; flex-wrap: wrap; flex-direction: column;}",
+        ".image-with-text .image-with-text__heading {order: 2;}",
+        "p.image-with-text__subheading {order: 1;}",
+        ".image-with-text .image-with-text__text-content {order: 3;}",
+        " .image-with-text .image-with-text__button {order: 4; }"
       ],
       "name": "Image with text",
       "settings": {
