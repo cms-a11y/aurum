@@ -73,7 +73,7 @@
     "color_label_base_border": "#75162D",
     "product_card_buttons_type": "icon",
     "is_image_on_hover_enabled": true,
-    "product_card_img_aspect_ratio": "portrait",
+    "product_card_img_aspect_ratio": "square",
     "image_object_fit": "contain",
     "swatch_size": "base",
     "bg_quick_buttons": "#fff",
