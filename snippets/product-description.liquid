@@ -104,7 +104,7 @@
 			</div>
 		{% endif %}
 
-		{% if has_specs %}
+		{% comment %} {% if has_specs %}
 			<dl class="product-specs">
 				{% if diamond_carat != blank %}
 					<div class="product-specs__row">
@@ -127,6 +127,6 @@
 					</div>
 				{% endif %}
 			</dl>
-		{% endif %}
+		{% endif %} {% endcomment %}
 	</div>
 {% endif %}
