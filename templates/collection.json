@@ -99,7 +99,7 @@
         "desktop_columns": "4",
         "mobile_columns": "2",
         "box_alignment": "left",
-        "column_gap": 40,
+        "column_gap": 50,
         "row_gap": 40,
         "mobile_column_gap": 20,
         "mobile_row_gap": 30,
