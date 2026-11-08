@@ -75,6 +75,123 @@ h1.product-title { color: #75162D; font-size: 32px;}
 .product-form .breadcrumb .breadcrumb__container a,
 .product-form .breadcrumb .breadcrumb__container span.breadcrumb__item { color: var(--color-border-label-primary);}
 section.product { padding: 60px 0;}
+/* Product Specifications */
+
+.product-specs {
+  width: 100%;
+  background: var(--specs-bg, #faf7ef);
+  padding-top: var(--specs-padding-top, 28px);
+  padding-bottom: var(--specs-padding-bottom, 28px);
+  box-sizing: border-box;
+}
+
+.product-specs__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.product-specs__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+.product-specs__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f1e7d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.product-specs__icon svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+  fill: none;
+  stroke: #80152f;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-specs__subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #927361;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.product-specs__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #21120f;
+  margin: 0;
+}
+
+.product-specs__content {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #21120f;
+  margin-top: 3px;
+}
+
+.product-specs__content p {
+  margin: 0;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 991px) {
+  .product-specs__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+  .product-specs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 12px;
+  }
+
+  .product-specs__icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 12px;
+  }
+
+  .product-specs__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .product-specs__subtitle {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+  }
+
+  .product-specs__title {
+    font-size: 14px;
+  }
+
+  .product-specs__content {
+    font-size: 13px;
+  }
+}
 @media (min-width: 1200px) {
     body .slideshow .slideshow__slide-heading {
         padding-bottom: 24px;
