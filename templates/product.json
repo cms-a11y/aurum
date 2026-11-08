@@ -60,6 +60,7 @@
         },
         "options": {
           "type": "options",
+          "disabled": true,
           "settings": {
             "variant_picker": "radio",
             "color_swatch_type": "small-square",
@@ -71,18 +72,9 @@
             "offset_bottom_mobile": 12
           }
         },
-        "sales_point": {
-          "type": "sales_point",
-          "settings": {
-            "sales_point_text": "Genuine stone",
-            "offset_top_desktop": 15,
-            "offset_bottom_desktop": 15,
-            "offset_top_mobile": 15,
-            "offset_bottom_mobile": 15
-          }
-        },
         "inventory_status": {
           "type": "inventory_status",
+          "disabled": true,
           "settings": {
             "inv_low_stock_text": "Low stock",
             "inv_high_stock_text": "In stock, ready to ship",
@@ -250,7 +242,6 @@
         "description_7zfmzJ",
         "vendor",
         "options",
-        "sales_point",
         "inventory_status",
         "price",
         "quantity",
