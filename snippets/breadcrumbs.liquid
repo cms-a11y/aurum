@@ -64,13 +64,13 @@
   {% endif %}
 
   {% if breadcrumb_collection != blank %}
-    {{ breadcrumb_seperator }}
+    <span class="seperator">✦</span>
     <a href="{{ breadcrumb_collection.url }}" class="breadcrumb__item breadcrumb__link">
       {{ breadcrumb_collection.title | escape }}
     </a>
   {% endif %}
 
-  {{ breadcrumb_seperator }}
+  <span class="seperator">✦</span>
   <span class="breadcrumb__item">{{ product.title | escape }}</span>
 
 			{% elsif template.name == 'collection' and collection.handle %}
