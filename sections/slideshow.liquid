@@ -480,6 +480,63 @@
     index: forloop.index
   -%}
 </div>
+{% style %}
+  /* Responsive slideshow background media */
+
+#shopify-section-{{ section.id }} .slideshow__background-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#shopify-section-{{ section.id }} .slideshow__background-desktop,
+#shopify-section-{{ section.id }} .slideshow__background-mobile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#shopify-section-{{ section.id }} .slideshow__background-mobile {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .slideshow__background-video,
+#shopify-section-{{ section.id }} .slideshow__background-media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Keep content and overlay above the background */
+#shopify-section-{{ section.id }} .slideshow__slide-media-overlay {
+  z-index: 1;
+}
+
+#shopify-section-{{ section.id }} .slideshow__slide-box {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile background */
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} .slideshow__background-desktop {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .slideshow__background-mobile {
+    display: block;
+  }
+}
+{% endstyle %}
 								{% when "html_video" -%}
 									{%- assign video_desktop		= block.settings.video_desktop -%}
 									{%- assign video_mobile			= block.settings.video_mobile | default: video_desktop -%}
