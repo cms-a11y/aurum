@@ -269,6 +269,7 @@ html.no-js .collection .collection__image-wrapper {
     display: none;
   }
   .collection .collection__title,.collection .collection__description{text-align:center;}
+  .breadcrumb .breadcrumb__container{justify-content:center;}
 }
 @media (min-width: 768px) {
   .collection .collection__description {
