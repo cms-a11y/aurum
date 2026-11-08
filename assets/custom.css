@@ -23,7 +23,19 @@ span.banner-subheading {
 }
 .heading-custom-main h2 {
     font-size: 36px;
+    position:relative;
     margin-bottom: 60px !important;
+}
+.heading-custom-main h2:after{
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 1px;
+  border-bottom: 1px solid var(--button-background-color-primary);
+  bottom: 0;
+  right:0;
+  left:0;
+  margin: 0 auto;
 }
 a.button.product-add-to-cart__appointment-button {
     color: var(--button-background-color-primary);
