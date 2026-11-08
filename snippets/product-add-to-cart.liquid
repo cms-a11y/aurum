@@ -249,9 +249,14 @@
 		assign appointment_url = appointment_base_url | append: '?product_title=' | append: encoded_product_title
 	-%}
 
-	
+	<a
+		href="{{ appointment_url }}"
+		class="button button--block button--secondary-border product-add-to-cart__appointment-button"
+	>
+		{{ 'products.product.book_private_appointment' | t }}
+	</a>
 
-	
+	{% comment %} 
 	 <button
 		type="submit"
 		class="add-to-cart button button--block button--{{- button_type -}}
@@ -284,6 +289,7 @@
 			{{ form | payment_button }}
 		</div>
 	{% endif %} 
+	 {% endcomment %}
 </div>
 
 {%- if show_sticky_add_to_cart -%}
