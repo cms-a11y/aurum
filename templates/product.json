@@ -304,9 +304,9 @@
         "ui_button_border_color": "#e9e9e9",
         "container_width": "inherit",
         "offset_top_desktop": 0,
-        "offset_bottom_desktop": 80,
+        "offset_bottom_desktop": 60,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 60
+        "offset_bottom_mobile": 0
       }
     },
     "1787221350090026ba": {
