@@ -150,8 +150,8 @@ color: #C9A84C;
     .ai-collection-grid-{{ ai_gen_id }}__label {
       padding: 10px;
     }
-    ai-collection-grid-{{ ai_gen_id }}__label h3{
-       font-size:21px;
+    .ai-collection-grid-{{ ai_gen_id }}__label h3{
+       font-size: {{ block.settings.label_size | times: 0.85 }}px;
     }
   }
 {% endstyle %}
