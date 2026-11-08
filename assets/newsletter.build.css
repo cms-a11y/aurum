@@ -129,7 +129,7 @@
 @media (min-width: 768px) {
   .newsletter .newsletter__content {
     max-width: 848px;
-    padding: 64px 24px;
+    padding: 75px 24px 80px;
   }
   .newsletter .newsletter__heading,
   .newsletter .newsletter__subheading,
