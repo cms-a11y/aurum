@@ -140,7 +140,7 @@
           "type": "product_specifications",
           "settings": {
             "background_color": "#faf7f0",
-            "desktop_columns": 3,
+            "desktop_columns": 5,
             "mobile_columns": 2,
             "padding_top": 20,
             "padding_bottom": 20
