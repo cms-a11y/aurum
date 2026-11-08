@@ -140,10 +140,9 @@
 		{%- endif -%}
 
 		<main id="MainContent" class="content" role="main" tabindex="-1">
-			{%- if settings.show_breadcrumbs and template.name == 'product' -%}
-				{%- render "breadcrumbs" -%}
-			{%- endif -%}
-
+			{%- if settings.show_breadcrumbs and template.name != 'product' -%}
+  {%- render "breadcrumbs" -%}
+{%- endif -%}
 			{{ content_for_layout }}
 		</main>
 
