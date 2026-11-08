@@ -69,6 +69,7 @@ h1.product-title { color: #75162D; font-size: 32px;}
 .product-description-wrapper {
     color: var(--header-background);
 }
+.product-form .breadcrumb{padding-top: 0px;}
 .product-form .breadcrumb .breadcrumb__container {padding: 2px 0;gap: 10px;}
 .product-form .breadcrumb .breadcrumb__container span.seperator { color: #C9A84C;}
 .product-form .breadcrumb .breadcrumb__container a,
