@@ -138,11 +138,11 @@
 		{%- endif -%}
 
 		{%- if show_recently_viewed and recently_viewed_label != blank -%}
-						<button class="focus-visible-outline tabs-ui__tab is-hidden js-product-recommendations-viewed-label js-product-recommendations-tab-button" data-index="2">
+						<a class="all-view-button" href="{{ all-view-btn-href }}" data-index="2">
 							{{- recently_viewed_label -}}
-						</button>
+						</a>
 					{%- endif -%}
-					
+
 	</div>
 		<div class="product-recommendations__tab-buttons-wrapper {% if show_recently_viewed and recently_viewed_label != blank %}js-product-recommendations--buttons-wrapper{%- endif -%}">
 			{%- if show_recently_viewed and recently_viewed_label != blank -%}
