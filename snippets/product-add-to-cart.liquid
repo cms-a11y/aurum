@@ -256,7 +256,7 @@
 		{{ 'products.product.book_private_appointment' | t }}
 	</a>
 
-	<button
+	{% comment %} <button
 		type="submit"
 		class="add-to-cart button button--block button--{{- button_type -}}
 			{% unless product.first_available_variant.available %}
@@ -281,7 +281,7 @@
 		{% else %}
 			{{- 'products.product.sold_out' | t -}}
 		{% endif %}
-	</button>
+	</button> {% endcomment %}
 
 	{% if block.settings.show_additional_buttons %}
 		<div class="product-add-to-cart__additional-buttons">
