@@ -161,7 +161,8 @@ section.product { padding: 60px 0;}
 
 /* Mobile */
 @media screen and (max-width: 767px){
-.heading-custom-main h2{font-size: 32px;}
+.heading-custom-main h2,
+.contact__form-header h2{font-size: 32px;}
 }
 @media screen and (max-width: 600px) {
   .product-specs__grid {
