@@ -80,15 +80,6 @@
       </div>
     {% endif %}
 
-    {% if block.settings.show_button %}
-      <a
-        href="{{ block.settings.button_url | default: appointment_url }}"
-        class="button button--block button--secondary-border product-add-to-cart__appointment-button"
-      >
-        {{ block.settings.button_label | escape }}
-      </a>
-    {% endif %}
-
 		{% unless is_preset %}
 			<a
 				href="{{ request_quote_url }}"
@@ -100,6 +91,16 @@
 			</a>
 		{% endunless %}
 		
+    {% if block.settings.show_button %}
+      <a
+        href="{{ block.settings.button_url | default: appointment_url }}"
+        class="button button--block button--secondary-border product-add-to-cart__appointment-button"
+      >
+        {{ block.settings.button_label | escape }}
+      </a>
+    {% endif %}
+
+	
   </div>
 
   {% when 'product_specs' %}
