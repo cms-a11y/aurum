@@ -474,6 +474,8 @@
         "collection": "",
         "show_recently_viewed": false,
         "recently_viewed_label": "Recently vieweds",
+        "all_view_btn_label": "/shop",
+        "all_view_btn_href": "",
         "layout": "alternative",
         "container_width": "inherit",
         "offset_top_desktop": 50,
