@@ -28,6 +28,7 @@ span.banner-subheading {
 a.button.product-add-to-cart__appointment-button {
     color: var(--button-background-color-primary);
     border: 1px solid var(--button-border-color-primary-with-border);
+    text-transform: uppercase;
 }
 .newsletter-form .newsletter-form__field {
   position: relative; overflow: hidden;
