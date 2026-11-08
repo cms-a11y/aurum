@@ -134,8 +134,19 @@
             "offset_bottom_mobile": 10
           }
         },
+        "appointment_box_VDUUQW": {
+          "type": "appointment_box",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "button_label": "Book Private Appointment",
+            "button_url": "shopify://pages/contact",
+            "show_button": true
+          }
+        },
         "add_to_cart": {
           "type": "add_to_cart",
+          "disabled": true,
           "settings": {
             "button_type": "secondary",
             "button_buy_it_type": "primary-border",
@@ -231,6 +242,7 @@
         },
         "powerful_form_builder_app_block_RdXnMR": {
           "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "disabled": true,
           "settings": {
             "shortcode": ""
           }
@@ -247,6 +259,7 @@
         "quantity",
         "countdown_timer",
         "gift_wrap_product",
+        "appointment_box_VDUUQW",
         "add_to_cart",
         "pickup_availability",
         "drawers",
