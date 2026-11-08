@@ -52,8 +52,6 @@
   top: 50%;
   left: 100%;
   display: var(--display-bullets);
-  width: 0.25em;
-  height: 0.25em;
   border-radius: 50%;
   color: var(--text-color);
   transform: translate(-50%, -50%);
