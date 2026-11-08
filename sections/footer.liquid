@@ -491,7 +491,7 @@
 	<div class="footer__bottom-content">
 		<div class="footer__bottom-left-col">
 			<p class="footer__copyright">
-				{{ copyright_text | replace: "%date%", current_year }} {{ powered_by_link }}
+				 {{ copyright_text | replace: "%date%", current_year }} {% comment %} {{ powered_by_link }} {% endcomment %}
 			</p>
 
 			{%- if is_show_language_selector == true and localization.available_languages.size > 1 -%}
