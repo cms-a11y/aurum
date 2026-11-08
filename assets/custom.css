@@ -30,7 +30,8 @@ span.banner-subheading {
 body button.button.button--secondary.newsletter-form__button{background:#fff;color:var(--button-background-color-primary)}
 .heading-custom-main h2:after,
 .newsletter .newsletter__subheading:after,
-h2.quote-banner__heading:after {
+h2.quote-banner__heading:after,
+.image-with-text .image-with-text__heading:after {
     content: "";
     position: absolute;
     width: 70px;
@@ -41,7 +42,7 @@ h2.quote-banner__heading:after {
     left: 0;
     margin: 0 auto;
 }
-.newsletter .newsletter__subheading:after{border-color: #fff;}
+.newsletter .newsletter__subheading:after, h2.quote-banner__heading:after{border-color: #fff;}
 a.button.product-add-to-cart__appointment-button {
     color: var(--button-background-color-primary);
     border: 1px solid var(--button-border-color-primary-with-border);
