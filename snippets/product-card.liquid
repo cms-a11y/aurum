@@ -585,9 +585,9 @@
 			</div>
 		{%- endif -%}
 
-		<div class="product-card__price">
+		{% comment %} <div class="product-card__price">
 			{%- render 'price', product: product, show_unit_price: show_unit_price, currency_code_enabled: currency_code_enabled, simplified_view: simplified_view -%}
-		</div>
+		</div> {% endcomment %}
 
 		{% if product.quantity_price_breaks_configured? %}
 			<div class="product-card__volume-pricing-note">
