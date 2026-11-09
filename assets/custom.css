@@ -1,4 +1,5 @@
 body:not(.template-index) .header__split-layout .header__heading-logo{max-width: 120px;}
+body:not(.template-index) .header__split-layout{padding:5px 30px;}
 body:not(.template-index) .header .header__container { background: #fbf8ef;}
 body:not(.template-index) .header-menu .header-menu__item-text,
 body:not(.template-index) .header .header__icon,
@@ -221,7 +222,7 @@ li.js-header-dropdown-menu-element::before{
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px 12px;
   }
-  
+  body:not(.template-index) .header__split-layout{padding:10px 15px;}
 }
 /* Mobile */
 @media screen and (max-width: 767px){
