@@ -1,0 +1,836 @@
+
+{% liquid
+  assign section_class = section.settings.custom_class
+  assign button_style = section.settings.button_style
+%}
+
+<section
+  id="community-gallery-{{ section.id }}"
+  class="community-gallery {{ section_class }}"
+  style="
+    --cg-bg: {{ section.settings.background_color }};
+    --cg-title-color: {{ section.settings.title_color }};
+    --cg-text-color: {{ section.settings.text_color }};
+    --cg-accent: {{ section.settings.accent_color }};
+    --cg-desktop-columns: {{ section.settings.desktop_columns }};
+    --cg-tablet-columns: {{ section.settings.tablet_columns }};
+    --cg-mobile-columns: {{ section.settings.mobile_columns }};
+    --cg-gap: {{ section.settings.grid_gap }}px;
+    --cg-padding-top: {{ section.settings.padding_top }}px;
+    --cg-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --cg-mobile-padding-top: {{ section.settings.mobile_padding_top }}px;
+    --cg-mobile-padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  "
+>
+  <div class="cg-container {% if section.settings.full_width %}cg-full-width{% endif %}">
+
+    <div class="cg-heading">
+
+      {% if section.settings.subtitle != blank %}
+        <div
+          class="cg-subtitle"
+          style="font-size: {{ section.settings.subtitle_size }}px;"
+        >
+          {{ section.settings.subtitle }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2
+          class="cg-title"
+          style="font-size: {{ section.settings.title_size }}px;"
+        >
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.show_divider %}
+        <span class="cg-divider"></span>
+      {% endif %}
+
+      {% if section.settings.content != blank %}
+        <div
+          class="cg-content"
+          style="font-size: {{ section.settings.content_size }}px;"
+        >
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a
+          href="{{ section.settings.button_link }}"
+          class="cg-button cg-button--{{ button_style }}"
+        >
+          {{ section.settings.button_label }}
+
+          {% if section.settings.show_button_arrow %}
+            <span class="cg-button-arrow">→</span>
+          {% endif %}
+        </a>
+      {% endif %}
+
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="cg-grid">
+        {% for block in section.blocks %}
+          {% liquid
+            assign selected_product = block.settings.product
+            assign card_image = block.settings.image
+
+            if card_image == blank and selected_product != blank
+              assign card_image = selected_product.featured_image
+            endif
+          %}
+
+          <div
+            class="cg-card {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            <a
+              class="cg-media-link"
+              {% if block.settings.link != blank %}
+                href="{{ block.settings.link }}"
+              {% elsif selected_product != blank %}
+                href="{{ selected_product.url }}"
+              {% else %}
+                role="presentation"
+              {% endif %}
+            >
+              <div class="cg-media">
+
+                {% if block.settings.video != blank %}
+                  {{ block.settings.video | video_tag:
+                    autoplay: true,
+                    loop: true,
+                    muted: true,
+                    controls: false,
+                    playsinline: true,
+                    class: 'cg-media-video'
+                  }}
+
+                {% elsif block.settings.video_url != blank %}
+                  {% if block.settings.video_url.type == 'youtube' %}
+                    <iframe
+                      class="cg-media-video"
+                      src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&mute=1&loop=1&playlist={{ block.settings.video_url.id }}&controls=0&playsinline=1"
+                      title="Gallery video"
+                      allow="autoplay; encrypted-media"
+                      allowfullscreen
+                    ></iframe>
+                  {% elsif block.settings.video_url.type == 'vimeo' %}
+                    <iframe
+                      class="cg-media-video"
+                      src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1&muted=1&loop=1&background=1"
+                      title="Gallery video"
+                      allow="autoplay; fullscreen"
+                      allowfullscreen
+                    ></iframe>
+                  {% endif %}
+
+                {% elsif card_image != blank %}
+                  {{
+                    card_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      class: 'cg-media-image',
+                      alt: block.settings.image_alt
+                  }}
+
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'cg-placeholder' }}
+                {% endif %}
+
+                {% if block.settings.show_arrow %}
+                  <span class="cg-card-arrow">↗</span>
+                {% endif %}
+
+              </div>
+            </a>
+
+            {% if selected_product != blank and block.settings.show_product_info %}
+              <a href="{{ selected_product.url }}" class="cg-product-info">
+                <div class="cg-product-image">
+                  {% if selected_product.featured_image != blank %}
+                    {{
+                      selected_product.featured_image
+                      | image_url: width: 120
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: selected_product.title
+                    }}
+                  {% endif %}
+                </div>
+
+                <div class="cg-product-details">
+                  <span class="cg-product-title">
+                    {{ selected_product.title }}
+                  </span>
+
+                  {% if block.settings.show_product_price %}
+                    <span class="cg-product-price">
+                      {{ selected_product.price | money }}
+                    </span>
+                  {% endif %}
+                </div>
+              </a>
+            {% elsif block.settings.caption != blank %}
+              <div class="cg-caption">
+                {{ block.settings.caption }}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  #community-gallery-{{ section.id }} {
+    background: var(--cg-bg);
+    padding-top: var(--cg-padding-top);
+    padding-bottom: var(--cg-padding-bottom);
+    color: var(--cg-text-color);
+  }
+
+  #community-gallery-{{ section.id }} .cg-container {
+    width: 100%;
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-container.cg-full-width {
+    max-width: 100%;
+  }
+
+  #community-gallery-{{ section.id }} .cg-heading {
+    text-align: center;
+    margin: 0 auto 60px;
+    max-width: {{ section.settings.heading_width }}px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-subtitle {
+    color: var(--cg-accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-title {
+    color: var(--cg-title-color);
+    line-height: 1.15;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  #community-gallery-{{ section.id }} .cg-divider {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--cg-accent);
+    margin: 28px auto;
+  }
+
+  #community-gallery-{{ section.id }} .cg-content {
+    color: var(--cg-text-color);
+    line-height: 1.8;
+    margin-top: 22px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 16px 35px;
+    min-width: 240px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    transition: all .3s ease;
+  }
+
+  #community-gallery-{{ section.id }} .cg-button--primary {
+    background: var(--cg-accent);
+    border: 1px solid var(--cg-accent);
+    color: #fff;
+  }
+
+  #community-gallery-{{ section.id }} .cg-button--secondary {
+    background: transparent;
+    border: 1px solid var(--cg-accent);
+    color: var(--cg-accent);
+  }
+
+  #community-gallery-{{ section.id }} .cg-button:hover {
+    opacity: .8;
+  }
+
+  #community-gallery-{{ section.id }} .cg-button-arrow {
+    font-size: 18px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cg-desktop-columns), minmax(0, 1fr));
+    gap: var(--cg-gap);
+  }
+
+  #community-gallery-{{ section.id }} .cg-card {
+    min-width: 0;
+  }
+
+  #community-gallery-{{ section.id }} .cg-media-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  #community-gallery-{{ section.id }} .cg-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    overflow: hidden;
+    border-radius: {{ section.settings.image_radius }}px;
+    background: #f4f0f0;
+  }
+
+  #community-gallery-{{ section.id }} .cg-media-image,
+  #community-gallery-{{ section.id }} .cg-media-video,
+  #community-gallery-{{ section.id }} .cg-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+    transition: transform .5s ease;
+  }
+
+  #community-gallery-{{ section.id }} .cg-card:hover .cg-media-image {
+    transform: scale(1.04);
+  }
+
+  #community-gallery-{{ section.id }} .cg-card-arrow {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #222;
+    border-radius: 50%;
+    font-size: 20px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-image {
+    width: 55px;
+    height: 55px;
+    flex: 0 0 55px;
+    overflow: hidden;
+    background: #f5f2f2;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-title {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  #community-gallery-{{ section.id }} .cg-product-price {
+    font-size: 13px;
+    opacity: .75;
+  }
+
+  #community-gallery-{{ section.id }} .cg-caption {
+    padding-top: 12px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #community-gallery-{{ section.id }} .cg-grid {
+      grid-template-columns: repeat(var(--cg-tablet-columns), minmax(0, 1fr));
+    }
+
+    #community-gallery-{{ section.id }} .cg-heading {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #community-gallery-{{ section.id }} {
+      padding-top: var(--cg-mobile-padding-top);
+      padding-bottom: var(--cg-mobile-padding-bottom);
+    }
+
+    #community-gallery-{{ section.id }} .cg-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-grid {
+      grid-template-columns: repeat(var(--cg-mobile-columns), minmax(0, 1fr));
+    }
+
+    #community-gallery-{{ section.id }} .cg-heading {
+      margin-bottom: 30px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-subtitle {
+      margin-bottom: 15px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-divider {
+      margin: 20px auto;
+    }
+
+    #community-gallery-{{ section.id }} .cg-content {
+      margin-top: 15px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-button {
+      margin-top: 22px;
+      min-width: 190px;
+      padding: 13px 22px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-product-image {
+      width: 42px;
+      height: 42px;
+      flex-basis: 42px;
+    }
+
+    #community-gallery-{{ section.id }} .cg-product-title {
+      font-size: 12px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Community Gallery",
+  "tag": "section",
+  "class": "section-community-gallery",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Community"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Share Your Journey"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title font size",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 54
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show divider",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Tag us in your Queens moments and be part of a community celebrating life's most meaningful stories.</p>"
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the feed"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "secondary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show button arrow",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Grid Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "tablet_columns",
+      "label": "Tablet columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid spacing",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Portrait"
+        },
+        {
+          "value": "4 / 5",
+          "label": "Portrait 4:5"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Landscape"
+        },
+        {
+          "value": "auto",
+          "label": "Natural height"
+        }
+      ],
+      "default": "3 / 4"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width layout",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container maximum width",
+      "min": 900,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "heading_width",
+      "label": "Heading maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "header",
+      "content": "Background & Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#80152F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#A64C60"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#80152F"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Add your own CSS class to this section."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_item",
+      "name": "Gallery Item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Upload Shopify video",
+          "info": "This takes priority over the image."
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "External video URL",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "header",
+          "content": "Product"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select product"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_info",
+          "label": "Show product image and title",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_price",
+          "label": "Show product price",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Link & Display"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom card link",
+          "info": "If empty, the selected product link is used."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_arrow",
+          "label": "Show card arrow",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "info": "Shown below the image when no product is selected."
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom CSS class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community Gallery",
+      "blocks": [
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
