@@ -12,9 +12,24 @@
 {%- assign show_cart_notification 	= settings.show_cart_notification -%}
 
 {%- assign menu = section.settings.menu -%}
-{%- assign menu_left = section.settings.menu_left -%}
-{%- assign menu_right = section.settings.menu_right -%}
 {%- assign menu_type_desktop = section.settings.menu_type_desktop -%}
+
+{% comment %}
+  Homepage uses existing left and right menus.
+  All other pages use the new navigation menus.
+{% endcomment %}
+
+{%- if request.page_type == 'index' -%}
+
+  {%- assign menu_left = section.settings.menu_left -%}
+  {%- assign menu_right = section.settings.menu_right -%}
+
+{%- else -%}
+
+  {%- assign menu_left = section.settings.other_menu_left -%}
+  {%- assign menu_right = section.settings.other_menu_right -%}
+
+{%- endif -%}
 
 {%- assign header_bg						        = section.settings.header_bg -%}
 {%- assign header_bg_transparent			        = section.settings.header_bg_transparent -%}
