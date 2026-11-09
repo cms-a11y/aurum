@@ -253,7 +253,7 @@ li.js-header-dropdown-menu-element::before{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;}
-  body:not(.template-index) .header__split-layout{padding:10px 15px;}
+  body:not(.template-index) .header__split-layout{padding:10px;}
 }
 /* Mobile */
 @media screen and (max-width: 767px){
