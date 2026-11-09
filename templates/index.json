@@ -230,7 +230,7 @@
     "featured_products_KKJYRQ": {
       "type": "featured-products",
       "custom_css": [
-        "a.featured-products__button:hover{color: #fff !important;}"
+        "a.featured-products__button:hover {color: #fff !important;}"
       ],
       "name": "Featured products",
       "settings": {
@@ -959,7 +959,7 @@
       "type": "image-with-text",
       "custom_css": [
         ".image-with-text__content * {color: var(--button-background-color-primary);}",
-        ".image-with-text__button {color: #fff;}",
+        ".image-with-text__button {color: #fff; width: fit-content;}",
         ".image-with-text__content {display: flex; flex-wrap: wrap; flex-direction: column;}",
         ".image-with-text .image-with-text__heading {order: 2; margin-bottom: 30px !important; position: relative;}",
         "p.image-with-text__subheading {order: 1; font-size: 14px; line-height: 1.5; letter-spacing: 4px;}",
