@@ -3357,11 +3357,11 @@ body.rtl .price .price-item.price-item--last {
     padding: 0 20px;
   }
 }
-@media (max-width: 1199.98px) {
+/* @media (max-width: 1199.98px) {
   .header .header__icon.header__icon--account {
     display: none;
   }
-}
+} */
 .header-section {
   position: var(--header-position);
   top: 0;
