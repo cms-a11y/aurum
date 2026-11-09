@@ -942,7 +942,7 @@ label {
   z-index: 1;
   overflow: hidden;
   display: inline-block;
-  padding: 16px 32px;
+  padding: 10px 30px;
   border: none;
   font-family: var(--button-font-family);
   font-size: var(--button-font-size);
