@@ -1,7 +1,9 @@
 /* stylelint-disable */
 .collection .collection__title {
-  max-width: 650px;
-      color: var(--header-background);
+     max-width: 650px;
+    color: var(--header-background);
+    font-size: 36px;
+    margin-top: 15px;
 }
 .collection.collection--with-sidebar{overflow:hidden;}
 .collection .collection__title.collection__title--empty {
