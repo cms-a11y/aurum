@@ -58,6 +58,7 @@
     "button_text_color_secondary_with_border_hover": "#fff",
     "button_background_color_secondary_with_border_hover": "#75162D",
     "button_border_color_secondary_with_border_hover": "#75162D",
+    "favicon": "shopify://shop_images/favicon.webp",
     "container_width": "1432px",
     "cart_type": "drawer",
     "show_cart_notification": false,
