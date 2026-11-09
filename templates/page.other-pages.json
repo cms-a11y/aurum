@@ -36,7 +36,7 @@
         "text_alignment": "left",
         "content_vertical_alignment": "center",
         "two_images_layout": "double_with_small",
-        "first_desktop_image": "shopify://shop_images/about-bgs.webp",
+        "first_desktop_image": "{{ page.metafields.custom.page_image.value }}",
         "heading": "About us",
         "subheading": "WHO WE ARE",
         "text_content": "<p></p>{{ page.content }}",
