@@ -8,64 +8,113 @@
  * ------------------------------------------------------------
  */
 {
-	"sections": {
-		"faq-page-template": {
-			"type": "faq-page-template",
-			"settings": {
-			},
-			"blocks": {
-				"category-0": {
-					"type": "category",
-					"settings": {
-						"heading": "First category"
-					}
-				},
-				"faq-0": {
-					"type": "faq_item",
-					"settings": {
-						"heading": "Accordion heading",
-						"text": "<p>Accordion content</p>"
-					}
-				},
-				"faq-1": {
-					"type": "faq_item",
-					"settings": {
-						"heading": "Accordion heading",
-						"text": "<p>Accordion content</p>"
-					}
-				},
-				"category-1": {
-					"type": "category",
-					"settings": {
-						"heading": "Second category"
-					}
-				},
-				"faq-2": {
-					"type": "faq_item",
-					"settings": {
-						"heading": "Accordion heading",
-						"text": "<p>Accordion content</p>"
-					}
-				},
-				"faq-3": {
-					"type": "faq_item",
-					"settings": {
-						"heading": "Accordion heading",
-						"text": "<p>Accordion content</p>"
-					}
-				}
-			},
-			"block_order": [
-				"category-0",
-				"faq-0",
-				"faq-1",
-				"category-1",
-				"faq-2",
-				"faq-3"
-			]
-		}
-	},
-	"order": [
-		"faq-page-template"
-	]
+  "sections": {
+    "faq-page-template": {
+      "type": "faq-page-template",
+      "disabled": true,
+      "settings": {
+        "heading": "FAQ",
+        "background_color": "#f6f6f6",
+        "text_color": "#000000",
+        "arrow_color": "#000000",
+        "arrow_background_color": "#ffffff",
+        "arrow_border_color": "#dcdcdc",
+        "background_active_color": "#000000",
+        "text_active_color": "#ffffff",
+        "arrow_active_color": "#000000",
+        "arrow_background_active_color": "#ffd875",
+        "arrow_border_active_color": "#ffd875",
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "faq_simple_ggprRV": {
+      "type": "faq-simple",
+      "blocks": {
+        "faq_item_jmdHCN": {
+          "type": "faq_item",
+          "settings": {
+            "heading": "Accordion heading",
+            "text": "<p>Accordion content.</p>"
+          }
+        },
+        "faq_item_amnjPf": {
+          "type": "faq_item",
+          "settings": {
+            "heading": "Accordion heading",
+            "text": "<p>Accordion content.</p>"
+          }
+        },
+        "faq_item_BWFf3E": {
+          "type": "faq_item",
+          "settings": {
+            "heading": "Accordion heading",
+            "text": "<p>Accordion content.</p>"
+          }
+        },
+        "faq_item_RMTBRT": {
+          "type": "faq_item",
+          "settings": {
+            "heading": "Accordion heading",
+            "text": "<p>Accordion content.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_jmdHCN",
+        "faq_item_amnjPf",
+        "faq_item_BWFf3E",
+        "faq_item_RMTBRT"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading": "FAQ",
+        "background_color": "#F6F6F6",
+        "text_color": "#000000",
+        "arrow_color": "#000000",
+        "arrow_background_color": "#ffffff",
+        "arrow_border_color": "#dcdcdc",
+        "background_active_color": "#000000",
+        "text_active_color": "#ffffff",
+        "arrow_active_color": "#000000",
+        "arrow_background_active_color": "#FFD875",
+        "arrow_border_active_color": "#FFD875",
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "newsletter_xpFdnX": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "two_columns",
+        "heading": "A GIFT FROM QUEENS",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Enjoy 10% off your first purchase when you sign up, and be the first to discover new pieces, curated tanzanite collections, special offers, private events, and a little something special just for you.</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
+        "text_color": "#ffffff",
+        "input_background": "rgba(0,0,0,0)",
+        "input_color": "#ffffff",
+        "image_overlay": "",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "faq-page-template",
+    "faq_simple_ggprRV",
+    "newsletter_xpFdnX"
+  ]
 }
