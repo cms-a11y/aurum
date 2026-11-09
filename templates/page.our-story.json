@@ -97,26 +97,61 @@
         "offset_bottom_mobile": 25
       }
     },
-    "ticker": {
-      "type": "ticker",
+    "statistics_bar_4hgYMw": {
+      "type": "statistics-bar",
+      "blocks": {
+        "statistic_Kh3MTA": {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_ahwWna": {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_qBFwjL": {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_kLdmeb": {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#d6a94d"
+          }
+        }
+      },
+      "block_order": [
+        "statistic_Kh3MTA",
+        "statistic_ahwWna",
+        "statistic_qBFwjL",
+        "statistic_kLdmeb"
+      ],
+      "name": "Statistics bar",
       "settings": {
-        "hide_bullets": true,
-        "font": "inter_n4",
-        "font_size_desktop": 24,
-        "font_size_mobile": 16,
-        "enable_border": true,
-        "border_width": 4,
-        "direction": "left_to_right",
-        "desktop_movement_speed": 20,
-        "mobile_movement_speed": 35,
-        "section_background": "#FFD875",
-        "text_color": "#000000",
-        "border_color": "#000000",
-        "inner_indent": 24,
-        "offset_top_desktop": 25,
-        "offset_bottom_desktop": 25,
-        "offset_top_mobile": 25,
-        "offset_bottom_mobile": 25
+        "background_color": "#faf7ef",
+        "divider_color": "#efe9dd",
+        "container_width": 1800,
+        "number_color": "#17120f",
+        "number_size": 48,
+        "label_size": 12,
+        "letter_spacing": 2,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     }
   },
@@ -125,6 +160,6 @@
     "image_with_text_6k6DpV",
     "banner-with-text",
     "banner",
-    "ticker"
+    "statistics_bar_4hgYMw"
   ]
 }
