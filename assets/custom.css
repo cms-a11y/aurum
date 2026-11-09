@@ -173,6 +173,29 @@ section.product { padding: 60px 0;}
 .product-specs__content p {
   margin: 0;
 }
+/* Collection product cards - vertical portrait images */
+.collection__item .product-card__image-wrapper--square {
+    aspect-ratio: 3 / 4 !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+}
+
+/* Picture container */
+.collection__item .product-card__image-picture {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Product image */
+.collection__item .product-card__image {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
 
 /* Tablet */
 
