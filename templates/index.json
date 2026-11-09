@@ -987,121 +987,6 @@
         "offset_bottom_mobile": 0
       }
     },
-    "collection_list_MrbqwK": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_jn6ALz": {
-          "type": "collection",
-          "settings": {
-            "collection": "rings-1",
-            "image": "shopify://shop_images/3_35.png"
-          }
-        },
-        "collection_qWU9tw": {
-          "type": "collection",
-          "settings": {
-            "collection": "earrings-1",
-            "image": "shopify://shop_images/4_18_1.png"
-          }
-        },
-        "collection_iVRDhy": {
-          "type": "collection",
-          "settings": {
-            "collection": "pendants",
-            "image": "shopify://shop_images/5_10.png"
-          }
-        },
-        "collection_cRCkXj": {
-          "type": "collection",
-          "settings": {
-            "collection": "pendants-and-earrings",
-            "image": "shopify://shop_images/Image.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "collection_jn6ALz",
-        "collection_qWU9tw",
-        "collection_iVRDhy",
-        "collection_cRCkXj"
-      ],
-      "disabled": true,
-      "name": "Collections grid",
-      "settings": {
-        "heading": "Shop by Category",
-        "link_url": "",
-        "link_text": "",
-        "link_aria_label_text": "",
-        "button_style": "secondary-border",
-        "text_alignment": "center",
-        "text_position": "under_image",
-        "aspect_ratio": "portrait",
-        "cards_per_row": "4",
-        "center_on_desktop": false,
-        "show_products_count": false,
-        "overlay_color": "",
-        "color_text": "#fff",
-        "container_width": "inherit",
-        "offset_top_desktop": 60,
-        "offset_bottom_desktop": 60,
-        "offset_top_mobile": 30,
-        "offset_bottom_mobile": 30
-      }
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "disabled": true,
-      "settings": {
-        "image_position": "left",
-        "text_alignment": "left",
-        "content_vertical_alignment": "center",
-        "two_images_layout": "double_vertical_offset",
-        "first_desktop_image": "shopify://shop_images/Rings.png",
-        "first_mobile_image": "shopify://shop_images/Rings.png",
-        "second_desktop_image": "shopify://shop_images/Earrings.png",
-        "second_mobile_image": "shopify://shop_images/Earrings.png",
-        "heading": "OUR MISSION",
-        "subheading": "",
-        "text_content": "<p>To offer exquisite in vogue jewelery that resonates with your unique style.<br/>We believe jewelery should complement every facet of your life, from everyday moments to special occasions. Our focus on quality, durability and affordability ensures each piece accompanies you seamlessly through your adventures.</p>",
-        "button_label": "Shop All",
-        "button_aria_label": "shop all products",
-        "button_url": "shopify://collections/asset-pack-36173807618-example-products",
-        "button_style": "secondary-border",
-        "container_width": "inherit",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 80,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 40
-      }
-    },
-    "image_with_text_gKUjpC": {
-      "type": "image-with-text",
-      "disabled": true,
-      "settings": {
-        "image_position": "left",
-        "text_alignment": "left",
-        "content_vertical_alignment": "center",
-        "two_images_layout": "double_vertical_offset",
-        "first_desktop_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.23.00_PM.jpg",
-        "first_mobile_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.23.00_PM.jpg",
-        "second_desktop_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.22.21_PM.jpg",
-        "second_mobile_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.22.21_PM.jpg",
-        "third_desktop_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.21.51_PM.jpg",
-        "third_mobile_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.21.51_PM.jpg",
-        "heading": "About Us",
-        "subheading": "",
-        "text_content": "<p>Since 1954, Queens Tanzanite & Diamonds has been defined by a passion for exceptional gemstones, fine craftsmanship, and jewelery made to last.&nbsp;</p><p>What began as a small family-owned jewellery store has grown over more than 70 years into a legacy of fine jewellery and craftsmanship, serving generations of clients from Tanzania and around the world.&nbsp;</p><p>Every Queens piece is thoughtfully crafted with carefully selected gemstones and meticulous attention to detail. From the beauty of Tanzanite to the timeless brilliance of diamonds, our jewellery reflects the skill and artistry of experienced craftsmen, creating pieces of exceptional quality and lasting value.&nbsp;</p><p>At Queens, we believe jewellery is more than something you wear, it becomes part of your story. Whether celebrating a milestone, marking an unforgettable moment, or choosing something simply because it speaks to you, we are here to help you discover a piece that feels uniquely yours.&nbsp;</p><p>Crafted to be worn. Made to be treasured for generations.&nbsp;<br/>&nbsp;<br/><strong>The Art of Craftsmanship</strong>&nbsp;<br/>True beauty is found in the details. From selecting each exceptional gemstone to the final polish, every Queens piece is shaped with precision, patience, and a dedication to the craft.&nbsp;<br/>The result is more than beautiful jewellery — it is a piece thoughtfully made to be worn, loved, and treasured for generations.</p>",
-        "button_label": "Shop All",
-        "button_aria_label": "shop all products",
-        "button_url": "shopify://collections/all-products",
-        "button_style": "secondary-border",
-        "container_width": "inherit",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 80,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 40
-      }
-    },
     "featured-products": {
       "type": "featured-products",
       "disabled": true,
@@ -1356,9 +1241,6 @@
     "quote_statement_banner_h4qeDY",
     "newsletter",
     "image_with_text_z3bfnD",
-    "collection_list_MrbqwK",
-    "image-with-text",
-    "image_with_text_gKUjpC",
     "featured-products",
     "richtext",
     "best-sellers",
