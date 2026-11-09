@@ -221,7 +221,7 @@ li.js-header-dropdown-menu-element::before{
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px 12px;
   }
-  body:not(.template-index) .header__split-layout{padding:5px 30px;}
+  
 }
 /* Mobile */
 @media screen and (max-width: 767px){
