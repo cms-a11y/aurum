@@ -1,1 +1,83 @@
-{"sections":{"default-page":{"type":"page-template","settings":{"offset_top_desktop":60,"offset_bottom_desktop":0,"offset_top_mobile":30,"offset_bottom_mobile":30}},"178722308951d0e2e9":{"type":"apps","blocks":{"powerful_form_builder_app_block_LXjzyk":{"type":"shopify:\/\/apps\/powerful-form-builder\/blocks\/app-block\/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d","settings":{"shortcode":"<div class=\"globo-formbuilder\" data-id=\"MTU3ODk0\"><\/div>"}}},"block_order":["powerful_form_builder_app_block_LXjzyk"],"settings":{"container_width":"inherit","offset_top_desktop":0,"offset_bottom_desktop":25,"offset_top_mobile":25,"offset_bottom_mobile":25}},"booking-prefill":{"type":"custom-liquid","settings":{"custom_liquid":"{% render 'booking-appointment-prefill' %}","offset_top_desktop":0,"offset_bottom_desktop":0,"offset_top_mobile":0,"offset_bottom_mobile":0}}},"order":["default-page","178722308951d0e2e9","booking-prefill"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "default-page": {
+      "type": "page-template",
+      "settings": {
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "178722308951d0e2e9": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_LXjzyk": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTU3ODk0\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_LXjzyk"
+      ],
+      "settings": {
+        "container_width": "inherit",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "newsletter_HQjCw4": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "two_columns",
+        "heading": "A GIFT FROM QUEENS",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Enjoy 10% off your first purchase when you sign up, and be the first to discover new pieces, curated tanzanite collections, special offers, private events, and a little something special just for you.</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
+        "text_color": "#ffffff",
+        "input_background": "rgba(0,0,0,0)",
+        "input_color": "#ffffff",
+        "image_overlay": "",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "booking-prefill": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'booking-appointment-prefill' %}",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "default-page",
+    "178722308951d0e2e9",
+    "newsletter_HQjCw4",
+    "booking-prefill"
+  ]
+}
