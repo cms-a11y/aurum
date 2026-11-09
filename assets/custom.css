@@ -70,10 +70,10 @@ a.button.product-add-to-cart__appointment-button {
 }
 .newsletter-form .newsletter-form__input{border-radius: 0;}
 .newsletter-form .newsletter-form__button{
-  background: #fff;
-        color: #5b1727;
-        font-size: 15px !important;
-        text-transform: uppercase;
+    background: #bf9a5e;
+    color: #fff;
+    font-size: 15px !important;
+    text-transform: uppercase;
 }
 .newsletter-form .newsletter-form__button {
   position: absolute;
