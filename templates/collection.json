@@ -128,10 +128,110 @@
         "mobile_padding_bottom": 40,
         "custom_class": ""
       }
+    },
+    "community_gallery_Hfyc99": {
+      "type": "community-gallery",
+      "blocks": {
+        "gallery_item_4V3Jcn": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/rings-7.webp",
+            "image_alt": "",
+            "product": "",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_wqTQEX": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/diamond-ring-graphics.webp",
+            "image_alt": "",
+            "product": "",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_X8Y4Aa": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/diamond-bgs.mp4",
+            "image_alt": "",
+            "product": "",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_EUpAc7": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/ring-1.jpg",
+            "image_alt": "",
+            "product": "",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_4V3Jcn",
+        "gallery_item_wqTQEX",
+        "gallery_item_X8Y4Aa",
+        "gallery_item_EUpAc7"
+      ],
+      "name": "Community Gallery",
+      "settings": {
+        "subtitle": "Community",
+        "subtitle_size": 12,
+        "title": "Share Your Journey",
+        "title_size": 36,
+        "show_divider": true,
+        "content": "<p>Tag us in your Queens moments and be part of a community celebrating life's most meaningful stories.</p>",
+        "content_size": 16,
+        "button_label": "Shop the feed",
+        "button_link": "",
+        "button_style": "secondary",
+        "show_button_arrow": false,
+        "desktop_columns": 4,
+        "tablet_columns": 2,
+        "mobile_columns": 2,
+        "grid_gap": 20,
+        "image_ratio": "4 / 5",
+        "image_radius": 5,
+        "full_width": true,
+        "container_width": 1600,
+        "heading_width": 700,
+        "background_color": "#FFFFFF",
+        "title_color": "#80152F",
+        "text_color": "#A64C60",
+        "accent_color": "#80152F",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 35,
+        "mobile_padding_bottom": 35,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "plp-template",
-    "jewellery_care_boxes_bLfVhJ"
+    "jewellery_care_boxes_bLfVhJ",
+    "community_gallery_Hfyc99"
   ]
 }
