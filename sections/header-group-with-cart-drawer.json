@@ -158,6 +158,8 @@
         "menu": "main-menu",
         "menu_left": "left-menu",
         "menu_right": "right-menu",
+        "other_menu_left": "right-other-menu",
+        "other_menu_right": "",
         "menu_type_desktop": "both",
         "open_menu_type": "hover",
         "make_first_lvl_clickable": false,
