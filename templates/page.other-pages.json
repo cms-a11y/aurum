@@ -155,33 +155,6 @@
         "offset_bottom_mobile": 0
       }
     },
-    "contact_page_template_fwk4fp": {
-      "type": "contact-page-template",
-      "name": "Contact",
-      "settings": {
-        "map_api_key": "",
-        "map_query": "Eiffel+Tower,Paris+France",
-        "map_url": "",
-        "form_heading": "Contact Us",
-        "name_label": "Name",
-        "name_placeholder": "Your name...",
-        "is_name_required": false,
-        "email_label": "Email",
-        "email_placeholder": "Your email...",
-        "phone_label": "Phone",
-        "phone_placeholder": "Enter your phone number",
-        "is_phone_required": false,
-        "message_label": "Message",
-        "message_placeholder": "Your message...",
-        "is_message_required": false,
-        "submit_label": "Send Message",
-        "offset_top_desktop": 60,
-        "offset_bottom_desktop": 60,
-        "contactbgclr": "#fbf8ef",
-        "offset_top_mobile": 30,
-        "offset_bottom_mobile": 30
-      }
-    },
     "community_gallery_4nNNzc": {
       "type": "community-gallery",
       "blocks": {
@@ -308,7 +281,6 @@
     "banner-with-text",
     "statistics_bar_4hgYMw",
     "newsletter_ngQR4D",
-    "contact_page_template_fwk4fp",
     "community_gallery_4nNNzc"
   ]
 }
