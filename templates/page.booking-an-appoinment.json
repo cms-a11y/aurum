@@ -11,6 +11,7 @@
   "sections": {
     "default-page": {
       "type": "page-template",
+      "disabled": true,
       "settings": {
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 0,
@@ -31,6 +32,7 @@
       "block_order": [
         "powerful_form_builder_app_block_LXjzyk"
       ],
+      "custom_css": [],
       "settings": {
         "container_width": "inherit",
         "offset_top_desktop": 0,
