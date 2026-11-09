@@ -75,6 +75,9 @@ a.button.product-add-to-cart__appointment-button {
     font-size: 15px !important;
     text-transform: uppercase;
 }
+.newsletter-form .newsletter-form__field {
+    border: 1px solid #bf9a5e;
+}
 .newsletter-form .newsletter-form__button {
   position: absolute;
   inset-inline-end: 0px;
