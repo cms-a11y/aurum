@@ -978,7 +978,7 @@
         "text_content": "<p>We believe jewellery is more than it looks — it should celebrate YOU. Book a private appointment with our expert consultants for a truly personal design journey.</p>",
         "button_label": "BOOK AN APPOINTMENT",
         "button_aria_label": "Book an Appointment",
-        "button_url": "shopify://pages/contact",
+        "button_url": "shopify://pages/book-a-private-appointment",
         "button_style": "primary",
         "container_width": "100%",
         "offset_top_desktop": 0,
