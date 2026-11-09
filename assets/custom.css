@@ -180,7 +180,6 @@ section.product { padding: 60px 0;}
     gap: 24px 12px;
   }
 }
-
 /* Mobile */
 @media screen and (max-width: 767px){
 .heading-custom-main h2,
