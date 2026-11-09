@@ -232,7 +232,7 @@ li.js-header-dropdown-menu-element::before{
 /* Mobile */
 @media screen and (max-width: 767px){
 .heading-custom-main h2,
-.contact__form-header h2{font-size: 32px;}
+.contact__form-header h2{font-size: 28px;}
 .heading-custom-main p{font-size: 10px !important;}
 .newsletter .newsletter__content{padding:60px 24px;}
 body .newsletter-form .newsletter-form__button{padding:16px;}
