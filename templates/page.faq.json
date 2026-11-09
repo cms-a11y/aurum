@@ -68,6 +68,9 @@
         "faq_item_BWFf3E",
         "faq_item_RMTBRT"
       ],
+      "custom_css": [
+        "h2.h1.faq-simple__heading {font-size: 36px; color: #75162d;}"
+      ],
       "name": "FAQ",
       "settings": {
         "heading": "FAQ",
