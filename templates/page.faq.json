@@ -71,8 +71,8 @@
       "name": "FAQ",
       "settings": {
         "heading": "FAQ",
-        "background_color": "#F6F6F6",
-        "text_color": "#75162D",
+        "background_color": "#75162D",
+        "text_color": "#FFFFFF",
         "arrow_color": "#75162D",
         "arrow_background_color": "#ffffff",
         "arrow_border_color": "#dcdcdc",
