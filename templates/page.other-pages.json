@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-template": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "image_with_text_6k6DpV": {
+      "type": "image-with-text",
+      "custom_css": [
+        ".image-with-text__content * {color: var(--button-background-color-primary);}",
+        ".image-with-text__button {color: #fff; width: fit-content;}",
+        ".image-with-text__content {display: flex; flex-direction: column;}",
+        ".image-with-text .image-with-text__heading {order: 2; margin-bottom: 30px !important; position: relative;}",
+        "p.image-with-text__subheading {order: 1; font-size: 14px; letter-spacing: 4px; margin-bottom: 10px;}",
+        ".image-with-text .image-with-text__text-content {order: 3;}",
+        ".image-with-text .image-with-text__button {order: 4;}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image_position": "right",
+        "text_alignment": "left",
+        "content_vertical_alignment": "center",
+        "two_images_layout": "double_with_small",
+        "first_desktop_image": "shopify://shop_images/about-bgs.webp",
+        "heading": "About us",
+        "subheading": "WHO WE ARE",
+        "text_content": "<p></p>{{ page.content }}",
+        "button_label": "BOOK AN APPOINTMENT",
+        "button_aria_label": "Book an Appointment",
+        "button_url": "shopify://pages/book-a-private-appointment",
+        "button_style": "primary",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "banner-with-text": {
+      "type": "banner",
+      "settings": {
+        "section_background": "#222222",
+        "content_background": "rgba(255,255,255, 0.2)",
+        "enable_glass_effect": true,
+        "text_color": "#ffffff",
+        "link_color": "#d33636",
+        "button_background": "#ffffff",
+        "button_color": "#000000",
+        "button_border": "#ffffff",
+        "button_background_hover": "#000000",
+        "button_color_hover": "#ffffff",
+        "button_border_hover": "#ffffff",
+        "overlay": "rgba(0,0,0, 0.3)",
+        "image_border_color": "#ffffff",
+        "container_width": "1952px",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "statistics_bar_4hgYMw": {
+      "type": "statistics-bar",
+      "blocks": {
+        "statistic_Kh3MTA": {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_ahwWna": {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_qBFwjL": {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_kLdmeb": {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#d6a94d"
+          }
+        }
+      },
+      "block_order": [
+        "statistic_Kh3MTA",
+        "statistic_ahwWna",
+        "statistic_qBFwjL",
+        "statistic_kLdmeb"
+      ],
+      "name": "Statistics bar",
+      "settings": {
+        "background_color": "#ffffff",
+        "divider_color": "#efe9dd",
+        "container_width": 1800,
+        "number_color": "#17120f",
+        "number_size": 48,
+        "label_size": 12,
+        "letter_spacing": 2,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "newsletter_ngQR4D": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "two_columns",
+        "heading": "A GIFT FROM QUEENS",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Enjoy 10% off your first purchase when you sign up, and be the first to discover new pieces, curated tanzanite collections, special offers, private events, and a little something special just for you.</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
+        "text_color": "#ffffff",
+        "input_background": "rgba(0,0,0,0)",
+        "input_color": "#ffffff",
+        "image_overlay": "",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "community_gallery_4nNNzc": {
+      "type": "community-gallery",
+      "blocks": {
+        "gallery_item_X98R4A": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/ring-front.webp",
+            "video_url": "",
+            "image_alt": "",
+            "product": "round-cut-tanzanite-diamond-ring-in-yellow-gold",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_7Tq4g8": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/download.mp4",
+            "video_url": "",
+            "image_alt": "",
+            "product": "cushion-cut-tanzanite-diamond-halo-pendant-in-silver",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_pYGee4": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/diamond-ring-graphics.webp",
+            "video_url": "",
+            "image_alt": "",
+            "product": "amour-ring-heart-cut-tanzanite-diamond-ring-in-14k-yellow-gold",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_rekJqb": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/Image.jpg",
+            "video_url": "",
+            "image_alt": "",
+            "product": "cushion-cut-tanzanite-diamond-halo-pendant-in-silver-copy",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_gtHTRL": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/diamond-rings.webp",
+            "video_url": "",
+            "image_alt": "",
+            "product": "asset-pack-36173807618-example-product-2",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_X98R4A",
+        "gallery_item_7Tq4g8",
+        "gallery_item_pYGee4",
+        "gallery_item_rekJqb",
+        "gallery_item_gtHTRL"
+      ],
+      "name": "Community Gallery",
+      "settings": {
+        "subtitle": "Community",
+        "subtitle_size": 12,
+        "title": "Share Your Journey",
+        "title_size": 42,
+        "show_divider": true,
+        "content": "<p>Tag us in your Queens moments and be part of a community celebrating life's most meaningful stories.</p>",
+        "content_size": 18,
+        "button_label": "Shop the feed",
+        "button_link": "",
+        "button_style": "secondary",
+        "show_button_arrow": false,
+        "desktop_columns": 5,
+        "tablet_columns": 3,
+        "mobile_columns": 2,
+        "grid_gap": 20,
+        "image_ratio": "3 / 4",
+        "image_radius": 5,
+        "full_width": false,
+        "container_width": 1450,
+        "heading_width": 700,
+        "background_color": "#ffffff",
+        "title_color": "#80152f",
+        "text_color": "#a64c60",
+        "accent_color": "#80152f",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 35,
+        "mobile_padding_bottom": 35,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "page-template",
+    "image_with_text_6k6DpV",
+    "banner-with-text",
+    "statistics_bar_4hgYMw",
+    "newsletter_ngQR4D",
+    "community_gallery_4nNNzc"
+  ]
+}
