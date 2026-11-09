@@ -1,1 +1,130 @@
-{"sections":{"page-template":{"type":"page-template","settings":{}},"banner-with-text":{"type":"banner","settings":{}},"richtext":{"type":"richtext","settings":{}},"image-with-text-first":{"type":"image-with-text","settings":{"heading":"Text heading","text_content":"<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.<\/p>","button_label":"Button label","button_aria_label":"Button label","button_url":"\/"}},"image-with-text-second":{"type":"image-with-text","settings":{"image_position":"right","heading":"Text heading","text_content":"<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.<\/p>","button_label":"Button label","button_aria_label":"Button label","button_url":"\/"}},"image-with-text-third":{"type":"image-with-text","settings":{"text_alignment":"center","heading":"Text heading","text_content":"<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.<\/p>","button_label":"Button label","button_aria_label":"Button label","button_url":"\/"}},"our-team":{"type":"our-team","settings":{}},"video":{"type":"video","settings":{}},"featured-collection":{"type":"featured-collection","settings":{}},"banner":{"type":"banner","settings":{}},"gallery":{"type":"gallery","settings":{"offset_top_mobile":25,"offset_bottom_mobile":25}},"benefits":{"type":"benefits","blocks":{"benefits_item-0":{"type":"benefits_item","settings":{}},"benefits_item-1":{"type":"benefits_item","settings":{}},"benefits_item-2":{"type":"benefits_item","settings":{}},"benefits_item-3":{"type":"benefits_item","settings":{}}},"block_order":["benefits_item-0","benefits_item-1","benefits_item-2","benefits_item-3"],"settings":{"section_background":"#ffffff","offset_top_desktop":0,"offset_bottom_desktop":0,"offset_top_mobile":0,"offset_bottom_mobile":0}},"newsletter":{"type":"newsletter","settings":{"layout":"one_column","heading":"Newsletter","subheading":"Subheading","text":"<p>Be the first to know about new collections and exclusive offers<\/p>","success_message":"Thanks for subscribing","image_position":"left","email_placeholder":"Your email"}},"ticker":{"type":"ticker","settings":{}}},"order":["page-template","banner-with-text","richtext","image-with-text-first","image-with-text-second","image-with-text-third","our-team","video","featured-collection","banner","gallery","benefits","newsletter","ticker"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-template": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "image_with_text_6k6DpV": {
+      "type": "image-with-text",
+      "custom_css": [
+        ".image-with-text__content * {color: var(--button-background-color-primary);}",
+        ".image-with-text__button {color: #fff; width: fit-content;}",
+        ".image-with-text__content {display: flex; flex-direction: column;}",
+        ".image-with-text .image-with-text__heading {order: 2; margin-bottom: 30px !important; position: relative;}",
+        "p.image-with-text__subheading {order: 1; font-size: 14px; letter-spacing: 4px; margin-bottom: 10px;}",
+        ".image-with-text .image-with-text__text-content {order: 3;}",
+        ".image-with-text .image-with-text__button {order: 4;}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image_position": "right",
+        "text_alignment": "left",
+        "content_vertical_alignment": "center",
+        "two_images_layout": "double_with_small",
+        "first_desktop_image": "shopify://shop_images/about-bgs.webp",
+        "heading": "About us",
+        "subheading": "WHO WE ARE",
+        "text_content": "<p>Since 1954, Queens Tanzanite & Diamonds has been defined by a passion for exceptional gemstones, fine craftsmanship, and jewelery made to last.</p><p>What began as a small family-owned jewellery store has grown over more than 70 years into a legacy of fine jewellery and craftsmanship, serving generations of clients from Tanzania and around the world.</p><p>Every Queens piece is thoughtfully crafted with carefully selected gemstones and meticulous attention to detail. From the beauty of Tanzanite to the timeless brilliance of diamonds, our jewellery reflects the skill and artistry of experienced craftsmen, creating pieces of exceptional quality and lasting value.</p><p>At Queens, we believe jewellery is more than something you wear, it becomes part of your story. Whether celebrating a milestone, marking an unforgettable moment, or choosing something simply because it speaks to you, we are here to help you discover a piece that feels uniquely yours.</p><p>Crafted to be worn. Made to be treasured for generations.<br/><br/><strong>The Art of Craftsmanship</strong><br/>True beauty is found in the details. From selecting each exceptional gemstone to the final polish, every Queens piece is shaped with precision, patience, and a dedication to the craft.<br/>The result is more than beautiful jewellery — it is a piece thoughtfully made to be worn, loved, and treasured for generations.</p>",
+        "button_label": "BOOK AN APPOINTMENT",
+        "button_aria_label": "Book an Appointment",
+        "button_url": "shopify://pages/contact",
+        "button_style": "primary",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "banner-with-text": {
+      "type": "banner",
+      "settings": {
+        "section_background": "#222222",
+        "content_background": "rgba(255,255,255, 0.2)",
+        "enable_glass_effect": true,
+        "text_color": "#ffffff",
+        "link_color": "#d33636",
+        "button_background": "#ffffff",
+        "button_color": "#000000",
+        "button_border": "#ffffff",
+        "button_background_hover": "#000000",
+        "button_color_hover": "#ffffff",
+        "button_border_hover": "#ffffff",
+        "overlay": "rgba(0,0,0, 0.3)",
+        "image_border_color": "#ffffff",
+        "container_width": "1952px",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "section_background": "#222222",
+        "content_background": "rgba(255,255,255, 0.2)",
+        "enable_glass_effect": true,
+        "text_color": "#ffffff",
+        "link_color": "#d33636",
+        "button_background": "#ffffff",
+        "button_color": "#000000",
+        "button_border": "#ffffff",
+        "button_background_hover": "#000000",
+        "button_color_hover": "#ffffff",
+        "button_border_hover": "#ffffff",
+        "overlay": "rgba(0,0,0, 0.3)",
+        "image_border_color": "#ffffff",
+        "container_width": "1952px",
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "settings": {
+        "hide_bullets": true,
+        "font": "inter_n4",
+        "font_size_desktop": 24,
+        "font_size_mobile": 16,
+        "enable_border": true,
+        "border_width": 4,
+        "direction": "left_to_right",
+        "desktop_movement_speed": 20,
+        "mobile_movement_speed": 35,
+        "section_background": "#FFD875",
+        "text_color": "#000000",
+        "border_color": "#000000",
+        "inner_indent": 24,
+        "offset_top_desktop": 25,
+        "offset_bottom_desktop": 25,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    }
+  },
+  "order": [
+    "page-template",
+    "image_with_text_6k6DpV",
+    "banner-with-text",
+    "banner",
+    "ticker"
+  ]
+}
