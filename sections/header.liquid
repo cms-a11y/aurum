@@ -16,6 +16,30 @@
 {%- assign menu_right = section.settings.menu_right -%}
 {%- assign menu_type_desktop = section.settings.menu_type_desktop -%}
 
+{% comment %}
+  Dynamic Split Navigation
+  Homepage keeps existing left/right menus.
+{% endcomment %}
+
+{% case request.page_type %}
+
+  {% when 'index' %}
+    {% comment %} Keep existing homepage menus {% endcomment %}
+
+  {% when 'page' %}
+    {% assign menu_left = section.settings.page_menu_left %}
+    {% assign menu_right = section.settings.page_menu_right %}
+
+  {% when 'collection' %}
+    {% assign menu_left = section.settings.collection_menu_left %}
+    {% assign menu_right = section.settings.collection_menu_right %}
+
+  {% when 'product' %}
+    {% assign menu_left = section.settings.product_menu_left %}
+    {% assign menu_right = section.settings.product_menu_right %}
+
+{% endcase %}
+
 {%- assign header_bg						        = section.settings.header_bg -%}
 {%- assign header_bg_transparent			        = section.settings.header_bg_transparent -%}
 {%- assign mobile_menu_bg					        = section.settings.mobile_menu_bg -%}
