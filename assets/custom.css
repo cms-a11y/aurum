@@ -223,7 +223,7 @@ li.js-header-dropdown-menu-element::before{
   color: var(--button-background-color-primary);
   margin-bottom: 15px;
 }
-.globo-form-app.default-layout h3.title.globo-heading{font-size: 36px;}
+.globo-form-app.default-layout h3.title.globo-heading{font-size: 36px !important;}
 /* Tablet */
 
 @media screen and (max-width: 991px) {
@@ -252,7 +252,7 @@ body section.product { padding: 10px 0;}
 #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__content{text-align:center;}
 html body .image-with-text .image-with-text__heading:after{right:0;}
 body #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__button{margin: 15px auto 0;}
-.globo-form-app.default-layout h3.title.globo-heading{font-size: 28px;}
+.globo-form-app.default-layout h3.title.globo-heading{font-size: 28px !important;}
 }
 @media screen and (max-width: 600px) {
   .product-specs__grid {
