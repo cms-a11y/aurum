@@ -20,6 +20,7 @@
     text-transform: uppercase;
     word-wrap: break-word;
     color: #bf9a5e;
+    position:relative;
 }
 .footer__navigation-list li.footer__navigation-list-item a{
    font-family: var(--base-font-family);
