@@ -39,7 +39,7 @@
         "first_desktop_image": "{{ page.metafields.custom.page_image.value }}",
         "heading": "{{ page.title }}",
         "subheading": "",
-        "text_content": "<p></p>{{ page.content }}",
+        "text_content": "{{ page.content }}",
         "button_label": "BOOK AN APPOINTMENT",
         "button_aria_label": "Book an Appointment",
         "button_url": "shopify://pages/book-a-private-appointment",
