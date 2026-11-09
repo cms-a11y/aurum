@@ -962,7 +962,7 @@
         ".image-with-text__button {color: #fff; width: fit-content;}",
         ".image-with-text__content {display: flex; flex-direction: column;}",
         ".image-with-text .image-with-text__heading {order: 2; margin-bottom: 30px !important; position: relative;}",
-        "p.image-with-text__subheading {order: 1; font-size: 14px; line-height: 1.5; margin-bottom: 10px;}",
+        "p.image-with-text__subheading {order: 1; font-size: 14px; letter-spacing: 4px; margin-bottom: 10px;}",
         ".image-with-text .image-with-text__text-content {order: 3;}",
         ".image-with-text .image-with-text__button {order: 4;}"
       ],
