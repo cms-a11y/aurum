@@ -202,7 +202,12 @@ li.js-header-dropdown-menu-element::before{
   position: absolute;
   right: 0;
   top: 0;
-  
+   display: inline-block;
+    width: 10px;
+    height: 6px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTAuNjY2NzQ4IDAuNjY2MDE2TDQuNjY2NzUgNC42NjYwMkw4LjY2Njc1IDAuNjY2MDE2IiBzdHJva2Utd2lkdGg9IjEuMzMzMzMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlPSIjNzUxNjJEIi8+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 /* Tablet */
 
