@@ -214,7 +214,16 @@ li.js-header-dropdown-menu-element::before{
     background-repeat: no-repeat;
     background-size: contain;
 }
-
+.globo-form-app.default-layout {
+  padding: 20px;
+}
+.globo-form-app.default-layout h3.title.globo-heading,
+.globo-form-app.default-layout .description.globo-description {
+  text-align: center !important;
+  color: var(--button-background-color-primary);
+  margin-bottom: 15px;
+}
+.globo-form-app.default-layout h3.title.globo-heading{font-size: 36px;}
 /* Tablet */
 
 @media screen and (max-width: 991px) {
