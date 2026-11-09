@@ -271,6 +271,7 @@ html.no-js .collection .collection__image-wrapper {
   .collection .collection__title,.collection .collection__description{text-align:center;}
   .breadcrumb .breadcrumb__container{justify-content:center;}
   .collection .collection__title {   font-size: 23px;}
+  .collection .collection__header-row{justify-content: center;}
 }
 @media (min-width: 768px) {
   .collection .collection__description {
