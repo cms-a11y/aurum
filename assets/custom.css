@@ -205,7 +205,7 @@ li.js-header-dropdown-menu-element::before{
    display: inline-block;
     width: 10px;
     height: 6px;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTAuNjY2NzQ4IDAuNjY2MDE2TDQuNjY2NzUgNC42NjYwMkw4LjY2Njc1IDAuNjY2MDE2IiBzdHJva2Utd2lkdGg9IjEuMzMzMzMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlPSIjNzUxNjJEIi8+PC9zdmc+");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.666748 0.666016L4.66675 4.66602L8.66675 0.666016' stroke='%23FFFFFF' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: contain;
 }
