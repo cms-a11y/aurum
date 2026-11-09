@@ -63,6 +63,63 @@
         "offset_bottom_mobile": 0
       }
     },
+    "statistics_bar_cDBBwk": {
+      "type": "statistics-bar",
+      "blocks": {
+        "statistic_YEJTzb": {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_gbaEg9": {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_Yj8XHe": {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_7HCL7t": {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#d6a94d"
+          }
+        }
+      },
+      "block_order": [
+        "statistic_YEJTzb",
+        "statistic_gbaEg9",
+        "statistic_Yj8XHe",
+        "statistic_7HCL7t"
+      ],
+      "name": "Statistics bar",
+      "settings": {
+        "background_color": "#faf7ef",
+        "divider_color": "#efe9dd",
+        "container_width": 1800,
+        "number_color": "#17120f",
+        "number_size": 48,
+        "label_size": 12,
+        "letter_spacing": 2,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
     "booking-prefill": {
       "type": "custom-liquid",
       "settings": {
@@ -78,6 +135,7 @@
     "default-page",
     "178722308951d0e2e9",
     "newsletter_HQjCw4",
+    "statistics_bar_cDBBwk",
     "booking-prefill"
   ]
 }
