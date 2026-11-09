@@ -72,14 +72,14 @@
       "settings": {
         "heading": "FAQ",
         "background_color": "#F6F6F6",
-        "text_color": "#000000",
-        "arrow_color": "#000000",
+        "text_color": "#75162D",
+        "arrow_color": "#75162D",
         "arrow_background_color": "#ffffff",
         "arrow_border_color": "#dcdcdc",
-        "background_active_color": "#000000",
+        "background_active_color": "#75162D",
         "text_active_color": "#ffffff",
         "arrow_active_color": "#000000",
-        "arrow_background_active_color": "#FFD875",
+        "arrow_background_active_color": "#FFFFFF",
         "arrow_border_active_color": "#FFD875",
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 60,
@@ -110,11 +110,69 @@
         "offset_top_mobile": 0,
         "offset_bottom_mobile": 0
       }
+    },
+    "statistics_bar_NLPn77": {
+      "type": "statistics-bar",
+      "blocks": {
+        "statistic_ECjLff": {
+          "type": "statistic",
+          "settings": {
+            "value": "15+",
+            "label": "Years of Craft",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_dkHTRY": {
+          "type": "statistic",
+          "settings": {
+            "value": "40K+",
+            "label": "Pieces Created",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_aqwj7B": {
+          "type": "statistic",
+          "settings": {
+            "value": "98%",
+            "label": "Client Satisfaction",
+            "label_color": "#75162d"
+          }
+        },
+        "statistic_4Q7UMk": {
+          "type": "statistic",
+          "settings": {
+            "value": "100%",
+            "label": "Ethically Sourced",
+            "label_color": "#d6a94d"
+          }
+        }
+      },
+      "block_order": [
+        "statistic_ECjLff",
+        "statistic_dkHTRY",
+        "statistic_aqwj7B",
+        "statistic_4Q7UMk"
+      ],
+      "name": "Statistics bar",
+      "settings": {
+        "background_color": "#faf7ef",
+        "divider_color": "#efe9dd",
+        "container_width": 1800,
+        "number_color": "#17120f",
+        "number_size": 48,
+        "label_size": 12,
+        "letter_spacing": 2,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
     }
   },
   "order": [
     "faq-page-template",
     "faq_simple_ggprRV",
-    "newsletter_xpFdnX"
+    "newsletter_xpFdnX",
+    "statistics_bar_NLPn77"
   ]
 }
