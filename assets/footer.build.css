@@ -150,7 +150,6 @@
   margin: 0 auto;
 }
 .footer .footer__bottom-content {
-  margin-top: 48px;
   margin-left: -48px;
   margin-right: -48px;
   border-top: 1px solid var(--border-color);
