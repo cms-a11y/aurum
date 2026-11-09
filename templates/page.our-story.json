@@ -74,29 +74,6 @@
         "offset_bottom_mobile": 25
       }
     },
-    "banner": {
-      "type": "banner",
-      "settings": {
-        "section_background": "#222222",
-        "content_background": "rgba(255,255,255, 0.2)",
-        "enable_glass_effect": true,
-        "text_color": "#ffffff",
-        "link_color": "#d33636",
-        "button_background": "#ffffff",
-        "button_color": "#000000",
-        "button_border": "#ffffff",
-        "button_background_hover": "#000000",
-        "button_color_hover": "#ffffff",
-        "button_border_hover": "#ffffff",
-        "overlay": "rgba(0,0,0, 0.3)",
-        "image_border_color": "#ffffff",
-        "container_width": "1952px",
-        "offset_top_desktop": 25,
-        "offset_bottom_desktop": 25,
-        "offset_top_mobile": 25,
-        "offset_bottom_mobile": 25
-      }
-    },
     "statistics_bar_4hgYMw": {
       "type": "statistics-bar",
       "blocks": {
@@ -153,13 +130,37 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0
       }
+    },
+    "newsletter_ngQR4D": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "two_columns",
+        "heading": "A GIFT FROM QUEENS",
+        "subheading": "Sign up and get 10% off",
+        "text": "<p>Enjoy 10% off your first purchase when you sign up, and be the first to discover new pieces, curated tanzanite collections, special offers, private events, and a little something special just for you.</p>",
+        "success_message": "Thanks for subscribing",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_label": "Subscribe",
+        "button_style": "secondary",
+        "section_background": "linear-gradient(320deg, rgba(91, 23, 39, 1) 52%, rgba(91, 23, 39, 1) 87%)",
+        "text_color": "#ffffff",
+        "input_background": "rgba(0,0,0,0)",
+        "input_color": "#ffffff",
+        "image_overlay": "",
+        "container_width": "100%",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
     }
   },
   "order": [
     "page-template",
     "image_with_text_6k6DpV",
     "banner-with-text",
-    "banner",
-    "statistics_bar_4hgYMw"
+    "statistics_bar_4hgYMw",
+    "newsletter_ngQR4D"
   ]
 }
