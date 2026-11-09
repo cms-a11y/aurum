@@ -1,4 +1,5 @@
-body:not(.template-index) .header__split-layout .header__heading-logo{max-width: 100px;}
+body:not(.template-index) .header__split-layout .header__heading-logo{max-width: 120px;}
+body:not(.template-index) .header__split-layout{padding:5px 30px;}
 span.banner-subheading {
     color: #FBF8EF;
     text-transform: uppercase;
