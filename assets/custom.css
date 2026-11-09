@@ -1,5 +1,6 @@
 body:not(.template-index) .header__split-layout .header__heading-logo{max-width: 120px;}
 body:not(.template-index) .header__split-layout{padding:5px 30px;}
+body:not(.template-index) .header .header__container { background: #fbf8ef;}
 span.banner-subheading {
     color: #FBF8EF;
     text-transform: uppercase;
@@ -209,9 +210,7 @@ li.js-header-dropdown-menu-element::before{
     background-repeat: no-repeat;
     background-size: contain;
 }
-body:not(.template-index) .header .header__container {
-    background: #fbf8ef;
-}
+
 /* Tablet */
 
 @media screen and (max-width: 991px) {
