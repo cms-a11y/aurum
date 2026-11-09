@@ -225,7 +225,24 @@ li.js-header-dropdown-menu-element::before{
 }
 .globo-form-app.default-layout h3.title.globo-heading{font-size: 36px !important;}
 /* Tablet */
-
+.footer__navigation-list li.footer__navigation-list-item {
+    position: relative;
+    padding-left: 14px;
+}
+.footer__navigation-list li.footer__navigation-list-item a:after {
+    content: '';
+    position: absolute;
+    right: unset;
+    left: 0px;
+    top: 6px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.666748 0.666016L4.66675 4.66602L8.66675 0.666016' stroke='%23ffffff' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(270deg);
+}
 @media screen and (max-width: 991px) {
   .product-specs__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
