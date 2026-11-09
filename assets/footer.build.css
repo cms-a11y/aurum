@@ -22,6 +22,15 @@
     color: #bf9a5e;
     position:relative;
 }
+.footer .footer__navigation-heading:after{
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width:12px;
+  height: 1px;
+  border-bottom: 1px solid #bf9a5e;
+}
 .footer__navigation-list li.footer__navigation-list-item a{
    font-family: var(--base-font-family);
     font-size: 15px;
