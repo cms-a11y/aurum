@@ -12,6 +12,10 @@
     "default-page": {
       "type": "page-template",
       "disabled": true,
+      "custom_css": [
+        ".globo-form-app.default-layout {padding: 20px;}",
+        ".globo-form-app.default-layout h3.title.globo-heading, .globo-form-app.default-layout .description.globo-description {text-align: center !important; color: var(--button-background-color-primary); margin-bottom: 15px;}"
+      ],
       "settings": {
         "offset_top_desktop": 60,
         "offset_bottom_desktop": 0,
