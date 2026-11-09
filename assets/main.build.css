@@ -3373,9 +3373,9 @@ body.rtl .price .price-item.price-item--last {
 .header-section.no-top-transition {
   transition-property: transform, background-color;
 }
-.header-section.is-collapsed {
+/* .header-section.is-collapsed {
   top: calc(var(--header-height-static) * -1);
-}
+} */
 .header-section.is-shadow-hidden .header__container {
   box-shadow: unset;
   transition-property: box-shadow;
