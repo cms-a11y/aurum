@@ -29,7 +29,7 @@
     left: 0;
     width: 14%;
     height: 1px;
-    border-bottom: 2px solid #bf9a5e
+    border-bottom: 1.5px solid #bf9a5e
 }
 .footer__navigation-list li.footer__navigation-list-item a{
    font-family: var(--base-font-family);
