@@ -222,7 +222,11 @@ li.js-header-dropdown-menu-element::before{
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px 12px;
   }
-  body .product-card .product-card__title{font-size: 14px;}
+  body .product-card .product-card__title{font-size: 14px;display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;}
   body:not(.template-index) .header__split-layout{padding:10px 15px;}
 }
 /* Mobile */
