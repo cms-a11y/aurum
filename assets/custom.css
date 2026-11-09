@@ -281,6 +281,7 @@ body #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-wi
         font-size: 65px;
         line-height: 1.1;
     }
+    body:not(.template-index) .header-menu .header-menu__item.header-menu__item--first-level:after{        background-color: var(--button-background-color-primary);}
 }
 @media (min-width: 768px) {
   .newsletter-form .newsletter-form__input {
