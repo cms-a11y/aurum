@@ -266,7 +266,8 @@ button.action.next.submit.classic-button.wizard__submit {
     background: var(--button-background-color-primary);
     text-transform: uppercase;
     width: 50%;
-    font-size: 19px;
+    font-size: 18px;
+    padding: 15px 22px;
 }
     @media screen and (max-width: 991px) {
   .product-specs__grid {
