@@ -258,7 +258,7 @@ body.template-index li.js-header-dropdown-menu-element:before {
 li.js-header-dropdown-menu-element{position: unset;}
 body .globo-form-control input, body .globo-form-control textarea, body .globo-form-control select {
         font-size: 16px;
-        border: 1px solid #75162d;
+        border: 1px solid var(--color-border-thirdly);
         background: transparent;
     }
 body span.label-content{color: #75162d !important;}
