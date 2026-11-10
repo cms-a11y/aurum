@@ -261,7 +261,7 @@ body .globo-form-control input, body .globo-form-control textarea, body .globo-f
         border: 1px solid #75162d;
         background: transparent;
     }
-body span.label-content{color: #75162d;}
+body span.label-content{color: #75162d !important;}
     @media screen and (max-width: 991px) {
   .product-specs__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
