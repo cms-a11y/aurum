@@ -208,12 +208,12 @@ section.product { padding: 60px 0;}
 }
 li.js-header-dropdown-menu-element{position:relative;}
 li.js-header-dropdown-menu-element::before{
-     content: "";
+  content: "";
     top: 7px;
     display: inline-block;
     width: 11px;
     height: 11px;
-    background-image: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.666748 0.666016L4.66675 4.66602L8.66675 0.666016' stroke='%2375162d' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E);
+    background-image: background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.666748 0.666016L4.66675 4.66602L8.66675 0.666016' stroke='%2375162d' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-size: contain;
     position: relative;
     left: 103%;
