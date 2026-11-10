@@ -168,6 +168,7 @@ ul.product-filters__list li {
     margin: 7px 0;
     color: blue;
 }
+ul.product-filters__list li a, ul.product-filters__list li a span{var(--button-background-color-primary)}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
     opacity: 0.8;
