@@ -570,8 +570,8 @@ color: #EFD0D9;
   right: 0;
   min-width: 150px;
   padding: 8px 0;
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--button-background-color-primary);
+  border: 1px solid var(--button-background-color-primary);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
   border-radius: 4px;
   z-index: 99;
@@ -591,14 +591,14 @@ color: #EFD0D9;
 .header__account-menu-link {
   display: block;
   padding: 10px 15px;
-  color: #222;
+  color: #fff;
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .header__account-menu-link:hover {
-  background: #f5f5f5;
+  background: var(--button-background-color-primary);
 }
   {% endstyle %}
 {% endif %}
