@@ -190,7 +190,7 @@
 						{%- render 'sort', product_list: product_list -%}
 					</div>
 
-					{%- if product_list.filters.size > 0 -%}
+					{% comment %} {%- if product_list.filters.size > 0 -%}
 						<div
 							class="accordion product-filters__form-accordion js-accordion-container js-filters-container"
 						>
@@ -242,7 +242,7 @@
 								</div>
 							{%- endfor -%}
 						</div>
-					{%- endif -%}
+					{%- endif -%} {% endcomment %}
 				</div>
 			</form>
 		</div>
