@@ -891,7 +891,7 @@
         "description_size": 16,
         "mobile_description_size": 14,
         "description_italic": false,
-        "description_line_height": 18,
+        "description_line_height": 10,
         "description_alignment": "center",
         "mobile_description_alignment": "center",
         "description_spacing": 20,
