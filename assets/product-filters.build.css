@@ -165,7 +165,7 @@
   color: var(--color-background, #ffffff);
 }
 ul.product-filters__list li {
-    margin: 7px 0;
+    margin: 12px 0;
     color: blue;
 }
 ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--button-background-color-primary)}
