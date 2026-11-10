@@ -244,6 +244,473 @@
 						</div>
 					{%- endif -%} {% endcomment %}
 				
+{% comment %}
+  ------------------------------------------------------------------------------
+  Snippet: Product filters and sort
+
+  Dynamic tag filters:
+  - Collection
+  - Metal (metal-*)
+  - Shape (shape-*)
+  - Carat (carat-*)
+
+  Usage:
+  {% render 'product-filters-and-sort', product_list: collection %}
+  ------------------------------------------------------------------------------
+{% endcomment %}
+
+{%- render 'adastra' with '/src/styles/product-filters.scss' -%}
+
+{%- if template.name == 'collection' -%}
+  {%- assign count = product_list.products_count -%}
+{%- elsif template.name == 'search' -%}
+  {%- assign count = product_list.results_count -%}
+{%- endif -%}
+
+{% assign one = 'collections.general.items_with_count.one' | t: count: count %}
+{% assign other = 'collections.general.items_with_count.other' | t: count: count %}
+
+{% assign one_a11y = 'general.filters.number_of_product_found' | t: number: count %}
+{% assign other_a11y = 'general.filters.number_of_products_found' | t: number: count %}
+
+{% assign active_filters_size = 0 %}
+
+{% if template.name == 'collection' %}
+  {% for tag in current_tags %}
+    {% assign tag_prefix = tag | slice: 0, 6 %}
+
+    {% if tag_prefix == 'metal-' or tag_prefix == 'shape-' or tag_prefix == 'carat-' %}
+      {% assign active_filters_size = active_filters_size | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% capture active_filters %}
+  {% if active_filters_size > 0 %}
+    <div class="product-filters__form-selected">
+      <p class="product-filters__form-label product-filters__form-label--active-filters">
+        Active filters
+      </p>
+
+      <ul class="product-filters__form-selected-list">
+        {% for tag in current_tags %}
+          {% assign tag_prefix = tag | slice: 0, 6 %}
+
+          {% if tag_prefix == 'metal-' or tag_prefix == 'shape-' or tag_prefix == 'carat-' %}
+
+            {% assign tag_label = tag
+              | remove_first: 'metal-'
+              | remove_first: 'shape-'
+              | remove_first: 'carat-'
+              | replace: '-', ' '
+            %}
+
+            {% assign remaining_tags = '' %}
+
+            {% for selected_tag in current_tags %}
+              {% unless selected_tag == tag %}
+                {% if remaining_tags != blank %}
+                  {% assign remaining_tags = remaining_tags | append: '+' %}
+                {% endif %}
+                {% assign remaining_tags = remaining_tags | append: selected_tag %}
+              {% endunless %}
+            {% endfor %}
+
+            {% assign remove_url = collection.url %}
+
+            {% if remaining_tags != blank %}
+              {% assign remove_url = remove_url | append: '/' | append: remaining_tags %}
+            {% endif %}
+
+            <li class="product-filters__form-selected-item">
+              <a
+                href="{{ remove_url }}"
+                class="product-filters__form-selected-button"
+              >
+                {{ tag_label | capitalize }}
+                {% render 'icons', icon: 'close' %}
+              </a>
+            </li>
+
+          {% endif %}
+        {% endfor %}
+
+        <li class="product-filters__form-selected-item">
+          <a
+            href="{{ collection.url }}"
+            class="product-filters__form-selected-button product-filters__form-selected-button--black"
+          >
+            Clear all
+            {% render 'icons', icon: 'close' %}
+          </a>
+        </li>
+      </ul>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% if product_list != blank %}
+  <div class="product-filters {{ extra_class }}">
+
+    {% unless without_filter_button %}
+      {% render 'product-filter-button',
+        active_filters_size: active_filters_size
+      %}
+    {% endunless %}
+
+    <div
+      class="drawer"
+      id="filterMenuDrawer"
+      role="dialog"
+      aria-labelledby="filterMenuDrawerTitle"
+    >
+
+      <form class="product-filters__form js-form">
+
+        <div class="drawer__header">
+          <button
+            class="drawer__close"
+            data-target="filterMenuDrawer"
+            data-js-toggle="filterMenuToggler"
+            type="button"
+            aria-label="{{ 'general.filters.close_filter_menu_aria' | t | escape }}"
+          >
+            {% render 'icons', icon: 'menu-close' %}
+          </button>
+        </div>
+
+        <div class="drawer__body product-filters__form-body js-filters-body">
+
+          {% if active_filters != blank %}
+            {{ active_filters }}
+          {% endif %}
+
+          <!-- Sort -->
+          <div class="product-filters__form-sort">
+            {% render 'sort', product_list: product_list %}
+          </div>
+
+          {% if template.name == 'collection' %}
+
+            <!-- Dynamically collect tags from collection products -->
+            {% assign metal_options = '' | split: ',' %}
+            {% assign shape_options = '' | split: ',' %}
+            {% assign carat_options = '' | split: ',' %}
+
+            {% for product in collection.products %}
+              {% for tag in product.tags %}
+
+                {% assign tag_prefix = tag | slice: 0, 6 %}
+
+                {% case tag_prefix %}
+
+                  {% when 'metal-' %}
+                    {% unless metal_options contains tag %}
+                      {% assign metal_options = metal_options | push: tag %}
+                    {% endunless %}
+
+                  {% when 'shape-' %}
+                    {% unless shape_options contains tag %}
+                      {% assign shape_options = shape_options | push: tag %}
+                    {% endunless %}
+
+                  {% when 'carat-' %}
+                    {% unless carat_options contains tag %}
+                      {% assign carat_options = carat_options | push: tag %}
+                    {% endunless %}
+
+                {% endcase %}
+
+              {% endfor %}
+            {% endfor %}
+
+            <div class="accordion product-filters__form-accordion js-accordion-container js-filters-container">
+
+              <!-- Collection -->
+              <div class="accordion__item product-filters__form-item js-accordion-item">
+
+                <h3 class="accordion__title">
+                  <button
+                    class="focus-visible-outline accordion__control product-filters__form-item-toggle-button js-accordion-control"
+                    type="button"
+                    id="Filter-accordion-1"
+                    aria-controls="filter-list-1"
+                    aria-expanded="false"
+                  >
+                    Collection
+                    {% render 'icons', icon: 'arrow-down' %}
+                  </button>
+                </h3>
+
+                <div
+                  class="accordion__content accordion__content--animate product-filters__form-filter-list-container js-accordion-content"
+                  id="filter-list-1"
+                  role="region"
+                  style="height:0;"
+                >
+                  <div class="js-accordion-inner">
+                    <ul class="product-filters__form-filter-list">
+                      <li class="product-filters__form-filter-item">
+                        <a href="{{ collection.url }}" class="product-filters__form-filter-link">
+                          {{ collection.title }}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Metal -->
+              {% if metal_options.size > 0 %}
+                <div class="accordion__item product-filters__form-item js-accordion-item">
+
+                  <h3 class="accordion__title">
+                    <button
+                      class="focus-visible-outline accordion__control product-filters__form-item-toggle-button js-accordion-control"
+                      type="button"
+                      id="Filter-accordion-2"
+                      aria-controls="filter-list-2"
+                      aria-expanded="false"
+                    >
+                      Metal
+                      {% render 'icons', icon: 'arrow-down' %}
+                    </button>
+                  </h3>
+
+                  <div
+                    class="accordion__content accordion__content--animate product-filters__form-filter-list-container js-accordion-content"
+                    id="filter-list-2"
+                    role="region"
+                    style="height:0;"
+                  >
+                    <div class="js-accordion-inner">
+                      <ul class="product-filters__form-filter-list">
+
+                        {% for tag in metal_options %}
+                          {% assign tag_label = tag | remove_first: 'metal-' | replace: '-', ' ' %}
+                          {% assign tag_active = false %}
+
+                          {% if current_tags contains tag %}
+                            {% assign tag_active = true %}
+                          {% endif %}
+
+                          {% assign remaining_tags = '' %}
+
+                          {% for selected_tag in current_tags %}
+                            {% unless selected_tag == tag %}
+                              {% if remaining_tags != blank %}
+                                {% assign remaining_tags = remaining_tags | append: '+' %}
+                              {% endif %}
+                              {% assign remaining_tags = remaining_tags | append: selected_tag %}
+                            {% endunless %}
+                          {% endfor %}
+
+                          {% unless tag_active %}
+                            {% if remaining_tags != blank %}
+                              {% assign remaining_tags = remaining_tags | append: '+' %}
+                            {% endif %}
+                            {% assign remaining_tags = remaining_tags | append: tag %}
+                          {% endunless %}
+
+                          {% assign filter_url = collection.url %}
+
+                          {% if remaining_tags != blank %}
+                            {% assign filter_url = filter_url | append: '/' | append: remaining_tags %}
+                          {% endif %}
+
+                          <li class="product-filters__form-filter-item">
+                            <a
+                              href="{{ filter_url }}"
+                              class="product-filters__form-filter-link{% if tag_active %} is-active{% endif %}"
+                              {% if tag_active %}aria-current="true"{% endif %}
+                            >
+                              <span>{{ tag_label | capitalize }}</span>
+                              {% if tag_active %}
+                                {% render 'icons', icon: 'close' %}
+                              {% endif %}
+                            </a>
+                          </li>
+
+                        {% endfor %}
+
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              {% endif %}
+
+              <!-- Shape -->
+              {% if shape_options.size > 0 %}
+                <div class="accordion__item product-filters__form-item js-accordion-item">
+
+                  <h3 class="accordion__title">
+                    <button
+                      class="focus-visible-outline accordion__control product-filters__form-item-toggle-button js-accordion-control"
+                      type="button"
+                      id="Filter-accordion-3"
+                      aria-controls="filter-list-3"
+                      aria-expanded="false"
+                    >
+                      Shape
+                      {% render 'icons', icon: 'arrow-down' %}
+                    </button>
+                  </h3>
+
+                  <div
+                    class="accordion__content accordion__content--animate product-filters__form-filter-list-container js-accordion-content"
+                    id="filter-list-3"
+                    role="region"
+                    style="height:0;"
+                  >
+                    <div class="js-accordion-inner">
+                      <ul class="product-filters__form-filter-list">
+
+                        {% for tag in shape_options %}
+                          {% assign tag_label = tag | remove_first: 'shape-' | replace: '-', ' ' %}
+                          {% assign tag_active = false %}
+
+                          {% if current_tags contains tag %}
+                            {% assign tag_active = true %}
+                          {% endif %}
+
+                          {% assign remaining_tags = '' %}
+
+                          {% for selected_tag in current_tags %}
+                            {% unless selected_tag == tag %}
+                              {% if remaining_tags != blank %}
+                                {% assign remaining_tags = remaining_tags | append: '+' %}
+                              {% endif %}
+                              {% assign remaining_tags = remaining_tags | append: selected_tag %}
+                            {% endunless %}
+                          {% endfor %}
+
+                          {% unless tag_active %}
+                            {% if remaining_tags != blank %}
+                              {% assign remaining_tags = remaining_tags | append: '+' %}
+                            {% endif %}
+                            {% assign remaining_tags = remaining_tags | append: tag %}
+                          {% endunless %}
+
+                          {% assign filter_url = collection.url %}
+
+                          {% if remaining_tags != blank %}
+                            {% assign filter_url = filter_url | append: '/' | append: remaining_tags %}
+                          {% endif %}
+
+                          <li class="product-filters__form-filter-item">
+                            <a
+                              href="{{ filter_url }}"
+                              class="product-filters__form-filter-link{% if tag_active %} is-active{% endif %}"
+                              {% if tag_active %}aria-current="true"{% endif %}
+                            >
+                              <span>{{ tag_label | capitalize }}</span>
+                              {% if tag_active %}
+                                {% render 'icons', icon: 'close' %}
+                              {% endif %}
+                            </a>
+                          </li>
+
+                        {% endfor %}
+
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              {% endif %}
+
+              <!-- Carat -->
+              {% if carat_options.size > 0 %}
+                <div class="accordion__item product-filters__form-item js-accordion-item">
+
+                  <h3 class="accordion__title">
+                    <button
+                      class="focus-visible-outline accordion__control product-filters__form-item-toggle-button js-accordion-control"
+                      type="button"
+                      id="Filter-accordion-4"
+                      aria-controls="filter-list-4"
+                      aria-expanded="false"
+                    >
+                      Carat
+                      {% render 'icons', icon: 'arrow-down' %}
+                    </button>
+                  </h3>
+
+                  <div
+                    class="accordion__content accordion__content--animate product-filters__form-filter-list-container js-accordion-content"
+                    id="filter-list-4"
+                    role="region"
+                    style="height:0;"
+                  >
+                    <div class="js-accordion-inner">
+                      <ul class="product-filters__form-filter-list">
+
+                        {% for tag in carat_options %}
+                          {% assign tag_label = tag | remove_first: 'carat-' | remove: '-ct' | replace: '-', '.' %}
+                          {% assign tag_active = false %}
+
+                          {% if current_tags contains tag %}
+                            {% assign tag_active = true %}
+                          {% endif %}
+
+                          {% assign remaining_tags = '' %}
+
+                          {% for selected_tag in current_tags %}
+                            {% unless selected_tag == tag %}
+                              {% if remaining_tags != blank %}
+                                {% assign remaining_tags = remaining_tags | append: '+' %}
+                              {% endif %}
+                              {% assign remaining_tags = remaining_tags | append: selected_tag %}
+                            {% endunless %}
+                          {% endfor %}
+
+                          {% unless tag_active %}
+                            {% if remaining_tags != blank %}
+                              {% assign remaining_tags = remaining_tags | append: '+' %}
+                            {% endif %}
+                            {% assign remaining_tags = remaining_tags | append: tag %}
+                          {% endunless %}
+
+                          {% assign filter_url = collection.url %}
+
+                          {% if remaining_tags != blank %}
+                            {% assign filter_url = filter_url | append: '/' | append: remaining_tags %}
+                          {% endif %}
+
+                          <li class="product-filters__form-filter-item">
+                            <a
+                              href="{{ filter_url }}"
+                              class="product-filters__form-filter-link{% if tag_active %} is-active{% endif %}"
+                              {% if tag_active %}aria-current="true"{% endif %}
+                            >
+                              <span>{{ tag_label }} CT</span>
+                              {% if tag_active %}
+                                {% render 'icons', icon: 'close' %}
+                              {% endif %}
+                            </a>
+                          </li>
+
+                        {% endfor %}
+
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              {% endif %}
+
+            </div>
+
+          {% endif %}
+
+        </div>
+      </form>
+    </div>
+  </div>
+{% endif %}
+
 				</div>
 			</form>
 		</div>
