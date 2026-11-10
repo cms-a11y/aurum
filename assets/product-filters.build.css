@@ -168,6 +168,12 @@ ul.product-filters__list li {
     margin: 12px 0;
     color: blue;
 }
+.product-filters__form-item.js-accordion-container button {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0 0px;
+    padding: 0 !important;
+}
 ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--button-background-color-primary)}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
