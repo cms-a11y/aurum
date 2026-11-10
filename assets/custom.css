@@ -256,6 +256,11 @@ body.template-index li.js-header-dropdown-menu-element:before {
     right: unset;
 }
 li.js-header-dropdown-menu-element{position: unset;}
+body .globo-form-control input, body .globo-form-control textarea, body .globo-form-control select {
+        font-size: 16px;
+        border: 1px solid #75162d;
+        background: transparent;
+    }
 @media screen and (max-width: 991px) {
   .product-specs__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
