@@ -471,7 +471,7 @@
         "products_to_show": 5,
         "tab_label": "Related products",
         "enable_shopify_recommendations": true,
-        "collection": "",
+        "collection": "rings-1",
         "show_recently_viewed": false,
         "recently_viewed_label": "Recently vieweds",
         "all_view_btn_label": "View All",
