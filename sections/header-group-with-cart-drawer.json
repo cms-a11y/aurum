@@ -78,7 +78,7 @@
         "megamenu_grid_images_ejhGYd": {
           "type": "megamenu-grid-images",
           "settings": {
-            "menu_handle": "collections",
+            "menu_handle": "shop by category",
             "grid_layout": "portrait",
             "highlight_color": "#000000",
             "highlight_color_transparent": "#ffffff",
