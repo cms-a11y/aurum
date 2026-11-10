@@ -516,7 +516,7 @@ color: #EFD0D9;
           </button>
         {% endif %}
 
-        {% if shop.customer_accounts_enabled %}
+        {% comment %} {% if shop.customer_accounts_enabled %}
           <a
             href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
             class="header__icon header__icon--account"
@@ -524,7 +524,39 @@ color: #EFD0D9;
           >
             {% render 'icons', icon: 'account' %}
           </a>
-        {% endif %}
+        {% endif %} {% endcomment %}
+
+		{% if shop.customer_accounts_enabled %}
+  <div class="header__account-dropdown">
+
+    <a
+      href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+      class="header__icon header__icon--account"
+      aria-label="{{ 'layout.customer.account' | t | escape }}"
+    >
+      {% render 'icons', icon: 'account' %}
+    </a>
+
+    <div class="header__account-menu">
+
+      {% if customer %}
+        <a href="{{ routes.account_url }}" class="header__account-menu-link">
+          My Account
+        </a>
+
+        <a href="{{ routes.account_logout_url }}" class="header__account-menu-link">
+          Logout
+        </a>
+
+      {% else %}
+        <a href="{{ routes.account_login_url }}" class="header__account-menu-link">
+          Login
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+{% endif %}
 
         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart no-js">
           {% render 'icons', icon: 'cart' %}
