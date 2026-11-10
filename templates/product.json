@@ -42,10 +42,10 @@
             "sku_text": "SERIAL: {SKU}",
             "show_vendor": false,
             "make_vendor_link": false,
-            "offset_top_desktop": 16,
-            "offset_bottom_desktop": 16,
-            "offset_top_mobile": 12,
-            "offset_bottom_mobile": 12
+            "offset_top_desktop": 0,
+            "offset_bottom_desktop": 0,
+            "offset_top_mobile": 5,
+            "offset_bottom_mobile": 5
           }
         },
         "description_7zfmzJ": {
