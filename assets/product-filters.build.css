@@ -164,10 +164,7 @@
   background-color: var(--color-text-primary, #000000);
   color: var(--color-background, #ffffff);
 }
-ul.product-filters__list li {
-    margin: 12px 0;
-    color: blue;
-}
+
 .product-filters__form-item.js-accordion-container button {
     font-size: 14px;
     font-weight: 600;
