@@ -460,6 +460,24 @@
 	{%- render 'adastra' with '/src/scripts/collection-template.js' -%}
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filter = document.getElementById('MetalFilter');
+
+  if (!filter) return;
+
+  filter.addEventListener('change', function () {
+    const selectedMetal = this.value.toLowerCase();
+
+    document.querySelectorAll('.collection__item[data-metal]').forEach(function (item) {
+      const metal = (item.dataset.metal || '').toLowerCase();
+
+      item.style.display =
+        !selectedMetal || metal === selectedMetal ? '' : 'none';
+    });
+  });
+});
+</script>
 {%- schema -%}
 {
 	"name": "Collection",
