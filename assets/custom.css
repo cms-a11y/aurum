@@ -243,6 +243,13 @@ li.js-header-dropdown-menu-element::before{
     background-size: contain;
     transform: rotate(270deg);
 }
+body.template-index li.js-header-dropdown-menu-element:before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M0.666748 0.666016L4.66675 4.66602L8.66675 0.666016' stroke='%23ffffff' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    position: relative;
+    left: 103%;
+    background-repeat: no-repeat;
+    right: unset;
+}
 li.js-header-dropdown-menu-element{position: unset;}
 @media screen and (max-width: 991px) {
   .product-specs__grid {
