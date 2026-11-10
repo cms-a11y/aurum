@@ -244,71 +244,34 @@
 						</div>
 					{%- endif -%} {% endcomment %}
 
-					{%- if product_list.filters.size > 0 -%}
-  <div class="accordion product-filters__form-accordion js-accordion-container js-filters-container">
+					{% assign metal_values = '' %}
 
-    {%- assign filterListIndex = 1 -%}
+{% for product in collection.products %}
+  {% assign metal = product.metafields.custom.metal.value | strip %}
 
-    {%- for filter in product_list.filters -%}
+  {% if metal != blank %}
+    {% assign metal_values = metal_values | append: metal | append: '||' %}
+  {% endif %}
+{% endfor %}
 
-      {%- if filter.type == 'list' and filter.values.size == 0 or filter.type == 'boolean' and filter.values.size == 0 -%}
-        {%- continue -%}
-      {%- endif -%}
+{% assign metal_options = metal_values | split: '||' | uniq %}
 
-      <div
-        id="filter-{{ filter.param_name | escape }}-{{ section.id }}"
-        class="accordion__item product-filters__form-item js-accordion-item js-accordion-filter-item"
-      >
-        <h3 class="accordion__title">
-          <button
-            class="focus-visible-outline accordion__control product-filters__form-item-toggle-button js-accordion-control"
-            type="button"
-            id="Filter-accordion-{{ filterListIndex }}"
-            aria-controls="filter-list-{{ filterListIndex }}"
-            aria-expanded="false"
-          >
-            {{ filter.label }}
-            {%- render 'icons', icon: 'arrow-down' -%}
-          </button>
-        </h3>
+<div class="custom-metal-filter">
+  <h3>Filter by Metal</h3>
 
-        <div
-          class="accordion__content accordion__content--animate product-filters__form-filter-list-container js-accordion-content"
-          id="filter-list-{{ filterListIndex }}"
-          aria-labelledby="Filter-accordion-{{ filterListIndex }}"
-          role="region"
-          style="height: 0;"
-        >
-          <div class="js-accordion-inner">
+  <select id="MetalFilter">
+    <option value="">All Metals</option>
 
-            {%- case filter.type -%}
+    {% for metal in metal_options %}
+      {% if metal != blank %}
+        <option value="{{ metal | escape }}">
+          {{ metal }}
+        </option>
+      {% endif %}
+    {% endfor %}
+  </select>
+</div>
 
-              {%- when 'list' or 'boolean' -%}
-
-                {% if filter.operator == "AND" %}
-                  <span class="product-filters__form-helptext">
-                    {{ 'general.filters.filter_and_operator_subtitle' | t }}
-                  </span>
-                {% endif %}
-
-                {%- render 'filter-list', filter: filter, show_swatches: show_swatches -%}
-
-              {%- when 'price_range' -%}
-
-                {%- render 'filter-price', filter: filter -%}
-
-            {%- endcase -%}
-
-          </div>
-        </div>
-      </div>
-
-      {%- assign filterListIndex = filterListIndex | plus: 1 -%}
-
-    {%- endfor -%}
-
-  </div>
-{%- endif -%}
 				</div>
 			</form>
 		</div>
