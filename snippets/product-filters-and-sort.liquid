@@ -244,6 +244,110 @@
 						</div>
 					{%- endif -%} {% endcomment %}
 				
+
+{% comment %} Custom product tag filters {% endcomment %}
+
+{% if collection != blank %}
+
+  {% assign filter_prefixes = 'metal,shape,carat' | split: ',' %}
+  {% assign all_collection_tags = collection.all_tags | sort %}
+
+  {% for filter_prefix in filter_prefixes %}
+
+    {% assign prefix = filter_prefix | append: '-' %}
+    {% assign prefix_length = prefix.size %}
+    {% assign has_options = false %}
+
+    {% for tag in all_collection_tags %}
+      {% assign tag_start = tag | slice: 0, prefix_length %}
+      {% if tag_start == prefix %}
+        {% assign has_options = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {% if has_options %}
+
+      {% case filter_prefix %}
+        {% when 'metal' %}
+          {% assign filter_title = 'Metal' %}
+        {% when 'shape' %}
+          {% assign filter_title = 'Shape' %}
+        {% when 'carat' %}
+          {% assign filter_title = 'Carat' %}
+      {% endcase %}
+
+      <div class="product-filters__form-item js-accordion-container">
+
+        <button type="button"
+          class="product-filters__form-title js-accordion-control"
+          aria-expanded="true">
+          <span>{{ filter_title }}</span>
+        </button>
+
+        <div class="product-filters__form-content js-accordion-content">
+
+          <ul class="product-filters__list">
+
+            {% for tag in all_collection_tags %}
+
+              {% assign tag_start = tag | slice: 0, prefix_length %}
+
+              {% if tag_start == prefix %}
+
+                {% assign is_active = false %}
+                {% if current_tags contains tag %}
+                  {% assign is_active = true %}
+                {% endif %}
+
+                {% assign tag_label = tag | remove_first: prefix | replace: '-', ' ' | capitalize %}
+
+                {% capture tag_path %}
+                  {% assign separator = '' %}
+                  {% for selected_tag in current_tags %}
+                    {% unless selected_tag == tag %}
+                      {{- separator -}}{{- selected_tag | handleize -}}
+                      {% assign separator = '+' %}
+                    {% endunless %}
+                  {% endfor %}
+
+                  {% unless is_active %}
+                    {{- separator -}}{{- tag | handleize -}}
+                  {% endunless %}
+                {% endcapture %}
+
+                {% assign tag_path = tag_path | strip %}
+
+                {% if tag_path == blank %}
+                  {% assign tag_url = collection.url %}
+                {% else %}
+                  {% assign tag_url = collection.url | append: '/' | append: tag_path %}
+                {% endif %}
+
+                <li>
+                  <a href="{{ tag_url }}"
+                    class="product-filters__tag-link{% if is_active %} is-active{% endif %}">
+                    <span>
+                      {% if is_active %}☑{% else %}□{% endif %}
+                    </span>
+                    {{ tag_label }}
+                  </a>
+                </li>
+
+              {% endif %}
+
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+
+    {% endif %}
+  {% endfor %}
+
+{% endif %}
+
+
 				</div>
 			</form>
 		</div>
