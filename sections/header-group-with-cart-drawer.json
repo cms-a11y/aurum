@@ -79,7 +79,7 @@
           "type": "megamenu-grid-images",
           "settings": {
             "menu_handle": "collections",
-            "grid_layout": "mosaic",
+            "grid_layout": "portrait",
             "highlight_color": "#000000",
             "highlight_color_transparent": "#ffffff",
             "highlight_background_color": "rgba(0,0,0,0)",
