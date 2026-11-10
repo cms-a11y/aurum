@@ -39,7 +39,7 @@
         "first_desktop_image": "shopify://shop_images/users-2.jpg",
         "first_mobile_image": "shopify://shop_images/diamonds-v1.jpg",
         "second_desktop_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.23.00_PM.jpg",
-        "third_desktop_image": "shopify://shop_images/WhatsApp_Image_2026-09-22_at_5.25.02_PM.jpg",
+        "third_desktop_image": "shopify://shop_images/diamonds-v1.jpg",
         "heading": "About us",
         "subheading": "WHO WE ARE",
         "text_content": "<p></p>{{ page.content }}",
