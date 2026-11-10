@@ -466,6 +466,10 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "custom_css": [
+        ".product-recommendations .product-recommendations__heading {padding-left: 0;}",
+        ".custom-recommend-content-box{margin-bottom: 25px;}"
+      ],
       "settings": {
         "heading": "You May Also Like",
         "products_to_show": 5,
