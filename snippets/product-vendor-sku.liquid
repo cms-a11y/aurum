@@ -54,16 +54,12 @@
         </span>
       {% endif %}
 
-      {% if show_sku %}
-        <span
-          class="product-sku {% if sku == blank %}is-hidden{% endif %} js-product-sku"
-          data-sku-text="{{ block.settings.sku_text | escape }}"
-        >
-          {% if sku != blank %}
-            {{ sku_text }}
-          {% endif %}
-        </span>
-      {% endif %}
+     {% if show_sku %}
+  <span class="product-sku js-product-sku"
+    data-sku-text="{{- block.settings.sku_text -}}">
+    {{- sku_text -}}
+  </span>
+{% endif %}
 
     </div>
 
