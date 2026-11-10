@@ -324,15 +324,21 @@
                   {% assign tag_url = collection.url | append: '/' | append: tag_path %}
                 {% endif %}
 
-                <li>
-                  <a href="{{ tag_url }}"
-                    class="product-filters__tag-link{% if is_active %} is-active{% endif %}">
-                    <span>
-                      {% if is_active %}☑{% else %}□{% endif %}
-                    </span>
-                    {{ tag_label }}
-                  </a>
-                </li>
+                <li class="custom-tag-filter__item">
+  <a
+    href="{{ tag_url }}"
+    class="custom-tag-filter__link{% if is_active %} is-active{% endif %}"
+    {% if is_active %}aria-current="true"{% endif %}
+  >
+    <span class="custom-tag-filter__circle">
+      <span class="custom-tag-filter__circle-inner"></span>
+    </span>
+
+    <span class="custom-tag-filter__label">
+      {{ tag_label }}
+    </span>
+  </a>
+</li>
 
               {% endif %}
 
