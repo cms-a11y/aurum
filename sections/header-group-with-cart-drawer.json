@@ -156,7 +156,7 @@
         "logo_width": 160,
         "logo_position": "middle",
         "menu": "main-menu",
-        "menu_left": "left-menu",
+        "menu_left": "right-other-menu",
         "menu_right": "right-menu",
         "other_menu_left": "right-other-menu",
         "other_menu_right": "right-menu",
