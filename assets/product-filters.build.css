@@ -177,6 +177,89 @@ ul.product-filters__list li {
 ul.product-filters__list li a.product-filters__tag-link:not(.is-active) span { font-size: 21px;}
 .sort--radio .sort__radio-label span{color: var(--button-background-color-primary);}
 ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--button-background-color-primary);font-size: 16px;}
+
+
+/* Custom Product Tag Filters */
+
+.custom-tag-filter__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-tag-filter__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  color: #292929;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.custom-tag-filter__link:hover,
+.custom-tag-filter__link.is-active {
+  color: #8b1735;
+}
+
+.custom-tag-filter__circle {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  border: 1px solid #a5a5a5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+}
+
+.custom-tag-filter__circle-inner {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.custom-tag-filter__link:hover .custom-tag-filter__circle,
+.custom-tag-filter__link.is-active .custom-tag-filter__circle {
+  border-color: #8b1735;
+}
+
+.custom-tag-filter__link.is-active .custom-tag-filter__circle-inner {
+  background: #8b1735;
+}
+
+.custom-tag-filter__label {
+  display: block;
+  text-transform: capitalize;
+}
+
+/* Filter group spacing */
+.product-filters__form-item.js-accordion-container {
+  border-bottom: 1px solid #e8e3df;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.product-filters__form-title.js-accordion-control {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202020;
+  padding: 12px 0;
+}
+
+/* Remove default list spacing */
+.product-filters__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
     opacity: 0.8;
