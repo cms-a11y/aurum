@@ -175,7 +175,7 @@ ul.product-filters__list li {
     padding: 0 !important;
 }
 ul.product-filters__list li a.product-filters__tag-link:not(.is-active) span { font-size: 21px;}
-
+.sort--radio .sort__radio-label span{color: var(--button-background-color-primary);}
 ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--button-background-color-primary);font-size: 16px;}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
