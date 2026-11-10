@@ -39,8 +39,8 @@
           "type": "vendor",
           "settings": {
             "show_sku": true,
-            "sku_text": "Art: {SKU}",
-            "show_vendor": true,
+            "sku_text": "SERIAL: {SKU}",
+            "show_vendor": false,
             "make_vendor_link": true,
             "offset_top_desktop": 16,
             "offset_bottom_desktop": 16,
