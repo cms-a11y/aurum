@@ -41,7 +41,7 @@
             "show_sku": true,
             "sku_text": "SERIAL: {SKU}",
             "show_vendor": false,
-            "make_vendor_link": true,
+            "make_vendor_link": false,
             "offset_top_desktop": 16,
             "offset_bottom_desktop": 16,
             "offset_top_mobile": 12,
