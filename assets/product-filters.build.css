@@ -164,6 +164,10 @@
   background-color: var(--color-text-primary, #000000);
   color: var(--color-background, #ffffff);
 }
+ul.product-filters__list li {
+    margin: 7px 0;
+    color: blue;
+}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
     opacity: 0.8;
