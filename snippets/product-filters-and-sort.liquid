@@ -244,34 +244,6 @@
 						</div>
 					{%- endif -%} {% endcomment %}
 
-					{% assign metal_values = '' %}
-
-{% for product in collection.products %}
-  {% assign metal = product.metafields.custom.metal.value | strip %}
-
-  {% if metal != blank %}
-    {% assign metal_values = metal_values | append: metal | append: '||' %}
-  {% endif %}
-{% endfor %}
-
-{% assign metal_options = metal_values | split: '||' | uniq %}
-
-<div class="custom-metal-filter">
-  <h3>Filter by Metal</h3>
-
-  <select id="MetalFilter">
-    <option value="">All Metals</option>
-
-    {% for metal in metal_options %}
-      {% if metal != blank %}
-        <option value="{{ metal | escape }}">
-          {{ metal }}
-        </option>
-      {% endif %}
-    {% endfor %}
-  </select>
-</div>
-
 				</div>
 			</form>
 		</div>
