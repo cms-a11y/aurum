@@ -470,7 +470,7 @@
         "heading": "You May Also Like",
         "products_to_show": 5,
         "tab_label": "Related products",
-        "enable_shopify_recommendations": true,
+        "enable_shopify_recommendations": false,
         "collection": "rings-1",
         "show_recently_viewed": false,
         "recently_viewed_label": "Recently vieweds",
