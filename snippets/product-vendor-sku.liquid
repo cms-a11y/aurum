@@ -25,7 +25,9 @@
   | replace: '{SKU}', sku
   | replace: '{sku}', sku
 %}
-
+{% style %}
+.product-vendor.js-product-sku-wrapper span { color: var(--button-background-color-primary);}
+{% endstyle %}
 {% if show_sku or show_vendor %}
   {% if product.vendor != blank or show_sku or is_preset %}
 
