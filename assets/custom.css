@@ -236,10 +236,10 @@ li.js-header-dropdown-menu-element::before{
 }
 .footer__navigation-list li.footer__navigation-list-item a:after {
     content: '';
-    position: absolute;
+   position: relative;
+    left: 103%;
+    background-repeat: no-repeat;
     right: unset;
-    left: 0px;
-    top: 6px;
     display: inline-block;
     width: 10px;
     height: 10px;
