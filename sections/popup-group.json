@@ -42,7 +42,7 @@
         "newsletter_popup_input_placeholder": "Enter email address...",
         "newsletter_popup_input_button_submit_text": "Join the Community",
         "newsletter_popup_desktop_image": "shopify://shop_images/diamond-ring-graphics.webp",
-        "is_newsletter_popup_show_socials": true,
+        "is_newsletter_popup_show_socials": false,
         "newsletter_popup_color_background": "#FBF8EF",
         "newsletter_popup_color_heading": "#75162D",
         "newsletter_popup_color_text": "#75162D",
