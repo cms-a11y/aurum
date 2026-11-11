@@ -203,8 +203,9 @@
 .newsletter-popup-form input.newsletter-popup-form__input:focus-visible {
   border-color: var(--color-input-border-focus);
 }
+
 .newsletter-popup-form .newsletter-popup-form__button.button.button--secondary {
-  position: absolute;
+  position: unset;
   top: 8px;
   inset-inline-end: 8px;
   padding: 8px 16px;
