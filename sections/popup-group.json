@@ -35,7 +35,7 @@
       "type": "newsletter-popup",
       "name": "Newsletter popup",
       "settings": {
-        "is_newsletter_popup_enabled": false,
+        "is_newsletter_popup_enabled": true,
         "newsletter_popup_cookie_time": "1",
         "newsletter_popup_heading": "Enjoy 10% off your first order",
         "newsletter_popup_text": "Discover new collections, receive exclusive offers, and find meaningful jewelry that inspires and empowers",
