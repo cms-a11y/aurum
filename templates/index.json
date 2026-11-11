@@ -1292,9 +1292,10 @@
           "type": "gallery_item",
           "settings": {
             "image": "shopify://shop_images/diamond-rings.webp",
+            "video": "shopify://files/videos/download.mp4",
             "video_url": "",
             "image_alt": "",
-            "product": "asset-pack-36173807618-example-product-2",
+            "product": "radiant-cut-tanzanite-diamond-ring-in-yellow-gold",
             "show_product_info": true,
             "show_product_price": false,
             "link": "",
