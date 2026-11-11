@@ -196,6 +196,23 @@
 
 		{% render 'js-animate-observer' %}
 
+		<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const newsletterBtn = document.getElementById('FixedNewsletterButton');
+
+  if (!newsletterBtn) return;
+
+  newsletterBtn.addEventListener('click', function () {
+    const popup = document.getElementById('NewsletterPopup');
+
+    if (popup) {
+      popup.classList.add('is-active');
+    }
+  });
+});
+</script>
+
+
 		{%- render 'adastra' with '/src/scripts/main.js' -%}
 
 		{% if settings.enable_compare_products %}
