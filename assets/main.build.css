@@ -2028,7 +2028,7 @@ textarea,
 .popup.is-active {
   visibility: visible;
   opacity: 1;
-  background: #0000005e;
+  background: #2b0810a6;
 }
 .popup .popup__container {
   position: relative;
