@@ -152,30 +152,28 @@
 </button>
 
 {% style %}
-  .fixed-newsletter-btn {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 9998;
-
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 14px 12px;
-  cursor: pointer;
-
-  writing-mode: vertical-rl;
-  transform-origin: center;
-  border-radius: 0 5px 5px 0;
-
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
+.fixed-newsletter-btn {
+     position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9998;
+    background: var(--button-background-color-primary);
+    color: #fff;
+    border: none;
+    padding: 14px 12px;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    transform-origin: center;
+    border-radius: 0 5px 5px 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: DM, sans-serif;
 }
 
 .fixed-newsletter-btn:hover {
-  background: #333;
+   background: var(--button-background-color-primary);
   color: #fff;
 }
 
