@@ -146,6 +146,44 @@
 			{{ content_for_layout }}
 		</main>
 
+		<!-- Fixed Newsletter Button -->
+<button type="button" id="FixedNewsletterButton" class="fixed-newsletter-btn">
+  <span>Subscribe Newsletter to get 10% off</span>
+</button>
+
+{% style %}
+  .fixed-newsletter-btn {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px 12px;
+  cursor: pointer;
+
+  writing-mode: vertical-rl;
+  transform-origin: center;
+  border-radius: 0 5px 5px 0;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.fixed-newsletter-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+#NewsletterPopup {
+  /* Keep your existing popup styles */
+}
+{% endstyle %}
+
 		{%- sections 'footer-group' -%}
 
 		{%- render 'page-preloader' -%}
