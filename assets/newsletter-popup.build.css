@@ -206,7 +206,7 @@
 
 .newsletter-popup-form .newsletter-popup-form__button.button.button--secondary {
   position: unset;
-  top: 8px;
+  width: 100%;
   inset-inline-end: 8px;
   padding: 8px 16px;
   font-size: calc(var(--body-font-size) * 0.875);
