@@ -168,7 +168,7 @@
 }
 @media (min-width: 992px) {
   .newsletter-popup .newsletter-popup__container {
-    margin: auto 16px 16px auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
