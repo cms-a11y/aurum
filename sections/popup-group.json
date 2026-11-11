@@ -8,15 +8,68 @@
  * ------------------------------------------------------------
  */
 {
-	"type": "custom.popup",
-	"name": "Popups group",
-	"sections": {
-		"cookie-bar": {
-			"type": "cookie-bar",
-			"settings": {}
-		}
-	},
-	"order": [
-		"cookie-bar"
-	]
+  "type": "custom.popup",
+  "name": "Popups group",
+  "sections": {
+    "cookie-bar": {
+      "type": "cookie-bar",
+      "settings": {
+        "is_cookie_bar_enabled": false,
+        "cookie_bar_cookie_time": "1",
+        "cookie_bar_heading": "Cookies",
+        "cookie_bar_text": "This website uses cookies to ensure you get the best experience on your device.",
+        "cookie_bar_button_label": "Accept all cookies",
+        "cookie_bar_show_shadow": false,
+        "cookie_bar_background_color": "#161e13",
+        "cookie_bar_text_color": "#ffffff",
+        "cookie_bar_button_close_color": "#ffffff",
+        "cookie_bar_button_background_color": "#161e13",
+        "cookie_bar_button_border_color": "#ffffff",
+        "cookie_bar_button_label_color": "#ffffff",
+        "cookie_bar_button_background_hover_color": "#ffffff",
+        "cookie_bar_button_border_hover_color": "#161e13",
+        "cookie_bar_button_label_hover_color": "#161e13"
+      }
+    },
+    "newsletter_popup_tCWRPR": {
+      "type": "newsletter-popup",
+      "name": "Newsletter popup",
+      "settings": {
+        "is_newsletter_popup_enabled": false,
+        "newsletter_popup_cookie_time": "1",
+        "newsletter_popup_heading": "Enjoy 10% off your first order",
+        "newsletter_popup_text": "Discover new collections, receive exclusive offers, and find meaningful jewelry that inspires and empowers",
+        "newsletter_popup_input_placeholder": "Enter email address...",
+        "newsletter_popup_input_button_submit_text": "Join the Community",
+        "newsletter_popup_desktop_image": "shopify://shop_images/diamond-ring-graphics.webp",
+        "is_newsletter_popup_show_socials": true,
+        "newsletter_popup_color_background": "#FBF8EF",
+        "newsletter_popup_color_heading": "#75162D",
+        "newsletter_popup_color_text": "#75162D",
+        "newsletter_popup_color_input_text": "#000000",
+        "newsletter_popup_color_input_placeholder": "#757575",
+        "newsletter_popup_color_input_border": "#DCDCDC",
+        "newsletter_popup_color_input_border_focus": "#75162D",
+        "newsletter_popup_color_support_attention": "#E41616",
+        "newsletter_popup_color_support_success": "#36BA20",
+        "newsletter_popup_color_button_close_icon": "#75162D",
+        "newsletter_popup_color_button_close_icon_border": "#E9E9E9",
+        "newsletter_popup_color_button_close_icon_background": "#FFFFFF",
+        "newsletter_popup_color_button_text": "#FFFFFF",
+        "newsletter_popup_color_button_background": "#75162D",
+        "newsletter_popup_color_button_text_hover": "#FFFFFF",
+        "newsletter_popup_color_button_background_hover": "#75162D",
+        "newsletter_popup_color_button_social_icon": "#75162D",
+        "newsletter_popup_color_button_social_background": "#FFFFFF",
+        "newsletter_popup_color_button_social_border": "#DCDCDC",
+        "newsletter_popup_color_button_social_icon_hover": "#FFFFFF",
+        "newsletter_popup_color_button_social_background_hover": "#75162D",
+        "newsletter_popup_color_button_social_border_hover": "#75162D"
+      }
+    }
+  },
+  "order": [
+    "cookie-bar",
+    "newsletter_popup_tCWRPR"
+  ]
 }
