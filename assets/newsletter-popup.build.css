@@ -138,10 +138,10 @@
     object-position: var(--img-desktop-pos);
   }
   .newsletter-popup .newsletter-popup__box-image {
-    width: 37.5%;
+    width: 49.5%;
   }
   .newsletter-popup .newsletter-popup__box-text {
-    width: 62.5%;
+    width: 48.5%;
   }
   .newsletter-popup .newsletter-popup__box-text.newsletter-popup__box-image--full-width {
     width: 100%;
