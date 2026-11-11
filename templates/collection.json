@@ -129,15 +129,16 @@
         "custom_class": ""
       }
     },
-    "community_gallery_Hfyc99": {
+    "community_gallery_mGeFyY": {
       "type": "community-gallery",
       "blocks": {
-        "gallery_item_4V3Jcn": {
+        "gallery_item_GKBnEz": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/rings-7.webp",
+            "image": "shopify://shop_images/ring-front.webp",
+            "video_url": "",
             "image_alt": "",
-            "product": "",
+            "product": "round-cut-tanzanite-diamond-ring-in-yellow-gold",
             "show_product_info": true,
             "show_product_price": false,
             "link": "",
@@ -146,12 +147,28 @@
             "custom_class": ""
           }
         },
-        "gallery_item_wqTQEX": {
+        "gallery_item_wFrgiY": {
+          "type": "gallery_item",
+          "settings": {
+            "video": "shopify://files/videos/download.mp4",
+            "video_url": "",
+            "image_alt": "",
+            "product": "cushion-cut-tanzanite-diamond-halo-pendant-in-silver",
+            "show_product_info": true,
+            "show_product_price": false,
+            "link": "",
+            "show_arrow": false,
+            "caption": "",
+            "custom_class": ""
+          }
+        },
+        "gallery_item_X76FC6": {
           "type": "gallery_item",
           "settings": {
             "image": "shopify://shop_images/diamond-ring-graphics.webp",
+            "video_url": "",
             "image_alt": "",
-            "product": "",
+            "product": "amour-ring-heart-cut-tanzanite-diamond-ring-in-14k-yellow-gold",
             "show_product_info": true,
             "show_product_price": false,
             "link": "",
@@ -160,12 +177,13 @@
             "custom_class": ""
           }
         },
-        "gallery_item_X8Y4Aa": {
+        "gallery_item_VbGEdt": {
           "type": "gallery_item",
           "settings": {
-            "video": "shopify://files/videos/diamond-bgs.mp4",
+            "image": "shopify://shop_images/Image.jpg",
+            "video_url": "",
             "image_alt": "",
-            "product": "",
+            "product": "cushion-cut-tanzanite-diamond-halo-pendant-in-silver-copy",
             "show_product_info": true,
             "show_product_price": false,
             "link": "",
@@ -174,12 +192,13 @@
             "custom_class": ""
           }
         },
-        "gallery_item_EUpAc7": {
+        "gallery_item_de6KkB": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/ring-1.jpg",
+            "image": "shopify://shop_images/diamond-rings.webp",
+            "video_url": "",
             "image_alt": "",
-            "product": "",
+            "product": "asset-pack-36173807618-example-product-2",
             "show_product_info": true,
             "show_product_price": false,
             "link": "",
@@ -190,37 +209,38 @@
         }
       },
       "block_order": [
-        "gallery_item_4V3Jcn",
-        "gallery_item_wqTQEX",
-        "gallery_item_X8Y4Aa",
-        "gallery_item_EUpAc7"
+        "gallery_item_GKBnEz",
+        "gallery_item_wFrgiY",
+        "gallery_item_X76FC6",
+        "gallery_item_VbGEdt",
+        "gallery_item_de6KkB"
       ],
       "name": "Community Gallery",
       "settings": {
         "subtitle": "Community",
         "subtitle_size": 12,
         "title": "Share Your Journey",
-        "title_size": 36,
+        "title_size": 42,
         "show_divider": true,
         "content": "<p>Tag us in your Queens moments and be part of a community celebrating life's most meaningful stories.</p>",
-        "content_size": 16,
+        "content_size": 18,
         "button_label": "Shop the feed",
         "button_link": "",
         "button_style": "secondary",
         "show_button_arrow": false,
-        "desktop_columns": 4,
-        "tablet_columns": 2,
+        "desktop_columns": 5,
+        "tablet_columns": 3,
         "mobile_columns": 2,
         "grid_gap": 20,
-        "image_ratio": "4 / 5",
+        "image_ratio": "3 / 4",
         "image_radius": 5,
         "full_width": false,
         "container_width": 1450,
         "heading_width": 700,
         "background_color": "#FBF8EF",
-        "title_color": "#80152F",
-        "text_color": "#A64C60",
-        "accent_color": "#80152F",
+        "title_color": "#80152f",
+        "text_color": "#a64c60",
+        "accent_color": "#80152f",
         "padding_top": 60,
         "padding_bottom": 60,
         "mobile_padding_top": 35,
@@ -232,6 +252,6 @@
   "order": [
     "plp-template",
     "jewellery_care_boxes_bLfVhJ",
-    "community_gallery_Hfyc99"
+    "community_gallery_mGeFyY"
   ]
 }
