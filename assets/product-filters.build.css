@@ -256,7 +256,7 @@ ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--b
   padding: 0;
   margin: 0;
 }
-
+.border-0{border:0 !important;}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .product-filters .product-filters__form-selected-button:hover {
     opacity: 0.8;
