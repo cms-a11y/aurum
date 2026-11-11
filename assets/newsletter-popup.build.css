@@ -206,9 +206,9 @@
 }
 
 .newsletter-popup-form .newsletter-popup-form__button.button.button--secondary {
-  position: unset;
+  margin-top: 10px;
   width: 100%;
-  padding: 8px 16px;
+  padding: 14px;
   font-size: calc(var(--body-font-size) * 0.875);
   background-color: var(--color-button-background);
   color: var(--color-button-text);
