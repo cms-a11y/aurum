@@ -326,7 +326,7 @@ ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--b
   .product-filters.product-filters--sidebar {
     position: sticky;
     top: calc(var(--header-height));
-    overflow: hidden auto;
+    /* overflow: hidden auto; */
     /* max-height: calc(100vh - (var(--header-height) + 30px)); */
   }
   .product-filters.product-filters--sidebar .product-filters__form {
