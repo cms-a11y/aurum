@@ -351,10 +351,61 @@
   {% endfor %}
 
 {% endif %}
-
-
 				</div>
 			</form>
 		</div>
+
+
+
+{% comment %} Category Menu {% endcomment %}
+
+{% assign category_menu = linklists['category'] %}
+
+{% if category_menu != blank and category_menu.links.size > 0 %}
+
+  <div class="product-filters__form-item js-accordion-container">
+
+    <button
+      type="button"
+      class="product-filters__form-title js-accordion-control"
+      aria-expanded="true"
+    >
+      <span>Category</span>
+    </button>
+
+    <div class="product-filters__form-content js-accordion-content">
+
+      <ul class="product-filters__list custom-tag-filter">
+
+        {% for link in category_menu.links %}
+
+          <li class="custom-tag-filter__item">
+
+            <a
+              href="{{ link.url }}"
+              class="custom-tag-filter__link{% if link.active %} is-active{% endif %}"
+              {% if link.active %}aria-current="page"{% endif %}
+            >
+              <span class="custom-tag-filter__circle">
+                <span class="custom-tag-filter__circle-inner"></span>
+              </span>
+
+              <span class="custom-tag-filter__label">
+                {{ link.title }}
+              </span>
+            </a>
+
+          </li>
+
+        {% endfor %}
+
+      </ul>
+
+    </div>
+  </div>
+
+{% endif %}
+
+
 	</div>
 {%- endif -%}
