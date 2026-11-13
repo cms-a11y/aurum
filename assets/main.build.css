@@ -2087,7 +2087,7 @@ textarea,
 .popup .popup__tab-content.active {
   display: block;
 }
-.product-ly-outs{justify-content:space-between;}
+.product-ly-outs{justify-content:space-between;padding-right:15px;}
 @media (min-width: 1200px) {
   .popup .popup__tabs {
     margin: 0;
