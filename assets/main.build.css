@@ -3748,7 +3748,7 @@ body.rtl .price .price-item.price-item--last {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   padding: 14px 6px;
   background-color: var(--header-mobile-menu-bg);
