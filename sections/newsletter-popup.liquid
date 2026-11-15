@@ -252,6 +252,38 @@
 			</button>
 		</div>
 	</div>
+
+			<!-- Fixed Newsletter Button -->
+<button type="button" id="FixedNewsletterButton" class="fixed-newsletter-btn">
+  <span>Join Community to get 10% off</span>
+</button>
+
+{% style %}
+.fixed-newsletter-btn {
+     position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 12;
+    background: var(--button-background-color-primary);
+    color: #fff;
+    border: none;
+    padding: 14px 12px;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    transform-origin: center;
+    border-radius: 0 5px 5px 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: DM, sans-serif;
+}
+
+.fixed-newsletter-btn:hover {
+   background: var(--button-background-color-primary);
+  color: #fff;
+}
+{% endstyle %}
 {% endif %}
 
 {% schema %}
