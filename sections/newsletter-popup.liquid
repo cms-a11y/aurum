@@ -255,7 +255,7 @@
 
 			<!-- Fixed Newsletter Button -->
 <button type="button" id="FixedNewsletterButton" class="fixed-newsletter-btn">
-  <span>Join Community to get 10% off</span>
+  <span>{{ section.settings.newsletter_button }}</span>
 </button>
 
 {% style %}
@@ -332,6 +332,12 @@
 			"type": "text",
 			"id": "newsletter_popup_heading",
 			"label": "Heading",
+			"default": "Subscribe to our newsletter"
+		},
+		{
+			"type": "text",
+			"id": "newsletter_button",
+			"label": "Newsletter fix button",
 			"default": "Subscribe to our newsletter"
 		},
 		{
