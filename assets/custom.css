@@ -271,11 +271,12 @@ button.action.next.submit.classic-button.wizard__submit {
     padding: 15px 22px;
 }
 .title-crafted {
-    font-size: 21px;
+    font-size: 22px;
     margin: 15px 0;
     font-family: 'PT Serif';
     padding-left: 13px;
     border-left: 2px solid var(--button-background-color-primary);
+    font-style: italic;
 }
     @media screen and (max-width: 991px) {
   .product-specs__grid {
