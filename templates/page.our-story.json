@@ -21,6 +21,7 @@
     },
     "image_with_text_6k6DpV": {
       "type": "image-with-text",
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content * {color: var(--button-background-color-primary);}",
         ".image-with-text__button {color: #fff; width: fit-content;}",
@@ -52,6 +53,68 @@
         "offset_bottom_desktop": 0,
         "offset_top_mobile": 20,
         "offset_bottom_mobile": 20
+      }
+    },
+    "about_story_grid_LLmaYc": {
+      "type": "about-story-grid",
+      "blocks": {
+        "image_AgHCMY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/diamonds-v1.jpg"
+          }
+        },
+        "image_8QYTr3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/users-2.jpg"
+          }
+        },
+        "image_RMeBw6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/deep-cave.jpg"
+          }
+        },
+        "image_TW4hhi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/diamonds.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_AgHCMY",
+        "image_8QYTr3",
+        "image_RMeBw6",
+        "image_TW4hhi"
+      ],
+      "name": "About Story Grid",
+      "settings": {
+        "subtitle": "Who we are",
+        "title": "About us",
+        "show_title_line": true,
+        "use_page_content": true,
+        "custom_content": "",
+        "quote": "",
+        "extra_heading": "",
+        "extra_content": "",
+        "button_label": "Book an appointment",
+        "button_link": "shopify://pages/book-a-private-appointment",
+        "second_button_label": "",
+        "second_button_link": "",
+        "image_side": "right",
+        "animation": "fade-up",
+        "custom_class": "",
+        "container_width": 1600,
+        "column_gap": 50,
+        "image_radius": 18,
+        "background_color": "#FBF8EF",
+        "heading_color": "#80172F",
+        "text_color": "#80172F",
+        "accent_color": "#711020",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "banner-with-text": {
@@ -281,6 +344,7 @@
   "order": [
     "page-template",
     "image_with_text_6k6DpV",
+    "about_story_grid_LLmaYc",
     "banner-with-text",
     "statistics_bar_4hgYMw",
     "newsletter_ngQR4D",
