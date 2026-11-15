@@ -109,7 +109,7 @@
         "container_width": 1600,
         "column_gap": 50,
         "image_radius": 18,
-        "background_color": "#fbf8ef",
+        "background_color": "#FAF5F0",
         "heading_color": "#80172f",
         "text_color": "#80172f",
         "accent_color": "#711020",
@@ -161,7 +161,7 @@
       ],
       "name": "Statistics bar",
       "settings": {
-        "background_color": "#faf7ef",
+        "background_color": "#FFFFFF",
         "divider_color": "#efe9dd",
         "container_width": 1800,
         "number_color": "#17120f",
