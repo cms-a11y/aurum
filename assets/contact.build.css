@@ -8,6 +8,7 @@
   padding: 0 16px;
   text-align: center;
 }
+.contact .contact__form-fields label{font-size: 16px;font-weight:600;}
 .contact .contact__form-rte {
   margin-top: 24px;
 }
