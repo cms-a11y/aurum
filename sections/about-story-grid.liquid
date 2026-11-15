@@ -1,0 +1,687 @@
+
+{% comment %}
+  Section: About Story with 4 Image Grid
+  Dynamic page content + configurable image placement
+{% endcomment %}
+
+{% liquid
+  assign animation_class = section.settings.animation
+  assign image_side = section.settings.image_side
+
+  if image_side == 'left'
+    assign content_order = 'order-2'
+    assign image_order = 'order-1'
+  else
+    assign content_order = 'order-1'
+    assign image_order = 'order-2'
+  endif
+
+  assign page_content = page.content
+%}
+
+<section
+  id="AboutStory-{{ section.id }}"
+  class="about-story-section {{ section.settings.custom_class }}"
+  data-animation="{{ animation_class }}"
+  style="
+    --about-bg: {{ section.settings.background_color }};
+    --about-text: {{ section.settings.text_color }};
+    --about-heading: {{ section.settings.heading_color }};
+    --about-accent: {{ section.settings.accent_color }};
+    --about-pt: {{ section.settings.padding_top }}px;
+    --about-pb: {{ section.settings.padding_bottom }}px;
+    --about-gap: {{ section.settings.column_gap }}px;
+    --about-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="about-story-container">
+
+    <div class="about-story-content {{ content_order }}">
+
+      {% if section.settings.subtitle != blank %}
+        <div class="about-story-subtitle {{ animation_class }}">
+          {{ section.settings.subtitle }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2 class="about-story-title {{ animation_class }}">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.show_title_line %}
+        <span class="about-story-title-line"></span>
+      {% endif %}
+
+      {% if section.settings.use_page_content and page != blank %}
+        <div class="about-story-description {{ animation_class }}">
+          {{ page_content }}
+        </div>
+      {% elsif section.settings.custom_content != blank %}
+        <div class="about-story-description {{ animation_class }}">
+          {{ section.settings.custom_content }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.quote != blank %}
+        <blockquote class="about-story-quote {{ animation_class }}">
+          {{ section.settings.quote }}
+        </blockquote>
+      {% endif %}
+
+      {% if section.settings.extra_heading != blank %}
+        <h3 class="about-story-extra-heading">
+          {{ section.settings.extra_heading }}
+        </h3>
+      {% endif %}
+
+      {% if section.settings.extra_content != blank %}
+        <div class="about-story-extra-content">
+          {{ section.settings.extra_content }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank or section.settings.second_button_label != blank %}
+        <div class="about-story-buttons">
+
+          {% if section.settings.button_label != blank %}
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="about-story-button"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          {% endif %}
+
+          {% if section.settings.second_button_label != blank %}
+            <a
+              href="{{ section.settings.second_button_link | default: '#' }}"
+              class="about-story-button about-story-button--secondary"
+            >
+              {{ section.settings.second_button_label }}
+            </a>
+          {% endif %}
+
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="about-story-images {{ image_order }}">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'image' %}
+          <div
+            class="about-story-image {{ animation_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 1000
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '300, 500, 700, 1000',
+                  sizes: '(min-width: 990px) 25vw, 50vw',
+                  alt: block.settings.image.alt
+              }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'about-story-placeholder' }}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% if section.blocks.size == 0 %}
+        {% for i in (1..4) %}
+          <div class="about-story-image">
+            {{ 'image' | placeholder_svg_tag: 'about-story-placeholder' }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #AboutStory-{{ section.id }} {
+    background: var(--about-bg);
+    color: var(--about-text);
+    padding-top: var(--about-pt);
+    padding-bottom: var(--about-pb);
+    overflow: hidden;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-container {
+    width: 100%;
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: var(--about-gap);
+    align-items: center;
+  }
+
+  #AboutStory-{{ section.id }} .order-1 {
+    order: 1;
+  }
+
+  #AboutStory-{{ section.id }} .order-2 {
+    order: 2;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-content {
+    min-width: 0;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-subtitle {
+    color: var(--about-accent);
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-title {
+    color: var(--about-heading);
+    font-size: clamp(32px, 3.2vw, 52px);
+    line-height: 1.15;
+    font-weight: 400;
+    margin: 0 0 18px;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-title-line {
+    display: block;
+    width: 88px;
+    height: 2px;
+    background: var(--about-accent);
+    margin-bottom: 60px;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-description {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--about-text);
+  }
+
+  #AboutStory-{{ section.id }} .about-story-description p {
+    margin: 0 0 26px;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-quote {
+    border-left: 2px solid var(--about-accent);
+    padding: 5px 0 5px 22px;
+    margin: 30px 0;
+    color: var(--about-heading);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-extra-heading {
+    color: var(--about-heading);
+    font-size: 24px;
+    margin: 32px 0 8px;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-extra-content {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 48px;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 38px;
+    min-height: 60px;
+    background: var(--about-accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 9px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  #AboutStory-{{ section.id }} .about-story-button--secondary {
+    background: transparent;
+    color: var(--about-accent);
+    border: 1px solid var(--about-accent);
+  }
+
+  /* Image grid */
+
+  #AboutStory-{{ section.id }} .about-story-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(240px, auto));
+    gap: 20px;
+    min-width: 0;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-image {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    overflow: hidden;
+    border-radius: var(--about-radius);
+    background: #eee9df;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-image img,
+  #AboutStory-{{ section.id }} .about-story-image svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  #AboutStory-{{ section.id }} .about-story-image:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Entrance animations */
+
+  #AboutStory-{{ section.id }} [data-animation],
+  #AboutStory-{{ section.id }} .fade-up,
+  #AboutStory-{{ section.id }} .fade-in,
+  #AboutStory-{{ section.id }} .slide-left,
+  #AboutStory-{{ section.id }} .slide-right {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+  }
+
+  #AboutStory-{{ section.id }} .fade-up {
+    animation-name: aboutFadeUp-{{ section.id }};
+  }
+
+  #AboutStory-{{ section.id }} .fade-in {
+    animation-name: aboutFadeIn-{{ section.id }};
+  }
+
+  #AboutStory-{{ section.id }} .slide-left {
+    animation-name: aboutSlideLeft-{{ section.id }};
+  }
+
+  #AboutStory-{{ section.id }} .slide-right {
+    animation-name: aboutSlideRight-{{ section.id }};
+  }
+
+  @keyframes aboutFadeUp-{{ section.id }} {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes aboutFadeIn-{{ section.id }} {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes aboutSlideLeft-{{ section.id }} {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes aboutSlideRight-{{ section.id }} {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @media (max-width: 989px) {
+    #AboutStory-{{ section.id }} .about-story-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 0 24px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-images {
+      grid-template-rows: repeat(2, minmax(180px, auto));
+      gap: 12px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-image,
+    #AboutStory-{{ section.id }} .about-story-image img,
+    #AboutStory-{{ section.id }} .about-story-image svg {
+      min-height: 180px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-title-line {
+      margin-bottom: 30px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-description {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 749px) {
+    #AboutStory-{{ section.id }} .about-story-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 35px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-content,
+    #AboutStory-{{ section.id }} .about-story-images {
+      width: 100%;
+      order: initial;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-subtitle {
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-title {
+      font-size: 34px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-title-line {
+      margin-bottom: 28px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-description {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-description p {
+      margin-bottom: 18px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-quote {
+      font-size: 20px;
+      margin: 24px 0;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-buttons {
+      margin-top: 30px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-button {
+      min-height: 52px;
+      padding: 14px 24px;
+      font-size: 12px;
+      width: 100%;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-images {
+      grid-template-rows: repeat(2, minmax(150px, auto));
+      gap: 10px;
+    }
+
+    #AboutStory-{{ section.id }} .about-story-image,
+    #AboutStory-{{ section.id }} .about-story-image img,
+    #AboutStory-{{ section.id }} .about-story-image svg {
+      min-height: 150px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #AboutStory-{{ section.id }} * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About Story Grid",
+  "tag": "section",
+  "class": "section-about-story-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Who we are"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "About us"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_line",
+      "label": "Show title underline",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_content",
+      "label": "Use current page content",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "custom_content",
+      "label": "Custom content",
+      "info": "Used when current page content is disabled."
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "extra_heading",
+      "label": "Additional heading"
+    },
+    {
+      "type": "richtext",
+      "id": "extra_content",
+      "label": "Additional content"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "First button label",
+      "default": "Book an appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "First button link"
+    },
+    {
+      "type": "text",
+      "id": "second_button_label",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "second_button_link",
+      "label": "Second button link"
+    },
+    {
+      "type": "select",
+      "id": "image_side",
+      "label": "Image grid position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left side"
+        },
+        {
+          "value": "right",
+          "label": "Right side"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Entrance animation",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "fade-up",
+          "label": "Fade up"
+        },
+        {
+          "value": "fade-in",
+          "label": "Fade in"
+        },
+        {
+          "value": "slide-left",
+          "label": "Slide left"
+        },
+        {
+          "value": "slide-right",
+          "label": "Slide right"
+        }
+      ],
+      "default": "fade-up"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Content maximum width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FBF8EF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#80172F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#80172F"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent and button color",
+      "default": "#711020"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid image",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Story Grid",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
