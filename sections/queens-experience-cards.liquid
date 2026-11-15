@@ -1,0 +1,861 @@
+
+{% comment %}
+  Section: Queens Experience Cards
+  Four responsive information cards with icons and rich text.
+{% endcomment %}
+
+<section
+  id="QueensExperience-{{ section.id }}"
+  class="queens-experience {{ section.settings.custom_class }}"
+  data-animation="{{ section.settings.animation }}"
+  style="
+    --qe-bg: {{ section.settings.background_color }};
+    --qe-card-bg: {{ section.settings.card_background }};
+    --qe-heading: {{ section.settings.heading_color }};
+    --qe-text: {{ section.settings.text_color }};
+    --qe-accent: {{ section.settings.accent_color }};
+    --qe-icon-bg: {{ section.settings.icon_background }};
+    --qe-border: {{ section.settings.border_color }};
+    --qe-pt: {{ section.settings.padding_top }}px;
+    --qe-pb: {{ section.settings.padding_bottom }}px;
+    --qe-gap: {{ section.settings.card_gap }}px;
+    --qe-radius: {{ section.settings.card_radius }}px;
+    --qe-card-padding: {{ section.settings.card_padding }}px;
+    --qe-subtitle-desktop: {{ section.settings.subtitle_size_desktop }}px;
+    --qe-subtitle-mobile: {{ section.settings.subtitle_size_mobile }}px;
+    --qe-title-desktop: {{ section.settings.title_size_desktop }}px;
+    --qe-title-mobile: {{ section.settings.title_size_mobile }}px;
+    --qe-description-desktop: {{ section.settings.description_size_desktop }}px;
+    --qe-description-mobile: {{ section.settings.description_size_mobile }}px;
+    --qe-card-title-desktop: {{ section.settings.card_title_size_desktop }}px;
+    --qe-card-title-mobile: {{ section.settings.card_title_size_mobile }}px;
+    --qe-card-text-desktop: {{ section.settings.card_text_size_desktop }}px;
+    --qe-card-text-mobile: {{ section.settings.card_text_size_mobile }}px;
+    --qe-container: {{ section.settings.container_width }}px;
+  "
+>
+  <div class="queens-experience__container">
+
+    {% if section.settings.subtitle != blank or section.settings.title != blank or section.settings.description != blank %}
+      <div class="queens-experience__header">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="queens-experience__subtitle">
+            {% if section.settings.show_subtitle_lines %}
+              <span></span>
+            {% endif %}
+
+            {{ section.settings.subtitle }}
+
+            {% if section.settings.show_subtitle_lines %}
+              <span></span>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="queens-experience__title">
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.show_title_line %}
+          <div class="queens-experience__title-line"></div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="queens-experience__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    <div class="queens-experience__grid">
+      {% for block in section.blocks %}
+
+        <div
+          class="queens-experience__card"
+          {{ block.shopify_attributes }}
+          style="--qe-card-delay: {{ forloop.index0 | times: 120 }}ms;"
+        >
+
+          {% if block.settings.icon != blank %}
+            <div class="queens-experience__icon">
+              {{
+                block.settings.icon
+                | image_url: width: 120
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '60, 90, 120',
+                  alt: block.settings.title
+              }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class="queens-experience__card-title">
+              {{ block.settings.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.short_content != blank %}
+            <div class="queens-experience__short-content">
+              {{ block.settings.short_content }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.html_content != blank %}
+            <div class="queens-experience__html-content">
+              {{ block.settings.html_content }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #QueensExperience-{{ section.id }} {
+    background: var(--qe-bg);
+    padding-top: var(--qe-pt);
+    padding-bottom: var(--qe-pb);
+    overflow: hidden;
+  }
+
+  #QueensExperience-{{ section.id }} *,
+  #QueensExperience-{{ section.id }} *::before,
+  #QueensExperience-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__container {
+    width: 100%;
+    max-width: var(--qe-container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+
+  #QueensExperience-{{ section.id }} .queens-experience__header {
+    text-align: center;
+    max-width: 950px;
+    margin: 0 auto 80px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: var(--qe-accent);
+    font-size: var(--qe-subtitle-desktop);
+    font-weight: 500;
+    letter-spacing: 4px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__subtitle span {
+    width: 40px;
+    height: 1px;
+    background: var(--qe-accent);
+    flex-shrink: 0;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__title {
+    color: var(--qe-heading);
+    font-family: Georgia, serif;
+    font-size: var(--qe-title-desktop);
+    font-weight: 400;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__title-line {
+    width: 80px;
+    height: 2px;
+    background: var(--qe-accent);
+    margin: 24px auto 28px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__description {
+    color: var(--qe-text);
+    font-size: var(--qe-description-desktop);
+    line-height: 1.7;
+    margin: 0 auto;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__description p {
+    margin: 0 0 12px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__description p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Cards grid */
+
+  #QueensExperience-{{ section.id }} .queens-experience__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr));
+    gap: var(--qe-gap);
+    align-items: stretch;
+  }
+
+  /* Individual card */
+
+  #QueensExperience-{{ section.id }} .queens-experience__card {
+    background: var(--qe-card-bg);
+    border: 1px solid var(--qe-border);
+    border-radius: var(--qe-radius);
+    padding: var(--qe-card-padding);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: {% if section.settings.card_shadow %}0 5px 22px rgba(40, 20, 20, 0.07){% else %}none{% endif %};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  {% if section.settings.card_hover %}
+    #QueensExperience-{{ section.id }} .queens-experience__card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(40, 20, 20, 0.12);
+    }
+  {% endif %}
+
+  /* Icon */
+
+  #QueensExperience-{{ section.id }} .queens-experience__icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    min-width: {{ section.settings.icon_size }}px;
+    border-radius: 50%;
+    background: var(--qe-icon-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__icon img {
+    display: block;
+    width: 48%;
+    height: 48%;
+    object-fit: contain;
+  }
+
+  /* Card title */
+
+  #QueensExperience-{{ section.id }} .queens-experience__card-title {
+    color: var(--qe-heading);
+    font-family: Georgia, serif;
+    font-size: var(--qe-card-title-desktop);
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0 0 14px;
+  }
+
+  /* Short content */
+
+  #QueensExperience-{{ section.id }} .queens-experience__short-content {
+    color: var(--qe-text);
+    font-size: var(--qe-card-text-desktop);
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__short-content p {
+    margin: 0;
+  }
+
+  /* Additional HTML / rich text */
+
+  #QueensExperience-{{ section.id }} .queens-experience__html-content {
+    color: var(--qe-text);
+    font-size: var(--qe-card-text-desktop);
+    line-height: 1.6;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--qe-border);
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__html-content p {
+    margin: 0 0 8px;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__html-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__html-content strong {
+    color: var(--qe-heading);
+  }
+
+  #QueensExperience-{{ section.id }} .queens-experience__html-content a {
+    color: var(--qe-accent);
+    text-decoration: underline;
+  }
+
+  /* Entrance animations */
+
+  {% if section.settings.animation != 'none' %}
+    #QueensExperience-{{ section.id }}[data-animation="fade-up"] .queens-experience__header,
+    #QueensExperience-{{ section.id }}[data-animation="fade-up"] .queens-experience__card {
+      animation: qeFadeUp-{{ section.id }} 0.8s ease both;
+    }
+
+    #QueensExperience-{{ section.id }}[data-animation="fade-in"] .queens-experience__header,
+    #QueensExperience-{{ section.id }}[data-animation="fade-in"] .queens-experience__card {
+      animation: qeFadeIn-{{ section.id }} 0.8s ease both;
+    }
+
+    #QueensExperience-{{ section.id }}[data-animation="slide-up"] .queens-experience__header,
+    #QueensExperience-{{ section.id }}[data-animation="slide-up"] .queens-experience__card {
+      animation: qeSlideUp-{{ section.id }} 0.8s ease both;
+    }
+
+    #QueensExperience-{{ section.id }}[data-animation="slide-left"] .queens-experience__header,
+    #QueensExperience-{{ section.id }}[data-animation="slide-left"] .queens-experience__card {
+      animation: qeSlideLeft-{{ section.id }} 0.8s ease both;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__card {
+      animation-delay: var(--qe-card-delay);
+    }
+  {% endif %}
+
+  @keyframes qeFadeUp-{{ section.id }} {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes qeFadeIn-{{ section.id }} {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes qeSlideUp-{{ section.id }} {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes qeSlideLeft-{{ section.id }} {
+    from { opacity: 0; transform: translateX(35px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #QueensExperience-{{ section.id }} .queens-experience__grid {
+      grid-template-columns: repeat({{ section.settings.columns_tablet }}, minmax(0, 1fr));
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__header {
+      margin-bottom: 55px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #QueensExperience-{{ section.id }} .queens-experience__container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__header {
+      margin-bottom: 35px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__subtitle {
+      font-size: var(--qe-subtitle-mobile);
+      letter-spacing: 2px;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__subtitle span {
+      width: 22px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__title {
+      font-size: var(--qe-title-mobile);
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__title-line {
+      margin: 18px auto 20px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__description {
+      font-size: var(--qe-description-mobile);
+      line-height: 1.6;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__grid {
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__card {
+      padding: 20px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      margin-bottom: 14px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__card-title {
+      font-size: var(--qe-card-title-mobile);
+      margin-bottom: 10px;
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__short-content,
+    #QueensExperience-{{ section.id }} .queens-experience__html-content {
+      font-size: var(--qe-card-text-mobile);
+    }
+
+    #QueensExperience-{{ section.id }} .queens-experience__html-content {
+      padding-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    #QueensExperience-{{ section.id }} .queens-experience__card {
+      padding: 15px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #QueensExperience-{{ section.id }} *,
+    #QueensExperience-{{ section.id }} *::before,
+    #QueensExperience-{{ section.id }} *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Queens Experience Cards",
+  "tag": "section",
+  "class": "section-queens-experience",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Bespoke Tanzanian Hospitality"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subtitle_lines",
+      "label": "Show subtitle decorative lines",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main title",
+      "default": "The Queens Experience"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_line",
+      "label": "Show title underline",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We're here to make your experience truly special. Whether you're searching for a meaningful gift, a piece that feels uniquely yours, or would simply like to explore our collection through a private viewing, our team is here to help you discover something truly special.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Grid layout"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "columns_tablet",
+      "label": "Tablet columns",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Maximum content width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Card gap",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card inner spacing",
+      "min": 15,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon background size",
+      "min": 40,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Enable card shadow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "card_hover",
+      "label": "Enable card hover effect",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Desktop font sizes"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_desktop",
+      "label": "Subtitle size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Main title size",
+      "min": 24,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "description_size_desktop",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_desktop",
+      "label": "Card title size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_text_size_desktop",
+      "label": "Card content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Mobile font sizes"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_mobile",
+      "label": "Subtitle size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Main title size",
+      "min": 22,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "label": "Description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_mobile",
+      "label": "Card title size",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_text_size_mobile",
+      "label": "Card content size",
+      "min": 12,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#80172F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#35282A"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#C69A48"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#F2E8D4"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border color",
+      "default": "#E8E0D9"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Animation and custom class"
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Entrance animation",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "fade-up", "label": "Fade up" },
+        { "value": "fade-in", "label": "Fade in" },
+        { "value": "slide-up", "label": "Slide up" },
+        { "value": "slide-left", "label": "Slide left" }
+      ],
+      "default": "fade-up"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Optional class for additional styling."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "experience_card",
+      "name": "Experience card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Upload an SVG or transparent PNG icon."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "Concierge & Phone"
+        },
+        {
+          "type": "richtext",
+          "id": "short_content",
+          "label": "Short content",
+          "default": "<p>Connect directly with our team for personal assistance and expert guidance.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "html_content",
+          "label": "Additional HTML content",
+          "default": "<p><strong>CALL US</strong></p><p>+255 684 258 852<br>+255 754 810 770</p>",
+          "info": "Use the rich text editor for paragraphs, links, bold text and line breaks."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Queens Experience Cards",
+      "blocks": [
+        {
+          "type": "experience_card",
+          "settings": {
+            "title": "Concierge & Phone",
+            "short_content": "<p>Connect directly with certified in-house gemologists for investment valuations and stone curation.</p>",
+            "html_content": "<p><strong>CALL US</strong></p><p>+255 684 258 852<br>+255 754 810 770</p>"
+          }
+        },
+        {
+          "type": "experience_card",
+          "settings": {
+            "title": "Chat With Our Experts",
+            "short_content": "<p>Receive high-resolution 360° videos, GIA/EGL certificates, and real-time consultation via WhatsApp.</p>",
+            "html_content": "<p><strong>DIRECT CHAT</strong></p><p>+255 684 258 852<br>+255 754 810 770</p>"
+          }
+        },
+        {
+          "type": "experience_card",
+          "settings": {
+            "title": "Store Location",
+            "short_content": "<p>Golden Plaza, Indira Gandhi Street,<br>Dar es Salaam, Tanzania</p>",
+            "html_content": "<p><strong>PRIVATE VIP VAULT</strong></p><p>Secured Valet & Chauffeur<br>Concierge available upon booking</p>"
+          }
+        },
+        {
+          "type": "experience_card",
+          "settings": {
+            "title": "Store Timings",
+            "short_content": "<p>Mon – Fri: 10:00AM – 5:00PM<br>Saturday: 10:00AM – 2:00PM</p>",
+            "html_content": "<p><strong>Sunday</strong></p><p><em>Private Appointment</em></p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
