@@ -109,41 +109,18 @@
         "container_width": 1600,
         "column_gap": 50,
         "image_radius": 18,
-        "background_color": "#FBF8EF",
-        "heading_color": "#80172F",
-        "text_color": "#80172F",
+        "background_color": "#fbf8ef",
+        "heading_color": "#80172f",
+        "text_color": "#80172f",
         "accent_color": "#711020",
         "padding_top": 80,
         "padding_bottom": 80
       }
     },
-    "banner-with-text": {
-      "type": "banner",
-      "settings": {
-        "section_background": "#222222",
-        "content_background": "rgba(255,255,255, 0.2)",
-        "enable_glass_effect": true,
-        "text_color": "#ffffff",
-        "link_color": "#d33636",
-        "button_background": "#ffffff",
-        "button_color": "#000000",
-        "button_border": "#ffffff",
-        "button_background_hover": "#000000",
-        "button_color_hover": "#ffffff",
-        "button_border_hover": "#ffffff",
-        "overlay": "rgba(0,0,0, 0.3)",
-        "image_border_color": "#ffffff",
-        "container_width": "1952px",
-        "offset_top_desktop": 25,
-        "offset_bottom_desktop": 25,
-        "offset_top_mobile": 25,
-        "offset_bottom_mobile": 25
-      }
-    },
-    "statistics_bar_4hgYMw": {
+    "statistics_bar_7wEYBw": {
       "type": "statistics-bar",
       "blocks": {
-        "statistic_Kh3MTA": {
+        "statistic_tYCVLL": {
           "type": "statistic",
           "settings": {
             "value": "15+",
@@ -151,7 +128,7 @@
             "label_color": "#75162d"
           }
         },
-        "statistic_ahwWna": {
+        "statistic_F6RBnN": {
           "type": "statistic",
           "settings": {
             "value": "40K+",
@@ -159,7 +136,7 @@
             "label_color": "#75162d"
           }
         },
-        "statistic_qBFwjL": {
+        "statistic_tEJGVF": {
           "type": "statistic",
           "settings": {
             "value": "98%",
@@ -167,24 +144,24 @@
             "label_color": "#75162d"
           }
         },
-        "statistic_kLdmeb": {
+        "statistic_c46tAT": {
           "type": "statistic",
           "settings": {
             "value": "100%",
             "label": "Ethically Sourced",
-            "label_color": "#d6a94d"
+            "label_color": "#75162d"
           }
         }
       },
       "block_order": [
-        "statistic_Kh3MTA",
-        "statistic_ahwWna",
-        "statistic_qBFwjL",
-        "statistic_kLdmeb"
+        "statistic_tYCVLL",
+        "statistic_F6RBnN",
+        "statistic_tEJGVF",
+        "statistic_c46tAT"
       ],
       "name": "Statistics bar",
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#faf7ef",
         "divider_color": "#efe9dd",
         "container_width": 1800,
         "number_color": "#17120f",
@@ -345,8 +322,7 @@
     "page-template",
     "image_with_text_6k6DpV",
     "about_story_grid_LLmaYc",
-    "banner-with-text",
-    "statistics_bar_4hgYMw",
+    "statistics_bar_7wEYBw",
     "newsletter_ngQR4D",
     "community_gallery_4nNNzc"
   ]
