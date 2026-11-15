@@ -23,6 +23,7 @@
   row-gap: 16px;
   background: #fff;
   padding: 45px;
+  border-radius:6px;
 }
 .contact .contact__form-fields-row {
   display: flex;
