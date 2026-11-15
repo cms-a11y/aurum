@@ -316,10 +316,11 @@
 			<button class="button button--primary contact__button" type="submit">
 				{{- submit_label -}}
 			</button>
+			<p><i>Discreet and confidential handling guaranteed by our senior concierge.</i></p>
 		</div>
 	{%- endform -%}
 {%- endcapture -%}
-<p><i>Discreet and confidential handling guaranteed by our senior concierge.</i></p>
+
 <section class="contact js-animate {% if request.visual_preview_mode or section.index == 1 %}animated{% endif %}">
 	{%- if map_api_key != blank and map_query != blank -%}
 		<div class="contact__map-container">
