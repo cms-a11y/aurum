@@ -12,6 +12,12 @@
 		padding-top: {{- section.settings.offset_top_mobile -}}px;
 		padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
 	}
+	.contact .contact__form-fields{
+		background-image: url("{{ 'full-contact-bgs.webp' | asset_url }}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+	}
 	body .contact .contact__form-fields input, body .contact .contact__form-fields textarea{border-radius: 0 !important;}
 	.contact__form-header h2,
 	.contact .contact__form-fields label{color: #75162D;}
