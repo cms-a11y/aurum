@@ -131,6 +131,7 @@ body .newsletter-popup .newsletter-popup__content{padding: 0 24px;}
   .newsletter-popup .newsletter-popup__container {
     max-width: 800px;
     flex-direction: row;
+    height: 70%;
   }
   .newsletter-popup .newsletter-popup__container.newsletter-popup__container--no-image-desktop {
     max-width: 520px;
