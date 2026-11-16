@@ -200,6 +200,7 @@
   line-height: 1.375;
   text-decoration: none;
   text-transform: uppercase;
+  border-radius:32px;
   transition: background-color var(--timing-short), color var(--timing-short), border-color var(--timing-short);
 }
 .footer .footer__instagram-button-icon {
