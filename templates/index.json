@@ -684,7 +684,7 @@
         "secondary_button_hover_background": "#ffffff",
         "secondary_button_hover_text": "#75162d",
         "button_border_width": 1,
-        "button_radius": 30,
+        "button_radius": 32,
         "button_text_size": 12,
         "mobile_button_size": 11,
         "button_weight": "500",
