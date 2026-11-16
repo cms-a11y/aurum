@@ -955,7 +955,6 @@ label {
   text-transform: var(--button-text-transform);
   transition: opacity var(--timing-base), color var(--timing-base), border var(--timing-base), background-color var(--timing-base);
 }
-a{border-radius:32px;}
 .button::after {
   content: "";
   position: absolute;
