@@ -950,12 +950,12 @@ label {
   line-height: 1.375;
   text-align: center;
   word-break: break-word;
-  border-radius: 6px;
+  border-radius: 32px;
   text-decoration: none;
   text-transform: var(--button-text-transform);
   transition: opacity var(--timing-base), color var(--timing-base), border var(--timing-base), background-color var(--timing-base);
 }
-a{border-radius:6px;}
+a{border-radius:32px;}
 .button::after {
   content: "";
   position: absolute;
