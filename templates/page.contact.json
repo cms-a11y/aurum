@@ -178,8 +178,9 @@
         "experience_card_ttrtgx": {
           "type": "experience_card",
           "settings": {
+            "icon": "shopify://shop_images/timer-icons.svg",
             "title": "Store Timings",
-            "short_content": "<p>Mon – Fri: 10:00AM – 5:00PM<br>Saturday: 10:00AM – 2:00PM</p>",
+            "short_content": "<p>Mon – Fri: 10:00AM – 5:00PM<br/>Saturday: 10:00AM – 2:00PM</p>",
             "html_content": "<p><strong>Sunday</strong></p><p><em>Private Appointment</em></p>"
           }
         }
