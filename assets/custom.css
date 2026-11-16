@@ -64,6 +64,7 @@ a.button.product-add-to-cart__appointment-button {
 .newsletter-form .newsletter-form__field {
   position: relative; overflow: hidden;
   border: 1.5px solid #fff;
+  border-radius:32px;
 }
 .newsletter-form .newsletter-form__input {
   min-height: 50px;
