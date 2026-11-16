@@ -67,7 +67,7 @@
         "image_8QYTr3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/users-2.jpg"
+            "image": "shopify://shop_images/about-users.webp"
           }
         },
         "image_RMeBw6": {
@@ -109,7 +109,7 @@
         "container_width": 1600,
         "column_gap": 50,
         "image_radius": 18,
-        "background_color": "#FBF8EF",
+        "background_color": "#fbf8ef",
         "heading_color": "#80172f",
         "text_color": "#80172f",
         "accent_color": "#711020",
@@ -161,7 +161,7 @@
       ],
       "name": "Statistics bar",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "divider_color": "#efe9dd",
         "container_width": 1800,
         "number_color": "#17120f",
