@@ -27,7 +27,7 @@
         "message_label": "Message",
         "message_placeholder": "Your message...",
         "is_message_required": false,
-        "submit_label": "Send",
+        "submit_label": "SEND",
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 80,
         "contactbgclr": "",
