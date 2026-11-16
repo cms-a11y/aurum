@@ -1632,6 +1632,7 @@ textarea,
   border: 1px solid var(--color-border-label-base);
   background-color: var(--color-background-label-base);
   font-size: 0.75em;
+  border-radius:20px;
   line-height: 1.16;
   text-align: center;
   color: var(--color-label-base);
