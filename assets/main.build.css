@@ -5321,7 +5321,7 @@ body.rtl .header-mobile .header-mobile__menu-item-icon-back {
 }
 .product-card .product-card__label {
   padding: 4px 12px;
-  border-radius: calc(var(--global-border-radius) / 2);
+  border-radius: 20px;
   border: 1px solid var(--color-border-label-base);
   background-color: var(--color-background-label-base);
   font-size: calc(var(--body-font-size) * 0.75);
