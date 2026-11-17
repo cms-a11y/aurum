@@ -92,6 +92,8 @@ a.button.product-add-to-cart__appointment-button {
   inset-inline-end: 0px;
   top: 50%;
   padding: 8px 16px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   font-size: calc(var(--body-font-size) * 0.875);
   transform: translateY(-50%);
 }
