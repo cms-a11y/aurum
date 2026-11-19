@@ -144,11 +144,73 @@
         "bottom_button_arrow": true,
         "custom_class": ""
       }
+    },
+    "tanzanite_colour_feature_FkyMEm": {
+      "type": "tanzanite-colour-feature",
+      "blocks": {
+        "colour_UHdyjw": {
+          "type": "colour",
+          "settings": {
+            "swatch_color": "#202a8c",
+            "title": "Royal Blue",
+            "subtitle": "Primary Axis"
+          }
+        },
+        "colour_MHH7PG": {
+          "type": "colour",
+          "settings": {
+            "swatch_color": "#54169a",
+            "title": "Deep Violet",
+            "subtitle": "Secondary Axis"
+          }
+        },
+        "colour_nMRNWc": {
+          "type": "colour",
+          "settings": {
+            "swatch_color": "#791aa5",
+            "title": "Velvet Purple",
+            "subtitle": "Tertiary Axis"
+          }
+        }
+      },
+      "block_order": [
+        "colour_UHdyjw",
+        "colour_MHH7PG",
+        "colour_nMRNWc"
+      ],
+      "name": "Tanzanite colour feature",
+      "settings": {
+        "custom_class": "",
+        "image_position": "left",
+        "main_image": "shopify://shop_images/cushion-cuts.jpg",
+        "image_alt": "",
+        "subtitle": "Master lapidary standard",
+        "heading": "A Colour Unlike Any Other",
+        "description": "<p>Part of Tanzanite’s fascination lies in its extraordinary relationship with colour.</p><p>Tanzanite is pleochroic, meaning its appearance can shift as the gemstone is viewed from different directions.</p><p>The way a Tanzanite is cut also influences how these colours are presented.</p>",
+        "show_quote": true,
+        "quote_label": "Master Lapidary Standard",
+        "quote": "<p>Orientation of the rough crystal along the c-axis determines whether the completed gem radiates predominantly royal cobalt or aristocratic violet-purple.</p>",
+        "button_label": "",
+        "button_link": "",
+        "heading_size": 46,
+        "body_size": 17,
+        "mobile_heading_size": 30,
+        "mobile_body_size": 15,
+        "background_color": "#FAF7F2",
+        "heading_color": "#7D142A",
+        "text_color": "#443637",
+        "accent_color": "#CBA64B",
+        "quote_background": "#F4F1EC",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "border_radius": 14
+      }
     }
   },
   "order": [
     "page-template",
     "queens_history_origin_e4bxFP",
-    "queens_history_timeline_TKyrnm"
+    "queens_history_timeline_TKyrnm",
+    "tanzanite_colour_feature_FkyMEm"
   ]
 }
