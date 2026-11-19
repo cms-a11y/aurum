@@ -551,24 +551,64 @@
 	]
 }
 {% endschema %}
+
+
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const newsletterBtn = document.getElementById('FixedNewsletterButton');
-const hidexme = document.getElementsByClassName('hidex');
-  newsletterBtn?.addEventListener('click', function () {
-    document.getElementById('NewsletterPopup')?.classList.add('is-active');
-  });
+(function () {
+  function initNewsletterPopup() {
+    // Open popup when fixed newsletter button is clicked
+    document.addEventListener('click', function (event) {
 
-  hidexme?.addEventListener('click', function(event)){
- document.getElementsByClassName('fixed-newsletter-btn')?.classList.add('hideitfor');
-};
+      const openButton = event.target.closest('#FixedNewsletterButton');
 
-  document.addEventListener('click', function (event) {
-    if (event.target.closest(
-      '.newsletter-popup .newsletter-popup__close-icon-button.popup-close-icon-button'
-    )) {
-      document.getElementById('NewsletterPopup')?.classList.remove('is-active');
-    }
-  });
-});
+      if (openButton) {
+        event.preventDefault();
+
+        const popup = document.getElementById('NewsletterPopup');
+
+        if (popup) {
+          popup.classList.add('is-active');
+        }
+
+        return;
+      }
+
+      // Close popup using its close icon
+      const closeButton = event.target.closest(
+        '.newsletter-popup .newsletter-popup__close-icon-button.popup-close-icon-button'
+      );
+
+      if (closeButton) {
+        event.preventDefault();
+
+        const popup = document.getElementById('NewsletterPopup');
+
+        if (popup) {
+          popup.classList.remove('is-active');
+        }
+
+        return;
+      }
+
+      // Hide fixed newsletter button using X
+      const hideButton = event.target.closest('.hidex');
+
+      if (hideButton) {
+        const fixedButton = hideButton.closest('.fixed-newsletter-btn');
+
+        if (fixedButton) {
+          fixedButton.classList.add('hideitfor');
+        }
+      }
+
+    });
+  }
+
+  // Initialize immediately or after DOM loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNewsletterPopup);
+  } else {
+    initNewsletterPopup();
+  }
+})();
 </script>
