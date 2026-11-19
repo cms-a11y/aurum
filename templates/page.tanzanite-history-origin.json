@@ -122,7 +122,7 @@
         "mobile_content_size": 15,
         "mobile_quote_size": 17,
         "mobile_watermark_size": 90,
-        "container_width": 1500,
+        "container_width": 1450,
         "column_gap": 50,
         "card_padding": 50,
         "mobile_card_padding": 25,
