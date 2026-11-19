@@ -65,10 +65,90 @@
         "accent_color": "#c69b4e",
         "custom_class": ""
       }
+    },
+    "queens_history_timeline_TKyrnm": {
+      "type": "queens-history-timeline",
+      "blocks": {
+        "history_card_d8Jktk": {
+          "type": "history_card",
+          "settings": {
+            "eyebrow": "The Genesis",
+            "show_icon": true,
+            "title": "The Discovery",
+            "year": "1967",
+            "content": "<p>The story of Tanzanite began in <strong>1967</strong>. Maasai tribesman Ali Juuyawatu is credited with finding the first Tanzanite crystal in the Merelani area.</p><p>Prospector Manuel d'Souza subsequently explored the area and registered mining claims.</p>",
+            "quote": "<p>They were something entirely different: a rare blue-violet variety of the mineral zoisite.</p>",
+            "bottom_content": "<p>What had been hidden beneath the Tanzanian earth for millions of years was about to become one of the most celebrated gemstone discoveries of the 20th century.</p>",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_card_class": ""
+          }
+        },
+        "history_card_meHYUg": {
+          "type": "history_card",
+          "settings": {
+            "eyebrow": "Global Emergence",
+            "show_icon": true,
+            "title": "From Tanzania to the World",
+            "year": "1968",
+            "content": "<p>The story of Tanzanite began in <strong>1967</strong>. Maasai tribesman Ali Juuyawatu is credited with finding the first Tanzanite crystal in the Merelani area.</p><p>Prospector Manuel d'Souza subsequently explored the area and registered mining claims.</p>",
+            "quote": "<p>They were something entirely different: a rare blue-violet variety of the mineral zoisite.</p>",
+            "bottom_content": "<p>What had been hidden beneath the Tanzanian earth for millions of years was about to become one of the most celebrated gemstone discoveries of the 20th century.</p>",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_card_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "history_card_d8Jktk",
+        "history_card_meHYUg"
+      ],
+      "name": "Queens History Timeline",
+      "settings": {
+        "section_subtitle": "",
+        "section_title": "",
+        "section_description": "",
+        "section_title_size": 40,
+        "card_title_size": 34,
+        "content_size": 17,
+        "quote_size": 19,
+        "watermark_size": 130,
+        "watermark_opacity": 10,
+        "mobile_section_title_size": 30,
+        "mobile_card_title_size": 26,
+        "mobile_content_size": 15,
+        "mobile_quote_size": 17,
+        "mobile_watermark_size": 90,
+        "container_width": 1500,
+        "column_gap": 50,
+        "card_padding": 50,
+        "mobile_card_padding": 25,
+        "card_radius": 10,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "background_color": "#F5F2ED",
+        "card_background": "#FFFFFF",
+        "heading_color": "#801426",
+        "text_color": "#514344",
+        "accent_color": "#C69B4E",
+        "border_color": "#EADFDB",
+        "watermark_color": "#EADDE0",
+        "quote_background": "#F5F2ED",
+        "bottom_button_label": "",
+        "bottom_button_link": "",
+        "bottom_button_arrow": true,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "page-template",
-    "queens_history_origin_e4bxFP"
+    "queens_history_origin_e4bxFP",
+    "queens_history_timeline_TKyrnm"
   ]
 }
