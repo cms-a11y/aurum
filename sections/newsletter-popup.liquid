@@ -558,9 +558,11 @@ const hidexme = document.getElementsByClassName('hidex');
   newsletterBtn?.addEventListener('click', function () {
     document.getElementById('NewsletterPopup')?.classList.add('is-active');
   });
+
   hidexme?.addEventListener('click', function(event)){
  document.getElementsByClassName('fixed-newsletter-btn').classList.add('hideitfor');
-}
+});
+
   document.addEventListener('click', function (event) {
     if (event.target.closest(
       '.newsletter-popup .newsletter-popup__close-icon-button.popup-close-icon-button'
