@@ -1,0 +1,643 @@
+
+{% comment %}
+  Section: Tanzanite Colour Feature
+  Two-column image and content section with colour cards.
+{% endcomment %}
+
+<section
+  id="tanzanite-colour-{{ section.id }}"
+  class="tanzanite-colour-section {{ section.settings.custom_class }}"
+  style="
+    --tc-bg: {{ section.settings.background_color }};
+    --tc-text: {{ section.settings.text_color }};
+    --tc-heading: {{ section.settings.heading_color }};
+    --tc-accent: {{ section.settings.accent_color }};
+    --tc-padding-top: {{ section.settings.padding_top }}px;
+    --tc-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --tc-radius: {{ section.settings.border_radius }}px;
+  "
+>
+  <div class="tanzanite-colour-container page-width">
+
+    <div class="tanzanite-colour-grid {% if section.settings.image_position == 'right' %}image-right{% endif %}">
+
+      <!-- LEFT: IMAGE AND COLOUR CARDS -->
+      <div class="tanzanite-colour-media">
+
+        {% if section.settings.main_image != blank %}
+          <div class="tanzanite-colour-image">
+            {{
+              section.settings.main_image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                widths: '400, 600, 800, 1000, 1200, 1400',
+                alt: section.settings.image_alt
+            }}
+          </div>
+        {% else %}
+          <div class="tanzanite-colour-image image-placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="tanzanite-colour-swatches">
+            {% for block in section.blocks %}
+              {% if block.type == 'colour' %}
+                <div class="tanzanite-swatch-card" {{ block.shopify_attributes }}>
+                  {% if block.settings.swatch_color != blank %}
+                    <span
+                      class="tanzanite-swatch-dot"
+                      style="background-color: {{ block.settings.swatch_color }};"
+                    ></span>
+                  {% endif %}
+
+                  {% if block.settings.title != blank %}
+                    <h3>{{ block.settings.title }}</h3>
+                  {% endif %}
+
+                  {% if block.settings.subtitle != blank %}
+                    <p>{{ block.settings.subtitle }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- RIGHT: CONTENT -->
+      <div class="tanzanite-colour-content">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="tanzanite-colour-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="tanzanite-colour-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="tanzanite-colour-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_quote and section.settings.quote != blank %}
+          <div class="tanzanite-colour-quote">
+            {% if section.settings.quote_label != blank %}
+              <span class="tanzanite-quote-label">
+                {{ section.settings.quote_label }}
+              </span>
+            {% endif %}
+
+            <div class="tanzanite-quote-text rte">
+              {{ section.settings.quote }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="tanzanite-colour-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="tanzanite-colour-button"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #tanzanite-colour-{{ section.id }} {
+    background: var(--tc-bg);
+    color: var(--tc-text);
+    padding-top: var(--tc-padding-top);
+    padding-bottom: var(--tc-padding-bottom);
+    width: 100%;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 50px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid.image-right {
+    direction: rtl;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid.image-right > * {
+    direction: ltr;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-media {
+    background: #fff;
+    border: 1px solid rgba(125, 20, 42, 0.12);
+    border-radius: var(--tc-radius);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    min-width: 0;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--tc-radius) - 8px);
+    aspect-ratio: 1.5 / 1;
+    background: #f5f2ee;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-image img,
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-image svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-swatches {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(125, 20, 42, 0.12);
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card {
+    min-width: 0;
+    text-align: center;
+    background: #faf8f5;
+    border-radius: 12px;
+    padding: 15px 8px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-swatch-dot {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card h3 {
+    color: var(--tc-heading);
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card p {
+    color: var(--tc-text);
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-content {
+    min-width: 0;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-subtitle {
+    color: var(--tc-accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-heading {
+    color: var(--tc-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0 0 25px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-description {
+    color: var(--tc-text);
+    font-size: {{ section.settings.body_size }}px;
+    line-height: 1.7;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-description p {
+    margin: 0 0 20px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-quote {
+    background: {{ section.settings.quote_background }};
+    border-left: 4px solid var(--tc-accent);
+    padding: 22px 25px;
+    margin-top: 30px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-quote-label {
+    display: block;
+    color: var(--tc-accent);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-quote-text {
+    color: var(--tc-text);
+    font-family: var(--font-heading-family);
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-quote-text p {
+    margin: 0;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-button-wrap {
+    margin-top: 30px;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background: var(--tc-heading);
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid var(--tc-heading);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #tanzanite-colour-{{ section.id }} .tanzanite-colour-button:hover {
+    background: transparent;
+    color: var(--tc-heading);
+  }
+
+  @media screen and (max-width: 990px) {
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid {
+      gap: 30px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-heading {
+      font-size: min({{ section.settings.heading_size }}px, 38px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #tanzanite-colour-{{ section.id }} {
+      padding-top: min(var(--tc-padding-top), 45px);
+      padding-bottom: min(var(--tc-padding-bottom), 45px);
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-grid.image-right {
+      direction: ltr;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-media {
+      padding: 12px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-image {
+      aspect-ratio: 1.35 / 1;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-swatches {
+      gap: 7px;
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card {
+      padding: 12px 5px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card h3 {
+      font-size: 10px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-swatch-card p {
+      font-size: 10px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      margin-bottom: 18px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-description {
+      font-size: {{ section.settings.mobile_body_size }}px;
+      line-height: 1.65;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-quote {
+      padding: 17px;
+      margin-top: 22px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-quote-text {
+      font-size: 15px;
+    }
+
+    #tanzanite-colour-{{ section.id }} .tanzanite-colour-button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tanzanite colour feature",
+  "tag": "section",
+  "class": "section-tanzanite-colour-feature",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Add your own class name without a dot."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Image left, content right" },
+        { "value": "right", "label": "Image right, content left" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Master lapidary standard"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Colour Unlike Any Other"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Part of Tanzanite’s fascination lies in its extraordinary relationship with colour.</p><p>Tanzanite is pleochroic, meaning its appearance can shift as the gemstone is viewed from different directions.</p><p>The way a Tanzanite is cut also influences how these colours are presented.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quote",
+      "label": "Show highlighted quote",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "quote_label",
+      "label": "Quote label",
+      "default": "Master Lapidary Standard"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Highlighted quote",
+      "default": "<p>Orientation of the rough crystal along the c-axis determines whether the completed gem radiates predominantly royal cobalt or aristocratic violet-purple.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 28,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Desktop content size",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_body_size",
+      "label": "Mobile content size",
+      "min": 13,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF7F2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading and button colour",
+      "default": "#7D142A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Content colour",
+      "default": "#443637"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#CBA64B"
+    },
+    {
+      "type": "color",
+      "id": "quote_background",
+      "label": "Quote background",
+      "default": "#F4F1EC"
+    },
+    {
+      "type": "header",
+      "content": "Spacing and layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Image card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "colour",
+      "name": "Colour swatch",
+      "settings": [
+        {
+          "type": "color",
+          "id": "swatch_color",
+          "label": "Swatch colour",
+          "default": "#202A8C"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Colour name",
+          "default": "Royal Blue"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Short description",
+          "default": "Primary Axis"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Tanzanite colour feature",
+      "blocks": [
+        {
+          "type": "colour",
+          "settings": {
+            "title": "Royal Blue",
+            "subtitle": "Primary Axis",
+            "swatch_color": "#202A8C"
+          }
+        },
+        {
+          "type": "colour",
+          "settings": {
+            "title": "Deep Violet",
+            "subtitle": "Secondary Axis",
+            "swatch_color": "#54169A"
+          }
+        },
+        {
+          "type": "colour",
+          "settings": {
+            "title": "Velvet Purple",
+            "subtitle": "Tertiary Axis",
+            "swatch_color": "#791AA5"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
