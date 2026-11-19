@@ -273,6 +273,52 @@
         "mobile_padding_bottom": 35,
         "custom_class": ""
       }
+    },
+    "queens_history_origin_e4bxFP": {
+      "type": "queens-history-origin",
+      "name": "Queens History & Origin",
+      "settings": {
+        "eyebrow": "Know About",
+        "show_eyebrow_line": true,
+        "title": "Tanzanite History & Origin",
+        "show_title_line": true,
+        "content_label": "Geographical Exclusivity",
+        "show_label_icon": true,
+        "subtitle": "A Treasure Found Only in Tanzania",
+        "intro_text": "<p>Few gemstones have a story quite like Tanzanite.</p>",
+        "description": "<p>Found in only <strong>one place on Earth</strong>, Tanzanite comes from the Merelani Hills in northern Tanzania, near the foothills of Mount Kilimanjaro. Its remarkably limited origin, together with its captivating blue and violet colour, has made it one of the world's most distinctive gemstones.</p>",
+        "button_label": "",
+        "button_link": "",
+        "show_button_arrow": true,
+        "image_alt": "Tanzanite origin in the Merelani Hills near Mount Kilimanjaro",
+        "image_caption": "Merelani Hills & Kilimanjaro",
+        "image_note": "Single Provenance Source",
+        "image_position": "right",
+        "mobile_image_position": "top",
+        "image_position_focal": "center center",
+        "image_height": 425,
+        "mobile_image_height": 280,
+        "image_radius": 10,
+        "image_border_color": "#E8D9BD",
+        "eyebrow_size": 13,
+        "title_size": 54,
+        "subtitle_size": 34,
+        "content_size": 19,
+        "mobile_title_size": 34,
+        "mobile_subtitle_size": 24,
+        "mobile_content_size": 15,
+        "container_width": 1500,
+        "column_gap": 60,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "background_color": "#FBF8F2",
+        "heading_color": "#801426",
+        "text_color": "#514344",
+        "accent_color": "#C69B4E",
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -281,6 +327,7 @@
     "banner-with-text",
     "statistics_bar_4hgYMw",
     "newsletter_ngQR4D",
-    "community_gallery_4nNNzc"
+    "community_gallery_4nNNzc",
+    "queens_history_origin_e4bxFP"
   ]
 }
