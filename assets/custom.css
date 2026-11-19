@@ -276,7 +276,7 @@ button.action.next.submit.classic-button.wizard__submit {
 }
 .title-crafted {
     font-size: 22px;
-    margin: 15px 0;
+    margin: 10px 0 15px;
     font-family: 'PT Serif';
     padding-left: 13px;
     border-left: 2px solid var(--button-background-color-primary);
