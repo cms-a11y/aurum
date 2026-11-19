@@ -1,0 +1,874 @@
+
+{% comment %}
+  Section: Queens History & Origin
+  Responsive two-column content and image section
+{% endcomment %}
+
+<section
+  id="queens-history-{{ section.id }}"
+  class="queens-history-origin {{ section.settings.custom_class }}"
+  style="
+    --qho-bg: {{ section.settings.background_color }};
+    --qho-heading: {{ section.settings.heading_color }};
+    --qho-text: {{ section.settings.text_color }};
+    --qho-accent: {{ section.settings.accent_color }};
+    --qho-image-border: {{ section.settings.image_border_color }};
+    --qho-top: {{ section.settings.padding_top }}px;
+    --qho-bottom: {{ section.settings.padding_bottom }}px;
+    --qho-gap: {{ section.settings.column_gap }}px;
+    --qho-container: {{ section.settings.container_width }}px;
+    --qho-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --qho-title-size: {{ section.settings.title_size }}px;
+    --qho-subtitle-size: {{ section.settings.subtitle_size }}px;
+    --qho-content-size: {{ section.settings.content_size }}px;
+    --qho-image-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="qho-container">
+
+    <div class="qho-heading">
+      {% if section.settings.eyebrow != blank %}
+        <div class="qho-eyebrow">
+          {% if section.settings.show_eyebrow_line %}
+            <span class="qho-eyebrow-line"></span>
+          {% endif %}
+          {{ section.settings.eyebrow }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2 class="qho-title">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.show_title_line %}
+        <div class="qho-title-line"></div>
+      {% endif %}
+    </div>
+
+    <div class="qho-layout {% if section.settings.image_position == 'left' %}qho-image-left{% else %}qho-image-right{% endif %}">
+
+      <div class="qho-content">
+
+        {% if section.settings.content_label != blank %}
+          <div class="qho-content-label">
+            {% if section.settings.show_label_icon %}
+              <span class="qho-label-icon" aria-hidden="true">✦</span>
+            {% endif %}
+            {{ section.settings.content_label }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <h3 class="qho-subtitle">
+            {{ section.settings.subtitle }}
+          </h3>
+        {% endif %}
+
+        {% if section.settings.intro_text != blank %}
+          <div class="qho-intro">
+            {{ section.settings.intro_text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="qho-description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="qho-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="qho-button"
+              {% if section.settings.button_link == blank %}
+                aria-disabled="true"
+              {% endif %}
+            >
+              {{ section.settings.button_label }}
+              {% if section.settings.show_button_arrow %}
+                <span aria-hidden="true">→</span>
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <div class="qho-image-column">
+        {% if section.settings.main_image != blank %}
+          <div class="qho-image-frame">
+            <div class="qho-image">
+              {{
+                section.settings.main_image
+                | image_url: width: 1800
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '500, 750, 1000, 1400, 1800',
+                  sizes: '(min-width: 990px) 50vw, 100vw',
+                  alt: section.settings.image_alt
+              }}
+            </div>
+
+            {% if section.settings.image_caption != blank %}
+              <div class="qho-image-caption">
+                {{ section.settings.image_caption }}
+              </div>
+            {% endif %}
+
+            {% if section.settings.image_note != blank %}
+              <div class="qho-image-note">
+                {{ section.settings.image_note }}
+              </div>
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="qho-image-placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            <span>Select an image in the section settings</span>
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #queens-history-{{ section.id }} {
+    background: var(--qho-bg);
+    padding-top: var(--qho-top);
+    padding-bottom: var(--qho-bottom);
+    color: var(--qho-text);
+    overflow: hidden;
+  }
+
+  #queens-history-{{ section.id }} *,
+  #queens-history-{{ section.id }} *::before,
+  #queens-history-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #queens-history-{{ section.id }} .qho-container {
+    width: 100%;
+    max-width: var(--qho-container);
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  /* Main heading */
+
+  #queens-history-{{ section.id }} .qho-heading {
+    margin-bottom: 20px;
+  }
+
+  #queens-history-{{ section.id }} .qho-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--qho-heading);
+    font-size: var(--qho-eyebrow-size);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  #queens-history-{{ section.id }} .qho-eyebrow-line {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--qho-heading);
+  }
+
+  #queens-history-{{ section.id }} .qho-title {
+    color: var(--qho-heading);
+    font-family: Georgia, serif;
+    font-size: var(--qho-title-size);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  #queens-history-{{ section.id }} .qho-title-line {
+    width: 100px;
+    height: 2px;
+    background: var(--qho-heading);
+    margin-top: 28px;
+  }
+
+  /* Two column layout */
+
+  #queens-history-{{ section.id }} .qho-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--qho-gap);
+  }
+
+  #queens-history-{{ section.id }} .qho-image-left .qho-content {
+    order: 2;
+  }
+
+  #queens-history-{{ section.id }} .qho-image-left .qho-image-column {
+    order: 1;
+  }
+
+  /* Text content */
+
+  #queens-history-{{ section.id }} .qho-content {
+    min-width: 0;
+  }
+
+  #queens-history-{{ section.id }} .qho-content-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--qho-accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  #queens-history-{{ section.id }} .qho-label-icon {
+    font-size: 19px;
+    line-height: 1;
+  }
+
+  #queens-history-{{ section.id }} .qho-subtitle {
+    color: var(--qho-heading);
+    font-size: var(--qho-subtitle-size);
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 0 30px;
+  }
+
+  #queens-history-{{ section.id }} .qho-intro {
+    color: var(--qho-text);
+    font-size: var(--qho-content-size);
+    font-weight: 500;
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  #queens-history-{{ section.id }} .qho-description {
+    color: var(--qho-text);
+    font-size: var(--qho-content-size);
+    line-height: 1.75;
+  }
+
+  #queens-history-{{ section.id }} .qho-intro p,
+  #queens-history-{{ section.id }} .qho-description p {
+    margin: 0 0 16px;
+  }
+
+  #queens-history-{{ section.id }} .qho-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #queens-history-{{ section.id }} .qho-description strong {
+    color: var(--qho-heading);
+    font-weight: 600;
+  }
+
+  /* Button */
+
+  #queens-history-{{ section.id }} .qho-button-wrap {
+    margin-top: 32px;
+  }
+
+  #queens-history-{{ section.id }} .qho-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 28px;
+    background: var(--qho-heading);
+    border: 1px solid var(--qho-heading);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  #queens-history-{{ section.id }} .qho-button:hover {
+    background: transparent;
+    color: var(--qho-heading);
+  }
+
+  #queens-history-{{ section.id }} .qho-button span {
+    font-size: 19px;
+    line-height: 1;
+  }
+
+  /* Image */
+
+  #queens-history-{{ section.id }} .qho-image-column {
+    min-width: 0;
+  }
+
+  #queens-history-{{ section.id }} .qho-image-frame {
+    position: relative;
+    padding: 12px;
+    border: 1px solid var(--qho-image-border);
+    border-radius: calc(var(--qho-image-radius) + 5px);
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  #queens-history-{{ section.id }} .qho-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--qho-image-radius);
+    line-height: 0;
+  }
+
+  #queens-history-{{ section.id }} .qho-image img {
+    display: block;
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position_focal }};
+  }
+
+  #queens-history-{{ section.id }} .qho-image-caption {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+    padding: 9px 16px;
+    background: var(--qho-heading);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    max-width: 65%;
+  }
+
+  #queens-history-{{ section.id }} .qho-image-note {
+    position: absolute;
+    right: 30px;
+    bottom: 31px;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    text-align: right;
+    text-shadow: 0 1px 5px rgba(0,0,0,.6);
+  }
+
+  #queens-history-{{ section.id }} .qho-image-placeholder {
+    min-height: 350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eee8df;
+    border-radius: var(--qho-image-radius);
+    padding: 20px;
+    text-align: center;
+  }
+
+  #queens-history-{{ section.id }} .qho-image-placeholder svg {
+    width: 100%;
+    max-height: 350px;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #queens-history-{{ section.id }} .qho-layout {
+      gap: 30px;
+    }
+
+    #queens-history-{{ section.id }} .qho-title {
+      font-size: min(var(--qho-title-size), 44px);
+    }
+
+    #queens-history-{{ section.id }} .qho-subtitle {
+      font-size: min(var(--qho-subtitle-size), 28px);
+    }
+
+    #queens-history-{{ section.id }} .qho-image img {
+      height: {{ section.settings.image_height | times: 0.8 }}px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #queens-history-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #queens-history-{{ section.id }} .qho-container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #queens-history-{{ section.id }} .qho-heading {
+      margin-bottom: 30px;
+    }
+
+    #queens-history-{{ section.id }} .qho-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    #queens-history-{{ section.id }} .qho-title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+      line-height: 1.2;
+    }
+
+    #queens-history-{{ section.id }} .qho-title-line {
+      width: 70px;
+      margin-top: 20px;
+    }
+
+    #queens-history-{{ section.id }} .qho-layout {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    #queens-history-{{ section.id }} .qho-image-left .qho-content,
+    #queens-history-{{ section.id }} .qho-image-left .qho-image-column {
+      order: initial;
+    }
+
+    {% if section.settings.mobile_image_position == 'top' %}
+      #queens-history-{{ section.id }} .qho-image-column {
+        order: -1;
+      }
+    {% else %}
+      #queens-history-{{ section.id }} .qho-image-column {
+        order: 1;
+      }
+    {% endif %}
+
+    #queens-history-{{ section.id }} .qho-content-label {
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    #queens-history-{{ section.id }} .qho-subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+      margin-bottom: 18px;
+    }
+
+    #queens-history-{{ section.id }} .qho-intro,
+    #queens-history-{{ section.id }} .qho-description {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.7;
+    }
+
+    #queens-history-{{ section.id }} .qho-button-wrap {
+      margin-top: 25px;
+    }
+
+    #queens-history-{{ section.id }} .qho-button {
+      padding: 13px 22px;
+      font-size: 12px;
+    }
+
+    #queens-history-{{ section.id }} .qho-image-frame {
+      padding: 7px;
+    }
+
+    #queens-history-{{ section.id }} .qho-image img {
+      height: {{ section.settings.mobile_image_height }}px;
+    }
+
+    #queens-history-{{ section.id }} .qho-image-caption {
+      left: 20px;
+      bottom: 20px;
+      font-size: 10px;
+      padding: 8px 10px;
+      max-width: 60%;
+    }
+
+    #queens-history-{{ section.id }} .qho-image-note {
+      right: 18px;
+      bottom: 19px;
+      font-size: 11px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Queens History & Origin",
+  "tag": "section",
+  "class": "section-queens-history-origin",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small heading",
+      "default": "Know About"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_eyebrow_line",
+      "label": "Show line before small heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main title",
+      "default": "Tanzanite History & Origin"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_line",
+      "label": "Show title underline",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "content_label",
+      "label": "Content label",
+      "default": "Geographical Exclusivity"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_label_icon",
+      "label": "Show content label icon",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Content subtitle",
+      "default": "A Treasure Found Only in Tanzania"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "<p>Few gemstones have a story quite like Tanzanite.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Main description",
+      "default": "<p>Found in only <strong>one place on Earth</strong>, Tanzanite comes from the Merelani Hills in northern Tanzania, near the foothills of Mount Kilimanjaro. Its remarkably limited origin, together with its captivating blue and violet colour, has made it one of the world's most distinctive gemstones.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button text",
+      "default": "Discover Our Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show button arrow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Right side image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Tanzanite origin in the Merelani Hills near Mount Kilimanjaro"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Image bottom left label",
+      "default": "Merelani Hills & Kilimanjaro"
+    },
+    {
+      "type": "text",
+      "id": "image_note",
+      "label": "Image bottom right note",
+      "default": "Single Provenance Source"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Desktop image position",
+      "options": [
+        { "value": "right", "label": "Right side" },
+        { "value": "left", "label": "Left side" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "options": [
+        { "value": "top", "label": "Above content" },
+        { "value": "bottom", "label": "Below content" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "image_position_focal",
+      "label": "Image focal position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top", "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+  "type": "range",
+  "id": "image_height",
+  "label": "Desktop image height",
+  "min": 250,
+  "max": 750,
+  "step": 25,
+  "unit": "px",
+  "default": 425
+},
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 180,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "default": 280
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "image_border_color",
+      "label": "Image frame border",
+      "default": "#E8D9BD"
+    },
+    {
+      "type": "header",
+      "content": "Desktop typography"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Small heading size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Main title size",
+      "min": 30,
+      "max": 76,
+      "step": 2,
+      "unit": "px",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Content subtitle size",
+      "min": 20,
+      "max": 42,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 13,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Main title size",
+      "min": 24,
+      "max": 46,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Content subtitle size",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Content font size",
+      "min": 13,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Layout and spacing"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Maximum container width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FBF8F2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#801426"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#514344"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#C69B4E"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Queens History & Origin"
+    }
+  ]
+}
+{% endschema %}
