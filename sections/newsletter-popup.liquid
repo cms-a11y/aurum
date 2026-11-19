@@ -549,3 +549,20 @@
 	]
 }
 {% endschema %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const newsletterBtn = document.getElementById('FixedNewsletterButton');
+
+  newsletterBtn?.addEventListener('click', function () {
+    document.getElementById('NewsletterPopup')?.classList.add('is-active');
+  });
+
+  document.addEventListener('click', function (event) {
+    if (event.target.closest(
+      '.newsletter-popup .newsletter-popup__close-icon-button.popup-close-icon-button'
+    )) {
+      document.getElementById('NewsletterPopup')?.classList.remove('is-active');
+    }
+  });
+});
+</script>
