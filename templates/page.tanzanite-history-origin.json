@@ -45,7 +45,7 @@
         "image_height": 425,
         "mobile_image_height": 280,
         "image_radius": 10,
-        "image_border_color": "#E8D9BD",
+        "image_border_color": "#e8d9bd",
         "eyebrow_size": 13,
         "title_size": 54,
         "subtitle_size": 34,
@@ -53,16 +53,16 @@
         "mobile_title_size": 34,
         "mobile_subtitle_size": 24,
         "mobile_content_size": 15,
-        "container_width": 1500,
+        "container_width": 1450,
         "column_gap": 60,
         "padding_top": 60,
         "padding_bottom": 60,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
-        "background_color": "#FBF8F2",
+        "background_color": "#fbf8f2",
         "heading_color": "#801426",
         "text_color": "#514344",
-        "accent_color": "#C69B4E",
+        "accent_color": "#c69b4e",
         "custom_class": ""
       }
     }
