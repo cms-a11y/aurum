@@ -1,0 +1,901 @@
+
+{% comment %}
+  Section: Queens History Timeline
+  Two responsive editorial cards with editable content blocks.
+{% endcomment %}
+
+<section
+  id="queens-timeline-{{ section.id }}"
+  class="queens-timeline-section {{ section.settings.custom_class }}"
+  style="
+    --qt-bg: {{ section.settings.background_color }};
+    --qt-card-bg: {{ section.settings.card_background }};
+    --qt-heading: {{ section.settings.heading_color }};
+    --qt-text: {{ section.settings.text_color }};
+    --qt-accent: {{ section.settings.accent_color }};
+    --qt-border: {{ section.settings.border_color }};
+    --qt-watermark: {{ section.settings.watermark_color }};
+    --qt-top: {{ section.settings.padding_top }}px;
+    --qt-bottom: {{ section.settings.padding_bottom }}px;
+    --qt-gap: {{ section.settings.column_gap }}px;
+    --qt-radius: {{ section.settings.card_radius }}px;
+    --qt-container: {{ section.settings.container_width }}px;
+    --qt-card-padding: {{ section.settings.card_padding }}px;
+  "
+>
+  <div class="qt-container">
+
+    {% if section.settings.section_subtitle != blank or section.settings.section_title != blank or section.settings.section_description != blank %}
+      <div class="qt-section-header">
+        {% if section.settings.section_subtitle != blank %}
+          <div class="qt-section-eyebrow">
+            {{ section.settings.section_subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.section_title != blank %}
+          <h2 class="qt-section-title">
+            {{ section.settings.section_title }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.section_description != blank %}
+          <div class="qt-section-description">
+            {{ section.settings.section_description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="qt-grid">
+      {% for block in section.blocks %}
+        <article
+          class="qt-card {{ block.settings.custom_card_class }}"
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.year != blank %}
+            <div class="qt-watermark" aria-hidden="true">
+              {{ block.settings.year }}
+            </div>
+          {% endif %}
+
+          <div class="qt-card-inner">
+
+            {% if block.settings.eyebrow != blank %}
+              <div class="qt-eyebrow">
+                {% if block.settings.show_icon %}
+                  <span class="qt-diamond" aria-hidden="true"></span>
+                {% endif %}
+                {{ block.settings.eyebrow }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="qt-card-title">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.content != blank %}
+              <div class="qt-card-content">
+                {{ block.settings.content }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.quote != blank %}
+              <div class="qt-quote">
+                {{ block.settings.quote }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.bottom_content != blank %}
+              <div class="qt-bottom-content">
+                {{ block.settings.bottom_content }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_label != blank %}
+              <div class="qt-button-wrap">
+                <a
+                  href="{{ block.settings.button_link | default: '#' }}"
+                  class="qt-button"
+                  {% if block.settings.button_link == blank %}
+                    aria-disabled="true"
+                  {% endif %}
+                >
+                  {{ block.settings.button_label }}
+                  {% if block.settings.show_button_arrow %}
+                    <span aria-hidden="true">→</span>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.bottom_button_label != blank %}
+      <div class="qt-section-button-wrap">
+        <a
+          href="{{ section.settings.bottom_button_link | default: '#' }}"
+          class="qt-button qt-section-button"
+          {% if section.settings.bottom_button_link == blank %}
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.bottom_button_label }}
+          {% if section.settings.bottom_button_arrow %}
+            <span aria-hidden="true">→</span>
+          {% endif %}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  #queens-timeline-{{ section.id }} {
+    background: var(--qt-bg);
+    padding-top: var(--qt-top);
+    padding-bottom: var(--qt-bottom);
+    overflow: hidden;
+  }
+
+  #queens-timeline-{{ section.id }} *,
+  #queens-timeline-{{ section.id }} *::before,
+  #queens-timeline-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-container {
+    width: 100%;
+    max-width: var(--qt-container);
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  /* Section heading */
+
+  #queens-timeline-{{ section.id }} .qt-section-header {
+    text-align: center;
+    margin: 0 auto 45px;
+    max-width: 850px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-section-eyebrow {
+    color: var(--qt-accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-section-title {
+    color: var(--qt-heading);
+    font-family: Georgia, serif;
+    font-size: {{ section.settings.section_title_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-section-description {
+    color: var(--qt-text);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 18px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-section-description p {
+    margin: 0 0 12px;
+  }
+
+  /* Cards grid */
+
+  #queens-timeline-{{ section.id }} .qt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--qt-gap);
+    align-items: stretch;
+  }
+
+  /* Individual card */
+
+  #queens-timeline-{{ section.id }} .qt-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--qt-card-bg);
+    border: 1px solid var(--qt-border);
+    border-radius: var(--qt-radius);
+    box-shadow: 0 2px 5px rgba(60, 25, 25, 0.04);
+  }
+
+  #queens-timeline-{{ section.id }} .qt-card-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: var(--qt-card-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Background year */
+
+  #queens-timeline-{{ section.id }} .qt-watermark {
+    position: absolute;
+    z-index: 0;
+    top: 25px;
+    right: 0;
+    color: var(--qt-watermark);
+    font-family: Georgia, serif;
+    font-size: {{ section.settings.watermark_size }}px;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: {{ section.settings.watermark_opacity | divided_by: 100.0 }};
+  }
+
+  /* Eyebrow */
+
+  #queens-timeline-{{ section.id }} .qt-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    color: var(--qt-accent);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-diamond {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    flex-shrink: 0;
+    background: var(--qt-heading);
+    transform: rotate(45deg);
+  }
+
+  /* Card title */
+
+  #queens-timeline-{{ section.id }} .qt-card-title {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: var(--qt-heading);
+    font-family: Georgia, serif;
+    font-size: {{ section.settings.card_title_size }}px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 0 30px;
+  }
+
+  /* Card rich text */
+
+  #queens-timeline-{{ section.id }} .qt-card-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: var(--qt-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.75;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-card-content p {
+    margin: 0 0 18px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-card-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-card-content strong {
+    color: var(--qt-heading);
+    font-weight: 600;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-card-content em {
+    font-style: italic;
+  }
+
+  /* Highlight quote */
+
+  #queens-timeline-{{ section.id }} .qt-quote {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    background: {{ section.settings.quote_background }};
+    border-left: 3px solid var(--qt-heading);
+    color: var(--qt-heading);
+    padding: 18px 20px;
+    margin-top: 20px;
+    font-family: Georgia, serif;
+    font-size: {{ section.settings.quote_size }}px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-quote p {
+    margin: 0;
+  }
+
+  /* Bottom content */
+
+  #queens-timeline-{{ section.id }} .qt-bottom-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: var(--qt-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-bottom-content p {
+    margin: 0 0 12px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-bottom-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Buttons */
+
+  #queens-timeline-{{ section.id }} .qt-button-wrap {
+    position: relative;
+    z-index: 1;
+    margin-top: 25px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 13px 24px;
+    background: var(--qt-heading);
+    border: 1px solid var(--qt-heading);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-button:hover {
+    background: transparent;
+    color: var(--qt-heading);
+  }
+
+  #queens-timeline-{{ section.id }} .qt-button span {
+    font-size: 18px;
+  }
+
+  #queens-timeline-{{ section.id }} .qt-section-button-wrap {
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #queens-timeline-{{ section.id }} .qt-container {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-grid {
+      gap: 20px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-card-inner {
+      padding: 28px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-card-title {
+      font-size: min({{ section.settings.card_title_size }}px, 28px);
+      margin-bottom: 22px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-watermark {
+      font-size: min({{ section.settings.watermark_size }}px, 110px);
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #queens-timeline-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-section-header {
+      margin-bottom: 28px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-section-title {
+      font-size: {{ section.settings.mobile_section_title_size }}px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-section-description {
+      font-size: 14px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-card-inner {
+      padding: {{ section.settings.mobile_card_padding }}px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-eyebrow {
+      font-size: 11px;
+      margin-bottom: 17px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-card-title {
+      font-size: {{ section.settings.mobile_card_title_size }}px;
+      margin-bottom: 20px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-card-content,
+    #queens-timeline-{{ section.id }} .qt-bottom-content {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.7;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-quote {
+      font-size: {{ section.settings.mobile_quote_size }}px;
+      padding: 15px;
+      margin-top: 17px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-watermark {
+      top: 20px;
+      font-size: {{ section.settings.mobile_watermark_size }}px;
+    }
+
+    #queens-timeline-{{ section.id }} .qt-section-button-wrap {
+      margin-top: 25px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Queens History Timeline",
+  "tag": "section",
+  "class": "section-queens-history-timeline",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Small heading"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description",
+      "label": "Section description"
+    },
+    {
+      "type": "range",
+      "id": "section_title_size",
+      "label": "Section title size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Card typography"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size",
+      "min": 20,
+      "max": 42,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "quote_size",
+      "label": "Quote font size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "range",
+      "id": "watermark_size",
+      "label": "Background year size",
+      "min": 70,
+      "max": 180,
+      "step": 10,
+      "unit": "px",
+      "default": 130
+    },
+    {
+      "type": "range",
+      "id": "watermark_opacity",
+      "label": "Background year opacity",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_title_size",
+      "label": "Mobile section title",
+      "min": 22,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_title_size",
+      "label": "Mobile card title",
+      "min": 20,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_quote_size",
+      "label": "Mobile quote size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "mobile_watermark_size",
+      "label": "Mobile year size",
+      "min": 60,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "header",
+      "content": "Card layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Maximum container width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Desktop card padding",
+      "min": 20,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#F5F2ED"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#801426"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#514344"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#C69B4E"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border color",
+      "default": "#EADFDB"
+    },
+    {
+      "type": "color",
+      "id": "watermark_color",
+      "label": "Background year color",
+      "default": "#EADDE0"
+    },
+    {
+      "type": "color",
+      "id": "quote_background",
+      "label": "Quote background",
+      "default": "#F5F2ED"
+    },
+    {
+      "type": "header",
+      "content": "Section button"
+    },
+    {
+      "type": "text",
+      "id": "bottom_button_label",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "bottom_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_button_arrow",
+      "label": "Show arrow",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "history_card",
+      "name": "History card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Small label",
+          "default": "The Genesis"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show diamond icon",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "The Discovery"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Background year",
+          "default": "1967"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Main content",
+          "default": "<p>The story of Tanzanite began in <strong>1967</strong>. Maasai tribesman Ali Juuyawatu is credited with finding the first Tanzanite crystal in the Merelani area.</p><p>Prospector Manuel d'Souza subsequently explored the area and registered mining claims.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Highlighted quote",
+          "default": "<p>They were something entirely different: a rare blue-violet variety of the mineral zoisite.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "bottom_content",
+          "label": "Additional content",
+          "default": "<p>What had been hidden beneath the Tanzanian earth for millions of years was about to become one of the most celebrated gemstone discoveries of the 20th century.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Card button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Card button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button_arrow",
+          "label": "Show button arrow",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "custom_card_class",
+          "label": "Custom card CSS class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Queens History Timeline",
+      "blocks": [
+        {
+          "type": "history_card",
+          "settings": {
+            "eyebrow": "The Genesis",
+            "title": "The Discovery",
+            "year": "1967"
+          }
+        },
+        {
+          "type": "history_card",
+          "settings": {
+            "eyebrow": "Global Emergence",
+            "title": "From Tanzania to the World",
+            "year": "1968"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
