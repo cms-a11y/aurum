@@ -196,14 +196,74 @@
         "body_size": 17,
         "mobile_heading_size": 30,
         "mobile_body_size": 15,
-        "background_color": "#FAF7F2",
-        "heading_color": "#7D142A",
+        "background_color": "#faf7f2",
+        "heading_color": "#7d142a",
         "text_color": "#443637",
-        "accent_color": "#CBA64B",
-        "quote_background": "#F4F1EC",
+        "accent_color": "#cba64b",
+        "quote_background": "#f4f1ec",
         "padding_top": 60,
         "padding_bottom": 60,
         "border_radius": 14
+      }
+    },
+    "rare_by_origin_iDyhwi": {
+      "type": "rare-by-origin",
+      "blocks": {
+        "stat_bJUFji": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "1,000×",
+            "stat_label": "Rarer than diamond"
+          }
+        },
+        "stat_7FLqG7": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "4 km²",
+            "stat_label": "Global mining area"
+          }
+        },
+        "stat_zYntCG": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "1 Source",
+            "stat_label": "Mount Kilimanjaro foothills"
+          }
+        }
+      },
+      "block_order": [
+        "stat_bJUFji",
+        "stat_7FLqG7",
+        "stat_zYntCG"
+      ],
+      "name": "Rare by Origin",
+      "settings": {
+        "custom_class": "",
+        "content_width": 1450,
+        "heading": "Rare by Origin",
+        "description": "<p>Tanzanite's rarity is not simply a matter of beauty.</p><p>Unlike diamonds, sapphires and many other gemstones found across several countries, the world's known source of Tanzanite remains confined to the <strong>Merelani Hills of northern Tanzania.</strong></p>",
+        "highlighted_content": "<p>That extraordinary geographical exclusivity means every genuine Tanzanite shares the same remarkable birthplace.</p>",
+        "button_label": "",
+        "button_link": "",
+        "heading_size": 44,
+        "content_size": 17,
+        "highlight_size": 19,
+        "stat_value_size": 32,
+        "stat_label_size": 12,
+        "mobile_heading_size": 30,
+        "mobile_content_size": 15,
+        "mobile_highlight_size": 16,
+        "mobile_stat_size": 28,
+        "section_background": "#FAF7F2",
+        "card_background": "#70101D",
+        "heading_color": "#F5E9C9",
+        "text_color": "#FFFFFF",
+        "accent_color": "#C9A64B",
+        "divider_color": "#95505A",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "card_padding": 70,
+        "border_radius": 20
       }
     }
   },
@@ -211,6 +271,7 @@
     "page-template",
     "queens_history_origin_e4bxFP",
     "queens_history_timeline_TKyrnm",
-    "tanzanite_colour_feature_FkyMEm"
+    "tanzanite_colour_feature_FkyMEm",
+    "rare_by_origin_iDyhwi"
   ]
 }
