@@ -80,6 +80,9 @@
   color: var(--color-button-social-icon-hover);
   fill: var(--color-button-social-icon-hover);
 }
+.hidex {
+    font-size: 19px;
+}
 @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
   .newsletter-popup .button-social:hover {
     border-color: var(--color-button-social-border-color);
