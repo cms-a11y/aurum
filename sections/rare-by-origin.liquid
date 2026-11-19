@@ -1,0 +1,557 @@
+
+{% comment %}
+  Section: Rare by Origin
+  Editable content panel with statistics.
+{% endcomment %}
+
+<section
+  id="rare-origin-{{ section.id }}"
+  class="rare-origin-section {{ section.settings.custom_class }}"
+  style="
+    --ro-section-bg: {{ section.settings.section_background }};
+    --ro-card-bg: {{ section.settings.card_background }};
+    --ro-heading: {{ section.settings.heading_color }};
+    --ro-text: {{ section.settings.text_color }};
+    --ro-accent: {{ section.settings.accent_color }};
+    --ro-divider: {{ section.settings.divider_color }};
+    --ro-radius: {{ section.settings.border_radius }}px;
+    --ro-padding-top: {{ section.settings.padding_top }}px;
+    --ro-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --ro-card-padding: {{ section.settings.card_padding }}px;
+    --ro-content-width: {{ section.settings.content_width }}px;
+  "
+>
+  <div class="rare-origin-container">
+
+    <div class="rare-origin-card">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="rare-origin-heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="rare-origin-description rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.highlighted_content != blank %}
+        <div class="rare-origin-highlight rte">
+          {{ section.settings.highlighted_content }}
+        </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <div class="rare-origin-stats">
+          {% for block in section.blocks %}
+            {% if block.type == 'stat' %}
+              <div class="rare-origin-stat" {{ block.shopify_attributes }}>
+
+                {% if block.settings.stat_value != blank %}
+                  <div class="rare-origin-stat-value">
+                    {{ block.settings.stat_value }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.stat_label != blank %}
+                  <div class="rare-origin-stat-label">
+                    {{ block.settings.stat_label }}
+                  </div>
+                {% endif %}
+
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <div class="rare-origin-button-wrap">
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="rare-origin-button"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #rare-origin-{{ section.id }} {
+    width: 100%;
+    background: var(--ro-section-bg);
+    padding-top: var(--ro-padding-top);
+    padding-bottom: var(--ro-padding-bottom);
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-container {
+    width: 100%;
+    max-width: var(--ro-content-width);
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-card {
+    width: 100%;
+    background: var(--ro-card-bg);
+    color: var(--ro-text);
+    padding: var(--ro-card-padding);
+    border-radius: var(--ro-radius);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-heading {
+    color: var(--ro-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0 0 26px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-description {
+    color: var(--ro-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.7;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-description p {
+    margin: 0 0 20px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-description strong,
+  #rare-origin-{{ section.id }} .rare-origin-description b {
+    color: var(--ro-accent);
+    font-weight: 600;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-highlight {
+    color: var(--ro-text);
+    font-size: {{ section.settings.highlight_size }}px;
+    line-height: 1.55;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-highlight p {
+    margin: 0;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-highlight strong,
+  #rare-origin-{{ section.id }} .rare-origin-highlight b {
+    color: var(--ro-accent);
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    border-top: 1px solid var(--ro-divider);
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-stat {
+    min-width: 0;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-stat-value {
+    color: var(--ro-accent);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.stat_value_size }}px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-stat-label {
+    color: var(--ro-accent);
+    font-size: {{ section.settings.stat_label_size }}px;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-button-wrap {
+    margin-top: 30px;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 28px;
+    color: var(--ro-card-bg);
+    background: var(--ro-accent);
+    border: 1px solid var(--ro-accent);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #rare-origin-{{ section.id }} .rare-origin-button:hover {
+    background: transparent;
+    color: var(--ro-accent);
+  }
+
+  @media screen and (max-width: 749px) {
+    #rare-origin-{{ section.id }} {
+      padding-top: min(var(--ro-padding-top), 45px);
+      padding-bottom: min(var(--ro-padding-bottom), 45px);
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-card {
+      padding: 28px 22px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      margin-bottom: 18px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-description {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.65;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-description p {
+      margin-bottom: 15px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-highlight {
+      font-size: {{ section.settings.mobile_highlight_size }}px;
+      margin-top: 22px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-stats {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 24px;
+      padding-top: 22px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-stat {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--ro-divider);
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-stat:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-stat-value {
+      font-size: {{ section.settings.mobile_stat_size }}px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-stat-label {
+      font-size: 11px;
+    }
+
+    #rare-origin-{{ section.id }} .rare-origin-button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Rare by Origin",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Maximum content width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1450
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rare by Origin"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Tanzanite's rarity is not simply a matter of beauty.</p><p>Unlike diamonds, sapphires and many other gemstones found across several countries, the world's known source of Tanzanite remains confined to the <strong>Merelani Hills of northern Tanzania.</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "highlighted_content",
+      "label": "Highlighted content",
+      "default": "<p>That extraordinary geographical exclusivity means every genuine Tanzanite shares the same remarkable birthplace.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Desktop typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Description size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "highlight_size",
+      "label": "Highlighted content size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "range",
+      "id": "stat_value_size",
+      "label": "Statistic value size",
+      "min": 22,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "stat_label_size",
+      "label": "Statistic label size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile description size",
+      "min": 13,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_highlight_size",
+      "label": "Mobile highlighted text size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_stat_size",
+      "label": "Mobile statistic value size",
+      "min": 22,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Section colours"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Outer background",
+      "default": "#FAF7F2"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Content box background",
+      "default": "#70101D"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#F5E9C9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Content colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Statistics and highlight colour",
+      "default": "#C9A64B"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider colour",
+      "default": "#95505A"
+    },
+    {
+      "type": "header",
+      "content": "Spacing and design"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Content box padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Content box border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Statistic value",
+          "default": "1,000×"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Statistic label",
+          "default": "Rarer than diamond"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Rare by Origin",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "stat_value": "1,000×",
+            "stat_label": "Rarer than diamond"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_value": "4 km²",
+            "stat_label": "Global mining area"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_value": "1 Source",
+            "stat_label": "Mount Kilimanjaro foothills"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
