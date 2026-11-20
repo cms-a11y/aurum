@@ -19,191 +19,46 @@
         "offset_bottom_mobile": 30
       }
     },
-    "queens_history_origin_e4bxFP": {
-      "type": "queens-history-origin",
-      "name": "Queens History & Origin",
-      "settings": {
-        "eyebrow": "Know About",
-        "show_eyebrow_line": true,
-        "title": "Tanzanite History & Origin",
-        "show_title_line": true,
-        "content_label": "Geographical Exclusivity",
-        "show_label_icon": true,
-        "subtitle": "A Treasure Found Only in Tanzania",
-        "intro_text": "<p>Few gemstones have a story quite like Tanzanite.</p>",
-        "description": "<p>Found in only <strong>one place on Earth</strong>, Tanzanite comes from the Merelani Hills in northern Tanzania, near the foothills of Mount Kilimanjaro. Its remarkably limited origin, together with its captivating blue and violet colour, has made it one of the world's most distinctive gemstones.</p>",
-        "button_label": "",
-        "button_link": "",
-        "show_button_arrow": true,
-        "main_image": "shopify://shop_images/history-views.jpg",
-        "image_alt": "Tanzanite origin in the Merelani Hills near Mount Kilimanjaro",
-        "image_caption": "Merelani Hills & Kilimanjaro",
-        "image_note": "Single Provenance Source",
-        "image_position": "right",
-        "mobile_image_position": "top",
-        "image_position_focal": "center center",
-        "image_height": 425,
-        "mobile_image_height": 280,
-        "image_radius": 10,
-        "image_border_color": "#e8d9bd",
-        "eyebrow_size": 13,
-        "title_size": 54,
-        "subtitle_size": 34,
-        "content_size": 19,
-        "mobile_title_size": 34,
-        "mobile_subtitle_size": 24,
-        "mobile_content_size": 15,
-        "container_width": 1450,
-        "column_gap": 60,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "background_color": "#fbf8f2",
-        "heading_color": "#801426",
-        "text_color": "#514344",
-        "accent_color": "#c69b4e",
-        "custom_class": ""
-      }
-    },
-    "queens_history_timeline_TKyrnm": {
-      "type": "queens-history-timeline",
-      "blocks": {
-        "history_card_d8Jktk": {
-          "type": "history_card",
-          "settings": {
-            "eyebrow": "The Genesis",
-            "show_icon": true,
-            "title": "The Discovery",
-            "year": "1967",
-            "content": "<p>The story of Tanzanite began in <strong>1967</strong>. Maasai tribesman <strong>Ali Juuyawatu is credited with finding the first Tanzanite</strong> crystal in the <strong>Merelani area.</strong></p><p>Prospector <strong>Manuel D'Souza</strong> subsequently explored the area and registered mining claims.</p>",
-            "quote": "<p>They were something entirely different: a rare blue-violet variety of the mineral zoisite.</p>",
-            "bottom_content": "<p>What had been hidden beneath the Tanzanian earth for millions of years was about to become one of the most celebrated gemstone discoveries of the 20th century.</p>",
-            "button_label": "",
-            "button_link": "",
-            "show_button_arrow": true,
-            "custom_card_class": ""
-          }
-        },
-        "history_card_meHYUg": {
-          "type": "history_card",
-          "settings": {
-            "eyebrow": "Global Emergence",
-            "show_icon": true,
-            "title": "From Tanzania to the World",
-            "year": "1968",
-            "content": "<p>The story of Tanzanite began in <strong>1967</strong>. Maasai tribesman Ali Juuyawatu is credited with finding the first Tanzanite crystal in the Merelani area.</p><p>Prospector Manuel d'Souza subsequently explored the area and registered mining claims.</p>",
-            "quote": "<p>They were something entirely different: a rare blue-violet variety of the mineral zoisite.</p>",
-            "bottom_content": "<p>What had been hidden beneath the Tanzanian earth for millions of years was about to become one of the most celebrated gemstone discoveries of the 20th century.</p>",
-            "button_label": "",
-            "button_link": "",
-            "show_button_arrow": true,
-            "custom_card_class": ""
-          }
-        }
-      },
-      "block_order": [
-        "history_card_d8Jktk",
-        "history_card_meHYUg"
-      ],
-      "name": "Queens History Timeline",
-      "settings": {
-        "section_subtitle": "",
-        "section_title": "",
-        "section_description": "",
-        "section_title_size": 40,
-        "card_title_size": 34,
-        "content_size": 16,
-        "quote_size": 19,
-        "watermark_size": 130,
-        "watermark_opacity": 10,
-        "mobile_section_title_size": 30,
-        "mobile_card_title_size": 26,
-        "mobile_content_size": 15,
-        "mobile_quote_size": 17,
-        "mobile_watermark_size": 90,
-        "container_width": 1430,
-        "column_gap": 50,
-        "card_padding": 50,
-        "mobile_card_padding": 25,
-        "card_radius": 10,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "background_color": "#f5f2ed",
-        "card_background": "#ffffff",
-        "heading_color": "#801426",
-        "text_color": "#514344",
-        "accent_color": "#c69b4e",
-        "border_color": "#eadfdb",
-        "watermark_color": "#eadde0",
-        "quote_background": "#f5f2ed",
-        "bottom_button_label": "",
-        "bottom_button_link": "",
-        "bottom_button_arrow": true,
-        "custom_class": ""
-      }
-    },
-    "tanzanite_colour_feature_FkyMEm": {
-      "type": "tanzanite-colour-feature",
-      "blocks": {
-        "colour_UHdyjw": {
-          "type": "colour",
-          "settings": {
-            "swatch_color": "#202a8c",
-            "title": "Royal Blue",
-            "subtitle": "Primary Axis"
-          }
-        },
-        "colour_MHH7PG": {
-          "type": "colour",
-          "settings": {
-            "swatch_color": "#54169a",
-            "title": "Deep Violet",
-            "subtitle": "Secondary Axis"
-          }
-        },
-        "colour_nMRNWc": {
-          "type": "colour",
-          "settings": {
-            "swatch_color": "#791aa5",
-            "title": "Velvet Purple",
-            "subtitle": "Tertiary Axis"
-          }
-        }
-      },
-      "block_order": [
-        "colour_UHdyjw",
-        "colour_MHH7PG",
-        "colour_nMRNWc"
-      ],
-      "name": "Tanzanite colour feature",
+    "certificate_content_image_JMxcCE": {
+      "type": "certificate-content-image",
+      "name": "Certificate content image",
       "settings": {
         "custom_class": "",
-        "image_position": "left",
-        "main_image": "shopify://shop_images/cushion-cuts.jpg",
-        "image_alt": "",
-        "subtitle": "Master lapidary standard",
-        "heading": "A Colour Unlike Any Other",
-        "description": "<p>Part of Tanzanite’s fascination lies in its extraordinary relationship with colour.</p><p>Tanzanite is pleochroic, meaning its appearance can shift as the gemstone is viewed from different directions.</p><p>The way a Tanzanite is cut also influences how these colours are presented.</p>",
-        "show_quote": true,
-        "quote_label": "Master Lapidary Standard",
-        "quote": "<p>Orientation of the rough crystal along the c-axis determines whether the completed gem radiates predominantly royal cobalt or aristocratic violet-purple.</p>",
+        "image_position": "right",
+        "mobile_image_first": false,
+        "subtitle": "",
+        "heading": "Understanding Your Tanzanite Certificate",
+        "content": "<p>Born from the foothills of Mount Kilimanjaro in Tanzania, Tanzanite is one of the world's most extraordinary gemstones, found in only one place on Earth.</p><p>Every Tanzanite has its own story, shaped by nature and revealed through its color, clarity, cut and character.</p><p>At Queens, our Tanzanite is certified in accordance with the <strong>Tanzanite International Grading Standard</strong>, providing assurance of its authenticity and an assessment of the qualities that define each stone.</p>",
         "button_label": "",
         "button_link": "",
-        "heading_size": 46,
-        "body_size": 17,
+        "image_fit": "cover",
+        "image_height": 630,
+        "tablet_image_height": 480,
+        "mobile_image_height": 420,
+        "show_info_card": true,
+        "image_label": "Natural Specimen",
+        "image_title": "Royal Deep Tanzanite",
+        "image_location": "Kilimanjaro Foothills",
+        "image_grade": "Grade: AAA+ Vivid",
+        "subtitle_size": 12,
+        "heading_size": 36,
+        "content_size": 16,
+        "tablet_heading_size": 34,
+        "tablet_content_size": 16,
+        "mobile_subtitle_size": 11,
         "mobile_heading_size": 30,
-        "mobile_body_size": 15,
-        "background_color": "#faf7f2",
-        "heading_color": "#7d142a",
-        "text_color": "#443637",
-        "accent_color": "#cba64b",
-        "quote_background": "#f4f1ec",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "border_radius": 14
+        "mobile_content_size": 15,
+        "background_color": "#FAF7F2",
+        "heading_color": "#70101D",
+        "text_color": "#241716",
+        "accent_color": "#70101D",
+        "info_card_bg": "#FFF8F0",
+        "info_card_text": "#241716",
+        "content_width": 1450,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "column_gap": 50,
+        "image_radius": 12
       }
     },
     "rare_by_origin_iDyhwi": {
@@ -265,60 +120,11 @@
         "card_padding": 70,
         "border_radius": 20
       }
-    },
-    "queens_history_origin_C3YQgg": {
-      "type": "queens-history-origin",
-      "name": "Queens History & Origin",
-      "settings": {
-        "eyebrow": "NATIONAL HERITAGE",
-        "show_eyebrow_line": true,
-        "title": "A Treasure Found Nowhere Else",
-        "show_title_line": false,
-        "content_label": "",
-        "show_label_icon": false,
-        "subtitle": "",
-        "intro_text": "<p>More than half a century after its discovery, Tanzanite has become a gemstone recognised and admired around the world. Yet no matter where a Tanzanite eventually travels, its story can only begin in one place.</p>",
-        "description": "<p><em><strong>Tanzania.</strong></em></p><p>A rare creation of nature, a symbol of our country's extraordinary natural heritage, and a treasure found nowhere else on Earth.</p>",
-        "button_label": "INQUIRE ABOUT HIGH JEWELLRY",
-        "button_link": "shopify://pages/contact",
-        "show_button_arrow": false,
-        "image_alt": "Tanzanite origin in the Merelani Hills near Mount Kilimanjaro",
-        "image_caption": "Merelani Hills & Kilimanjaro",
-        "image_note": "Single Provenance Source",
-        "image_position": "right",
-        "mobile_image_position": "top",
-        "image_position_focal": "center center",
-        "image_height": 425,
-        "mobile_image_height": 280,
-        "image_radius": 10,
-        "image_border_color": "#e8d9bd",
-        "eyebrow_size": 13,
-        "title_size": 54,
-        "subtitle_size": 34,
-        "content_size": 19,
-        "mobile_title_size": 34,
-        "mobile_subtitle_size": 24,
-        "mobile_content_size": 15,
-        "container_width": 1450,
-        "column_gap": 60,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "background_color": "#fbf8f2",
-        "heading_color": "#801426",
-        "text_color": "#514344",
-        "accent_color": "#c69b4e",
-        "custom_class": ""
-      }
     }
   },
   "order": [
     "page-template",
-    "queens_history_origin_e4bxFP",
-    "queens_history_timeline_TKyrnm",
-    "tanzanite_colour_feature_FkyMEm",
-    "rare_by_origin_iDyhwi",
-    "queens_history_origin_C3YQgg"
+    "certificate_content_image_JMxcCE",
+    "rare_by_origin_iDyhwi"
   ]
 }
