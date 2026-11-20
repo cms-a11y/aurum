@@ -1,0 +1,756 @@
+
+{% comment %}
+  Section: Certificate Content + Image
+{% endcomment %}
+
+<section
+  id="certificate-section-{{ section.id }}"
+  class="certificate-section {{ section.settings.custom_class }}"
+  style="
+    --cs-bg: {{ section.settings.background_color }};
+    --cs-heading: {{ section.settings.heading_color }};
+    --cs-text: {{ section.settings.text_color }};
+    --cs-accent: {{ section.settings.accent_color }};
+    --cs-card-bg: {{ section.settings.info_card_bg }};
+    --cs-card-text: {{ section.settings.info_card_text }};
+    --cs-padding-top: {{ section.settings.padding_top }}px;
+    --cs-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --cs-gap: {{ section.settings.column_gap }}px;
+    --cs-radius: {{ section.settings.image_radius }}px;
+    --cs-image-height: {{ section.settings.image_height }}px;
+    --cs-content-width: {{ section.settings.content_width }}px;
+  "
+>
+  <div class="certificate-container">
+
+    <div class="certificate-layout {% if section.settings.image_position == 'left' %}image-left{% else %}image-right{% endif %}">
+
+      <!-- Content Column -->
+      <div class="certificate-content">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="certificate-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="certificate-heading">
+            {{ section.settings.heading }}
+          </h2>
+          <div class="certificate-heading-line"></div>
+        {% endif %}
+
+        {% if section.settings.content != blank %}
+          <div class="certificate-description rte">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="certificate-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="certificate-button"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Image Column -->
+      <div class="certificate-image-column">
+
+        {% if section.settings.image != blank %}
+          <div class="certificate-image-wrapper">
+
+            {{
+              section.settings.image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                widths: '400, 600, 800, 1000, 1200, 1600',
+                class: 'certificate-image',
+                alt: section.settings.image.alt
+            }}
+
+            {% if section.settings.show_info_card %}
+              <div class="certificate-image-info">
+
+                <div class="certificate-info-left">
+                  {% if section.settings.image_label != blank %}
+                    <span class="certificate-info-label">
+                      {{ section.settings.image_label }}
+                    </span>
+                  {% endif %}
+
+                  {% if section.settings.image_title != blank %}
+                    <h3 class="certificate-info-title">
+                      {{ section.settings.image_title }}
+                    </h3>
+                  {% endif %}
+                </div>
+
+                <div class="certificate-info-right">
+                  {% if section.settings.image_location != blank %}
+                    <span class="certificate-info-location">
+                      {{ section.settings.image_location }}
+                    </span>
+                  {% endif %}
+
+                  {% if section.settings.image_grade != blank %}
+                    <span class="certificate-info-grade">
+                      {{ section.settings.image_grade }}
+                    </span>
+                  {% endif %}
+                </div>
+
+              </div>
+            {% endif %}
+
+          </div>
+        {% else %}
+          <div class="certificate-image-placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #certificate-section-{{ section.id }} {
+    width: 100%;
+    background: var(--cs-bg);
+    padding-top: var(--cs-padding-top);
+    padding-bottom: var(--cs-padding-bottom);
+  }
+
+  #certificate-section-{{ section.id }} .certificate-container {
+    width: 100%;
+    max-width: var(--cs-content-width);
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: var(--cs-gap);
+    align-items: center;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-layout.image-left {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  }
+
+  #certificate-section-{{ section.id }} .certificate-layout.image-left .certificate-content {
+    order: 2;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-layout.image-left .certificate-image-column {
+    order: 1;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-content {
+    min-width: 0;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-subtitle {
+    color: var(--cs-accent);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-heading {
+    color: var(--cs-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-heading-line {
+    width: 60px;
+    height: 2px;
+    background: var(--cs-accent);
+    margin: 16px 0 28px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-description {
+    color: var(--cs-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.7;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-description p {
+    margin: 0 0 20px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-description strong,
+  #certificate-section-{{ section.id }} .certificate-description b {
+    font-weight: 700;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-button-wrap {
+    margin-top: 28px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background: var(--cs-accent);
+    color: #fff;
+    border: 1px solid var(--cs-accent);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-button:hover {
+    background: transparent;
+    color: var(--cs-accent);
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image-column {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--cs-image-height);
+    overflow: hidden;
+    border: 1px solid rgba(112, 16, 29, 0.2);
+    border-radius: var(--cs-radius);
+    background: #f5f1eb;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: center;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image-info {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--cs-card-bg);
+    color: var(--cs-card-text);
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-left,
+  #certificate-section-{{ section.id }} .certificate-info-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-right {
+    text-align: right;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-title {
+    color: var(--cs-accent);
+    font-family: var(--font-heading-family);
+    font-size: 21px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-location {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-info-grade {
+    color: var(--cs-accent);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image-placeholder {
+    height: var(--cs-image-height);
+    overflow: hidden;
+    border-radius: var(--cs-radius);
+    background: #f5f1eb;
+  }
+
+  #certificate-section-{{ section.id }} .certificate-image-placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 990px) {
+    #certificate-section-{{ section.id }} .certificate-layout,
+    #certificate-section-{{ section.id }} .certificate-layout.image-left {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    }
+
+    #certificate-section-{{ section.id }} .certificate-heading {
+      font-size: {{ section.settings.tablet_heading_size }}px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-description {
+      font-size: {{ section.settings.tablet_content_size }}px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-image-wrapper,
+    #certificate-section-{{ section.id }} .certificate-image-placeholder {
+      height: {{ section.settings.tablet_image_height }}px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-info-title {
+      font-size: 17px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #certificate-section-{{ section.id }} {
+      padding-top: min(var(--cs-padding-top), 45px);
+      padding-bottom: min(var(--cs-padding-bottom), 45px);
+    }
+
+    #certificate-section-{{ section.id }} .certificate-container {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-layout,
+    #certificate-section-{{ section.id }} .certificate-layout.image-left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-layout.image-left .certificate-content,
+    #certificate-section-{{ section.id }} .certificate-layout.image-left .certificate-image-column {
+      order: initial;
+    }
+
+    {% if section.settings.mobile_image_first %}
+      #certificate-section-{{ section.id }} .certificate-image-column {
+        order: -1;
+      }
+    {% endif %}
+
+    #certificate-section-{{ section.id }} .certificate-subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+      margin-bottom: 10px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-heading-line {
+      margin: 12px 0 20px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-description {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.65;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-description p {
+      margin-bottom: 15px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-image-wrapper,
+    #certificate-section-{{ section.id }} .certificate-image-placeholder {
+      height: {{ section.settings.mobile_image_height }}px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-image-info {
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 12px;
+      gap: 8px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-info-label {
+      font-size: 10px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-info-title {
+      font-size: 16px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-info-location,
+    #certificate-section-{{ section.id }} .certificate-info-grade {
+      font-size: 10px;
+    }
+
+    #certificate-section-{{ section.id }} .certificate-button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Certificate content image",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Desktop image position",
+      "options": [
+        { "value": "right", "label": "Image on right" },
+        { "value": "left", "label": "Image on left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Show image before content on mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Understanding Your Tanzanite Certificate"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description",
+      "default": "<p>Born from the foothills of Mount Kilimanjaro in Tanzania, Tanzanite is one of the world's most extraordinary gemstones, found in only one place on Earth.</p><p>Every Tanzanite has its own story, shaped by nature and revealed through its color, clarity, cut and character.</p><p>At Queens, our Tanzanite is certified in accordance with the <strong>Tanzanite International Grading Standard</strong>, providing assurance of its authenticity and an assessment of the qualities that define each stone.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Select image"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Desktop image height",
+      "min": 300,
+      "max": 750,
+      "step": 10,
+      "unit": "px",
+      "default": 630
+    },
+    {
+      "type": "range",
+      "id": "tablet_image_height",
+      "label": "Tablet image height",
+      "min": 250,
+      "max": 650,
+      "step": 10,
+      "unit": "px",
+      "default": 480
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 250,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "checkbox",
+      "id": "show_info_card",
+      "label": "Show image information card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "image_label",
+      "label": "Image label",
+      "default": "Natural Specimen"
+    },
+    {
+      "type": "text",
+      "id": "image_title",
+      "label": "Image title",
+      "default": "Royal Deep Tanzanite"
+    },
+    {
+      "type": "text",
+      "id": "image_location",
+      "label": "Image location",
+      "default": "Kilimanjaro Foothills"
+    },
+    {
+      "type": "text",
+      "id": "image_grade",
+      "label": "Image grade",
+      "default": "Grade: AAA+ Vivid"
+    },
+    {
+      "type": "header",
+      "content": "Desktop typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 26,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "header",
+      "content": "Tablet typography"
+    },
+    {
+      "type": "range",
+      "id": "tablet_heading_size",
+      "label": "Tablet heading size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "tablet_content_size",
+      "label": "Tablet content size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content size",
+      "min": 13,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF7F2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#70101D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Content colour",
+      "default": "#241716"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#70101D"
+    },
+    {
+      "type": "color",
+      "id": "info_card_bg",
+      "label": "Image card background",
+      "default": "#FFF8F0"
+    },
+    {
+      "type": "color",
+      "id": "info_card_text",
+      "label": "Image card text colour",
+      "default": "#241716"
+    },
+    {
+      "type": "header",
+      "content": "Spacing and layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Maximum content width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1450
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Certificate content image"
+    }
+  ]
+}
+{% endschema %}
