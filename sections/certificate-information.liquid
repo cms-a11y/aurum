@@ -1,0 +1,786 @@
+
+{% comment %}
+  Section: Certificate Information
+  Responsive two-column content and image panel
+{% endcomment %}
+
+<section
+  id="certificate-info-{{ section.id }}"
+  class="certificate-info-section {{ section.settings.custom_class }}"
+  style="
+    --ci-section-bg: {{ section.settings.section_background }};
+    --ci-panel-bg: {{ section.settings.panel_background }};
+    --ci-heading: {{ section.settings.heading_color }};
+    --ci-text: {{ section.settings.text_color }};
+    --ci-accent: {{ section.settings.accent_color }};
+    --ci-border: {{ section.settings.border_color }};
+    --ci-divider: {{ section.settings.divider_color }};
+    --ci-width: {{ section.settings.section_width }}px;
+    --ci-radius: {{ section.settings.panel_radius }}px;
+    --ci-padding: {{ section.settings.panel_padding }}px;
+    --ci-gap: {{ section.settings.column_gap }}px;
+    --ci-top: {{ section.settings.padding_top }}px;
+    --ci-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="ci-container">
+
+    <div class="ci-panel {% if section.settings.image_position == 'left' %}ci-image-left{% else %}ci-image-right{% endif %}">
+
+      <!-- Content Column -->
+      <div class="ci-content">
+
+        {% if section.settings.icon_svg != blank %}
+          <div class="ci-icon" aria-hidden="true">
+            {{ section.settings.icon_svg }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="ci-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="ci-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.show_heading_line %}
+          <span class="ci-heading-line"></span>
+        {% endif %}
+
+        {% if section.settings.content != blank %}
+          <div class="ci-description rte">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.quote != blank %}
+          <div class="ci-quote">
+            {{ section.settings.quote }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="ci-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="ci-button"
+            >
+              {{ section.settings.button_label }}
+
+              {% if section.settings.show_button_arrow %}
+                <span aria-hidden="true">→</span>
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Image Column -->
+      {% if section.settings.image != blank %}
+        <div class="ci-image-column">
+          <div class="ci-image-frame">
+            {{
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                widths: '400, 600, 800, 1000, 1200, 1400',
+                sizes: '(min-width: 990px) 45vw, 100vw',
+                alt: section.settings.image.alt
+            }}
+          </div>
+
+          {% if section.settings.image_caption != blank %}
+            <div class="ci-image-caption">
+              {{ section.settings.image_caption }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #certificate-info-{{ section.id }} {
+    width: 100%;
+    background: var(--ci-section-bg);
+    padding-top: var(--ci-top);
+    padding-bottom: var(--ci-bottom);
+    overflow: hidden;
+  }
+
+  #certificate-info-{{ section.id }} *,
+  #certificate-info-{{ section.id }} *::before,
+  #certificate-info-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #certificate-info-{{ section.id }} .ci-container {
+    width: 100%;
+    max-width: var(--ci-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* Main panel */
+
+  #certificate-info-{{ section.id }} .ci-panel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: var(--ci-gap);
+    padding: var(--ci-padding);
+    background: var(--ci-panel-bg);
+    border: 1px solid var(--ci-border);
+    border-radius: var(--ci-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.035);
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-left .ci-content {
+    order: 2;
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-left .ci-image-column {
+    order: 1;
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-right .ci-content {
+    order: 1;
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-right .ci-image-column {
+    order: 2;
+  }
+
+  /* Content */
+
+  #certificate-info-{{ section.id }} .ci-content {
+    min-width: 0;
+  }
+
+  #certificate-info-{{ section.id }} .ci-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    margin-bottom: 24px;
+    color: var(--ci-heading);
+    background: {{ section.settings.icon_background }};
+    border: 1px solid var(--ci-border);
+    border-radius: 50%;
+  }
+
+  #certificate-info-{{ section.id }} .ci-icon svg {
+    width: 55%;
+    height: 55%;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #certificate-info-{{ section.id }} .ci-subtitle {
+    color: var(--ci-accent);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  #certificate-info-{{ section.id }} .ci-heading {
+    color: var(--ci-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  #certificate-info-{{ section.id }} .ci-heading-line {
+    display: block;
+    width: 56px;
+    height: 2px;
+    background: var(--ci-accent);
+    margin: 20px 0 26px;
+  }
+
+  #certificate-info-{{ section.id }} .ci-description {
+    color: var(--ci-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.7;
+  }
+
+  #certificate-info-{{ section.id }} .ci-description p {
+    margin: 0 0 18px;
+  }
+
+  #certificate-info-{{ section.id }} .ci-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #certificate-info-{{ section.id }} .ci-description strong {
+    color: var(--ci-heading);
+  }
+
+  /* Highlighted quote */
+
+  #certificate-info-{{ section.id }} .ci-quote {
+    color: var(--ci-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.quote_size }}px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+    border-top: 1px solid var(--ci-divider);
+    padding-top: 18px;
+    margin-top: 24px;
+  }
+
+  /* Button */
+
+  #certificate-info-{{ section.id }} .ci-button-wrap {
+    margin-top: 22px;
+  }
+
+  #certificate-info-{{ section.id }} .ci-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-height: 46px;
+    padding: 13px 32px;
+    color: {{ section.settings.button_text_color }};
+    background: {{ section.settings.button_background }};
+    border: 1px solid {{ section.settings.button_background }};
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #certificate-info-{{ section.id }} .ci-button:hover {
+    color: {{ section.settings.button_background }};
+    background: transparent;
+  }
+
+  /* Image */
+
+  #certificate-info-{{ section.id }} .ci-image-column {
+    min-width: 0;
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-frame {
+    width: 100%;
+    overflow: hidden;
+    border: {{ section.settings.image_border_width }}px solid var(--ci-border);
+    border-radius: {{ section.settings.image_radius }}px;
+    background: var(--ci-section-bg);
+    padding: {{ section.settings.image_padding }}px;
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-frame img {
+    display: block;
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    object-fit: {{ section.settings.image_fit }};
+    border-radius: max(0px, {{ section.settings.image_radius }}px - 5px);
+  }
+
+  #certificate-info-{{ section.id }} .ci-image-caption {
+    color: var(--ci-text);
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #certificate-info-{{ section.id }} .ci-panel {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: 25px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-heading {
+      font-size: min({{ section.settings.heading_size }}px, 36px);
+    }
+
+    #certificate-info-{{ section.id }} .ci-description {
+      font-size: 14px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-image-frame img {
+      height: {{ section.settings.image_height | times: 0.8 | round }}px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #certificate-info-{{ section.id }} .ci-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-panel {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      padding: {{ section.settings.mobile_panel_padding }}px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-image-left .ci-content,
+    #certificate-info-{{ section.id }} .ci-image-left .ci-image-column,
+    #certificate-info-{{ section.id }} .ci-image-right .ci-content,
+    #certificate-info-{{ section.id }} .ci-image-right .ci-image-column {
+      order: initial;
+    }
+
+    #certificate-info-{{ section.id }} .ci-image-left .ci-image-column {
+      order: -1;
+    }
+
+    #certificate-info-{{ section.id }} .ci-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-subtitle {
+      font-size: 10px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-heading-line {
+      margin: 15px 0 20px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-description {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.65;
+    }
+
+    #certificate-info-{{ section.id }} .ci-description p {
+      margin-bottom: 14px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-quote {
+      font-size: 16px;
+      margin-top: 18px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-image-frame img {
+      height: {{ section.settings.mobile_image_height }}px;
+    }
+
+    #certificate-info-{{ section.id }} .ci-button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Certificate information",
+  "tag": "section",
+  "class": "section-certificate-information",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section maximum width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "right", "label": "Right side" },
+        { "value": "left", "label": "Left side" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column spacing",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "panel_padding",
+      "label": "Desktop panel padding",
+      "min": 15,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "mobile_panel_padding",
+      "label": "Mobile panel padding",
+      "min": 12,
+      "max": 35,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "panel_radius",
+      "label": "Panel border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "icon_svg",
+      "label": "SVG icon",
+      "info": "Paste inline SVG markup."
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon container size",
+      "min": 30,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Authenticity & Heritage"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "More Than a Certificate"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading_line",
+      "label": "Show heading underline",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Main content",
+      "default": "<p>A Tanzanite certificate is more than a collection of measurements and grades. It is a record of the individual characteristics that distinguish your gemstone and provides confidence in what you have chosen.</p><p>Understanding its origin, authenticity, colour, clarity, cut and carat weight allows you to appreciate not only the beauty of your Tanzanite, but also the rarity and individuality behind it.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Highlighted quote",
+      "default": "One origin. Extraordinary rarity. Uniquely yours."
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Select image"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Image caption"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Desktop image height",
+      "min": 200,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 150,
+      "max": 450,
+      "step": 10,
+      "unit": "px",
+      "default": 220
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "image_padding",
+      "label": "Image inner padding",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "image_border_width",
+      "label": "Image frame border width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Book an appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show button arrow",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Desktop content size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "quote_size",
+      "label": "Quote font size",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "color",
+      "id": "panel_background",
+      "label": "Panel background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading and icon colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Content colour",
+      "default": "#302727"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#C5A253"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Panel and image border",
+      "default": "#EADFCB"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Quote divider",
+      "default": "#EEE8E2"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section CSS class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Certificate information"
+    }
+  ]
+}
+{% endschema %}
