@@ -297,7 +297,7 @@
       "type": "certificate-information",
       "name": "Certificate information",
       "settings": {
-        "section_width": 1400,
+        "section_width": 1430,
         "image_position": "right",
         "column_gap": 40,
         "panel_padding": 35,
