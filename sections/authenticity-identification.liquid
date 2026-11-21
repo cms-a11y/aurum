@@ -1,0 +1,548 @@
+
+{% comment %}
+  Section: Authenticity & Identification
+  Responsive coloured content panel.
+{% endcomment %}
+
+<section
+  id="authenticity-{{ section.id }}"
+  class="authenticity-section {{ section.settings.custom_class }}"
+  style="
+    --ai-section-bg: {{ section.settings.background_color }};
+    --ai-panel-bg: {{ section.settings.panel_background }};
+    --ai-heading: {{ section.settings.heading_color }};
+    --ai-text: {{ section.settings.text_color }};
+    --ai-accent: {{ section.settings.accent_color }};
+    --ai-border: {{ section.settings.border_color }};
+    --ai-section-width: {{ section.settings.section_width }}px;
+    --ai-panel-width: {{ section.settings.panel_width }}px;
+    --ai-radius: {{ section.settings.border_radius }}px;
+    --ai-padding-top: {{ section.settings.padding_top }}px;
+    --ai-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --ai-panel-padding: {{ section.settings.panel_padding }}px;
+  "
+>
+  <div class="ai-container">
+
+    <div class="ai-panel">
+
+      {% if section.settings.subtitle != blank %}
+        <div class="ai-subtitle">
+          {% if section.settings.show_subtitle_line %}
+            <span class="ai-subtitle-line"></span>
+          {% endif %}
+          <span>{{ section.settings.subtitle }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ai-heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.content != blank %}
+        <div class="ai-content rte">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <div class="ai-button-wrap">
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="ai-button"
+            {% if section.settings.button_link == blank %}
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.button_label }}
+
+            {% if section.settings.show_button_arrow %}
+              <span class="ai-button-arrow" aria-hidden="true">→</span>
+            {% endif %}
+          </a>
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #authenticity-{{ section.id }} {
+    width: 100%;
+    background-color: var(--ai-section-bg);
+    padding-top: var(--ai-padding-top);
+    padding-bottom: var(--ai-padding-bottom);
+    box-sizing: border-box;
+  }
+
+  #authenticity-{{ section.id }} *,
+  #authenticity-{{ section.id }} *::before,
+  #authenticity-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  /* Outer container */
+
+  #authenticity-{{ section.id }} .ai-container {
+    width: 100%;
+    max-width: var(--ai-section-width);
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  /* Coloured content panel */
+
+  #authenticity-{{ section.id }} .ai-panel {
+    width: 100%;
+    max-width: var(--ai-panel-width);
+    margin: 0 auto;
+    background-color: var(--ai-panel-bg);
+    border: 1px solid var(--ai-border);
+    border-radius: var(--ai-radius);
+    padding: var(--ai-panel-padding);
+    overflow: hidden;
+  }
+
+  /* Subtitle */
+
+  #authenticity-{{ section.id }} .ai-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ai-accent);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  #authenticity-{{ section.id }} .ai-subtitle-line {
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    flex-shrink: 0;
+    background-color: var(--ai-accent);
+  }
+
+  /* Main heading */
+
+  #authenticity-{{ section.id }} .ai-heading {
+    color: var(--ai-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 18px;
+  }
+
+  /* Main content */
+
+  #authenticity-{{ section.id }} .ai-content {
+    color: var(--ai-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.7;
+  }
+
+  #authenticity-{{ section.id }} .ai-content p {
+    margin: 0 0 20px;
+  }
+
+  #authenticity-{{ section.id }} .ai-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #authenticity-{{ section.id }} .ai-content strong,
+  #authenticity-{{ section.id }} .ai-content b {
+    color: var(--ai-accent);
+    font-weight: 600;
+  }
+
+  #authenticity-{{ section.id }} .ai-content a {
+    color: var(--ai-accent);
+    text-decoration: underline;
+  }
+
+  /* Button */
+
+  #authenticity-{{ section.id }} .ai-button-wrap {
+    margin-top: 28px;
+  }
+
+  #authenticity-{{ section.id }} .ai-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 28px;
+    color: var(--ai-panel-bg);
+    background-color: var(--ai-accent);
+    border: 1px solid var(--ai-accent);
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  #authenticity-{{ section.id }} .ai-button:hover {
+    background-color: transparent;
+    color: var(--ai-accent);
+  }
+
+  #authenticity-{{ section.id }} .ai-button-arrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  #authenticity-{{ section.id }} .ai-button:hover .ai-button-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #authenticity-{{ section.id }} .ai-container {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    #authenticity-{{ section.id }} .ai-panel {
+      padding: min(var(--ai-panel-padding), 45px);
+    }
+
+    #authenticity-{{ section.id }} .ai-heading {
+      font-size: min({{ section.settings.heading_size }}px, 40px);
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #authenticity-{{ section.id }} {
+      padding-top: min(var(--ai-padding-top), 40px);
+      padding-bottom: min(var(--ai-padding-bottom), 40px);
+    }
+
+    #authenticity-{{ section.id }} .ai-container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    #authenticity-{{ section.id }} .ai-panel {
+      padding: {{ section.settings.mobile_panel_padding }}px;
+      border-radius: min(var(--ai-radius), 16px);
+    }
+
+    #authenticity-{{ section.id }} .ai-subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+      letter-spacing: 0.14em;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    #authenticity-{{ section.id }} .ai-subtitle-line {
+      width: 16px;
+    }
+
+    #authenticity-{{ section.id }} .ai-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    #authenticity-{{ section.id }} .ai-content {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.65;
+    }
+
+    #authenticity-{{ section.id }} .ai-content p {
+      margin-bottom: 16px;
+    }
+
+    #authenticity-{{ section.id }} .ai-button-wrap {
+      margin-top: 22px;
+    }
+
+    #authenticity-{{ section.id }} .ai-button {
+      width: 100%;
+      padding: 13px 20px;
+      font-size: 12px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Authenticity panel",
+  "tag": "section",
+  "class": "section-authenticity-panel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Enter a class name without the dot."
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Outer section maximum width",
+      "min": 900,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "panel_width",
+      "label": "Content panel maximum width",
+      "min": 700,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Panel border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "panel_padding",
+      "label": "Desktop panel padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_panel_padding",
+      "label": "Mobile panel padding",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subtitle_line",
+      "label": "Show subtitle line",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Assurance & Heritage"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main heading",
+      "default": "Authenticity & Identification"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Main content",
+      "default": "<p>A certified Tanzanite is accompanied by identifying information that connects the certificate to the individual gemstone. This provides an important record of authenticity and allows the stone and its characteristics to be properly documented.</p><p>For a gemstone as rare and distinctive as Tanzanite, this documentation adds another level of confidence to your purchase.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show button arrow",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Desktop typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading font size",
+      "min": 26,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle size",
+      "min": 9,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Outer background colour",
+      "default": "#FAF7F2"
+    },
+    {
+      "type": "color",
+      "id": "panel_background",
+      "label": "Panel background colour",
+      "default": "#70101D"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#F8F0E5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Content colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Subtitle and accent colour",
+      "default": "#C9A64B"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Panel border colour",
+      "default": "#8B3540"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Authenticity panel"
+    }
+  ]
+}
+{% endschema %}
