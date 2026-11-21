@@ -291,7 +291,7 @@
         "button_text_color": "#FFFFFF",
         "button_border_color": "#A85B6D",
         "padding_top": 45,
-        "padding_bottom": 45,
+        "padding_bottom": 90,
         "custom_class": ""
       }
     }
