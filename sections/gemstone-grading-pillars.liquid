@@ -102,20 +102,45 @@
                 </div>
               {% endif %}
 
-             {% if block.settings.bottom_title != blank or block.settings.bottom_icon_svg != blank %}
-  <div class="gp-bottom-feature">
+            {% assign has_bottom_features = false %}
 
-    {% if block.settings.bottom_icon_svg != blank %}
-      <span class="gp-bottom-feature-icon" aria-hidden="true">
-        {{ block.settings.bottom_icon_svg }}
-      </span>
-    {% endif %}
+{% for i in (1..6) %}
+  {% assign icon_key = 'bottom_icon_' | append: i %}
+  {% assign title_key = 'bottom_title_' | append: i %}
 
-    {% if block.settings.bottom_title != blank %}
-      <span class="gp-bottom-feature-title">
-        {{ block.settings.bottom_title }}
-      </span>
-    {% endif %}
+  {% if block.settings[icon_key] != blank or block.settings[title_key] != blank %}
+    {% assign has_bottom_features = true %}
+  {% endif %}
+{% endfor %}
+
+{% if has_bottom_features %}
+  <div class="gp-bottom-features">
+
+    {% for i in (1..6) %}
+      {% assign icon_key = 'bottom_icon_' | append: i %}
+      {% assign title_key = 'bottom_title_' | append: i %}
+
+      {% assign feature_icon = block.settings[icon_key] %}
+      {% assign feature_title = block.settings[title_key] %}
+
+      {% if feature_icon != blank or feature_title != blank %}
+        <div class="gp-bottom-feature-box">
+
+          {% if feature_icon != blank %}
+            <span class="gp-bottom-feature-icon" aria-hidden="true">
+              {{ feature_icon }}
+            </span>
+          {% endif %}
+
+          {% if feature_title != blank %}
+            <span class="gp-bottom-feature-title">
+              {{ feature_title }}
+            </span>
+          {% endif %}
+
+        </div>
+      {% endif %}
+    {% endfor %}
 
   </div>
 {% endif %}
