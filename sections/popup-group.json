@@ -140,7 +140,7 @@
         "show_heading_line": true,
         "description": "<p>The definitive grading dimensions codified by the Tanzanite International Grading Standard.</p>",
         "columns": "2",
-        "section_width": 1450,
+        "section_width": 1430,
         "column_gap": 45,
         "card_padding": 45,
         "mobile_card_padding": 15,
