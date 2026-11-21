@@ -1,0 +1,1264 @@
+
+{% comment %}
+  Section: Jewellery Care Layouts
+  Supports:
+  1. Horizontal protocol
+  2. Standard protocol card
+  3. Highlighted credo card
+{% endcomment %}
+
+<section
+  id="jewellery-care-layouts-{{ section.id }}"
+  class="jcl-section {{ section.settings.custom_class }}"
+  style="
+    --jcl-bg: {{ section.settings.background_color }};
+    --jcl-width: {{ section.settings.section_width }}px;
+    --jcl-top: {{ section.settings.padding_top }}px;
+    --jcl-bottom: {{ section.settings.padding_bottom }}px;
+    --jcl-gap: {{ section.settings.grid_gap }}px;
+    --jcl-heading: {{ section.settings.heading_color }};
+    --jcl-text: {{ section.settings.text_color }};
+    --jcl-accent: {{ section.settings.accent_color }};
+    --jcl-border: {{ section.settings.border_color }};
+    --jcl-divider: {{ section.settings.divider_color }};
+    --jcl-card-bg: {{ section.settings.card_background }};
+    --jcl-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="jcl-container">
+
+    {% if section.settings.subtitle != blank or section.settings.heading != blank or section.settings.description != blank %}
+      <div class="jcl-header">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="jcl-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="jcl-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="jcl-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    <div class="jcl-blocks">
+
+      {% for block in section.blocks %}
+
+        {% case block.type %}
+
+          {% when 'horizontal_protocol' %}
+
+            <article
+              class="jcl-horizontal {{ block.settings.custom_class }}"
+              style="
+                --jcl-block-bg: {{ block.settings.background_color }};
+                --jcl-block-heading: {{ block.settings.heading_color }};
+                --jcl-block-text: {{ block.settings.text_color }};
+                --jcl-block-accent: {{ block.settings.accent_color }};
+              "
+              {{ block.shopify_attributes }}
+            >
+
+              <div class="jcl-horizontal-left">
+
+                {% if block.settings.protocol_label != blank %}
+                  <div class="jcl-protocol-label">
+                    {{ block.settings.protocol_label }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="jcl-horizontal-title">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.italic_text != blank %}
+                  <div class="jcl-italic-text">
+                    {{ block.settings.italic_text }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.icon_svg != blank %}
+                  <div class="jcl-horizontal-icon" aria-hidden="true">
+                    {{ block.settings.icon_svg }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+              <div class="jcl-horizontal-right">
+
+                {% if block.settings.content != blank %}
+                  <div class="jcl-content rte">
+                    {{ block.settings.content }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.secondary_text != blank %}
+                  <div class="jcl-secondary-text">
+                    {{ block.settings.secondary_text }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.warning_text != blank %}
+                  <div class="jcl-warning">
+
+                    {% if block.settings.warning_icon_svg != blank %}
+                      <span class="jcl-warning-icon" aria-hidden="true">
+                        {{ block.settings.warning_icon_svg }}
+                      </span>
+                    {% endif %}
+
+                    <div class="jcl-warning-content">
+                      {% if block.settings.warning_title != blank %}
+                        <strong>{{ block.settings.warning_title }}</strong>
+                      {% endif %}
+
+                      <div class="rte">
+                        {{ block.settings.warning_text }}
+                      </div>
+                    </div>
+
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </article>
+
+          {% when 'protocol_card' %}
+
+            <article
+              class="jcl-card {{ block.settings.custom_class }}"
+              style="
+                --jcl-block-bg: {{ block.settings.background_color }};
+                --jcl-block-heading: {{ block.settings.heading_color }};
+                --jcl-block-text: {{ block.settings.text_color }};
+                --jcl-block-accent: {{ block.settings.accent_color }};
+              "
+              {{ block.shopify_attributes }}
+            >
+
+              <div class="jcl-card-top">
+
+                {% if block.settings.protocol_label != blank %}
+                  <span class="jcl-protocol-label">
+                    {{ block.settings.protocol_label }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.icon_svg != blank %}
+                  <span class="jcl-card-icon" aria-hidden="true">
+                    {{ block.settings.icon_svg }}
+                  </span>
+                {% endif %}
+
+              </div>
+
+              {% if block.settings.title != blank %}
+                <h3 class="jcl-card-title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.intro != blank %}
+                <div class="jcl-card-intro rte">
+                  {{ block.settings.intro }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.content != blank %}
+                <div class="jcl-content rte">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.footer_text != blank %}
+                <div class="jcl-card-footer">
+
+                  {% if block.settings.footer_icon_svg != blank %}
+                    <span class="jcl-footer-icon" aria-hidden="true">
+                      {{ block.settings.footer_icon_svg }}
+                    </span>
+                  {% endif %}
+
+                  <span>{{ block.settings.footer_text }}</span>
+
+                </div>
+              {% endif %}
+
+              {% if block.settings.button_label != blank %}
+                <a
+                  href="{{ block.settings.button_link | default: '#' }}"
+                  class="jcl-button"
+                >
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
+
+            </article>
+
+          {% when 'credo_card' %}
+
+            <article
+              class="jcl-credo {{ block.settings.custom_class }}"
+              style="
+                --jcl-block-bg: {{ block.settings.background_color }};
+                --jcl-block-heading: {{ block.settings.heading_color }};
+                --jcl-block-text: {{ block.settings.text_color }};
+                --jcl-block-accent: {{ block.settings.accent_color }};
+              "
+              {{ block.shopify_attributes }}
+            >
+
+              <div class="jcl-credo-top">
+
+                {% if block.settings.subtitle != blank %}
+                  <span class="jcl-protocol-label">
+                    {{ block.settings.subtitle }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.icon_svg != blank %}
+                  <span class="jcl-credo-icon" aria-hidden="true">
+                    {{ block.settings.icon_svg }}
+                  </span>
+                {% endif %}
+
+              </div>
+
+              {% if block.settings.title != blank %}
+                <h3 class="jcl-credo-title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.content != blank %}
+                <div class="jcl-credo-content rte">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.italic_text != blank %}
+                <div class="jcl-credo-italic">
+                  {{ block.settings.italic_text }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.bottom_text != blank %}
+                <div class="jcl-credo-bottom">
+                  {{ block.settings.bottom_text }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.button_label != blank %}
+                <a
+                  href="{{ block.settings.button_link | default: '#' }}"
+                  class="jcl-button"
+                >
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
+
+            </article>
+
+        {% endcase %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #jewellery-care-layouts-{{ section.id }} {
+    width: 100%;
+    background: var(--jcl-bg);
+    padding-top: var(--jcl-top);
+    padding-bottom: var(--jcl-bottom);
+    overflow: hidden;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} *,
+  #jewellery-care-layouts-{{ section.id }} *::before,
+  #jewellery-care-layouts-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-container {
+    width: 100%;
+    max-width: var(--jcl-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-header {
+    max-width: 850px;
+    margin: 0 auto 35px;
+    text-align: center;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-subtitle {
+    color: var(--jcl-accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-heading {
+    color: var(--jcl-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-description {
+    color: var(--jcl-text);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+
+  /* Block wrapper */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-blocks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--jcl-gap);
+    align-items: stretch;
+  }
+
+  /* Horizontal protocol */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr);
+    gap: 25px;
+    align-items: stretch;
+    padding: {{ section.settings.horizontal_padding }}px;
+    background: var(--jcl-block-bg, var(--jcl-card-bg));
+    border: 1px solid var(--jcl-border);
+    border-radius: var(--jcl-radius);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 25px;
+    border-right: 1px solid var(--jcl-divider);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-protocol-label {
+    color: var(--jcl-block-accent, var(--jcl-accent));
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-title {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.horizontal_heading_size }}px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 12px 0 10px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-italic-text {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    font-family: var(--heading-font-family);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    margin-top: 14px;
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    border: 1px solid var(--jcl-border);
+    border-radius: 50%;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-icon svg,
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-icon svg,
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning-icon svg,
+  #jewellery-care-layouts-{{ section.id }} .jcl-footer-icon svg,
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-right {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-content {
+    color: var(--jcl-block-text, var(--jcl-text));
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.65;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-content p {
+    margin: 0 0 14px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-content strong {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-secondary-text {
+    color: var(--jcl-text);
+    opacity: .8;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 18px;
+  }
+
+  /* Warning */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px;
+    margin-top: 18px;
+    color: {{ section.settings.warning_text_color }};
+    background: {{ section.settings.warning_background }};
+    border: 1px solid {{ section.settings.warning_border }};
+    border-radius: 6px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning-content {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning-content strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-warning-content p {
+    margin: 0;
+  }
+
+  /* Standard protocol card */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: {{ section.settings.card_padding }}px;
+    background: var(--jcl-block-bg, var(--jcl-card-bg));
+    border: 1px solid var(--jcl-border);
+    border-radius: var(--jcl-radius);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-top,
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-top {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--jcl-divider);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    padding: 7px;
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    border: 1px solid var(--jcl-border);
+    border-radius: 50%;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-title {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.card_heading_size }}px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0 0 12px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-intro {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-intro p {
+    margin: 0;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 13px;
+    margin-top: auto;
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    border-top: 1px solid var(--jcl-divider);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-footer-icon {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+  }
+
+  /* Credo card */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: {{ section.settings.card_padding }}px;
+    background: var(--jcl-block-bg, #FCEAC5);
+    border: 1px solid var(--jcl-border);
+    border-radius: var(--jcl-radius);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-top {
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    color: #fff;
+    background: var(--jcl-block-heading, var(--jcl-heading));
+    border-radius: 50%;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-title {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.credo_heading_size }}px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 0 12px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-content {
+    color: var(--jcl-block-text, var(--jcl-text));
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.6;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-content p {
+    margin: 0 0 12px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-italic {
+    color: var(--jcl-block-text, var(--jcl-text));
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-credo-bottom {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    border-top: 1px solid rgba(0,0,0,.08);
+    padding-top: 14px;
+    margin-top: auto;
+    font-family: var(--heading-font-family);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Buttons */
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-top: 18px;
+    color: #fff;
+    background: var(--jcl-block-heading, var(--jcl-heading));
+    border: 1px solid var(--jcl-block-heading, var(--jcl-heading));
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .25s ease;
+  }
+
+  #jewellery-care-layouts-{{ section.id }} .jcl-button:hover {
+    color: var(--jcl-block-heading, var(--jcl-heading));
+    background: transparent;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #jewellery-care-layouts-{{ section.id }} .jcl-heading {
+      font-size: 30px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-horizontal {
+      grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-title {
+      font-size: 24px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #jewellery-care-layouts-{{ section.id }} .jcl-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-header {
+      margin-bottom: 25px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-blocks {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-horizontal {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: {{ section.settings.mobile_card_padding }}px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-left {
+      padding-right: 0;
+      padding-bottom: 15px;
+      border-right: 0;
+      border-bottom: 1px solid var(--jcl-divider);
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-horizontal-title {
+      font-size: 25px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-card,
+    #jewellery-care-layouts-{{ section.id }} .jcl-credo {
+      padding: {{ section.settings.mobile_card_padding }}px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-card-title,
+    #jewellery-care-layouts-{{ section.id }} .jcl-credo-title {
+      font-size: 23px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-content,
+    #jewellery-care-layouts-{{ section.id }} .jcl-card-intro,
+    #jewellery-care-layouts-{{ section.id }} .jcl-credo-content {
+      font-size: 13px;
+    }
+
+    #jewellery-care-layouts-{{ section.id }} .jcl-button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Jewellery care layouts",
+  "tag": "section",
+  "class": "section-jewellery-care-layouts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section subtitle",
+      "default": "Preservation Protocols"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Guidelines for Daily Elegance & Longevity"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section maximum width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Block spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal block padding",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 12,
+      "max": 35,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Section heading size",
+      "min": 22,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 20,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "horizontal_heading_size",
+      "label": "Horizontal title size",
+      "min": 20,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size",
+      "label": "Card title size",
+      "min": 20,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "credo_heading_size",
+      "label": "Credo title size",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content font size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Default card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#302727"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border colour",
+      "default": "#E9E1D5"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider colour",
+      "default": "#F0EBE7"
+    },
+    {
+      "type": "color",
+      "id": "warning_background",
+      "label": "Warning background",
+      "default": "#FFF8F7"
+    },
+    {
+      "type": "color",
+      "id": "warning_border",
+      "label": "Warning border",
+      "default": "#F2B9B9"
+    },
+    {
+      "type": "color",
+      "id": "warning_text_color",
+      "label": "Warning text colour",
+      "default": "#A52B2B"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "horizontal_protocol",
+      "name": "Horizontal protocol",
+      "settings": [
+        {
+          "type": "text",
+          "id": "protocol_label",
+          "label": "Protocol label",
+          "default": "Protocol 03"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cleaning Your Tanzanite"
+        },
+        {
+          "type": "text",
+          "id": "italic_text",
+          "label": "Italic subtitle",
+          "default": "A little gentle care is all it takes."
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Main content",
+          "default": "<p>Clean your Tanzanite jewellery using lukewarm water, mild soap and a soft cloth or soft-bristled brush. Gently clean around the setting and setting before rinsing carefully and drying with a soft, lint-free cloth.</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "secondary_text",
+          "label": "Additional note",
+          "default": "Avoid sudden changes in temperature and never use harsh cleaning agents."
+        },
+        {
+          "type": "text",
+          "id": "warning_title",
+          "label": "Warning title",
+          "default": "Crucial ultrasonic warning"
+        },
+        {
+          "type": "textarea",
+          "id": "warning_icon_svg",
+          "label": "Warning SVG icon"
+        },
+        {
+          "type": "richtext",
+          "id": "warning_text",
+          "label": "Warning content",
+          "default": "<p>Ultrasonic and steam cleaners are not recommended for Tanzanite, as the heat and vibrations may damage the gemstone.</p>"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Block background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Block heading colour",
+          "default": "#751629"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Block text colour",
+          "default": "#302727"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Block accent colour",
+          "default": "#751629"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom CSS class"
+        }
+      ]
+    },
+    {
+      "type": "protocol_card",
+      "name": "Standard protocol card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "protocol_label",
+          "label": "Protocol label",
+          "default": "Protocol 04"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Professional Care"
+        },
+        {
+          "type": "richtext",
+          "id": "intro",
+          "label": "Intro text",
+          "default": "<p>Fine jewellery deserves professional attention from time to time.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Main content",
+          "default": "<p>We recommend having your Tanzanite jewellery periodically inspected and professionally cleaned, particularly pieces that are worn frequently. This allows the gemstone, prongs and setting to be checked and helps keep your jewellery looking its best.</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "footer_icon_svg",
+          "label": "Footer SVG icon"
+        },
+        {
+          "type": "text",
+          "id": "footer_text",
+          "label": "Footer recommendation",
+          "default": "Recommended annual inspection cycle"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Optional button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Optional button link"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Card background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading colour",
+          "default": "#751629"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text colour",
+          "default": "#302727"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent colour",
+          "default": "#751629"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom CSS class"
+        }
+      ]
+    },
+    {
+      "type": "credo_card",
+      "name": "Highlighted credo card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "The Queens Credo"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "A Little Care Goes a Long Way"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Main content",
+          "default": "<p>Every Tanzanite is unique, and caring for yours is part of preserving something truly special.</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "italic_text",
+          "label": "Italic statement",
+          "default": "Treat it gently, wear it beautifully, and let it remain part of your story for generations."
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "Bottom highlighted text",
+          "default": "Made to be treasured. Cared for to last."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Optional button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Optional button link"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Card background",
+          "default": "#FCEAC5"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading colour",
+          "default": "#751629"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text colour",
+          "default": "#302727"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent colour",
+          "default": "#A77B32"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom CSS class"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Jewellery care layouts",
+      "blocks": [
+        {
+          "type": "horizontal_protocol"
+        },
+        {
+          "type": "protocol_card"
+        },
+        {
+          "type": "credo_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
