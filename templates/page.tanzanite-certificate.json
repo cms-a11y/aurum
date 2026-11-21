@@ -318,7 +318,7 @@
         "image_padding": 5,
         "image_border_width": 0,
         "button_label": "Book an appointment",
-        "button_link": "",
+        "button_link": "shopify://pages/book-a-private-appointment",
         "show_button_arrow": false,
         "button_radius": 8,
         "button_background": "#751629",
