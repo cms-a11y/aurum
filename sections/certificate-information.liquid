@@ -299,7 +299,6 @@
   #certificate-info-{{ section.id }} .ci-image-frame img {
     display: block;
     width: 100%;
-    height: {{ section.settings.image_height }}px;
     object-fit: {{ section.settings.image_fit }};
     border-radius: max(0px, {{ section.settings.image_radius }}px - 5px);
   }
@@ -328,9 +327,7 @@
       font-size: 14px;
     }
 
-    #certificate-info-{{ section.id }} .ci-image-frame img {
-      height: {{ section.settings.image_height | times: 0.8 | round }}px;
-    }
+   
   }
 
   /* Mobile */
@@ -382,10 +379,6 @@
     #certificate-info-{{ section.id }} .ci-quote {
       font-size: 16px;
       margin-top: 18px;
-    }
-
-    #certificate-info-{{ section.id }} .ci-image-frame img {
-      height: {{ section.settings.mobile_image_height }}px;
     }
 
     #certificate-info-{{ section.id }} .ci-button {
@@ -538,26 +531,7 @@
       ],
       "default": "contain"
     },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "Desktop image height",
-      "min": 200,
-      "max": 700,
-      "step": 10,
-      "unit": "px",
-      "default": 250
-    },
-    {
-      "type": "range",
-      "id": "mobile_image_height",
-      "label": "Mobile image height",
-      "min": 150,
-      "max": 450,
-      "step": 10,
-      "unit": "px",
-      "default": 220
-    },
+   
     {
       "type": "range",
       "id": "image_radius",
