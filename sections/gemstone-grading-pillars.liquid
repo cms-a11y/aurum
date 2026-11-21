@@ -1,0 +1,999 @@
+
+{% comment %}
+  Section: Gemstone Grading Pillars
+  Dynamic responsive cards with optional SVG icons and footer content.
+{% endcomment %}
+
+<section
+  id="grading-pillars-{{ section.id }}"
+  class="grading-pillars-section {{ section.settings.custom_class }}"
+  style="
+    --gp-bg: {{ section.settings.background_color }};
+    --gp-card-bg: {{ section.settings.card_background }};
+    --gp-heading: {{ section.settings.heading_color }};
+    --gp-text: {{ section.settings.text_color }};
+    --gp-accent: {{ section.settings.accent_color }};
+    --gp-border: {{ section.settings.border_color }};
+    --gp-divider: {{ section.settings.divider_color }};
+    --gp-section-width: {{ section.settings.section_width }}px;
+    --gp-gap: {{ section.settings.column_gap }}px;
+    --gp-radius: {{ section.settings.card_radius }}px;
+    --gp-padding-top: {{ section.settings.padding_top }}px;
+    --gp-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --gp-card-padding: {{ section.settings.card_padding }}px;
+  "
+>
+  <div class="gp-container">
+
+    {% if section.settings.subtitle != blank
+      or section.settings.heading != blank
+      or section.settings.description != blank
+    %}
+      <div class="gp-header">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="gp-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="gp-main-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.show_heading_line %}
+          <span class="gp-heading-line"></span>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="gp-header-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    <div class="gp-grid gp-columns-{{ section.settings.columns }}">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'pillar' %}
+
+          <article
+            class="gp-card {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+
+            <div class="gp-card-main">
+
+              <div class="gp-card-top">
+
+                {% if block.settings.standard_label != blank %}
+                  <span class="gp-standard-label">
+                    {{ block.settings.standard_label }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.icon_svg != blank %}
+                  <span class="gp-icon" aria-hidden="true">
+                    {{ block.settings.icon_svg }}
+                  </span>
+                {% endif %}
+
+              </div>
+
+              {% if block.settings.title != blank %}
+                <h3 class="gp-card-title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.content != blank %}
+                <div class="gp-card-content rte">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.highlight_text != blank %}
+                <div class="gp-highlight">
+                  {{ block.settings.highlight_text }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.bottom_label != blank %}
+                <div class="gp-bottom-label">
+                  {{ block.settings.bottom_label }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.bottom_content != blank %}
+                <div class="gp-bottom-content rte">
+                  {{ block.settings.bottom_content }}
+                </div>
+              {% endif %}
+
+            </div>
+
+            {% if block.settings.footer_left != blank
+              or block.settings.footer_right != blank
+            %}
+              <div class="gp-card-footer">
+
+                {% if block.settings.footer_left != blank %}
+                  <span class="gp-footer-left">
+                    {{ block.settings.footer_left }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.footer_right != blank %}
+                  <span class="gp-footer-right">
+                    {{ block.settings.footer_right }}
+                  </span>
+                {% endif %}
+
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_label != blank %}
+              <div class="gp-card-button-wrap">
+                <a
+                  href="{{ block.settings.button_link | default: '#' }}"
+                  class="gp-card-button"
+                >
+                  {{ block.settings.button_label }}
+                  {% if block.settings.show_button_arrow %}
+                    <span aria-hidden="true">→</span>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+
+          </article>
+
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    {% if section.settings.bottom_button_label != blank %}
+      <div class="gp-section-button-wrap">
+        <a
+          href="{{ section.settings.bottom_button_link | default: '#' }}"
+          class="gp-section-button"
+        >
+          {{ section.settings.bottom_button_label }}
+          {% if section.settings.bottom_button_arrow %}
+            <span aria-hidden="true">→</span>
+          {% endif %}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  #grading-pillars-{{ section.id }} {
+    width: 100%;
+    background: var(--gp-bg);
+    padding-top: var(--gp-padding-top);
+    padding-bottom: var(--gp-padding-bottom);
+    overflow: hidden;
+  }
+
+  #grading-pillars-{{ section.id }} *,
+  #grading-pillars-{{ section.id }} *::before,
+  #grading-pillars-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-container {
+    width: 100%;
+    max-width: var(--gp-section-width);
+    padding: 0 24px;
+    margin: 0 auto;
+  }
+
+  /* Section heading */
+
+  #grading-pillars-{{ section.id }} .gp-header {
+    max-width: 950px;
+    margin: 0 auto 65px;
+    text-align: center;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-subtitle {
+    color: var(--gp-heading);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-main-heading {
+    color: var(--gp-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-heading-line {
+    display: block;
+    width: 88px;
+    height: 3px;
+    background: var(--gp-accent);
+    margin: 20px auto;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-header-description {
+    color: var(--gp-description, var(--gp-text));
+    font-size: {{ section.settings.header_content_size }}px;
+    line-height: 1.65;
+    margin-top: 20px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-header-description p {
+    margin: 0 0 12px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-header-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Cards grid */
+
+  #grading-pillars-{{ section.id }} .gp-grid {
+    display: grid;
+    gap: var(--gp-gap);
+    align-items: stretch;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-columns-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #grading-pillars-{{ section.id }} .gp-columns-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #grading-pillars-{{ section.id }} .gp-columns-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Individual card */
+
+  #grading-pillars-{{ section.id }} .gp-card {
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--gp-card-bg);
+    border: 1px solid var(--gp-border);
+    border-radius: var(--gp-radius);
+    padding: var(--gp-card-padding);
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Standard label and SVG */
+
+  #grading-pillars-{{ section.id }} .gp-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    min-height: 32px;
+    margin-bottom: 18px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-standard-label {
+    color: var(--gp-accent);
+    font-size: {{ section.settings.card_label_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    flex-shrink: 0;
+    color: var(--gp-heading);
+  }
+
+  #grading-pillars-{{ section.id }} .gp-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Card title */
+
+  #grading-pillars-{{ section.id }} .gp-card-title {
+    color: var(--gp-heading);
+    font-family: var(--font-heading-family);
+    font-size: {{ section.settings.card_heading_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 18px;
+  }
+
+  /* Card description */
+
+  #grading-pillars-{{ section.id }} .gp-card-content {
+    color: var(--gp-text);
+    font-size: {{ section.settings.card_content_size }}px;
+    line-height: 1.7;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-content p {
+    margin: 0 0 18px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-content strong {
+    color: var(--gp-heading);
+    font-weight: 600;
+  }
+
+  /* Highlight / italic content */
+
+  #grading-pillars-{{ section.id }} .gp-highlight {
+    color: var(--gp-text);
+    font-size: {{ section.settings.highlight_size }}px;
+    font-style: italic;
+    line-height: 1.65;
+    margin-top: 18px;
+  }
+
+  /* Bottom content */
+
+  #grading-pillars-{{ section.id }} .gp-bottom-label {
+    color: var(--gp-accent);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--gp-divider);
+    padding-top: 22px;
+    margin-top: 28px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-bottom-content {
+    color: var(--gp-text);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-bottom-content p {
+    margin: 0 0 10px;
+  }
+
+  /* Footer */
+
+  #grading-pillars-{{ section.id }} .gp-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    border-top: 1px solid var(--gp-divider);
+    padding-top: 22px;
+    margin-top: 28px;
+    color: var(--gp-text);
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-footer-right {
+    color: var(--gp-heading);
+    font-weight: 600;
+  }
+
+  /* Buttons */
+
+  #grading-pillars-{{ section.id }} .gp-card-button-wrap {
+    margin-top: 22px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-button,
+  #grading-pillars-{{ section.id }} .gp-section-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    color: #fff;
+    background: var(--gp-heading);
+    border: 1px solid var(--gp-heading);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-button:hover,
+  #grading-pillars-{{ section.id }} .gp-section-button:hover {
+    background: transparent;
+    color: var(--gp-heading);
+  }
+
+  #grading-pillars-{{ section.id }} .gp-card-button span,
+  #grading-pillars-{{ section.id }} .gp-section-button span {
+    font-size: 18px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-section-button-wrap {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #grading-pillars-{{ section.id }} .gp-columns-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #grading-pillars-{{ section.id }} .gp-columns-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card {
+      padding: 28px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-header {
+      margin-bottom: 40px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-main-heading {
+      font-size: min({{ section.settings.heading_size }}px, 46px);
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-title {
+      font-size: min({{ section.settings.card_heading_size }}px, 30px);
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #grading-pillars-{{ section.id }} {
+      padding-top: min(var(--gp-padding-top), 45px);
+      padding-bottom: min(var(--gp-padding-bottom), 45px);
+    }
+
+    #grading-pillars-{{ section.id }} .gp-container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-header {
+      margin-bottom: 30px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-subtitle {
+      font-size: 10px;
+      margin-bottom: 14px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-main-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-heading-line {
+      margin: 15px auto;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-header-description {
+      font-size: {{ section.settings.mobile_header_content_size }}px;
+      margin-top: 14px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-grid,
+    #grading-pillars-{{ section.id }} .gp-columns-2,
+    #grading-pillars-{{ section.id }} .gp-columns-3,
+    #grading-pillars-{{ section.id }} .gp-columns-4 {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card {
+      padding: {{ section.settings.mobile_card_padding }}px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-top {
+      margin-bottom: 14px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-title {
+      font-size: {{ section.settings.mobile_card_heading_size }}px;
+      margin-bottom: 14px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-content {
+      font-size: {{ section.settings.mobile_card_content_size }}px;
+      line-height: 1.65;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-highlight {
+      font-size: 14px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-footer {
+      margin-top: 22px;
+      padding-top: 18px;
+      font-size: 12px;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-card-button,
+    #grading-pillars-{{ section.id }} .gp-section-button {
+      width: 100%;
+    }
+
+    #grading-pillars-{{ section.id }} .gp-section-button-wrap {
+      margin-top: 25px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Gemstone grading pillars",
+  "tag": "section",
+  "class": "section-gemstone-grading-pillars",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Evaluation Metrics"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main title",
+      "default": "The Pillars of Tanzanite Grading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading_line",
+      "label": "Show heading underline",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Short description",
+      "default": "<p>The definitive grading dimensions codified by the Tanzanite International Grading Standard.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Grid layout"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Desktop columns",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Maximum section width",
+      "min": 900,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Card spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Desktop card padding",
+      "min": 20,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "SVG icon size",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Desktop typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Main heading size",
+      "min": 28,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "header_content_size",
+      "label": "Header description size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_label_size",
+      "label": "Card standard label size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size",
+      "label": "Card title size",
+      "min": 22,
+      "max": 42,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "card_content_size",
+      "label": "Card description size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "highlight_size",
+      "label": "Highlighted text size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Mobile typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile main heading size",
+      "min": 22,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_header_content_size",
+      "label": "Mobile header description size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_heading_size",
+      "label": "Mobile card title size",
+      "min": 20,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_content_size",
+      "label": "Mobile card description size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Section colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading and icon colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Card text colour",
+      "default": "#292222"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#C5A64E"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border colour",
+      "default": "#EEE8E7"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Card divider colour",
+      "default": "#EEE8E7"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Bottom section button"
+    },
+    {
+      "type": "text",
+      "id": "bottom_button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "bottom_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_button_arrow",
+      "label": "Show arrow",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Grading pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "standard_label",
+          "label": "Standard label",
+          "default": "Standard I"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon code",
+          "info": "Paste the complete inline SVG markup. Use stroke='currentColor' to inherit the icon colour."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "Carat Weight"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Card description",
+          "default": "<p>Like diamonds and other precious gemstones, Tanzanite is weighed in carats, with one carat equal to 200 milligrams.</p><p>Carat weight tells you the physical weight of the gemstone, but it is only one part of what determines its beauty and value.</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "highlight_text",
+          "label": "Highlighted / italic text"
+        },
+        {
+          "type": "text",
+          "id": "bottom_label",
+          "label": "Bottom content label"
+        },
+        {
+          "type": "richtext",
+          "id": "bottom_content",
+          "label": "Bottom content"
+        },
+        {
+          "type": "text",
+          "id": "footer_left",
+          "label": "Footer left text"
+        },
+        {
+          "type": "text",
+          "id": "footer_right",
+          "label": "Footer right text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Card button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Card button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button_arrow",
+          "label": "Show button arrow",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom card CSS class"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Gemstone grading pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "standard_label": "Standard I",
+            "title": "Carat Weight",
+            "footer_left": "Standard Unit: 200 mg / 1 ct",
+            "footer_right": "Merelani Geological Index"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "standard_label": "Standard II",
+            "title": "Shape",
+            "content": "<p>Shape describes the overall form of the gemstone when viewed from above.</p><p>Tanzanite can be fashioned into many beautiful shapes, including oval, round, cushion, pear, emerald and trillion.</p>",
+            "highlight_text": "There is no single perfect shape; only the one that speaks to you.",
+            "bottom_label": "Celebrated facet forms",
+            "bottom_content": "<p>Round · Oval · Cushion · Pear · Emerald · Trillion</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
