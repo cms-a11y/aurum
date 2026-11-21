@@ -338,8 +338,8 @@
         "border_color": "#EADFCB",
         "divider_color": "#EEE8E2",
         "icon_background": "#FAF8F3",
-        "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 60,
         "custom_class": ""
       }
     }
