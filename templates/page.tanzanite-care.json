@@ -45,7 +45,7 @@
         "image_height": 425,
         "mobile_image_height": 280,
         "image_radius": 10,
-        "image_border_color": "#E8D9BD",
+        "image_border_color": "#e8d9bd",
         "eyebrow_size": 13,
         "title_size": 54,
         "subtitle_size": 34,
@@ -59,16 +59,102 @@
         "padding_bottom": 60,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
-        "background_color": "#FAF5F0",
+        "background_color": "#faf5f0",
         "heading_color": "#801426",
         "text_color": "#514344",
-        "accent_color": "#C69B4E",
+        "accent_color": "#c69b4e",
+        "custom_class": ""
+      }
+    },
+    "jewellery_care_guidelines_AirREz": {
+      "type": "jewellery-care-guidelines",
+      "blocks": {
+        "protocol_6CPL9t": {
+          "type": "protocol",
+          "settings": {
+            "protocol_label": "Protocol 01",
+            "icon_svg": "",
+            "title": "Wear With Care",
+            "content": "<p>Tanzanite jewellery is best protected from knocks, scratches and sudden impacts. We recommend removing your pieces before exercising, doing household work, gardening or taking part in activities where your jewellery may come into contact with hard surfaces.</p><p>Tanzanite rings, in particular, should be worn thoughtfully as they are naturally more exposed to everyday contact.</p>",
+            "show_highlight_icon": false,
+            "highlight_icon_svg": "",
+            "highlight_text": "",
+            "show_footer_icon": false,
+            "footer_icon_svg": "",
+            "footer_text": "Recommended for intentional evening wear",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": false,
+            "custom_class": ""
+          }
+        },
+        "protocol_DxFHPz": {
+          "type": "protocol",
+          "settings": {
+            "protocol_label": "Protocol 02",
+            "icon_svg": "",
+            "title": "Keep Away From Chemicals",
+            "content": "<p>To preserve the beauty of both your Tanzanite and its setting, avoid exposing your jewellery to harsh chemicals, chlorine and household cleaning products.</p><p>Apply perfume, hairspray, lotions and other beauty products before putting on your Tanzanite jewellery.</p>",
+            "show_highlight_icon": false,
+            "highlight_icon_svg": "",
+            "highlight_text": "<p>As a simple rule, make your jewellery the last thing you put on and the first thing you take off.</p>",
+            "show_footer_icon": false,
+            "footer_icon_svg": "",
+            "footer_text": "Avoid chlorine, solvents & cosmetics",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": false,
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "protocol_6CPL9t",
+        "protocol_DxFHPz"
+      ],
+      "name": "Jewellery care guidelines",
+      "settings": {
+        "subtitle": "Preservation Protocols",
+        "heading": "Guidelines for Daily Elegance & Longevity",
+        "show_heading_line": true,
+        "description": "",
+        "columns": "2",
+        "section_width": 1500,
+        "header_width": 650,
+        "header_spacing": 40,
+        "card_gap": 25,
+        "card_padding": 25,
+        "mobile_card_padding": 20,
+        "card_radius": 8,
+        "subtitle_size": 11,
+        "heading_size": 34,
+        "mobile_heading_size": 28,
+        "description_size": 14,
+        "protocol_size": 10,
+        "icon_size": 36,
+        "card_heading_size": 24,
+        "card_content_size": 13,
+        "highlight_size": 12,
+        "footer_size": 10,
+        "mobile_content_size": 14,
+        "mobile_card_heading_size": 24,
+        "background_color": "#FAF8F3",
+        "card_background": "#FFFFFF",
+        "heading_color": "#751629",
+        "text_color": "#302727",
+        "accent_color": "#751629",
+        "border_color": "#E9E1D5",
+        "divider_color": "#F0EBE7",
+        "highlight_background": "#F6F2ED",
+        "padding_top": 50,
+        "padding_bottom": 50,
         "custom_class": ""
       }
     }
   },
   "order": [
     "page-template",
-    "queens_history_origin_8QQfii"
+    "queens_history_origin_8QQfii",
+    "jewellery_care_guidelines_AirREz"
   ]
 }
