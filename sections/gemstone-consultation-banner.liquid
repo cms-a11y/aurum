@@ -1,0 +1,691 @@
+
+{% comment %}
+  Section: Gemstone Consultation Banner
+  Responsive promotional / consultation banner
+{% endcomment %}
+
+<section
+  id="gemstone-banner-{{ section.id }}"
+  class="gemstone-banner-section {{ section.settings.custom_class }}"
+  style="
+    --gb-bg: {{ section.settings.background_color }};
+    --gb-heading: {{ section.settings.heading_color }};
+    --gb-text: {{ section.settings.text_color }};
+    --gb-accent: {{ section.settings.accent_color }};
+    --gb-button-bg: {{ section.settings.button_background }};
+    --gb-button-text: {{ section.settings.button_text_color }};
+    --gb-button-border: {{ section.settings.button_border_color }};
+    --gb-width: {{ section.settings.section_width }}px;
+    --gb-radius: {{ section.settings.border_radius }}px;
+    --gb-top: {{ section.settings.padding_top }}px;
+    --gb-bottom: {{ section.settings.padding_bottom }}px;
+    --gb-padding: {{ section.settings.banner_padding }}px;
+  "
+>
+  <div class="gb-container">
+
+    <div class="gb-banner">
+
+      <!-- Decorative SVG watermark -->
+      {% if section.settings.watermark_svg != blank %}
+        <div class="gb-watermark" aria-hidden="true">
+          {{ section.settings.watermark_svg }}
+        </div>
+      {% endif %}
+
+      <!-- Banner content -->
+      <div class="gb-content">
+
+        {% if section.settings.show_star %}
+          <span class="gb-star" aria-hidden="true">★</span>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="gb-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="gb-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="gb-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="gb-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="gb-button"
+              {% if section.settings.open_new_tab %}
+                target="_blank"
+                rel="noopener noreferrer"
+              {% endif %}
+            >
+              {{ section.settings.button_label }}
+
+              {% if section.settings.show_arrow %}
+                <span class="gb-button-arrow" aria-hidden="true">→</span>
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #gemstone-banner-{{ section.id }} {
+    width: 100%;
+    background: {{ section.settings.section_background }};
+    padding-top: var(--gb-top);
+    padding-bottom: var(--gb-bottom);
+    overflow: hidden;
+  }
+
+  #gemstone-banner-{{ section.id }} *,
+  #gemstone-banner-{{ section.id }} *::before,
+  #gemstone-banner-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-container {
+    width: 100%;
+    max-width: var(--gb-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* Main banner */
+
+  #gemstone-banner-{{ section.id }} .gb-banner {
+    position: relative;
+    width: 100%;
+    min-height: {{ section.settings.banner_min_height }}px;
+    display: flex;
+    align-items: {{ section.settings.vertical_alignment }};
+    padding: var(--gb-padding);
+    background: var(--gb-bg);
+    border-radius: var(--gb-radius);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Content */
+
+  #gemstone-banner-{{ section.id }} .gb-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: {{ section.settings.content_width }}px;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-star {
+    display: inline-block;
+    color: var(--gb-accent);
+    font-size: 14px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-subtitle {
+    display: inline-block;
+    color: var(--gb-accent);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-heading {
+    color: var(--gb-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-description {
+    max-width: {{ section.settings.description_width }}px;
+    color: var(--gb-text);
+    font-size: {{ section.settings.description_size }}px;
+    line-height: 1.7;
+    margin-top: 18px;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-description p {
+    margin: 0 0 12px;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-description strong {
+    color: var(--gb-accent);
+  }
+
+  /* Button */
+
+  #gemstone-banner-{{ section.id }} .gb-button-wrap {
+    margin-top: {{ section.settings.button_spacing }}px;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 12px 24px;
+    color: var(--gb-button-text);
+    background: var(--gb-button-bg);
+    border: 1px solid var(--gb-button-border);
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: {{ section.settings.button_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-button:hover {
+    color: var(--gb-button-bg);
+    background: var(--gb-button-text);
+    border-color: var(--gb-button-bg);
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-button-arrow {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-button:hover .gb-button-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Watermark SVG */
+
+  #gemstone-banner-{{ section.id }} .gb-watermark {
+    position: absolute;
+    z-index: 1;
+    right: {{ section.settings.watermark_right }}px;
+    bottom: {{ section.settings.watermark_bottom }}px;
+    width: {{ section.settings.watermark_width }}px;
+    height: {{ section.settings.watermark_width }}px;
+    color: {{ section.settings.watermark_color }};
+    opacity: {{ section.settings.watermark_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+  }
+
+  #gemstone-banner-{{ section.id }} .gb-watermark svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #gemstone-banner-{{ section.id }} .gb-banner {
+      min-height: auto;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-heading {
+      font-size: min({{ section.settings.heading_size }}px, 42px);
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-watermark {
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    #gemstone-banner-{{ section.id }} .gb-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-banner {
+      min-height: auto;
+      padding: 28px 22px;
+      border-radius: min(var(--gb-radius), 12px);
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-content {
+      max-width: 100%;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-subtitle {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.25;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-description {
+      font-size: {{ section.settings.mobile_description_size }}px;
+      line-height: 1.6;
+      margin-top: 14px;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-button-wrap {
+      margin-top: 22px;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-button {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 10px;
+    }
+
+    #gemstone-banner-{{ section.id }} .gb-watermark {
+      width: 145px;
+      height: 145px;
+      right: -25px;
+      bottom: -25px;
+      opacity: 0.10;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Gemstone consultation",
+  "tag": "section",
+  "class": "section-gemstone-consultation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_star",
+      "label": "Show star before subtitle",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Complimentary Inspection & Ultrasonic Advisory"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Main heading",
+      "default": "Bring your Queens Tanzanite to our store for an expert setting inspection and certified gentle restoration."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Our in-house master gemologists evaluate claw tension, surface micro-luster, and setting stability with complimentary bespoke ultrasonic-free hand cleansing.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Contact Gemology Concierge"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show button arrow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open button in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Maximum section width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content maximum width",
+      "min": 400,
+      "max": 1100,
+      "step": 10,
+      "unit": "px",
+      "default": 850
+    },
+    {
+      "type": "range",
+      "id": "description_width",
+      "label": "Description maximum width",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "default": 650
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "banner_min_height",
+      "label": "Minimum banner height",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "banner_padding",
+      "label": "Banner inner padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Banner border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 22,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Desktop description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_size",
+      "label": "Mobile description size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Button font size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "label": "Spacing above button",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Watermark decoration"
+    },
+    {
+      "type": "textarea",
+      "id": "watermark_svg",
+      "label": "Watermark SVG",
+      "info": "Paste your decorative inline SVG markup here."
+    },
+    {
+      "type": "range",
+      "id": "watermark_width",
+      "label": "Watermark width",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "watermark_right",
+      "label": "Watermark right position",
+      "min": -100,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "watermark_bottom",
+      "label": "Watermark bottom position",
+      "min": -100,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": -20
+    },
+    {
+      "type": "range",
+      "id": "watermark_opacity",
+      "label": "Watermark opacity",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "%",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "watermark_color",
+      "label": "Watermark colour",
+      "default": "#A53A55"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Outer section background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Banner background",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description colour",
+      "default": "#F5E9E9"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Subtitle accent colour",
+      "default": "#C5A253"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border colour",
+      "default": "#A85B6D"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gemstone consultation"
+    }
+  ]
+}
+{% endschema %}
