@@ -18,9 +18,56 @@
         "offset_top_mobile": 30,
         "offset_bottom_mobile": 30
       }
+    },
+    "queens_history_origin_8QQfii": {
+      "type": "queens-history-origin",
+      "name": "Queens History & Origin",
+      "settings": {
+        "eyebrow": "Know About",
+        "show_eyebrow_line": true,
+        "title": "Tanzanite Care",
+        "show_title_line": true,
+        "content_label": "",
+        "show_label_icon": true,
+        "subtitle": "Caring for Your Tanzanite Jewellery",
+        "intro_text": "<p>Tanzanite is an extraordinary gemstone, admired for its captivating blue and violet hues. With the right care, your Tanzanite jewelery can retain its beauty and brilliance for years to come.</p>",
+        "description": "<p>Because Tanzanite is softer than gemstones such as diamonds and sapphires, it deserves a little extra attention when being worn, cleaned and stored.</p>",
+        "button_label": "Discover Our Collection",
+        "button_link": "",
+        "show_button_arrow": true,
+        "image_alt": "Tanzanite origin in the Merelani Hills near Mount Kilimanjaro",
+        "image_caption": "Merelani Hills & Kilimanjaro",
+        "image_note": "Single Provenance Source",
+        "image_position": "right",
+        "mobile_image_position": "top",
+        "image_position_focal": "center center",
+        "image_height": 425,
+        "mobile_image_height": 280,
+        "image_radius": 10,
+        "image_border_color": "#E8D9BD",
+        "eyebrow_size": 13,
+        "title_size": 54,
+        "subtitle_size": 34,
+        "content_size": 16,
+        "mobile_title_size": 34,
+        "mobile_subtitle_size": 24,
+        "mobile_content_size": 15,
+        "container_width": 1400,
+        "column_gap": 60,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "background_color": "#FBF8F2",
+        "heading_color": "#801426",
+        "text_color": "#514344",
+        "accent_color": "#C69B4E",
+        "custom_class": ""
+      }
     }
   },
   "order": [
-    "page-template"
+    "page-template",
+    "queens_history_origin_8QQfii"
   ]
 }
