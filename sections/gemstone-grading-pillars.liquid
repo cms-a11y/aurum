@@ -102,17 +102,23 @@
                 </div>
               {% endif %}
 
-              {% if block.settings.bottom_label != blank %}
-                <div class="gp-bottom-label">
-                  {{ block.settings.bottom_label }}
-                </div>
-              {% endif %}
+             {% if block.settings.bottom_title != blank or block.settings.bottom_icon_svg != blank %}
+  <div class="gp-bottom-feature">
 
-              {% if block.settings.bottom_content != blank %}
-                <div class="gp-bottom-content rte">
-                  {{ block.settings.bottom_content }}
-                </div>
-              {% endif %}
+    {% if block.settings.bottom_icon_svg != blank %}
+      <span class="gp-bottom-feature-icon" aria-hidden="true">
+        {{ block.settings.bottom_icon_svg }}
+      </span>
+    {% endif %}
+
+    {% if block.settings.bottom_title != blank %}
+      <span class="gp-bottom-feature-title">
+        {{ block.settings.bottom_title }}
+      </span>
+    {% endif %}
+
+  </div>
+{% endif %}
 
             </div>
 
