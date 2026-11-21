@@ -1,0 +1,731 @@
+
+{% comment %}
+  Section: Gemstone Criteria Grid
+  Dynamic SVG icon boxes with responsive grid
+{% endcomment %}
+
+<section
+  id="gemstone-criteria-{{ section.id }}"
+  class="gemstone-criteria-section {{ section.settings.custom_class }}"
+  style="
+    --gc-section-bg: {{ section.settings.background_color }};
+    --gc-card-bg: {{ section.settings.card_background }};
+    --gc-heading: {{ section.settings.heading_color }};
+    --gc-text: {{ section.settings.text_color }};
+    --gc-icon: {{ section.settings.icon_color }};
+    --gc-border: {{ section.settings.border_color }};
+    --gc-width: {{ section.settings.section_width }}px;
+    --gc-gap: {{ section.settings.grid_gap }}px;
+    --gc-radius: {{ section.settings.card_radius }}px;
+    --gc-padding-top: {{ section.settings.padding_top }}px;
+    --gc-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --gc-card-padding: {{ section.settings.card_padding }}px;
+    --gc-columns: {{ section.settings.desktop_columns }};
+  "
+>
+  <div class="gc-container">
+
+    {% if section.settings.subtitle != blank or section.settings.heading != blank or section.settings.description != blank %}
+      <div class="gc-header">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="gc-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="gc-main-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="gc-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    <div class="gc-grid">
+
+      {% for block in section.blocks %}
+        <div
+          class="gc-item {{ block.settings.custom_class }}"
+          style="
+            --gc-item-bg: {{ block.settings.background_color }};
+            --gc-item-heading: {{ block.settings.heading_color }};
+            --gc-item-text: {{ block.settings.text_color }};
+            --gc-item-icon: {{ block.settings.icon_color }};
+            --gc-item-border: {{ block.settings.border_color }};
+          "
+          {{ block.shopify_attributes }}
+        >
+
+          {% if block.settings.icon_svg != blank %}
+            <div class="gc-icon" aria-hidden="true">
+              {{ block.settings.icon_svg }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.label != blank %}
+            <div class="gc-label">
+              {{ block.settings.label }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class="gc-title">
+              {{ block.settings.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.description != blank %}
+            <div class="gc-item-description rte">
+              {{ block.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.button_label != blank %}
+            <a
+              href="{{ block.settings.button_link | default: '#' }}"
+              class="gc-item-button"
+            >
+              {{ block.settings.button_label }}
+            </a>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #gemstone-criteria-{{ section.id }} {
+    width: 100%;
+    padding-top: var(--gc-padding-top);
+    padding-bottom: var(--gc-padding-bottom);
+    background: var(--gc-section-bg);
+    overflow: hidden;
+  }
+
+  #gemstone-criteria-{{ section.id }} *,
+  #gemstone-criteria-{{ section.id }} *::before,
+  #gemstone-criteria-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-container {
+    width: 100%;
+    max-width: var(--gc-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* Section heading */
+
+  #gemstone-criteria-{{ section.id }} .gc-header {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 35px;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-subtitle {
+    color: var(--gc-heading);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-main-heading {
+    color: var(--gc-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-description {
+    color: var(--gc-text);
+    font-size: {{ section.settings.description_size }}px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-description p {
+    margin: 0;
+  }
+
+  /* Grid */
+
+  #gemstone-criteria-{{ section.id }} .gc-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--gc-columns), minmax(0, 1fr));
+    gap: var(--gc-gap);
+    align-items: stretch;
+  }
+
+  /* Individual item */
+
+  #gemstone-criteria-{{ section.id }} .gc-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: var(--gc-card-padding) 18px;
+    background: var(--gc-item-bg, var(--gc-card-bg));
+    border: 1px solid var(--gc-item-border, var(--gc-border));
+    border-radius: var(--gc-radius);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(60, 25, 30, .06);
+  }
+
+  /* SVG icon */
+
+  #gemstone-criteria-{{ section.id }} .gc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    color: var(--gc-item-icon, var(--gc-icon));
+    margin-bottom: 12px;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Label */
+
+  #gemstone-criteria-{{ section.id }} .gc-label {
+    color: var(--gc-item-heading, var(--gc-heading));
+    font-size: {{ section.settings.label_size }}px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  /* Title */
+
+  #gemstone-criteria-{{ section.id }} .gc-title {
+    color: var(--gc-item-heading, var(--gc-heading));
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.card_heading_size }}px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* Description */
+
+  #gemstone-criteria-{{ section.id }} .gc-item-description {
+    color: var(--gc-item-text, var(--gc-text));
+    font-size: {{ section.settings.card_description_size }}px;
+    line-height: 1.5;
+    margin-top: 7px;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-item-description p {
+    margin: 0;
+  }
+
+  /* Optional button */
+
+  #gemstone-criteria-{{ section.id }} .gc-item-button {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 8px 16px;
+    color: var(--gc-item-heading, var(--gc-heading));
+    border: 1px solid var(--gc-item-heading, var(--gc-heading));
+    border-radius: 3px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .25s ease;
+  }
+
+  #gemstone-criteria-{{ section.id }} .gc-item-button:hover {
+    color: #fff;
+    background: var(--gc-item-heading, var(--gc-heading));
+  }
+
+  /* Tablet */
+
+  @media screen and (max-width: 989px) {
+    #gemstone-criteria-{{ section.id }} .gc-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-main-heading {
+      font-size: 32px;
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 549px) {
+    #gemstone-criteria-{{ section.id }} .gc-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-header {
+      margin-bottom: 22px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-main-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-item {
+      padding: 20px 10px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+      margin-bottom: 9px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-label {
+      font-size: 9px;
+      letter-spacing: .08em;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-title {
+      font-size: {{ section.settings.mobile_card_heading_size }}px;
+    }
+
+    #gemstone-criteria-{{ section.id }} .gc-item-description {
+      font-size: 11px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Gemstone criteria grid",
+  "tag": "section",
+  "class": "section-gemstone-criteria-grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Evaluation Metrics"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Pillars of Tanzanite Grading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Short description",
+      "default": "<p>The definitive grading dimensions codified by the Tanzanite International Grading Standard.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Grid layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Maximum section width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Boxes per row on desktop",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" },
+        { "value": "5", "label": "5 columns" },
+        { "value": "6", "label": "6 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Boxes per row on mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Space between boxes",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Box inner spacing",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Box border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Icon settings"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Desktop icon size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "label": "Mobile icon size",
+      "min": 18,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Section subtitle size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Section heading size",
+      "min": 24,
+      "max": 52,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile section heading size",
+      "min": 20,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Section description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Box label size",
+      "min": 9,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size",
+      "label": "Box title size",
+      "min": 18,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_heading_size",
+      "label": "Mobile box title size",
+      "min": 15,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "range",
+      "id": "card_description_size",
+      "label": "Box description size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Section colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Default box background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#302727"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Box border colour",
+      "default": "#F0E2E2"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom section CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "criteria",
+      "name": "Icon information box",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon code",
+          "info": "Paste the complete inline SVG markup."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Small label",
+          "default": "First Criterion"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Colour"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Short description",
+          "default": "Hues & Pleochroism"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Optional button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Optional button link"
+        },
+        {
+          "type": "header",
+          "content": "Individual box styling"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Box background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Label and title colour",
+          "default": "#751629"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Description colour",
+          "default": "#302727"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon colour",
+          "default": "#751629"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Box border colour",
+          "default": "#F0E2E2"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom box CSS class"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Gemstone criteria grid",
+      "blocks": [
+        {
+          "type": "criteria",
+          "settings": {
+            "label": "First C",
+            "title": "Colour",
+            "description": "Hues & Pleochroism"
+          }
+        },
+        {
+          "type": "criteria",
+          "settings": {
+            "label": "Second C",
+            "title": "Clarity",
+            "description": "Eye-Clean Purity"
+          }
+        },
+        {
+          "type": "criteria",
+          "settings": {
+            "label": "Third C",
+            "title": "Cut",
+            "description": "Geometry & Fire"
+          }
+        },
+        {
+          "type": "criteria",
+          "settings": {
+            "label": "Fourth C",
+            "title": "Carat Weight",
+            "description": "Mass & Rarity"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
