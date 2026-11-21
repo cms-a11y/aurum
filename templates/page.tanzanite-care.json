@@ -138,7 +138,7 @@
         "footer_size": 10,
         "mobile_content_size": 14,
         "mobile_card_heading_size": 24,
-        "background_color": "#FAF5F0",
+        "background_color": "#faf5f0",
         "card_background": "#ffffff",
         "heading_color": "#751629",
         "text_color": "#302727",
@@ -150,11 +150,109 @@
         "padding_bottom": 50,
         "custom_class": ""
       }
+    },
+    "jewellery_care_layouts_fTpnV8": {
+      "type": "jewellery-care-layouts",
+      "blocks": {
+        "horizontal_protocol_LHMtWV": {
+          "type": "horizontal_protocol",
+          "settings": {
+            "protocol_label": "Protocol 03",
+            "title": "Cleaning Your Tanzanite",
+            "italic_text": "A little gentle care is all it takes.",
+            "icon_svg": "",
+            "content": "<p>Clean your Tanzanite jewellery using lukewarm water, mild soap and a soft cloth or soft-bristled brush. Gently clean around the setting and setting before rinsing carefully and drying with a soft, lint-free cloth.</p>",
+            "secondary_text": "Avoid sudden changes in temperature and never use harsh cleaning agents.",
+            "warning_title": "Crucial ultrasonic warning",
+            "warning_icon_svg": "",
+            "warning_text": "<p>Ultrasonic and steam cleaners are not recommended for Tanzanite, as the heat and vibrations may damage the gemstone.</p>",
+            "background_color": "#FFFFFF",
+            "heading_color": "#751629",
+            "text_color": "#302727",
+            "accent_color": "#751629",
+            "custom_class": ""
+          }
+        },
+        "protocol_card_PKbFgd": {
+          "type": "protocol_card",
+          "settings": {
+            "protocol_label": "Protocol 04",
+            "icon_svg": "",
+            "title": "Professional Care",
+            "intro": "<p>Fine jewellery deserves professional attention from time to time.</p>",
+            "content": "<p>We recommend having your Tanzanite jewellery periodically inspected and professionally cleaned, particularly pieces that are worn frequently. This allows the gemstone, prongs and setting to be checked and helps keep your jewellery looking its best.</p>",
+            "footer_icon_svg": "",
+            "footer_text": "Recommended annual inspection cycle",
+            "button_label": "",
+            "button_link": "",
+            "background_color": "#FFFFFF",
+            "heading_color": "#751629",
+            "text_color": "#302727",
+            "accent_color": "#751629",
+            "custom_class": ""
+          }
+        },
+        "credo_card_gFkWte": {
+          "type": "credo_card",
+          "settings": {
+            "subtitle": "The Queens Credo",
+            "icon_svg": "",
+            "title": "A Little Care Goes a Long Way",
+            "content": "<p>Every Tanzanite is unique, and caring for yours is part of preserving something truly special.</p>",
+            "italic_text": "Treat it gently, wear it beautifully, and let it remain part of your story for generations.",
+            "bottom_text": "Made to be treasured. Cared for to last.",
+            "button_label": "",
+            "button_link": "",
+            "background_color": "#FCEAC5",
+            "heading_color": "#751629",
+            "text_color": "#302727",
+            "accent_color": "#A77B32",
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "horizontal_protocol_LHMtWV",
+        "protocol_card_PKbFgd",
+        "credo_card_gFkWte"
+      ],
+      "name": "Jewellery care layouts",
+      "settings": {
+        "subtitle": "Preservation Protocols",
+        "heading": "Guidelines for Daily Elegance & Longevity",
+        "description": "",
+        "section_width": 1430,
+        "grid_gap": 25,
+        "card_padding": 25,
+        "horizontal_padding": 35,
+        "mobile_card_padding": 20,
+        "card_radius": 8,
+        "heading_size": 34,
+        "mobile_heading_size": 26,
+        "horizontal_heading_size": 26,
+        "card_heading_size": 20,
+        "credo_heading_size": 20,
+        "content_size": 16,
+        "background_color": "#FAF8F3",
+        "card_background": "#FFFFFF",
+        "heading_color": "#751629",
+        "text_color": "#302727",
+        "accent_color": "#751629",
+        "border_color": "#E9E1D5",
+        "divider_color": "#F0EBE7",
+        "warning_background": "#FFF8F7",
+        "warning_border": "#F2B9B9",
+        "warning_text_color": "#A52B2B",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "page-template",
     "queens_history_origin_8QQfii",
-    "jewellery_care_guidelines_AirREz"
+    "jewellery_care_guidelines_AirREz",
+    "jewellery_care_layouts_fTpnV8"
   ]
 }
