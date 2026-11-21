@@ -375,6 +375,66 @@
     margin-top: 18px;
   }
 
+  /* Bottom content */
+/* Bottom feature: SVG icon + title */
+
+#grading-pillars-{{ section.id }} .gp-bottom-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--gp-divider);
+  padding-top: 22px;
+  margin-top: 28px;
+  color: var(--gp-accent);
+}
+
+#grading-pillars-{{ section.id }} .gp-bottom-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--gp-heading);
+}
+
+#grading-pillars-{{ section.id }} .gp-bottom-feature-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#grading-pillars-{{ section.id }} .gp-bottom-feature-title {
+  color: var(--gp-accent);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 749px) {
+  #grading-pillars-{{ section.id }} .gp-bottom-feature {
+    margin-top: 22px;
+    padding-top: 18px;
+    gap: 10px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-bottom-feature-icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  #grading-pillars-{{ section.id }} .gp-bottom-feature-title {
+    font-size: 12px;
+  }
+}
+
   /* Footer */
 
   #grading-pillars-{{ section.id }} .gp-card-footer {
