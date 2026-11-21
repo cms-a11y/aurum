@@ -312,7 +312,7 @@
         "quote": "One origin. Extraordinary rarity. Uniquely yours.",
         "image": "shopify://shop_images/certificate-authenticity.jpg",
         "image_caption": "",
-        "image_fit": "contain",
+        "image_fit": "cover",
         "image_height": 250,
         "mobile_image_height": 220,
         "image_radius": 12,
