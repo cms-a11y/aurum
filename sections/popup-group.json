@@ -38,6 +38,7 @@
         "is_newsletter_popup_enabled": true,
         "newsletter_popup_cookie_time": "1",
         "newsletter_popup_heading": "Enjoy 10% off your first order",
+        "newsletter_button": "Enjoy 10% Off",
         "newsletter_popup_text": "Discover new collections, receive exclusive offers, and find meaningful jewelry that inspires and empowers",
         "newsletter_popup_input_placeholder": "Enter email address...",
         "newsletter_popup_input_button_submit_text": "Join the Community",
@@ -66,10 +67,94 @@
         "newsletter_popup_color_button_social_background_hover": "#75162d",
         "newsletter_popup_color_button_social_border_hover": "#75162d"
       }
+    },
+    "gemstone_grading_pillars_MAHMN8": {
+      "type": "gemstone-grading-pillars",
+      "blocks": {
+        "pillar_DXWhrq": {
+          "type": "pillar",
+          "settings": {
+            "standard_label": "Standard I",
+            "icon_svg": "",
+            "title": "Carat Weight",
+            "content": "<p>Like diamonds and other precious gemstones, Tanzanite is weighed in carats, with one carat equal to 200 milligrams.</p><p>Carat weight tells you the physical weight of the gemstone, but it is only one part of what determines its beauty and value.</p>",
+            "highlight_text": "",
+            "bottom_label": "",
+            "bottom_content": "",
+            "footer_left": "Standard Unit: 200 mg / 1 ct",
+            "footer_right": "Merelani Geological Index",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_class": ""
+          }
+        },
+        "pillar_NE7kPB": {
+          "type": "pillar",
+          "settings": {
+            "standard_label": "Standard II",
+            "icon_svg": "",
+            "title": "Shape",
+            "content": "<p>Shape describes the overall form of the gemstone when viewed from above.</p><p>Tanzanite can be fashioned into many beautiful shapes, including oval, round, cushion, pear, emerald and trillion.</p>",
+            "highlight_text": "There is no single perfect shape; only the one that speaks to you.",
+            "bottom_label": "Celebrated facet forms",
+            "bottom_content": "<p>Round · Oval · Cushion · Pear · Emerald · Trillion</p>",
+            "footer_left": "",
+            "footer_right": "",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "pillar_DXWhrq",
+        "pillar_NE7kPB"
+      ],
+      "name": "Gemstone grading pillars",
+      "settings": {
+        "subtitle": "Evaluation Metrics",
+        "heading": "The Pillars of Tanzanite Grading",
+        "show_heading_line": true,
+        "description": "<p>The definitive grading dimensions codified by the Tanzanite International Grading Standard.</p>",
+        "columns": "2",
+        "section_width": 1600,
+        "column_gap": 45,
+        "card_padding": 45,
+        "mobile_card_padding": 15,
+        "card_radius": 16,
+        "icon_size": 30,
+        "subtitle_size": 13,
+        "heading_size": 54,
+        "header_content_size": 18,
+        "card_label_size": 13,
+        "card_heading_size": 36,
+        "card_content_size": 17,
+        "highlight_size": 16,
+        "mobile_heading_size": 30,
+        "mobile_header_content_size": 15,
+        "mobile_card_heading_size": 26,
+        "mobile_card_content_size": 15,
+        "background_color": "#FFFFFF",
+        "card_background": "#FFFFFF",
+        "heading_color": "#751629",
+        "text_color": "#292222",
+        "accent_color": "#C5A64E",
+        "border_color": "#EEE8E7",
+        "divider_color": "#EEE8E7",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "bottom_button_label": "",
+        "bottom_button_link": "",
+        "bottom_button_arrow": true,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "cookie-bar",
-    "newsletter_popup_tCWRPR"
+    "newsletter_popup_tCWRPR",
+    "gemstone_grading_pillars_MAHMN8"
   ]
 }
