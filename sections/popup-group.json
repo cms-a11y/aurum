@@ -171,11 +171,106 @@
         "bottom_button_arrow": true,
         "custom_class": ""
       }
+    },
+    "gemstone_grading_cards_p87QUp": {
+      "type": "gemstone-grading-cards",
+      "blocks": {
+        "grading_card_bVd6k6": {
+          "type": "grading_card",
+          "settings": {
+            "standard_label": "Standard III",
+            "icon_svg": "",
+            "title": "Cut",
+            "content": "<p>While nature creates the Tanzanite, it is the skill of the cutter that reveals much of its brilliance.</p><p>The cut refers to how the gemstone has been shaped, faceted and polished. Carefully considered proportions allow light to travel through the stone beautifully, enhancing its brilliance, colour and overall appearance.</p><p>A beautifully cut Tanzanite should showcase the natural character of the gemstone while bringing its colour and brilliance to life.</p>",
+            "highlight_text": "",
+            "footer_text": "Master Cutter Criteria: Proportions, Polish & Symmetry",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_class": ""
+          }
+        },
+        "grading_card_kiHdqY": {
+          "type": "grading_card",
+          "settings": {
+            "standard_label": "Standard IV",
+            "icon_svg": "",
+            "title": "Colour",
+            "content": "<p>Colour is one of Tanzanite's most captivating characteristics.</p><p>The gemstone is celebrated for its extraordinary spectrum of blue and violet tones, which can range from softer lavender and violet-blue shades to intensely saturated royal blues.</p><p>Fine Tanzanite is particularly admired for rich, vivid colour and strong saturation. Because each gemstone is formed naturally, subtle variations in tone and colour make every Tanzanite distinct.</p>",
+            "highlight_text": "It is this remarkable play between blue and violet that gives Tanzanite its unmistakable character.",
+            "footer_text": "Pleochroism: Trichroic Optical Splendour",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_class": ""
+          }
+        },
+        "grading_card_DPNYLp": {
+          "type": "grading_card",
+          "settings": {
+            "standard_label": "Standard V",
+            "icon_svg": "",
+            "title": "Clarity",
+            "content": "<p>Clarity describes the presence or absence of natural internal characteristics, known as inclusions, within a gemstone.</p><p>These features develop during the stone's natural formation and can vary from one Tanzanite to another. Gemstones with fewer visible inclusions generally receive higher clarity assessments, particularly when they display exceptional transparency and brilliance.</p><p>Clarity is considered alongside colour, cut and carat weight when assessing the overall quality and beauty of a Tanzanite.</p>",
+            "highlight_text": "",
+            "footer_text": "Internal Purity: Eye-Clean to Loupe-Certified",
+            "button_label": "",
+            "button_link": "",
+            "show_button_arrow": true,
+            "custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "grading_card_bVd6k6",
+        "grading_card_kiHdqY",
+        "grading_card_DPNYLp"
+      ],
+      "name": "Gemstone grading cards",
+      "settings": {
+        "subtitle": "",
+        "heading": "",
+        "show_heading_line": false,
+        "description": "",
+        "columns": "3",
+        "section_width": 1500,
+        "column_gap": 40,
+        "card_padding": 40,
+        "mobile_card_padding": 25,
+        "card_radius": 10,
+        "icon_size": 30,
+        "subtitle_size": 13,
+        "heading_size": 54,
+        "description_size": 18,
+        "label_size": 13,
+        "card_heading_size": 36,
+        "card_content_size": 17,
+        "highlight_size": 16,
+        "footer_size": 13,
+        "mobile_heading_size": 30,
+        "mobile_description_size": 15,
+        "mobile_card_heading_size": 26,
+        "mobile_card_content_size": 15,
+        "background_color": "#FAF8F3",
+        "card_background": "#FFFFFF",
+        "heading_color": "#751629",
+        "text_color": "#292222",
+        "accent_color": "#C5A64E",
+        "border_color": "#EEE8E7",
+        "divider_color": "#EEE8E7",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "bottom_button_label": "",
+        "bottom_button_link": "",
+        "bottom_button_arrow": true,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "cookie-bar",
     "newsletter_popup_tCWRPR",
-    "gemstone_grading_pillars_MAHMN8"
+    "gemstone_grading_pillars_MAHMN8",
+    "gemstone_grading_cards_p87QUp"
   ]
 }
