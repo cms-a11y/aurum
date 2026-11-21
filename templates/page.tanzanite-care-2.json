@@ -146,9 +146,9 @@
       ],
       "name": "Gemstone criteria grid",
       "settings": {
-        "subtitle": "Evaluation Metrics",
-        "heading": "The Pillars of Tanzanite Grading",
-        "description": "<p>The definitive grading dimensions codified by the Tanzanite International Grading Standard.</p>",
+        "subtitle": "",
+        "heading": "",
+        "description": "",
         "section_width": 1500,
         "desktop_columns": "4",
         "mobile_columns": "2",
