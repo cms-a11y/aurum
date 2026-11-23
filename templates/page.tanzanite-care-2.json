@@ -480,7 +480,7 @@
         "button_text_color": "#ffffff",
         "button_hover_background": "#55101b",
         "button_hover_text": "#ffffff",
-        "section_width": 1200,
+        "section_width": 1000,
         "padding_top": 30,
         "padding_bottom": 30,
         "inner_padding": 60,
