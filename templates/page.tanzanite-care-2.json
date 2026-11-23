@@ -449,6 +449,62 @@
         "padding_bottom": 50,
         "custom_class": ""
       }
+    },
+    "beyond_4cs_nWkPpD": {
+      "type": "beyond-4cs",
+      "name": "Beyond the 4Cs",
+      "settings": {
+        "show_icon": true,
+        "icon_svg": "<svg width=\"22\" height=\"22\" viewbox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M18 8L16.75 5.25L14 4L16.75 2.75L18 0L19.25 2.75L22 4L19.25 5.25L18 8V8M18 22L16.75 19.25L14 18L16.75 16.75L18 14L19.25 16.75L22 18L19.25 19.25L18 22V22M8 19L5.5 13.5L0 11L5.5 8.5L8 3L10.5 8.5L16 11L10.5 13.5L8 19V19M8 14.15L9 12L11.15 11L9 10L8 7.85L7 10L4.85 11L7 12L8 14.15V14.15M8 11V11V11V11V11V11V11V11V11V11\" fill=\"#72162E\"></path>\n</svg>",
+        "icon_size": 42,
+        "mobile_icon_size": 40,
+        "icon_spacing": 25,
+        "heading": "Looking Beyond the 4Cs",
+        "show_divider": true,
+        "divider_width": 85,
+        "divider_spacing": 10,
+        "content": "<p>While grading provides a valuable way to understand Tanzanite, numbers and classifications tell only part of its story.</p><p>The beauty of Tanzanite lies in the way its qualities come together; the depth of its blue, flashes of violet, brilliance of its cut and the individual character that makes each gemstone different.</p>",
+        "highlight_content": "<p>Ultimately, the finest Tanzanite is not simply the one with the highest specifications. It is the one whose beauty captures you.</p>",
+        "show_quote": true,
+        "quote_text": "“No two Tanzanites are the same. Find the one that feels like yours.”",
+        "quote_size": 26,
+        "mobile_quote_size": 21,
+        "quote_spacing": 30,
+        "button_label": "Inquire with our senior gemologist",
+        "button_link": "",
+        "show_button_arrow": false,
+        "button_spacing": 35,
+        "button_font_size": 11,
+        "button_radius": 8,
+        "button_background": "#751522",
+        "button_text_color": "#FFFFFF",
+        "button_hover_background": "#55101B",
+        "button_hover_text": "#FFFFFF",
+        "section_width": 1500,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "inner_padding": 60,
+        "mobile_inner_padding": 24,
+        "border_width": 1,
+        "border_radius": 0,
+        "heading_size": 48,
+        "tablet_heading_size": 40,
+        "mobile_heading_size": 30,
+        "content_width": 680,
+        "content_size": 14,
+        "mobile_content_size": 13,
+        "highlight_size": 14,
+        "mobile_highlight_size": 13,
+        "paragraph_spacing": 20,
+        "highlight_spacing": 15,
+        "background_color": "#FAF8F5",
+        "content_background": "#FAF8F5",
+        "heading_color": "#751522",
+        "text_color": "#352526",
+        "accent_color": "#8A2939",
+        "border_color": "#EADDDD",
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -458,6 +514,7 @@
     "tanzanite_colour_information_FhbTiX",
     "tanzanite_clarity_guide_kG3xwz",
     "tanzanite_colour_information_KeLrK9",
-    "tanzanite_colour_information_xxaJBF"
+    "tanzanite_colour_information_xxaJBF",
+    "beyond_4cs_nWkPpD"
   ]
 }
