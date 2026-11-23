@@ -316,7 +316,6 @@
   #tanzanite-info-{{ section.id }} .ti-image-wrapper img {
     display: block;
     width: 100%;
-    height: {{ section.settings.image_height }}px;
     object-fit: {{ section.settings.image_fit }};
     object-position: center;
   }
@@ -620,16 +619,6 @@
         }
       ],
       "default": "contain"
-    },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "Desktop image height",
-      "min": 150,
-      "max": 600,
-      "step": 10,
-      "unit": "px",
-      "default": 350
     },
     {
       "type": "range",
