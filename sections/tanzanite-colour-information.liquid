@@ -1,0 +1,924 @@
+
+{% comment %}
+  Section: Tanzanite Colour Information
+  Responsive two-column image and content section
+{% endcomment %}
+
+<section
+  id="tanzanite-info-{{ section.id }}"
+  class="tanzanite-info-section {{ section.settings.custom_class }}"
+  style="
+    --ti-section-bg: {{ section.settings.background_color }};
+    --ti-width: {{ section.settings.section_width }}px;
+    --ti-top: {{ section.settings.padding_top }}px;
+    --ti-bottom: {{ section.settings.padding_bottom }}px;
+    --ti-gap: {{ section.settings.column_gap }}px;
+    --ti-heading: {{ section.settings.heading_color }};
+    --ti-text: {{ section.settings.text_color }};
+    --ti-card-bg: {{ section.settings.card_background }};
+    --ti-card-border: {{ section.settings.card_border }};
+    --ti-card-radius: {{ section.settings.card_radius }}px;
+    --ti-card-padding: {{ section.settings.card_padding }}px;
+  "
+>
+  <div class="ti-container">
+
+    <div class="ti-layout ti-layout--{{ section.settings.media_position }}">
+
+      <!-- TEXT CONTENT -->
+      <div class="ti-content-column">
+
+        {% if section.settings.subtitle != blank %}
+          <div class="ti-subtitle-wrap">
+
+            {% if section.settings.show_icon and section.settings.subtitle_icon != blank %}
+              <span class="ti-subtitle-icon" aria-hidden="true">
+                {{ section.settings.subtitle_icon }}
+              </span>
+            {% endif %}
+
+            <span class="ti-subtitle">
+              {{ section.settings.subtitle }}
+            </span>
+
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="ti-heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.content != blank %}
+          <div class="ti-content rte">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="ti-button-wrap">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="ti-button"
+              {% if section.settings.open_new_tab %}
+                target="_blank"
+                rel="noopener noreferrer"
+              {% endif %}
+            >
+              {{ section.settings.button_label }}
+
+              {% if section.settings.show_button_arrow %}
+                <span aria-hidden="true">→</span>
+              {% endif %}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- IMAGE INFORMATION CARD -->
+      <div class="ti-info-column">
+
+        <div class="ti-info-card">
+
+          {% if section.settings.image != blank %}
+            <div class="ti-image-wrapper">
+              {{
+                section.settings.image
+                | image_url: width: 1600
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 600, 800, 1200, 1600',
+                  sizes: '(min-width: 990px) 50vw, 100vw',
+                  alt: section.settings.image.alt
+            }}
+            </div>
+          {% else %}
+            <div class="ti-image-placeholder">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.show_image_information %}
+            <div class="ti-info-details">
+
+              <!-- LEFT INFORMATION -->
+              <div class="ti-info-item ti-info-item--left">
+
+                {% if section.settings.left_heading != blank %}
+                  <h3 class="ti-info-heading">
+                    {{ section.settings.left_heading }}
+                  </h3>
+                {% endif %}
+
+                {% if section.settings.left_description != blank %}
+                  <div class="ti-info-description rte">
+                    {{ section.settings.left_description }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+              <!-- RIGHT INFORMATION -->
+              <div class="ti-info-item ti-info-item--right">
+
+                {% if section.settings.right_heading != blank %}
+                  <h3 class="ti-info-heading">
+                    {{ section.settings.right_heading }}
+                  </h3>
+                {% endif %}
+
+                {% if section.settings.right_description != blank %}
+                  <div class="ti-info-description rte">
+                    {{ section.settings.right_description }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #tanzanite-info-{{ section.id }} {
+    width: 100%;
+    padding-top: var(--ti-top);
+    padding-bottom: var(--ti-bottom);
+    background-color: var(--ti-section-bg);
+    overflow: hidden;
+  }
+
+  #tanzanite-info-{{ section.id }} *,
+  #tanzanite-info-{{ section.id }} *::before,
+  #tanzanite-info-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  /* SECTION CONTAINER */
+
+  #tanzanite-info-{{ section.id }} .ti-container {
+    width: 100%;
+    max-width: var(--ti-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* TWO COLUMN LAYOUT */
+
+  #tanzanite-info-{{ section.id }} .ti-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--ti-gap);
+    align-items: start;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-layout--right .ti-content-column {
+    order: 1;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-layout--right .ti-info-column {
+    order: 2;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-layout--left .ti-content-column {
+    order: 2;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-layout--left .ti-info-column {
+    order: 1;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-content-column,
+  #tanzanite-info-{{ section.id }} .ti-info-column {
+    min-width: 0;
+  }
+
+  /* SUBTITLE */
+
+  #tanzanite-info-{{ section.id }} .ti-subtitle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-subtitle-icon {
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    color: {{ section.settings.accent_color }};
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-subtitle-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-subtitle {
+    color: var(--ti-heading);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: .17em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  /* MAIN HEADING */
+
+  #tanzanite-info-{{ section.id }} .ti-heading {
+    color: var(--ti-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 28px;
+  }
+
+  /* MAIN CONTENT */
+
+  #tanzanite-info-{{ section.id }} .ti-content {
+    color: var(--ti-text);
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.85;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-content p {
+    margin: 0 0 24px;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-content strong {
+    color: var(--ti-heading);
+  }
+
+  /* BUTTON */
+
+  #tanzanite-info-{{ section.id }} .ti-button-wrap {
+    margin-top: 28px;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 25px;
+    color: {{ section.settings.button_text_color }};
+    background: {{ section.settings.button_background }};
+    border: 1px solid {{ section.settings.button_border }};
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: {{ section.settings.button_size }}px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .25s ease;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-button:hover {
+    color: {{ section.settings.button_background }};
+    background: {{ section.settings.button_text_color }};
+  }
+
+  /* IMAGE CARD */
+
+  #tanzanite-info-{{ section.id }} .ti-info-card {
+    padding: var(--ti-card-padding);
+    background: var(--ti-card-bg);
+    border: 1px solid var(--ti-card-border);
+    border-radius: var(--ti-card-radius);
+    box-shadow: 0 2px 5px rgba(60, 30, 30, .03);
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ section.settings.image_radius }}px;
+    background: #f5f0e9;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: center;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-image-placeholder {
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    overflow: hidden;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-image-placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* IMAGE INFORMATION */
+
+  #tanzanite-info-{{ section.id }} .ti-info-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: {{ section.settings.info_gap }}px;
+    padding-top: {{ section.settings.info_spacing }}px;
+    margin-top: {{ section.settings.info_spacing }}px;
+    border-top: 1px solid {{ section.settings.divider_color }};
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-item {
+    min-width: 0;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-item--right {
+    text-align: right;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-heading {
+    color: var(--ti-heading);
+    font-size: {{ section.settings.info_heading_size }}px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-description {
+    color: var(--ti-text);
+    font-size: {{ section.settings.info_description_size }}px;
+    line-height: 1.7;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-description p {
+    margin: 0 0 8px;
+  }
+
+  #tanzanite-info-{{ section.id }} .ti-info-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* TABLET */
+
+  @media screen and (max-width: 989px) {
+    #tanzanite-info-{{ section.id }} .ti-layout {
+      gap: 25px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-heading {
+      font-size: 40px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-content {
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-image-wrapper img,
+    #tanzanite-info-{{ section.id }} .ti-image-placeholder {
+      height: 300px;
+    }
+  }
+
+  /* MOBILE */
+
+  @media screen and (max-width: 749px) {
+    #tanzanite-info-{{ section.id }} .ti-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 25px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-layout--right .ti-content-column,
+    #tanzanite-info-{{ section.id }} .ti-layout--left .ti-content-column {
+      order: 1;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-layout--right .ti-info-column,
+    #tanzanite-info-{{ section.id }} .ti-layout--left .ti-info-column {
+      order: 2;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-subtitle-wrap {
+      margin-bottom: 16px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-subtitle {
+      font-size: 10px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-content {
+      font-size: {{ section.settings.mobile_content_size }}px;
+      line-height: 1.75;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-content p {
+      margin-bottom: 16px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-info-card {
+      padding: {{ section.settings.mobile_card_padding }}px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-image-wrapper img,
+    #tanzanite-info-{{ section.id }} .ti-image-placeholder {
+      height: {{ section.settings.mobile_image_height }}px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-info-details {
+      gap: 12px;
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-info-heading {
+      font-size: 10px;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-info-description {
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-button {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    #tanzanite-info-{{ section.id }} .ti-info-details {
+      grid-template-columns: 1fr;
+    }
+
+    #tanzanite-info-{{ section.id }} .ti-info-item--right {
+      text-align: left;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tanzanite info columns",
+  "tag": "section",
+  "class": "section-tanzanite-info-columns",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show subtitle SVG icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle_icon",
+      "label": "Subtitle SVG icon",
+      "info": "Paste complete inline SVG code."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "The 4Cs of Tanzanite"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Colour"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Main content",
+      "default": "<p>Colour is one of the most important and captivating characteristics of Tanzanite.</p><p>Tanzanite is celebrated for its beautiful spectrum of <strong>blue and violet hues</strong>, ranging from lighter violet-blue tones to deep, intensely saturated blues.</p><p>Generally, stones displaying a rich, vivid colour with strong saturation are particularly prized. Larger Tanzanites can also exhibit greater depth of colour, while smaller stones often appear lighter.</p><p>One of Tanzanite's most fascinating characteristics is its <strong>pleochroism</strong>; the ability to display different colours when viewed from different directions.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Show button arrow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open button in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Image information card"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Upload image"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Image card position",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right side"
+        },
+        {
+          "value": "left",
+          "label": "Left side"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_information",
+      "label": "Show information below image",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left information heading",
+      "default": "Gemological Saturation Scale"
+    },
+    {
+      "type": "richtext",
+      "id": "left_description",
+      "label": "Left information description",
+      "default": "<p>Illustrating the chromatic progression across the grading scale.</p>"
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right information heading",
+      "default": "International Grading Standard"
+    },
+    {
+      "type": "richtext",
+      "id": "right_description",
+      "label": "Right information description",
+      "default": "<p>Graded under standardized 5500K daylight illumination.</p>"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Desktop image height",
+      "min": 150,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 350
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 120,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 220
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Desktop card padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "info_spacing",
+      "label": "Information spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "info_gap",
+      "label": "Information column gap",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "info_heading_size",
+      "label": "Information heading size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "info_description_size",
+      "label": "Information description size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Section width and layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Maximum section width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column spacing",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 30,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 68
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 26,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Desktop content size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_size",
+      "label": "Mobile content size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Button font size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Section colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF8F3"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#241717"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Image card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Image card border",
+      "default": "#F0E2E2"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Information divider",
+      "default": "#F0E2E2"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#751629"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text colour",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border",
+      "label": "Button border colour",
+      "default": "#751629"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Enter your custom class without the dot."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tanzanite info columns"
+    }
+  ]
+}
+{% endschema %}
