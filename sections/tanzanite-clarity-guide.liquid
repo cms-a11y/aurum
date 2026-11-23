@@ -1,0 +1,1185 @@
+
+{% comment %}
+  Section: Tanzanite Clarity Guide
+  Centered heading, grading image card and three information cards.
+{% endcomment %}
+
+<section
+  id="clarity-guide-{{ section.id }}"
+  class="clarity-guide {{ section.settings.custom_class }}"
+  style="
+    --cg-bg: {{ section.settings.background_color }};
+    --cg-width: {{ section.settings.section_width }}px;
+    --cg-top: {{ section.settings.padding_top }}px;
+    --cg-bottom: {{ section.settings.padding_bottom }}px;
+    --cg-heading: {{ section.settings.heading_color }};
+    --cg-text: {{ section.settings.text_color }};
+    --cg-accent: {{ section.settings.accent_color }};
+    --cg-card-bg: {{ section.settings.card_background }};
+    --cg-border: {{ section.settings.border_color }};
+    --cg-gap: {{ section.settings.card_gap }}px;
+    --cg-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="cg-container">
+
+    <!-- SECTION HEADER -->
+    <div class="cg-header">
+
+      {% if section.settings.subtitle != blank %}
+        <div class="cg-subtitle-wrap">
+
+          {% if section.settings.show_icon and section.settings.subtitle_icon != blank %}
+            <span class="cg-subtitle-icon" aria-hidden="true">
+              {{ section.settings.subtitle_icon }}
+            </span>
+          {% endif %}
+
+          <span class="cg-subtitle">
+            {{ section.settings.subtitle }}
+          </span>
+
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="cg-heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.show_heading_line %}
+        <span class="cg-heading-line"></span>
+      {% endif %}
+
+      {% if section.settings.content != blank %}
+        <div class="cg-intro rte">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <!-- GRADING INFORMATION CARD -->
+    <div class="cg-main-card">
+
+      <!-- TOP INFORMATION -->
+      <div class="cg-card-header">
+
+        <div class="cg-card-header-left">
+          {% if section.settings.chart_heading != blank %}
+            <h3 class="cg-chart-heading">
+              {{ section.settings.chart_heading }}
+            </h3>
+          {% endif %}
+
+          {% if section.settings.chart_subtitle != blank %}
+            <div class="cg-chart-subtitle">
+              {{ section.settings.chart_subtitle }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.chart_right_label != blank %}
+          <div class="cg-chart-right">
+            {% if section.settings.show_chart_icon and section.settings.chart_icon != blank %}
+              <span class="cg-chart-icon" aria-hidden="true">
+                {{ section.settings.chart_icon }}
+              </span>
+            {% endif %}
+
+            <span>{{ section.settings.chart_right_label }}</span>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- GRADING IMAGE -->
+      {% if section.settings.chart_image != blank %}
+        <div class="cg-image-wrap">
+          {{
+            section.settings.chart_image
+            | image_url: width: 2000
+            | image_tag:
+              loading: 'lazy',
+              widths: '400, 600, 800, 1200, 1600, 2000',
+              sizes: '(min-width: 990px) 1000px, 100vw',
+              alt: section.settings.chart_image.alt
+          }}
+        </div>
+      {% else %}
+        <div class="cg-image-placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% endif %}
+
+      <!-- BOTTOM INFORMATION -->
+      {% if section.settings.show_bottom_information %}
+        <div class="cg-card-footer">
+
+          <div class="cg-footer-left">
+            {% if section.settings.bottom_left_content != blank %}
+              <div class="cg-footer-content rte">
+                {{ section.settings.bottom_left_content }}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cg-footer-right">
+            {% if section.settings.bottom_right_content != blank %}
+              <div class="cg-footer-highlight rte">
+                {{ section.settings.bottom_right_content }}
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endif %}
+
+    </div>
+
+    <!-- THREE INFORMATION CARDS -->
+    {% if section.blocks.size > 0 %}
+      <div class="cg-feature-grid">
+
+        {% for block in section.blocks %}
+          <div
+            class="cg-feature-card {{ block.settings.custom_class }}"
+            style="
+              --cg-feature-bg: {{ block.settings.background_color }};
+              --cg-feature-heading: {{ block.settings.heading_color }};
+              --cg-feature-text: {{ block.settings.text_color }};
+              --cg-feature-border: {{ block.settings.border_color }};
+            "
+            {{ block.shopify_attributes }}
+          >
+
+            {% if block.settings.show_icon and block.settings.icon_svg != blank %}
+              <div class="cg-feature-icon" aria-hidden="true">
+                {{ block.settings.icon_svg }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="cg-feature-title">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.content != blank %}
+              <div class="cg-feature-content rte">
+                {{ block.settings.content }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_label != blank %}
+              <a
+                class="cg-feature-button"
+                href="{{ block.settings.button_link | default: '#' }}"
+              >
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  #clarity-guide-{{ section.id }} {
+    width: 100%;
+    padding-top: var(--cg-top);
+    padding-bottom: var(--cg-bottom);
+    background: var(--cg-bg);
+    overflow: hidden;
+  }
+
+  #clarity-guide-{{ section.id }} *,
+  #clarity-guide-{{ section.id }} *::before,
+  #clarity-guide-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-container {
+    width: 100%;
+    max-width: var(--cg-width);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+
+  #clarity-guide-{{ section.id }} .cg-header {
+    max-width: {{ section.settings.header_width }}px;
+    margin: 0 auto {{ section.settings.header_spacing }}px;
+    text-align: center;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-subtitle-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-subtitle-icon {
+    display: inline-flex;
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    color: var(--cg-accent);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-subtitle-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-subtitle {
+    color: var(--cg-heading);
+    font-size: {{ section.settings.subtitle_size }}px;
+    font-weight: 600;
+    letter-spacing: .17em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-heading {
+    color: var(--cg-heading);
+    font-family: var(--heading-font-family);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-heading-line {
+    display: block;
+    width: {{ section.settings.heading_line_width }}px;
+    height: 2px;
+    margin: 24px auto;
+    background: var(--cg-accent);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-intro {
+    color: var(--cg-text);
+    font-size: {{ section.settings.intro_size }}px;
+    line-height: 1.75;
+    text-align: {{ section.settings.content_alignment }};
+  }
+
+  #clarity-guide-{{ section.id }} .cg-intro p {
+    margin: 0 0 22px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* MAIN IMAGE CARD */
+
+  #clarity-guide-{{ section.id }} .cg-main-card {
+    width: 100%;
+    padding: {{ section.settings.main_card_padding }}px;
+    background: var(--cg-card-bg);
+    border: 1px solid var(--cg-border);
+    border-radius: var(--cg-radius);
+    box-shadow: 0 2px 5px rgba(50, 20, 20, .035);
+    margin-bottom: {{ section.settings.feature_spacing }}px;
+  }
+
+  /* CARD TOP HEADER */
+
+  #clarity-guide-{{ section.id }} .cg-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--cg-border);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-chart-heading {
+    color: var(--cg-heading);
+    font-size: {{ section.settings.chart_heading_size }}px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-chart-subtitle {
+    color: {{ section.settings.muted_color }};
+    font-size: {{ section.settings.chart_subtitle_size }}px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-chart-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    color: {{ section.settings.muted_color }};
+    font-size: {{ section.settings.chart_right_size }}px;
+    letter-spacing: .04em;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-chart-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--cg-accent);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-chart-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  /* IMAGE */
+
+  #clarity-guide-{{ section.id }} .cg-image-wrap {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ section.settings.image_radius }}px;
+    background: {{ section.settings.image_background }};
+  }
+
+  #clarity-guide-{{ section.id }} .cg-image-wrap img {
+    display: block;
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: center;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-image-placeholder {
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    overflow: hidden;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-image-placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* CARD BOTTOM CONTENT */
+
+  #clarity-guide-{{ section.id }} .cg-card-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 25px;
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid var(--cg-border);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-footer-content {
+    color: var(--cg-text);
+    font-size: {{ section.settings.footer_size }}px;
+    line-height: 1.7;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-footer-content p,
+  #clarity-guide-{{ section.id }} .cg-footer-highlight p {
+    margin: 0;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-footer-highlight {
+    color: var(--cg-heading);
+    font-size: {{ section.settings.footer_size }}px;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: right;
+  }
+
+  /* THREE FEATURE BOXES */
+
+  #clarity-guide-{{ section.id }} .cg-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--cg-gap);
+    align-items: stretch;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-card {
+    min-width: 0;
+    padding: {{ section.settings.feature_card_padding }}px;
+    background: var(--cg-feature-bg, var(--cg-card-bg));
+    border: 1px solid var(--cg-feature-border, var(--cg-border));
+    border-radius: {{ section.settings.feature_card_radius }}px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(50, 20, 20, .05);
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    color: var(--cg-feature-heading, var(--cg-heading));
+    margin-bottom: 12px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-title {
+    color: var(--cg-feature-heading, var(--cg-heading));
+    font-size: {{ section.settings.feature_title_size }}px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-content {
+    color: var(--cg-feature-text, var(--cg-text));
+    font-size: {{ section.settings.feature_content_size }}px;
+    line-height: 1.7;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-content p {
+    margin: 0 0 10px;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  #clarity-guide-{{ section.id }} .cg-feature-button {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--cg-feature-heading, var(--cg-heading));
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* TABLET */
+
+  @media screen and (max-width: 989px) {
+    #clarity-guide-{{ section.id }} .cg-feature-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #clarity-guide-{{ section.id }} .cg-heading {
+      font-size: 42px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-image-wrap img,
+    #clarity-guide-{{ section.id }} .cg-image-placeholder {
+      height: auto;
+      min-height: 220px;
+    }
+  }
+
+  /* MOBILE */
+
+  @media screen and (max-width: 749px) {
+    #clarity-guide-{{ section.id }} .cg-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-header {
+      margin-bottom: 25px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-subtitle-wrap {
+      margin-bottom: 15px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-subtitle {
+      font-size: 10px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-heading-line {
+      margin: 18px auto;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-intro {
+      font-size: {{ section.settings.mobile_intro_size }}px;
+      text-align: left;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-intro p {
+      margin-bottom: 15px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-main-card {
+      padding: {{ section.settings.mobile_card_padding }}px;
+      margin-bottom: 20px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-card-header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-chart-heading {
+      font-size: 11px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-chart-right {
+      justify-content: flex-start;
+      font-size: 9px;
+      text-align: left;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-image-wrap img,
+    #clarity-guide-{{ section.id }} .cg-image-placeholder {
+      height: {{ section.settings.mobile_image_height }}px;
+      min-height: 0;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-card-footer {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-footer-content,
+    #clarity-guide-{{ section.id }} .cg-footer-highlight {
+      font-size: 11px;
+      text-align: left;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-feature-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-feature-card {
+      padding: 20px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-feature-title {
+      font-size: 11px;
+    }
+
+    #clarity-guide-{{ section.id }} .cg-feature-content {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 550px) and (max-width: 749px) {
+    #clarity-guide-{{ section.id }} .cg-feature-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tanzanite clarity guide",
+  "tag": "section",
+  "class": "section-tanzanite-clarity-guide",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show subtitle icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle_icon",
+      "label": "Subtitle SVG icon",
+      "info": "Paste complete inline SVG code."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "The 4Cs of Tanzanite"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main title",
+      "default": "Clarity"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading_line",
+      "label": "Show heading underline",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_line_width",
+      "label": "Underline width",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 85
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Introduction content",
+      "default": "<p>Clarity refers to the natural characteristics that may be visible within a gemstone, known as <strong>inclusions</strong>.</p><p>Tanzanite is generally expected to be <strong>eye-clean</strong> in fine jewellery, meaning inclusions should not be easily visible to the naked eye. Stones with exceptional transparency and fewer noticeable inclusions allow light to travel more freely through the gemstone, enhancing its brilliance and beauty.</p><p>Natural characteristics can occur within Tanzanite and are part of the individual story of each stone.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Introduction alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "label": "Header maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "default": 950
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "label": "Space below header",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Grading image information card"
+    },
+    {
+      "type": "text",
+      "id": "chart_heading",
+      "label": "Card left heading",
+      "default": "GIA Clarity Grading Scale"
+    },
+    {
+      "type": "text",
+      "id": "chart_subtitle",
+      "label": "Card left subtitle",
+      "default": "Evaluated under 10x binocular gemological magnification"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_chart_icon",
+      "label": "Show right-side icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "chart_icon",
+      "label": "Right-side SVG icon"
+    },
+    {
+      "type": "text",
+      "id": "chart_right_label",
+      "label": "Card right label",
+      "default": "Subsurface Inclusion Mapping"
+    },
+    {
+      "type": "image_picker",
+      "id": "chart_image",
+      "label": "Grading chart image"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "contain", "label": "Contain" },
+        { "value": "cover", "label": "Cover" }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image background",
+      "default": "#741522"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Desktop image height",
+      "min": 150,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 120,
+      "max": 450,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_information",
+      "label": "Show bottom information",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_left_content",
+      "label": "Bottom left content",
+      "default": "<p>Tanzanite standard in high jewellery prioritizes Eye-Clean where natural crystal growth features remain invisible to the unaided eye.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_right_content",
+      "label": "Bottom right highlighted content",
+      "default": "<p>Queens Tanzania Selection: Flawless – VS1</p>"
+    },
+    {
+      "type": "header",
+      "content": "Three information cards"
+    },
+    {
+      "type": "range",
+      "id": "feature_spacing",
+      "label": "Space above information cards",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "feature_card_padding",
+      "label": "Information card padding",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "feature_card_radius",
+      "label": "Information card radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "feature_title_size",
+      "label": "Information card title size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "feature_content_size",
+      "label": "Information card content size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Section width and layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Maximum section width",
+      "min": 900,
+      "max": 1800,
+      "step": 10,
+      "unit": "px",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Information card gap",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 30,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 24,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "intro_size",
+      "label": "Introduction font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_intro_size",
+      "label": "Mobile introduction font size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "chart_heading_size",
+      "label": "Chart heading size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "chart_subtitle_size",
+      "label": "Chart subtitle size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "chart_right_size",
+      "label": "Chart right label size",
+      "min": 9,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "footer_size",
+      "label": "Bottom information font size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Section colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF8F5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#751522"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#261A1A"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#751522"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text colour",
+      "default": "#8A7A73"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border colour",
+      "default": "#F0E5E5"
+    },
+    {
+      "type": "header",
+      "content": "Card styling"
+    },
+    {
+      "type": "range",
+      "id": "main_card_padding",
+      "label": "Main card padding",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile main card padding",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Main card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Enter your custom class without the dot."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Information card",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show SVG icon",
+          "default": false
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG icon code",
+          "info": "Paste complete inline SVG markup."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "Eye-clean standard"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Card content",
+          "default": "<p>Flawless optical transparency where light reflects without internal distortion.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Optional button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Optional button link"
+        },
+        {
+          "type": "header",
+          "content": "Card colours"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Title colour",
+          "default": "#751522"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Content colour",
+          "default": "#261A1A"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border colour",
+          "default": "#F0E5E5"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom card CSS class"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Tanzanite clarity guide",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Eye-clean standard",
+            "content": "<p>Flawless optical transparency where light reflects without internal distortion.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Natural signatures",
+            "content": "<p>Subtle microscopic rutile needles proving subterranean geological provenance.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Refraction purity",
+            "content": "<p>Unobstructed ray travel allowing intense inner scintillation across all facet tiers.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
