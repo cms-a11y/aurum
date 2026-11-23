@@ -364,14 +364,12 @@
   #clarity-guide-{{ section.id }} .cg-image-wrap img {
     display: block;
     width: 100%;
-    height: {{ section.settings.image_height }}px;
     object-fit: {{ section.settings.image_fit }};
     object-position: center;
   }
 
   #clarity-guide-{{ section.id }} .cg-image-placeholder {
     width: 100%;
-    height: {{ section.settings.image_height }}px;
     overflow: hidden;
   }
 
@@ -563,7 +561,6 @@
 
     #clarity-guide-{{ section.id }} .cg-image-wrap img,
     #clarity-guide-{{ section.id }} .cg-image-placeholder {
-      height: {{ section.settings.mobile_image_height }}px;
       min-height: 0;
     }
 
@@ -743,26 +740,7 @@
       "label": "Image background",
       "default": "#741522"
     },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "Desktop image height",
-      "min": 150,
-      "max": 700,
-      "step": 10,
-      "unit": "px",
-      "default": 300
-    },
-    {
-      "type": "range",
-      "id": "mobile_image_height",
-      "label": "Mobile image height",
-      "min": 120,
-      "max": 450,
-      "step": 10,
-      "unit": "px",
-      "default": 200
-    },
+    
     {
       "type": "range",
       "id": "image_radius",
