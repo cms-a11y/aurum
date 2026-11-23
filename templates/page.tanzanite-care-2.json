@@ -175,11 +175,66 @@
         "padding_bottom": 50,
         "custom_class": ""
       }
+    },
+    "tanzanite_colour_information_FhbTiX": {
+      "type": "tanzanite-colour-information",
+      "name": "Tanzanite info columns",
+      "settings": {
+        "show_icon": true,
+        "subtitle_icon": "",
+        "subtitle": "The 4Cs of Tanzanite",
+        "heading": "Colour",
+        "content": "<p>Colour is one of the most important and captivating characteristics of Tanzanite.</p><p>Tanzanite is celebrated for its beautiful spectrum of <strong>blue and violet hues</strong>, ranging from lighter violet-blue tones to deep, intensely saturated blues.</p><p>Generally, stones displaying a rich, vivid colour with strong saturation are particularly prized. Larger Tanzanites can also exhibit greater depth of colour, while smaller stones often appear lighter.</p><p>One of Tanzanite's most fascinating characteristics is its <strong>pleochroism</strong>; the ability to display different colours when viewed from different directions.</p>",
+        "button_label": "",
+        "button_link": "",
+        "show_button_arrow": false,
+        "open_new_tab": false,
+        "media_position": "right",
+        "show_image_information": true,
+        "left_heading": "Gemological Saturation Scale",
+        "left_description": "<p>Illustrating the chromatic progression across the grading scale.</p>",
+        "right_heading": "International Grading Standard",
+        "right_description": "<p>Graded under standardized 5500K daylight illumination.</p>",
+        "image_fit": "contain",
+        "image_height": 350,
+        "mobile_image_height": 220,
+        "image_radius": 8,
+        "card_padding": 25,
+        "mobile_card_padding": 14,
+        "info_spacing": 20,
+        "info_gap": 20,
+        "info_heading_size": 12,
+        "info_description_size": 12,
+        "section_width": 1500,
+        "column_gap": 45,
+        "subtitle_size": 12,
+        "heading_size": 42,
+        "mobile_heading_size": 36,
+        "content_size": 16,
+        "mobile_content_size": 14,
+        "button_size": 11,
+        "button_radius": 4,
+        "background_color": "#FAF8F3",
+        "heading_color": "#751629",
+        "text_color": "#241717",
+        "accent_color": "#751629",
+        "card_background": "#FFFFFF",
+        "card_border": "#F0E2E2",
+        "divider_color": "#F0E2E2",
+        "button_background": "#751629",
+        "button_text_color": "#FFFFFF",
+        "button_border": "#751629",
+        "card_radius": 14,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "page-template",
     "queens_history_origin_8TaN3e",
-    "gemstone_criteria_grid_qMKi6h"
+    "gemstone_criteria_grid_qMKi6h",
+    "tanzanite_colour_information_FhbTiX"
   ]
 }
