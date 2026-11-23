@@ -486,7 +486,7 @@
         "inner_padding": 60,
         "mobile_inner_padding": 24,
         "border_width": 1,
-        "border_radius": 0,
+        "border_radius": 8,
         "heading_size": 42,
         "tablet_heading_size": 36,
         "mobile_heading_size": 30,
