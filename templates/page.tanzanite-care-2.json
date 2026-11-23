@@ -395,6 +395,60 @@
         "padding_bottom": 50,
         "custom_class": ""
       }
+    },
+    "tanzanite_colour_information_xxaJBF": {
+      "type": "tanzanite-colour-information",
+      "name": "Tanzanite info columns",
+      "settings": {
+        "show_icon": true,
+        "subtitle_icon": "<svg width=\"20\" height=\"20\" viewbox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17.1538 5.26918L16.3195 3.46888L14.5192 2.63459L16.3195 1.8003L17.1538 0L17.9881 1.8003L19.7884 2.63459L17.9881 3.46888L17.1538 5.26918V5.26918M5.9038 5.26918L5.06952 3.46888L3.26921 2.63459L5.06952 1.8003L5.9038 0L6.73809 1.8003L8.53839 2.63459L6.73809 3.46888L5.9038 5.26918V5.26918M17.1538 16.5192L16.3195 14.7189L14.5192 13.8846L16.3195 13.0503L17.1538 11.25L17.9881 13.0503L19.7884 13.8846L17.9881 14.7189L17.1538 16.5192V16.5192M2.52303 19.5268L0.261536 17.2653C0.0871785 17.0888 0 16.8754 0 16.6252C0 16.375 0.0871785 16.1628 0.261536 15.9884L10.8923 5.37693C11.0689 5.20257 11.2822 5.11539 11.5324 5.11539C11.7826 5.11539 11.9948 5.20257 12.1692 5.37693L14.4307 7.63843C14.605 7.81501 14.6922 8.02839 14.6922 8.27855C14.6922 8.52872 14.605 8.74098 14.4307 8.91534L3.79995 19.5268C3.62336 19.7012 3.40998 19.7884 3.15982 19.7884C2.90965 19.7884 2.69739 19.7012 2.52303 19.5268V19.5268M3.17687 18.0423L10.3461 10.8423L8.94611 9.44227L1.74611 16.6115L3.17687 18.0423V18.0423\" fill=\"#6B0F1A\"></path>\n</svg>",
+        "subtitle": "The 4Cs of Tanzanite",
+        "heading": "Carat Weight",
+        "content": "<p>Carat refers to the <strong>weight</strong> of a Tanzanite rather than its physical size. One carat is equal to <strong>200 milligrams</strong>.<br/><br/>Tanzanite occurs in a wide range of carat weights, but fine-quality stones become increasingly rare as their size increases. Larger Tanzanites can also display deeper and more saturated colour, making exceptional large stones particularly desirable.</p><p>Carat weight alone, however, does not determine quality. A smaller Tanzanite with exceptional colour, clarity and cut may be more desirable than a larger stone of lesser<br/>overall quality.</p>",
+        "button_label": "",
+        "button_link": "",
+        "show_button_arrow": false,
+        "open_new_tab": false,
+        "image": "shopify://shop_images/cuts.jpg",
+        "media_position": "right",
+        "show_image_information": true,
+        "left_heading": "CELEBRATED FACET GEOMETRIES",
+        "left_description": "<p>Orientation dictates dominant blue or violet chromatic presentation.</p>",
+        "right_heading": "",
+        "right_description": "",
+        "image_fit": "contain",
+        "mobile_image_height": 220,
+        "image_radius": 8,
+        "card_padding": 25,
+        "mobile_card_padding": 14,
+        "info_spacing": 20,
+        "info_gap": 20,
+        "info_heading_size": 14,
+        "info_description_size": 13,
+        "section_width": 1450,
+        "column_gap": 45,
+        "subtitle_size": 12,
+        "heading_size": 42,
+        "mobile_heading_size": 36,
+        "content_size": 16,
+        "mobile_content_size": 14,
+        "button_size": 11,
+        "button_radius": 4,
+        "background_color": "#faf5f0",
+        "heading_color": "#751629",
+        "text_color": "#241717",
+        "accent_color": "#751629",
+        "card_background": "#ffffff",
+        "card_border": "#ffffff",
+        "divider_color": "#ffffff",
+        "button_background": "#751629",
+        "button_text_color": "#ffffff",
+        "button_border": "#751629",
+        "card_radius": 14,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -403,6 +457,7 @@
     "gemstone_criteria_grid_qMKi6h",
     "tanzanite_colour_information_FhbTiX",
     "tanzanite_clarity_guide_kG3xwz",
-    "tanzanite_colour_information_KeLrK9"
+    "tanzanite_colour_information_KeLrK9",
+    "tanzanite_colour_information_xxaJBF"
   ]
 }
