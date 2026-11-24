@@ -43,6 +43,7 @@ span.banner-subheading {
 }
 .newsletter .newsletter__subheading, h2.quote-banner__heading{position:relative;}
 body button.button.button--secondary.newsletter-form__button{background:#fff;color:var(--button-background-color-primary)}
+body button.button.button--secondary.newsletter-form__button:hover{color:#fff;background:var(--button-background-color-primary)}
 .heading-custom-main h2:after,
 .newsletter .newsletter__subheading:after,
 h2.quote-banner__heading:after,
