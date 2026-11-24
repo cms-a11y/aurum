@@ -9,8 +9,7 @@
   overflow-y: hidden;
   overflow-x: auto;
   max-width: 1430px;
-  margin: 0 auto;
-  padding: 2px 16px;
+  padding: 2px 28px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
