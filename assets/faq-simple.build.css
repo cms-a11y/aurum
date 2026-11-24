@@ -58,7 +58,8 @@
 }
 .faq-simple .faq-simple__item:not(:last-child) {
   margin-bottom: 4px;
-      border: 1px solid #cdcdcd;
+  border: 1px solid #cdcdcd;
+  border-radius: 14px;
 }
 .faq-simple .faq-simple__item.is-active {
   color: var(--text-active-color, var(--color-background));
