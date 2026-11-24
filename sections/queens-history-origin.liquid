@@ -150,8 +150,7 @@
   #queens-history-{{ section.id }} .qho-container {
     width: 100%;
     max-width: var(--qho-container);
-    padding: 0 30px;
-    margin: 0 auto;
+    padding: 0;
   }
 
   /* Main heading */
@@ -200,6 +199,7 @@
   #queens-history-{{ section.id }} .qho-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
     gap: var(--qho-gap);
   }
 
