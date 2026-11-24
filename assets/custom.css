@@ -294,6 +294,7 @@ button.action.next.submit.classic-button.wizard__submit {
   body.template-page section > div:first-child {
     padding: 0 18px !important;
   }
+  body.template-page .breadcrumb .breadcrumb__container{padding: 0;}
       .product-specs__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px 12px;
