@@ -291,7 +291,10 @@ button.action.next.submit.classic-button.wizard__submit {
     font-style: italic;
 }
     @media screen and (max-width: 991px) {
-  .product-specs__grid {
+  body.template-page section > div:first-child {
+    padding: 0 18px !important;
+  }
+      .product-specs__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px 12px;
   }
