@@ -9,7 +9,6 @@ body:not(.template-index) .header .header__icon,
 body:not(.template-index) .header .header__burger-menu-button{color: var(--button-background-color-primary);}
 body:not(.template-index) .header { border-bottom: 1px solid #F4E4C8;}
 body.template-page .breadcrumb{ background: #faf5f0;padding: 0 32px; }
-
 span.banner-subheading {
     color: #FBF8EF;
     text-transform: uppercase;
