@@ -1,5 +1,5 @@
 :root {
-    --page-horizontal-spacing: clamp(20px, 4.3vw, 82px);
+    --page-horizontal-spacing: clamp(20px, 3vw, 60px);
 }
 body:not(.template-index) .header__split-layout .header__heading-logo{max-width: 120px;}
 body:not(.template-index) .header__split-layout{padding:5px 28px;}
