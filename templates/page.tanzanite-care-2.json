@@ -476,7 +476,7 @@
         "show_button_arrow": false,
         "button_spacing": 35,
         "button_font_size": 16,
-        "button_radius": 20,
+        "button_radius": 32,
         "button_background": "#751522",
         "button_text_color": "#ffffff",
         "button_hover_background": "#55101b",
