@@ -980,6 +980,7 @@
         "button_aria_label": "Book an Appointment",
         "button_url": "shopify://pages/book-a-private-appointment",
         "button_style": "primary",
+        "bgcolor": "#FFFFFF",
         "container_width": "100%",
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
