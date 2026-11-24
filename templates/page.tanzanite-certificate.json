@@ -319,7 +319,7 @@
         "button_label": "Book an appointment",
         "button_link": "shopify://pages/book-a-private-appointment",
         "show_button_arrow": false,
-        "button_radius": 8,
+        "button_radius": 20,
         "button_background": "#751629",
         "button_text_color": "#ffffff",
         "subtitle_size": 12,
