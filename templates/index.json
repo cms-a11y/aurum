@@ -701,7 +701,7 @@
         "mobile_height": 600,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
-        "desktop_padding_horizontal": 0,
+        "desktop_padding_horizontal": 60,
         "mobile_padding_top": 50,
         "mobile_padding_bottom": 50,
         "mobile_padding_horizontal": 20,
