@@ -33,6 +33,7 @@
     },
     "newsletter_popup_tCWRPR": {
       "type": "newsletter-popup",
+      "disabled": true,
       "name": "Newsletter popup",
       "settings": {
         "is_newsletter_popup_enabled": true,
