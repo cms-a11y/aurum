@@ -92,6 +92,8 @@
     "quick_view_image_fit": "quick-view__image-wrapper--cover",
     "quick_view_timer_background_color": "#161e13",
     "enable_search": true,
+    "predictive_search_articles": false,
+    "predictive_search_pages": false,
     "predictive_search_most_searched_links": "category",
     "social_instagram_link": "https://www.instagram.com/queens_gems_jewellery",
     "cart_reminder_color_text": "#fff",
