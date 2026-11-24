@@ -23,6 +23,7 @@
 {%- assign button_style            	  = section.settings.button_style -%}
 {%- assign border_color 		   	  = section.settings.border_color -%}
 {%- assign container 				  = section.settings.container_width -%}
+{%- assign bgcolor 				  = section.settings.bgcolor -%}
 
 {% if container == 'inherit' %}
 	{% assign container_width = settings.container_width %}
@@ -446,6 +447,12 @@
 			{
 				"type": "header",
 				"content": "Layout"
+			},
+			{
+			"label": "Background color",
+			"type": "color",
+			 "id": "bgcolor",
+
 			},
 			{
 				"type": "select",
