@@ -11,6 +11,7 @@ body:not(.template-index) .header { border-bottom: 1px solid #F4E4C8;}
 body.template-page .breadcrumb{ background: #faf5f0;padding: 0 32px; }
 body.template-page section > div:first-child {
     padding: 0 60px !important;
+    max-width: 100% !important;
   }
 span.banner-subheading {
     color: #FBF8EF;
