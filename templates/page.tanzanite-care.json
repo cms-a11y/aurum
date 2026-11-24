@@ -275,7 +275,7 @@
         "mobile_description_size": 13,
         "button_size": 15,
         "button_spacing": 25,
-        "button_radius": 20,
+        "button_radius": 32,
         "watermark_svg": "",
         "watermark_width": 300,
         "watermark_right": 0,
