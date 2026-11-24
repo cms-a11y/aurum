@@ -4,6 +4,16 @@
   Responsive two-column content and image section
 {% endcomment %}
 
+{%- assign has_image = false -%}
+{%- if section.settings.main_image != blank -%}
+  {%- assign has_image = true -%}
+{%- endif -%}
+
+{%- assign has_content = false -%}
+{%- if section.settings.eyebrow != blank or section.settings.title != blank or section.settings.content_label != blank or section.settings.subtitle != blank or section.settings.intro_text != blank or section.settings.description != blank or section.settings.button_label != blank -%}
+  {%- assign has_content = true -%}
+{%- endif -%}
+
 <section
   id="queens-history-{{ section.id }}"
   class="queens-history-origin {{ section.settings.custom_class }}"
@@ -28,8 +38,9 @@
 
    
 
-    <div class="qho-layout {% if section.settings.image_position == 'left' %}qho-image-left{% else %}qho-image-right{% endif %}">
+    <div class="qho-layout {% if has_content and has_image %}qho-two-column {% if section.settings.image_position == 'left' %}qho-image-left{% else %}qho-image-right{% endif %}{% elsif has_content %}qho-content-only{% elsif has_image %}qho-image-only{% endif %}">
 
+      {% if has_content %}
       <div class="qho-content">
  <div class="qho-heading">
       {% if section.settings.eyebrow != blank %}
@@ -97,7 +108,9 @@
         {% endif %}
 
       </div>
+      {% endif %}
 
+      {% if has_image %}
       <div class="qho-image-column">
         {% if section.settings.main_image != blank %}
           <div class="qho-image-frame">
@@ -128,6 +141,7 @@
          
         {% endif %}
       </div>
+      {% endif %}
 
     </div>
   </div>
@@ -151,7 +165,9 @@
   #queens-history-{{ section.id }} .qho-container {
     width: 100%;
     max-width: var(--qho-container);
-    padding: 0;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Main heading */
@@ -202,6 +218,42 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
     gap: var(--qho-gap);
+  }
+
+  /* When only one column has content, center it and use a comfortable width. */
+  #queens-history-{{ section.id }} .qho-layout.qho-content-only,
+  #queens-history-{{ section.id }} .qho-layout.qho-image-only {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  #queens-history-{{ section.id }} .qho-content-only .qho-content {
+    width: 100%;
+    max-width: {{ section.settings.single_column_width }}px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #queens-history-{{ section.id }} .qho-content-only .qho-eyebrow {
+    justify-content: center;
+  }
+
+  #queens-history-{{ section.id }} .qho-content-only .qho-title-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #queens-history-{{ section.id }} .qho-content-only .qho-button-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  #queens-history-{{ section.id }} .qho-image-only .qho-image-column {
+    width: 100%;
+    max-width: {{ section.settings.single_column_width }}px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #queens-history-{{ section.id }} .qho-image-left .qho-content {
@@ -776,6 +828,16 @@
       "step": 50,
       "unit": "px",
       "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "single_column_width",
+      "label": "Single column maximum width",
+      "min": 400,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 900
     },
     {
       "type": "range",
