@@ -26,7 +26,12 @@
 >
   <div class="qho-container">
 
-    <div class="qho-heading">
+   
+
+    <div class="qho-layout {% if section.settings.image_position == 'left' %}qho-image-left{% else %}qho-image-right{% endif %}">
+
+      <div class="qho-content">
+ <div class="qho-heading">
       {% if section.settings.eyebrow != blank %}
         <div class="qho-eyebrow">
           {% if section.settings.show_eyebrow_line %}
@@ -46,11 +51,7 @@
         <div class="qho-title-line"></div>
       {% endif %}
     </div>
-
-    <div class="qho-layout {% if section.settings.image_position == 'left' %}qho-image-left{% else %}qho-image-right{% endif %}">
-
-      <div class="qho-content">
-
+    
         {% if section.settings.content_label != blank %}
           <div class="qho-content-label">
             {% if section.settings.show_label_icon %}
