@@ -306,7 +306,7 @@ button.action.next.submit.classic-button.wizard__submit {
     overflow: hidden;
     text-overflow: ellipsis;}
   body:not(.template-index) .header__split-layout{padding:10px;}
-  body.template-page section>div:first-child{max-width: 100%;}
+  body.template-page section>div:first-child{max-width: 100% !important;}
 }
 /* Mobile */
 @media screen and (max-width: 767px){
