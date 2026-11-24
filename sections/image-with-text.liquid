@@ -101,10 +101,11 @@
 {%- render 'adastra' with '/src/styles/image-with-text.scss' -%}
 
 {%- style -%}
+.image-with-text{background: var(--bgcolor);}
 	#shopify-section-{{- section.id -}} {
 		padding-top: {{- section.settings.offset_top_mobile -}}px;
 		padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
-		Background: var(--bgcolor);
+		background: var(--bgcolor);
 	}
 
 	@media screen and (min-width: 992px) {
