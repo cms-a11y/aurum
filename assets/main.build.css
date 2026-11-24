@@ -4812,6 +4812,7 @@ body.rtl .header-mobile .header-mobile__menu-item-icon-back {
 .predictive-search {
   width: 100%;
   height: 100%;
+  border-radius: 12px;
   background-color: var(--color-background-popup-drawer, #fff);
 }
 .predictive-search .predictive-search__form {
