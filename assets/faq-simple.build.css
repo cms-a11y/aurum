@@ -119,6 +119,7 @@
 .faq-simple .faq-simple__item-title-text {
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 .faq-simple .faq-simple__item-icon {
   display: flex;
