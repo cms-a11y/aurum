@@ -114,7 +114,48 @@
 
 	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
 	{%- assign current_langs = localization.language.iso_code | split: '-' | first -%}
+{% style %}
+  /* =====================================
+   GLOBAL IMAGE REVEAL ANIMATION
+===================================== */
 
+.image-reveal {
+  overflow: hidden;
+}
+
+.image-reveal img {
+  opacity: 0;
+  transform: translateY(20px) scale(1.04);
+  transition:
+    opacity 0.8s ease,
+    transform 1.1s cubic-bezier(.2,.65,.3,1);
+  will-change: opacity, transform;
+}
+
+.image-reveal.is-visible img {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Image hover effect */
+.image-hover-zoom img {
+  transition: transform 0.8s cubic-bezier(.2,.65,.3,1);
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .image-reveal img,
+  .image-hover-zoom img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+{% endstyle %}
 	<body class="template-{{ template | split: '.' | first }}{% if rtl_langs contains current_langs %} rtl{% endif %}">
 		<a
 			href="#MainContent"
