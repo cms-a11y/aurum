@@ -435,12 +435,12 @@
         {% when 'carat' %}
           {% assign filter_title = 'Carat' %}
       {% endcase %}
-
-      <div class="product-filters__form-item js-accordion-container">
+<div class="product-filters__form-item filter-accordion-item">
 
   <button
     type="button"
-    class="product-filters__form-title js-accordion-control"
+    class="product-filters__form-title"
+    data-filter-accordion-trigger
     aria-expanded="false"
   >
     <span>{{ filter_title }}</span>
@@ -448,7 +448,8 @@
   </button>
 
   <div
-    class="product-filters__form-content data-filter-accordion-panel js-accordion-content"
+    class="product-filters__form-content"
+    data-filter-accordion-panel
     style="height: 0; overflow: hidden;"
   >
 
