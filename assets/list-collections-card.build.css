@@ -47,6 +47,7 @@
 .list-collections-card .list-collections-card__header {
   /* position: absolute; */
   margin-top: 0 !important;
+  border-radius: 7px;
   background: var(--button-background-color-primary);
   width: 100%;
   padding: 16px 20px;
