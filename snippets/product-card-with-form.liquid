@@ -131,7 +131,7 @@
 			{%- endcapture -%}
 
 			{%- for image in product.images -%}
-				<div class="{{- wrapper_classes | strip_newlines -}} {% if forloop.first %} is-active{% endif %} js-animate"
+				<div class="{{- wrapper_classes | strip_newlines -}} {% if forloop.first %} is-active {% endif %} js-animate"
 					 data-image-id="{{ image.id }}"
 				>
 					{%- render 'product-card-image',
