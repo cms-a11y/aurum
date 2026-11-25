@@ -1,82 +1,158 @@
+
 <script>
 (function () {
-  const imageSelector = `
-    main img,
-    .shopify-section img,
-    footer img
-  `;
 
-  const excludedSelector = `
-    .header img,
-    .header__logo img,
-    .logo img,
-    .icon img,
-    .payment-icons img,
-    .product-card__label img,
-    .global-image-skip
-  `;
+  const imageSelector = [
+    'main img',
+    '.shopify-section img'
+  ].join(',');
 
-  let imageObserver;
+  /*
+   * Exclude elements already controlled by
+   * Aurum or other website components.
+   */
+  const excludedSelector = [
+    'header',
+    '.header',
+    '.header__logo',
+    '.logo',
+    '.icon',
+    '.payment-icons',
+    '.footer',
+    'footer',
+    '.need-animate',
+    '.js-animate',
+    '.product-card',
+    '.product-card__image-wrapper',
+    '.global-image-skip'
+  ].join(',');
+
+  let imageObserver = null;
 
   function initGlobalImageAnimations(scope = document) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !imageObserver
+    ) {
       return;
     }
 
-    if (!('IntersectionObserver' in window)) {
-      return;
+    const images = [];
+
+    // Include the scope itself if it is an image
+    if (scope instanceof HTMLImageElement) {
+      images.push(scope);
     }
 
-    if (!imageObserver) {
-      imageObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-image-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          rootMargin: '0px 0px -50px 0px',
-          threshold: 0.05
-        }
-      );
+    // Find images inside the scope
+    if (scope.querySelectorAll) {
+      images.push(...scope.querySelectorAll(imageSelector));
     }
-
-    const images = scope.querySelectorAll(imageSelector);
 
     images.forEach((img) => {
-      if (
-        img.classList.contains('global-image-reveal') ||
-        img.matches(excludedSelector) ||
-        img.closest(excludedSelector)
-      ) {
+
+      // Avoid processing an image twice
+      if (img.classList.contains('global-image-reveal')) {
         return;
       }
 
-      // Skip tiny images and images without a source
+      // Exclude existing theme animations and UI images
+      if (img.closest(excludedSelector)) {
+        return;
+      }
+
+      // Exclude tiny tracking images
       if (
         img.getAttribute('width') === '1' ||
-        img.getAttribute('height') === '1' ||
-        (!img.currentSrc && !img.getAttribute('src') && !img.getAttribute('srcset'))
+        img.getAttribute('height') === '1'
       ) {
         return;
       }
 
-      // Avoid delaying the main LCP image
-      if (img.fetchPriority === 'high') {
+      // Protect the main LCP image
+      if (img.getAttribute('fetchpriority') === 'high') {
         return;
       }
 
       img.classList.add('global-image-reveal');
+
       imageObserver.observe(img);
+
     });
   }
 
-  // Initialize on page load
   function initialize() {
+
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    ) {
+      return;
+    }
+
+    imageObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add('is-image-visible');
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05
+      }
+    );
+
+    // Register initial images
     initGlobalImageAnimations();
+
+    // Activate CSS only after observer is ready
+    document.documentElement.classList.add(
+      'global-image-animation-ready'
+    );
+
+    // Shopify theme editor support
+    document.addEventListener('shopify:section:load', (event) => {
+      initGlobalImageAnimations(event.target);
+    });
+
+    // Support dynamically added content
+    const mutationObserver = new MutationObserver((mutations) => {
+
+      mutations.forEach((mutation) => {
+
+        mutation.addedNodes.forEach((node) => {
+
+          if (node.nodeType === 1) {
+            initGlobalImageAnimations(node);
+          }
+
+        });
+
+      });
+
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    window.themeCore = window.themeCore || {};
+
+    window.themeCore.initGlobalImageAnimations =
+      initGlobalImageAnimations;
+
   }
 
   if (document.readyState === 'loading') {
@@ -84,30 +160,6 @@
   } else {
     initialize();
   }
-
-  // Shopify theme editor support
-  document.addEventListener('shopify:section:load', (event) => {
-    initGlobalImageAnimations(event.target);
-  });
-
-  // Dynamically added Shopify content
-  const mutationObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === 1) {
-          initGlobalImageAnimations(node);
-        }
-      });
-    });
-  });
-
-  mutationObserver.observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
-
-  window.themeCore = window.themeCore || {};
-  window.themeCore.initGlobalImageAnimations = initGlobalImageAnimations;
 
 })();
 </script>
