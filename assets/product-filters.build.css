@@ -170,6 +170,7 @@
     font-weight: 500;
     color: var(--button-background-color-primary);
     margin: 5px 0 0;
+    font-family: 'PT Serif';
 }
 ul.product-filters__list li a.product-filters__tag-link:not(.is-active) span { font-size: 21px;}
 .sort--radio .sort__radio-label span{color: var(--button-background-color-primary);}
