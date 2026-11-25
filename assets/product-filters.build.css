@@ -169,7 +169,6 @@
     font-size: 14px;
     font-weight: 600;
     margin: 10px 0 0px;
-    padding: 0 !important;
 }
 ul.product-filters__list li a.product-filters__tag-link:not(.is-active) span { font-size: 21px;}
 .sort--radio .sort__radio-label span{color: var(--button-background-color-primary);}
