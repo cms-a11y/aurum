@@ -160,7 +160,7 @@
 			{%- assign hover_image = product.metafields.product_card.hover_image | default: product.images[1] -%}
 
 			<div
-				class="js-product-card-image-wrapper product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %} is-active">
+				class="js-product-card-image-wrapper product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %} is-active js-animate">
 				{%- render 'product-card-image',
 					product: product,
 					is_lazy: is_lazy,
@@ -228,7 +228,7 @@
 
 			{%- capture wrapper_classes -%}
 				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %}{% if color.selected and is_show_first_media_image == false %} is-active 
-			{%- endif -%} js-animate
+			{%- endif -%} 
 			{%- endcapture -%}
 
 			<div
