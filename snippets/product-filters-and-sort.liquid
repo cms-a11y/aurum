@@ -524,18 +524,23 @@
 
 {% if category_menu != blank and category_menu.links.size > 0 %}
 
-  <div class="product-filters__form-item js-accordion-container">
+<div class="product-filters__form-item filter-accordion-item">
 
-   <button
-  type="button"
-  class="product-filters__form-title data-filter-accordion-trigger js-accordion-control"
-  aria-expanded="false">
-  <span>Category</span>
-  {%- render 'icons', icon: 'arrow-down' -%}
-</button>
+  <button
+    type="button"
+    class="product-filters__form-title"
+    data-filter-accordion-trigger
+    aria-expanded="false"
+  >
+    <span>Category</span>
+    {%- render 'icons', icon: 'arrow-down' -%}
+  </button>
 
-    <div class="product-filters__form-content data-filter-accordion-panel js-accordion-content" style="height: 0; overflow: hidden;">
-
+  <div
+    class="product-filters__form-content"
+    data-filter-accordion-panel
+    style="height: 0; overflow: hidden;"
+  >
       <ul class="product-filters__list custom-tag-filter">
 
         {% for link in category_menu.links %}
