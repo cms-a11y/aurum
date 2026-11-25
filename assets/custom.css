@@ -10,7 +10,7 @@ body:not(.template-index) .header .header__burger-menu-button{color: var(--butto
 body:not(.template-index) .header { border-bottom: 1px solid #F4E4C8;}
 body.template-page .breadcrumb{ background: #faf5f0;padding: 20px 32px 0; }
 body.template-page section > div:first-child {
-    padding: var(--page-horizontal-spacing) !important;
+    padding: 0 60px !important;
   }
 span.banner-subheading {
     color: #FBF8EF;
