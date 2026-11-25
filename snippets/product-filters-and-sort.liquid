@@ -68,6 +68,98 @@
   text-decoration: none;
 }
 {% endstyle %}
+
+<script>
+
+/* ==========================================
+   COLLECTION FILTER ACCORDION
+========================================== */
+
+(function () {
+
+  function initFilterAccordions(scope = document) {
+
+    const triggers = scope.querySelectorAll(
+      '[data-filter-accordion-trigger]'
+    );
+
+    triggers.forEach((trigger) => {
+
+      if (trigger.dataset.accordionInitialized === 'true') {
+        return;
+      }
+
+      trigger.dataset.accordionInitialized = 'true';
+
+      const panel = trigger.parentElement.querySelector(
+        '[data-filter-accordion-panel]'
+      );
+
+      if (!panel) return;
+
+      // Closed by default
+      trigger.setAttribute('aria-expanded', 'false');
+      panel.style.height = '0px';
+      panel.style.overflow = 'hidden';
+
+      trigger.addEventListener('click', function () {
+
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        if (isOpen) {
+
+          // Close accordion
+          panel.style.height = panel.scrollHeight + 'px';
+
+          requestAnimationFrame(() => {
+            panel.style.height = '0px';
+          });
+
+          trigger.setAttribute('aria-expanded', 'false');
+
+        } else {
+
+          // Open accordion
+          trigger.setAttribute('aria-expanded', 'true');
+          panel.style.height = panel.scrollHeight + 'px';
+
+        }
+
+      });
+
+      // After opening, allow dynamic content height
+      panel.addEventListener('transitionend', function (event) {
+
+        if (
+          event.propertyName === 'height' &&
+          trigger.getAttribute('aria-expanded') === 'true'
+        ) {
+          panel.style.height = 'auto';
+        }
+
+      });
+
+    });
+
+  }
+
+  // Initial page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initFilterAccordions();
+    });
+  } else {
+    initFilterAccordions();
+  }
+
+  // Shopify theme editor support
+  document.addEventListener('shopify:section:load', (event) => {
+    initFilterAccordions(event.target);
+  });
+
+})();
+
+</script>
 {%- if template.name == 'collection' -%}
 	{%- assign count = product_list.products_count -%}
 {%- elsif template.name == 'search' -%}
