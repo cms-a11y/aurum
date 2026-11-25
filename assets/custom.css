@@ -374,8 +374,8 @@ body #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-wi
 @media (min-width: 768px) {
   .newsletter-form .newsletter-form__input {
     min-height: 50px;
-    padding-inline-start: 32px;
-    padding-inline-end: 155px;
+    padding-inline-start: 15px;
+    padding-inline-end: 100px;
     font-size: var(--body-font-size);
   }
   .newsletter-form .newsletter-form__button {
