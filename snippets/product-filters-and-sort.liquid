@@ -67,6 +67,20 @@
   gap: 12px;
   text-decoration: none;
 }
+
+[data-filter-accordion-panel] {
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+[data-filter-accordion-trigger] svg {
+  transition: transform 0.3s ease;
+}
+
+[data-filter-accordion-trigger][aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
 {% endstyle %}
 
 <script>
