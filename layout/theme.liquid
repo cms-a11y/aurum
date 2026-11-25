@@ -110,11 +110,7 @@
 		<script>
 			document.querySelector("html").classList.remove("no-js");
 		</script>
-	</head>
-
-	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
-	{%- assign current_langs = localization.language.iso_code | split: '-' | first -%}
-{% style %}
+		{% style %}
   /* =====================================
    GLOBAL IMAGE REVEAL ANIMATION
 ===================================== */
@@ -156,6 +152,50 @@
   }
 }
 {% endstyle %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const imageContainers = document.querySelectorAll(
+    '.image-reveal'
+  );
+
+  if (!('IntersectionObserver' in window)) {
+    imageContainers.forEach(function (item) {
+      item.classList.add('is-visible');
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+
+    entries.forEach(function (entry) {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add('is-visible');
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  imageContainers.forEach(function (item) {
+    observer.observe(item);
+  });
+
+});
+</script>
+	</head>
+
+	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
+	{%- assign current_langs = localization.language.iso_code | split: '-' | first -%}
+
 	<body class="template-{{ template | split: '.' | first }}{% if rtl_langs contains current_langs %} rtl{% endif %}">
 		<a
 			href="#MainContent"
