@@ -131,7 +131,7 @@
 			{%- endcapture -%}
 
 			{%- for image in product.images -%}
-				<div class="{{- wrapper_classes | strip_newlines -}} {% if forloop.first %} is-active {% endif %} js-animate"
+				<div class="{{- wrapper_classes | strip_newlines -}} {% if forloop.first %} is-active {% endif %} "
 					 data-image-id="{{ image.id }}"
 				>
 					{%- render 'product-card-image',
@@ -146,7 +146,7 @@
 			{%- endfor -%}
 		{%- elsif settings.product_default_image != blank and product.images.size == 0 -%}
 			{%- capture wrapper_classes -%}
-				product-card__image-wrapper product-card__image-wrapper--{{ aspect_ratio }} is-active js-animate
+				product-card__image-wrapper product-card__image-wrapper--{{ aspect_ratio }} is-active 
 			{%- endcapture -%}
 
 			<div class="{{- wrapper_classes | strip_newlines -}}">
@@ -164,7 +164,7 @@
 			{%- assign placeholer_svg_name = 'product-' | append: random_number -%}
 
 			{%- capture wrapper_classes -%}
-				product-card__image-wrapper product-card__image-wrapper--{{ aspect_ratio }} is-active js-animate
+				product-card__image-wrapper product-card__image-wrapper--{{ aspect_ratio }} is-active 
 			{%- endcapture -%}
 
 			<div class="{{- wrapper_classes | strip_newlines -}}">
