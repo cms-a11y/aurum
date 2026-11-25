@@ -293,9 +293,9 @@ body.template-page section > div:first-child {
     padding: 0 30px !important;
   }
 }
-@media screen and (max-width: 1500px){
+@media screen and (max-width: 147px){
 body.template-page section > div:first-child {
-    padding: 0 60px !important;
+    padding: 0 4vw !important;
   }
   }
 @media screen and (max-width: 991px) {
