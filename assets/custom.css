@@ -288,7 +288,7 @@ button.action.next.submit.classic-button.wizard__submit {
     border-left: 2px solid var(--button-background-color-primary);
     font-style: italic;
 }
-@media screen and (max-width: 1501px){
+@media screen and (max-width: 1920px){
 body.template-page section > div:first-child {
     padding: 0 30px !important;
   }
