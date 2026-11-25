@@ -342,7 +342,6 @@ ul.product-filters__list li a, ul.product-filters__list li a span{color: var(--b
     overflow: unset;
     padding-bottom: 0;
     padding-inline-start: 0;
-    padding-inline-end: 40px;
   }
   .product-filters.product-filters--sidebar .drawer {
     position: static;
