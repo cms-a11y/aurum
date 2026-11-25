@@ -46,13 +46,9 @@
 }
 .list-collections-card .list-collections-card__header {
   /* position: absolute; */
-  margin-top: 0;
+  margin-top: 0 !important;
   background: var(--button-background-color-primary);
-  z-index: 1;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  margin-top: 0;
   padding: 16px 20px;
 }
 .list-collections-card .list-collections-card__header .list-collections-card__title,
