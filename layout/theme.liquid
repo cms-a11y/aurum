@@ -110,7 +110,34 @@
 		<script>
 			document.querySelector("html").classList.remove("no-js");
 		</script>
-		
+		{% style %}
+		  /* =========================================
+   PRODUCT CARD IMAGE REVEAL
+========================================= */
+
+.product-card__image-wrapper .product-card__image {
+  opacity: 0;
+  transform: translateY(20px) scale(1.04);
+  transition:
+    opacity 0.8s ease,
+    transform 1.1s cubic-bezier(.2, .65, .3, 1);
+}
+
+/* Image visible after entering viewport */
+.product-card__image-wrapper.animated .product-card__image {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .product-card__image-wrapper .product-card__image {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+		{% endstyle %}
 	</head>
 
 	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
