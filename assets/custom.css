@@ -315,6 +315,7 @@ body.template-page section > div:first-child {
   body:not(.template-index) .header__split-layout{padding:10px;}
   body.template-page section>div:first-child{max-width: 100% !important;}
   body .contact .contact__form-fields{padding: 15px;}
+  button.button.button--primary.contact__button{width:100%;}
 }
 /* Mobile */
 @media screen and (max-width: 767px){
