@@ -103,10 +103,14 @@
         >
 
           {% if block.settings.value != blank %}
-            <h2 class="statistics-bar__value">
-              {{ block.settings.value | escape }}
-            </h2>
-          {% endif %}
+  <h2
+    class="statistics-bar__value js-stat-count"
+    data-count-value="{{ block.settings.value | escape }}"
+    aria-label="{{ block.settings.value | escape }}"
+  >
+    {{ block.settings.value | escape }}
+  </h2>
+{% endif %}
 
           {% if block.settings.label != blank %}
             <p
