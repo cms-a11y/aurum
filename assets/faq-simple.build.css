@@ -47,7 +47,7 @@
   height: 16px;
 }
 .faq-simple .faq-simple__item-control-icon .icon path {
-  stroke: var(--arrow-color, var(--color-text-primary));
+  stroke: var(--arrow-border-color);
 }
 .faq-simple .faq-simple__item {
   background-color: var(--background-color, var(--color-background-secondary));
