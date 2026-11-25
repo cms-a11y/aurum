@@ -132,7 +132,7 @@
         "statistic_F6RBnN": {
           "type": "statistic",
           "settings": {
-            "value": "40K+",
+            "value": "30K+",
             "label": "Pieces Created",
             "label_color": "#75162d"
           }
