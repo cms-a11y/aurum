@@ -279,13 +279,19 @@
 
       <div class="product-filters__form-item js-accordion-container">
 
-        <button type="button"
-          class="product-filters__form-title js-accordion-control"
-          aria-expanded="true">
-          <span>{{ filter_title }}</span>
-        </button>
+  <button
+    type="button"
+    class="product-filters__form-title js-accordion-control"
+    aria-expanded="false"
+  >
+    <span>{{ filter_title }}</span>
+    {%- render 'icons', icon: 'arrow-down' -%}
+  </button>
 
-        <div class="product-filters__form-content js-accordion-content">
+  <div
+    class="product-filters__form-content js-accordion-content"
+    style="height: 0; overflow: hidden;"
+  >
 
           <ul class="product-filters__list">
 
