@@ -331,7 +331,7 @@ body .newsletter-form .newsletter-form__button{padding:16px;}
 body section.product { padding: 10px 0;}
 #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__content{text-align:center;}
 html body .image-with-text .image-with-text__heading:after{right:0;}
-body #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__button{margin: 15px auto 0;}
+body #shopify-section-template--21604193009803__image_with_text_z3bfnD .image-with-text__button{margin: 15px auto 0;width:100%;}
 .globo-form-app.default-layout h3.title.globo-heading{font-size: 28px !important;}
 }
 @media screen and (max-width: 600px) {
