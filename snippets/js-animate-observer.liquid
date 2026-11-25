@@ -1,39 +1,113 @@
 <script>
-  function initAnimateObserver() {
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.js-animate').forEach((element) => {
-        element.classList.add('animated');
-      });
+(function () {
+  const imageSelector = `
+    main img,
+    .shopify-section img,
+    footer img
+  `;
+
+  const excludedSelector = `
+    .header img,
+    .header__logo img,
+    .logo img,
+    .icon img,
+    .payment-icons img,
+    .product-card__label img,
+    .global-image-skip
+  `;
+
+  let imageObserver;
+
+  function initGlobalImageAnimations(scope = document) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
-    const intersectionObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        rootMargin: '-70px',
-        threshold: 0
-      }
-    );
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
 
-    document.querySelectorAll('.js-animate:not(.animated)').forEach((element) => {
-      intersectionObserver.observe(element);
+    if (!imageObserver) {
+      imageObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-image-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.05
+        }
+      );
+    }
+
+    const images = scope.querySelectorAll(imageSelector);
+
+    images.forEach((img) => {
+      if (
+        img.classList.contains('global-image-reveal') ||
+        img.matches(excludedSelector) ||
+        img.closest(excludedSelector)
+      ) {
+        return;
+      }
+
+      // Skip tiny images and images without a source
+      if (
+        img.getAttribute('width') === '1' ||
+        img.getAttribute('height') === '1' ||
+        (!img.currentSrc && !img.getAttribute('src') && !img.getAttribute('srcset'))
+      ) {
+        return;
+      }
+
+      // Avoid delaying the main LCP image
+      if (img.fetchPriority === 'high') {
+        return;
+      }
+
+      img.classList.add('global-image-reveal');
+      imageObserver.observe(img);
     });
   }
 
-  window.themeCore = window.themeCore || {};
-  window.themeCore.initAnimateObserver = initAnimateObserver;
+  // Initialize on page load
+  function initialize() {
+    initGlobalImageAnimations();
+  }
 
-  initAnimateObserver();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
 
-  /* Shopify theme editor support */
-  document.addEventListener('shopify:section:load', () => {
-    initAnimateObserver();
+  // Shopify theme editor support
+  document.addEventListener('shopify:section:load', (event) => {
+    initGlobalImageAnimations(event.target);
   });
+
+  // Dynamically added Shopify content
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) {
+          initGlobalImageAnimations(node);
+        }
+      });
+    });
+  });
+
+  mutationObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+  window.themeCore = window.themeCore || {};
+  window.themeCore.initGlobalImageAnimations = initGlobalImageAnimations;
+
+})();
 </script>
