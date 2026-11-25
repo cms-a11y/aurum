@@ -129,7 +129,22 @@ html.global-image-animation-ready img.global-image-reveal.is-image-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+/* FIX: Restore homepage product card visibility */
+.product-card,
+.product-card__main,
+.product-card__image-wrapper,
+.product-card__image-picture,
+.product-card__image {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
+/* Prevent global animation from hiding product images */
+.product-card img.global-image-reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html.global-image-animation-ready img.global-image-reveal {
