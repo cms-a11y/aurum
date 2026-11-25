@@ -315,7 +315,7 @@
 			{%- assign hover_image		= variant.metafields.product_card.hover_image | default: product.metafields.product_card.hover_image | default: product.images[1] -%}
 
 			{%- capture wrapper_classes -%}
-				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %} is-active
+				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %} is-active js-animate
 			{%- endcapture -%}
 
 			<div
@@ -425,7 +425,7 @@
 				aria-label="{{- product.title | default: "Product preset title" | escape -}}"
 			>
 				<div
-					class="product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true and simplified_view != true %} product-card__image-wrapper--with-hover{% endif %} is-active{% unless product.has_only_default_variant or product.variants.size == 1 %} js-product-card-images-wrapper {% endunless -%} js-animate"
+					class="product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true and simplified_view != true %} product-card__image-wrapper--with-hover{% endif %} is-active {% unless product.has_only_default_variant or product.variants.size == 1 %} js-product-card-images-wrapper {% endunless -%} js-animate"
 					{%- unless product.has_only_default_variant -%}
 					data-variant="{{- product.selected_or_first_available_variant.id -}}"
 					{%- endunless -%}
