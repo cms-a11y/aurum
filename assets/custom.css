@@ -293,7 +293,7 @@ body.template-page section > div:first-child {
     padding: 0 30px !important;
   }
 }
-@media screen and (max-width: 147px){
+@media screen and (max-width: 1470px){
 body.template-page section > div:first-child {
     padding: 0 4vw !important;
   }
