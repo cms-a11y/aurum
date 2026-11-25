@@ -11,11 +11,12 @@
 
 {%- assign sort_by = product_list.sort_by | default: product_list.default_sort_by -%}
 
-<div class="product-filters__form-item js-accordion-container sort-accordion">
+<div class="product-filters__form-item filter-accordion-item sort-accordion">
 
   <button
     type="button"
-    class="product-filters__form-title data-filter-accordion-trigger js-accordion-control"
+    class="product-filters__form-title"
+    data-filter-accordion-trigger
     aria-expanded="false"
   >
     <span>{{ 'collections.sorting.title' | t }}</span>
@@ -23,9 +24,11 @@
   </button>
 
   <div
-    class="product-filters__form-content data-filter-accordion-panel js-accordion-content"
+    class="product-filters__form-content"
+    data-filter-accordion-panel
     style="height: 0; overflow: hidden;"
   >
+    <!-- Keep your existing sort radio buttons here -->
     <div class="sort sort--radio">
       <fieldset class="sort__fieldset">
 
