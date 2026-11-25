@@ -41,7 +41,6 @@
   padding: 12px;
   border: 1px solid var(--arrow-border-color, var(--color-border-thirdly));
   border-radius: 8px;
-  background-color: var(--arrow-background-color, var(--color-background));
 }
 .faq-simple .faq-simple__item-control-icon .icon {
   width: 16px;
