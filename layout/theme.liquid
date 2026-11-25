@@ -138,6 +138,45 @@
   }
 }
 		{% endstyle %}
+		<script>
+  function initAnimateObserver() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.js-animate').forEach((element) => {
+        element.classList.add('animated');
+      });
+      return;
+    }
+
+    const intersectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: '-70px',
+        threshold: 0
+      }
+    );
+
+    document.querySelectorAll('.js-animate:not(.animated)').forEach((element) => {
+      intersectionObserver.observe(element);
+    });
+  }
+
+  window.themeCore = window.themeCore || {};
+  window.themeCore.initAnimateObserver = initAnimateObserver;
+
+  initAnimateObserver();
+
+  /* Shopify theme editor support */
+  document.addEventListener('shopify:section:load', () => {
+    initAnimateObserver();
+  });
+</script>
 	</head>
 
 	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
