@@ -228,7 +228,7 @@
 
 			{%- capture wrapper_classes -%}
 				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %}{% if color.selected and is_show_first_media_image == false %} is-active 
-			{%- endif -%} 
+			{%- endif -%} js-animate
 			{%- endcapture -%}
 
 			<div
@@ -315,7 +315,7 @@
 			{%- assign hover_image		= variant.metafields.product_card.hover_image | default: product.metafields.product_card.hover_image | default: product.images[1] -%}
 
 			{%- capture wrapper_classes -%}
-				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %} is-active js-animate
+				product-card__image-wrapper{% if is_horizontal_layout %} product-card__image-wrapper--square{% else %} product-card__image-wrapper--{{ aspect_ratio }}{% endif %}{% if hover_image != blank and image_on_hover_enabled == true %} product-card__image-wrapper--with-hover{% endif %}{% unless product.has_only_default_variant %} js-product-card-images-wrapper{% endunless %} is-active
 			{%- endcapture -%}
 
 			<div
