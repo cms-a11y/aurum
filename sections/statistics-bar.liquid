@@ -128,6 +128,121 @@
   </div>
 </section>
 
+<script>
+(function () {
+  function initStatisticsCounter(section) {
+    if (!section || section.dataset.counterInitialized === 'true') return;
+
+    section.dataset.counterInitialized = 'true';
+
+    const counters = section.querySelectorAll('.js-stat-count');
+
+    if (!counters.length) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    function animateCounter(element) {
+      if (element.dataset.countAnimated === 'true') return;
+
+      element.dataset.countAnimated = 'true';
+
+      const originalValue = element.dataset.countValue || element.textContent.trim();
+
+      const match = originalValue.match(/^([^0-9]*)([\d,]+(?:\.\d+)?)(.*)$/);
+
+      if (!match) return;
+
+      const prefix = match[1];
+      const target = parseFloat(match[2].replace(/,/g, ''));
+      const suffix = match[3];
+
+      if (isNaN(target)) return;
+
+      if (prefersReducedMotion) {
+        element.textContent = originalValue;
+        return;
+      }
+
+      const duration = 1800;
+      const startTime = performance.now();
+
+      function formatNumber(value) {
+        const formatted = Number.isInteger(target)
+          ? Math.floor(value).toLocaleString('en-US')
+          : value.toFixed(1);
+
+        return prefix + formatted + suffix;
+      }
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Smooth ease-out animation
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+        const currentValue = target * easedProgress;
+
+        element.textContent = formatNumber(currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = originalValue;
+        }
+      }
+
+      element.textContent = prefix + '0' + suffix;
+
+      requestAnimationFrame(updateCounter);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.35
+      });
+
+      counters.forEach(function (counter) {
+        observer.observe(counter);
+      });
+
+    } else {
+      counters.forEach(animateCounter);
+    }
+  }
+
+  function initAllStatisticsCounters() {
+    document.querySelectorAll('.statistics-bar').forEach(function (section) {
+      initStatisticsCounter(section);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllStatisticsCounters);
+  } else {
+    initAllStatisticsCounters();
+  }
+
+  // Support Shopify theme editor section reloads
+  document.addEventListener('shopify:section:load', function (event) {
+    const section = event.target.querySelector('.statistics-bar');
+
+    if (section) {
+      initStatisticsCounter(section);
+    }
+  });
+})();
+</script>
+
 {% schema %}
 {
   "name": "Statistics bar",
