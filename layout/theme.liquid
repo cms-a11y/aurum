@@ -111,12 +111,13 @@
 			document.querySelector("html").classList.remove("no-js");
 		</script>
 		{% style %}
-		  /* ==========================================
-   GLOBAL IMAGE REVEAL ANIMATION
+		  
+/* ==========================================
+   GLOBAL IMAGE REVEAL
 ========================================== */
 
-/* Initial image state */
-img.global-image-reveal {
+/* Only hide images after JS has initialized */
+html.global-image-animation-ready img.global-image-reveal {
   opacity: 0;
   transform: translateY(20px) scale(1.035);
   transition:
@@ -124,27 +125,20 @@ img.global-image-reveal {
     transform 1.1s cubic-bezier(.2, .65, .3, 1);
 }
 
-/* Visible image */
-img.global-image-reveal.is-image-visible {
+html.global-image-animation-ready img.global-image-reveal.is-image-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* Avoid hiding important images */
-img.global-image-reveal.is-image-visible,
-img.global-image-reveal.global-image-skip {
-  opacity: 1;
-  transform: none;
-}
-
-/* Accessibility */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  img.global-image-reveal {
+  html.global-image-animation-ready img.global-image-reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
 }
+
 		{% endstyle %}
 	</head>
 
