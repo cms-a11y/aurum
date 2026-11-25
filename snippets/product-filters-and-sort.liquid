@@ -23,7 +23,7 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
-.product-filters__form-title {
+.product-filters__form-title data-filter-accordion-trigger {
   width: 100%;
   display: flex;
   align-items: center;
@@ -38,13 +38,13 @@
   font-family: inherit;
 }
 
-.product-filters__form-title svg {
+.product-filters__form-title data-filter-accordion-trigger svg {
   width: 17px;
   height: 17px;
   transition: transform 0.3s ease;
 }
 
-.product-filters__form-title[aria-expanded="true"] svg {
+.product-filters__form-title data-filter-accordion-trigger[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
 
@@ -334,7 +334,7 @@
 
   <button
     type="button"
-    class="product-filters__form-title js-accordion-control"
+    class="product-filters__form-title data-filter-accordion-trigger js-accordion-control"
     aria-expanded="false"
   >
     <span>{{ filter_title }}</span>
@@ -421,7 +421,7 @@
 
    <button
   type="button"
-  class="product-filters__form-title js-accordion-control"
+  class="product-filters__form-title data-filter-accordion-trigger js-accordion-control"
   aria-expanded="false">
   <span>Category</span>
   {%- render 'icons', icon: 'arrow-down' -%}
