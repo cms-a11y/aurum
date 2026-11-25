@@ -145,6 +145,24 @@ html.global-image-animation-ready img.global-image-reveal.is-image-visible {
 }
 
 		{% endstyle %}
+		<script>
+			document.addEventListener('click', function (event) {
+
+  const closeButton = event.target.closest(
+    '.newsletter-popup__close-icon-button'
+  );
+
+  if (!closeButton) return;
+
+  const targetId = closeButton.getAttribute('data-target');
+  const popup = document.getElementById(targetId);
+
+  if (!popup) return;
+
+  popup.classList.remove('is-active');
+
+});
+		</script>
 	</head>
 
 	{%- assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ',' -%}
