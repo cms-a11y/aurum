@@ -290,10 +290,10 @@ button.action.next.submit.classic-button.wizard__submit {
 }
 @media screen and (max-width: 1650px){
 body.template-page section > div:first-child {
-    padding: 0 30px !important;
+    padding: 0 40px !important;
   }
 }
-@media screen and (max-width: 1450px){
+@media screen and (max-width: 1500px){
 body.template-page section > div:first-child {
     padding: 0 60px !important;
   }
