@@ -273,7 +273,10 @@ body .globo-form-control input, body .globo-form-control textarea, body .globo-f
         border: 1px solid var(--color-border-thirdly);
         background: transparent;
     }
-body span.label-content{color: #75162d !important;}
+body span.label-content{
+  text-transform: uppercase;
+    color: #75162d!important;
+    font-weight: 600!important;}
 button.action.next.submit.classic-button.wizard__submit {
     background: var(--button-background-color-primary);
     text-transform: uppercase;
