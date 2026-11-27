@@ -285,6 +285,7 @@ button.action.next.submit.classic-button.wizard__submit {
     padding: 15px 22px;
     border-radius: 32px;
 }
+body .predictive-search{border-radius:18px;}
 .title-crafted {
     font-size: 22px;
     margin: 10px 0 15px;
