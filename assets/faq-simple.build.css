@@ -54,7 +54,7 @@
   transition-property: color, background-color;
   transition-duration: var(--timing-base);
 }
-.faq-simple .faq-simple__item:not(:last-child) {
+.faq-simple .faq-simple__item {
   margin-bottom: 4px;
   border: 1px solid #cdcdcd;
   border-radius: 14px;
