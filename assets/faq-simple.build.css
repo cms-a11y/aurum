@@ -72,13 +72,13 @@
 .faq-simple .faq-simple__item.is-active .faq-simple__item-title-text {
   color: var(--text-active-color, var(--color-background));
 }
-.faq-simple .faq-simple__item.is-active .faq-simple__item-control-icon {
+/* .faq-simple .faq-simple__item.is-active .faq-simple__item-control-icon {
   background-color: var(--arrow-background-active-color, var(--color-accent));
   border-color: var(--arrow-border-active-color, var(--color-accent));
 }
 .faq-simple .faq-simple__item.is-active .faq-simple__item-control-icon .icon path {
   stroke: var(--arrow-active-color, var(--color-text-primary));
-}
+} */
 .faq-simple .faq-simple__item a {
   color: var(--color-background);
 }
