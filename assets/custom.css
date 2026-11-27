@@ -280,9 +280,10 @@ body span.label-content{
 button.action.next.submit.classic-button.wizard__submit {
     background: var(--button-background-color-primary);
     text-transform: uppercase;
-    width: 50%;
+    width: 100%;
     font-size: 18px;
     padding: 15px 22px;
+    border-radius: 32px;
 }
 .title-crafted {
     font-size: 22px;
